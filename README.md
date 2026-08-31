@@ -1,68 +1,69 @@
 # OZZO Marketing Website
 
 A standalone, SEO- and AI-search-ready marketing site for **OZZO** — CRM,
-Workforce & Field Sales in one platform. Built with Next.js 16 (App Router),
-React 19 and Tailwind v4, matching the product's dark violet theme and Inter
-font.
+Workforce & Field Sales in one platform. Next.js 16 (App Router), React 19,
+Tailwind v4. Light/premium editorial theme, Inter font, violet accent.
 
-Pages: **Home** (`/`), **Products** (`/products`), **Contact** (`/contact`),
-plus Privacy and Terms. There is **no sign-up flow** — every call to action
-drives visitors to the inquiry form, and your team calls them back.
+**This is a separate project from the wacrm product app.** It has its own
+Vercel project and its own URL — it must never be deployed over the product
+app (which owns `/login`, `/dashboard`, etc.).
 
-## Getting started
+## Pages
+
+- `/` — Home
+- `/products` — overview of the three lines
+- `/products/crm`, `/products/wfa`, `/products/sfa` — per-product deep pages
+- `/book-demo` — the lead-capture form
+- `/contact` — contact methods (email / WhatsApp / phone), no form
+- `/privacy`, `/terms`
+
+## Getting started (local)
 
 ```bash
 npm install
-cp .env.local.example .env.local   # then fill in the values
-npm run dev                        # http://localhost:3100
+npm run dev        # http://localhost:3100
 ```
 
-## Before you launch — fill these in
-
-1. **`src/lib/site.ts`** — the single source of truth. Replace the `TODO`
-   values: `legalName`, all of `contact` (email, phone, WhatsApp, address,
-   hours, social links).
-2. **`.env.local`**
-   - `NEXT_PUBLIC_SITE_URL` — your real domain (used for canonical URLs,
-     sitemap, OG tags). No trailing slash.
-   - `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — already set
-     to the wacrm project.
-   - `RESEND_API_KEY` + `INQUIRY_NOTIFY_EMAIL` + `INQUIRY_FROM_EMAIL` — enable
-     email alerts for new inquiries (optional; inquiries still save to the DB
-     without them). Get a key at https://resend.com and verify your sending
-     domain.
-
-## How lead capture works
-
-The contact form posts to `POST /api/inquiry`, which:
-
-1. Validates the input (zod) and drops bot submissions (honeypot).
-2. Inserts a row into `public.website_inquiries` in the **wacrm** Supabase
-   project (RLS allows anonymous insert only — no public reads).
-3. Sends a best-effort email alert to your team via Resend (if configured).
-
-View incoming leads in the Supabase dashboard → Table editor →
-`website_inquiries`, or build an admin screen later.
-
-## SEO & AI-search features
-
-- Server-rendered pages with per-page `<title>`, meta description and canonical.
-- JSON-LD structured data: Organization, WebSite, SoftwareApplication (with
-  offers), FAQPage, BreadcrumbList, ContactPage.
-- `sitemap.xml` and `robots.txt` generated automatically.
-- Dynamic Open Graph / Twitter card image (`opengraph-image.tsx`).
-- `/llms.txt` — a clean, structured brief for AI search engines and assistants.
-- Semantic HTML, skip-link, reduced-motion support, responsive + accessible.
+`.env.local` is already present locally (git-ignored). If missing, copy
+`.env.local.example` and fill it in.
 
 ## Deploy (Vercel)
 
-1. Push this folder to a new Git repo.
-2. Import into Vercel; set the environment variables from `.env.local`.
-3. Point your domain at it. Set `NEXT_PUBLIC_SITE_URL` to that domain.
+1. Create a **new** Vercel project from this GitHub repo (do **not** reuse the
+   `wacrm` product project).
+2. Framework preset: **Next.js** (auto-detected). No custom build settings.
+3. Add these **Environment Variables** (values are in your local `.env.local`):
+
+   | Variable | Required | Notes |
+   |---|---|---|
+   | `NEXT_PUBLIC_SITE_URL` | yes | The site's own URL, no trailing slash (e.g. the `*.vercel.app` URL Vercel assigns, or a custom domain). Feeds canonical URLs, sitemap and OG tags. |
+   | `NEXT_PUBLIC_SUPABASE_URL` | yes | wacrm Supabase project URL — needed for the lead form. |
+   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | yes | wacrm Supabase anon key. |
+   | `RESEND_API_KEY` | optional | Email alerts for new leads. Inquiries still save to the DB without it. |
+   | `INQUIRY_NOTIFY_EMAIL` | optional | Where lead alerts are sent. |
+   | `INQUIRY_FROM_EMAIL` | optional | Verified Resend sender. |
+
+4. Deploy. After the first deploy, set `NEXT_PUBLIC_SITE_URL` to the real URL
+   and redeploy so canonicals/sitemap are correct.
+5. Point a custom domain at this project later if you want.
+
+## Lead capture
+
+The `/book-demo` form posts to `POST /api/inquiry`, which validates input
+(zod + honeypot) and inserts a row into `public.website_inquiries` in the
+**wacrm** Supabase project (RLS allows anonymous insert only). View leads in
+Supabase → Table editor → `website_inquiries`. Required fields: name, phone,
+email, team size.
+
+## Still to do before a "real" launch
+
+- Fill real contact details in `src/lib/site.ts` (`legalName`, `contact.*` are
+  placeholders like `+91 00000 00000`, `hello@ozzo.app`).
+- Add a Resend key for email alerts (optional).
+- Point a custom domain and update `NEXT_PUBLIC_SITE_URL`.
 
 ## Content integrity
 
-All marketing copy is grounded in **production-verified** capabilities per
-`OZZO_FEATURE_MASTER_CATALOG.md`. Aspirational/unshipped items (WhatsApp
-broadcasts, automations, flows, cart recovery, WhatsApp payment links) are
-deliberately **not** claimed. Keep it that way when editing copy.
+All copy is grounded in **production-verified** capabilities per
+`OZZO_FEATURE_MASTER_CATALOG.md`. Unshipped items (WhatsApp broadcasts,
+automations, flows, etc.) are deliberately **not** claimed. Keep it that way.
