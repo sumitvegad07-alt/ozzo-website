@@ -1,22 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { UserPlus, Phone, MessageCircle, MapPin, FileText, CircleCheck, ShoppingCart } from "lucide-react";
+import { UserPlus, Phone, MessageCircle, MapPin, FileText, CircleCheck } from "lucide-react";
 import { useInView } from "./use-in-view";
 
 type Ev = { icon: React.ElementType; title: string; meta: string; tag?: string };
 
 /** One customer's record building itself up, in order — every touch on the
  * same timeline. Grounded in the activity feed: leads, calls/tasks, WhatsApp,
- * geo visits, quotations, deals, and (with SFA) orders. */
+ * geo-tagged field visits, quotations and deals. */
 const EVENTS: Ev[] = [
   { icon: UserPlus, title: "Lead created", meta: "source: Website · tagged “panels”" },
   { icon: Phone, title: "Call logged", meta: "next step: send rate list" },
   { icon: MessageCircle, title: "WhatsApp reply", meta: "catalogue + AI answered “lead time?”" },
-  { icon: MapPin, title: "Site meeting", meta: "checked in · GPS verified" },
+  { icon: MapPin, title: "Field visit", meta: "checked in · GPS verified" },
   { icon: FileText, title: "Quotation v2 sent", meta: "branded PDF · ₹2.4L" },
   { icon: CircleCheck, title: "Deal won", meta: "moved to Customers" },
-  { icon: ShoppingCart, title: "Order booked", meta: "₹1.8L", tag: "with SFA" },
 ];
 
 export function CustomerTimeline() {

@@ -21,17 +21,17 @@ import {
   faqSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
-import { productLines, combinedPlans, includedInEveryPlan } from "@/lib/site";
+import { productLines, crmWfaPlan, includedInEveryPlan } from "@/lib/site";
 import {
   crmProblems,
   crmCapabilities,
+  crmFieldForce,
   crmRoles,
   crmComparison,
   crmFaqs,
 } from "@/lib/crm-page";
 
 const crmLine = productLines.find((p) => p.slug === "crm")!;
-const fullPlatform = combinedPlans[0];
 
 /* ─────────────────────────── Hero dashboard mock ─────────────────────────── */
 
@@ -173,27 +173,27 @@ export function CrmProductPage() {
               <Reveal><Eyebrow>OZZO CRM · Customer Relationship Management</Eyebrow></Reveal>
               <Reveal delay={80}>
                 <h1 className="ozzo-display mt-4 max-w-2xl text-[2.4rem] leading-[1.05] text-foreground sm:text-5xl md:text-[3.5rem]">
-                  Every customer relationship, from first lead to{" "}
-                  <span className="ozzo-gradient-text">repeat order</span>.
+                  Every customer relationship —{" "}
+                  <span className="ozzo-gradient-text">office to field</span>, on one record.
                 </h1>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  OZZO CRM is the front of your revenue engine. Capture every enquiry,
-                  work it on WhatsApp with an AI assistant, and quote in minutes — then
-                  watch it flow into orders, dispatch and collection on one connected
-                  record, with nothing re-keyed.
+                  Capture every enquiry, work it on WhatsApp with an AI assistant, and
+                  quote in minutes — then send your reps to the right customers with
+                  selfie attendance and GPS-tracked visits that land on the same record.
+                  CRM and field force, one login.
                 </p>
               </Reveal>
               <Reveal delay={240}>
                 <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                   <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>
-                  <SecondaryCTA href="#engine">See the revenue engine</SecondaryCTA>
+                  <SecondaryCTA href="#engine">See it work</SecondaryCTA>
                 </div>
               </Reveal>
               <Reveal delay={320}>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {["Shared WhatsApp inbox", "Kanban pipelines", "Branded quotations", "AI assistant"].map((c) => (
+                  {["Shared WhatsApp inbox", "AI assistant", "Branded quotations", "GPS field visits"].map((c) => (
                     <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary" />{c}
                     </span>
@@ -235,19 +235,18 @@ export function CrmProductPage() {
         </Container>
       </section>
 
-      {/* ─────────── SECTION 3 · Revenue engine (animated flow) ─────────── */}
+      {/* ─────────── SECTION 3 · CRM + field flow (animated) ─────────── */}
       <section id="engine" className="scroll-mt-24 border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <SectionHeading
-            eyebrow="One revenue engine"
-            title="From first lead to payment collected"
-            description="Not lead management in a silo — one connected flow. CRM owns the front (lead to won customer); add Sales Force Automation and the same record carries straight through orders, dispatch and collection."
+            eyebrow="Office to field, one flow"
+            title="From first lead to a won customer"
+            description="Not lead management in a silo. Capture the enquiry, work it on WhatsApp, send a rep to visit — GPS-verified — quote, and win. Every step on the same record, front office and field team together."
           />
           <Reveal><RevenueOpsFlow /></Reveal>
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            <span className="rounded-full bg-primary-soft px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-primary">CRM</span>{" "}
-            covers lead → quotation → won customer. Order → dispatch → collection come with{" "}
-            <Link href="/products/sfa" className="font-semibold text-primary hover:underline">Sales Force Automation</Link>.
+            Every stage is a shipped module — Leads, WhatsApp &amp; AI, geo-tagged field
+            visits, Quotations and Customers — on the web dashboard and the Android app.
           </p>
         </Container>
       </section>
@@ -293,9 +292,9 @@ export function CrmProductPage() {
               <Eyebrow>One customer record</Eyebrow>
               <h2 className="ozzo-display mt-4 text-3xl text-foreground md:text-[2.5rem] md:leading-[1.1]">Every touch, in order, on one timeline.</h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Calls, messages, meetings, quotes and orders all land on the same customer
-                record — so anyone who opens it sees the whole story, not their slice of
-                it. Nothing lives only in one person&apos;s head or on their phone.
+                Calls, messages, field visits, deals and quotes all land on the same
+                customer record — so anyone who opens it sees the whole story, not their
+                slice of it. Nothing lives only in one person&apos;s head or on their phone.
               </p>
               <ul className="mt-7 space-y-3.5">
                 {[
@@ -315,8 +314,36 @@ export function CrmProductPage() {
         </Container>
       </section>
 
+      {/* ─────────── SECTION 5b · Field force (WFA) ─────────── */}
+      <section id="field" className="scroll-mt-24 py-24 md:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Field force, built in · WFA"
+            title="Your reps in the field — on the same CRM"
+            description="Add CRM + WFA and your customer database gets a field team. Attendance, live location, geo-tagged visits, routes and expenses — every visit landing on the same customer record your office works from."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {crmFieldForce.map((c, i) => (
+              <Reveal key={c.title} delay={i * 50}>
+                <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                    <Icon name={c.icon} className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-foreground">{c.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-muted-foreground">
+            Field force is the <span className="font-semibold text-foreground">CRM + WFA</span> plan — ₹{crmWfaPlan.price}/user/mo.{" "}
+            <Link href="#pricing" className="font-semibold text-primary hover:underline">See pricing →</Link>
+          </p>
+        </Container>
+      </section>
+
       {/* ─────────── SECTION 6 · Capabilities ─────────── */}
-      <section className="py-24 md:py-28">
+      <section className="border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <SectionHeading
             eyebrow="Core capabilities"
@@ -338,7 +365,7 @@ export function CrmProductPage() {
       </section>
 
       {/* ─────────── SECTION 7 · Role tabs ─────────── */}
-      <section className="border-y border-border bg-card-2 py-24 md:py-28">
+      <section className="py-24 md:py-28">
         <Container>
           <SectionHeading eyebrow="Built for every seat" title="One CRM, three points of view" description="The same shared record does a different job for each person who opens it." />
           <RoleTabs roles={crmRoles} />
@@ -346,7 +373,7 @@ export function CrmProductPage() {
       </section>
 
       {/* ─────────── SECTION 8 · Reports ─────────── */}
-      <section className="py-24 md:py-28">
+      <section className="border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <Reveal variant="left">
@@ -465,15 +492,15 @@ export function CrmProductPage() {
             </Reveal>
             <Reveal delay={100}>
               <div className="flex h-full flex-col gap-4">
-                <p className="ozzo-eyebrow text-muted-foreground">Or go all-in</p>
-                <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+                <p className="ozzo-eyebrow text-muted-foreground">Add the field force</p>
+                <div className="rounded-3xl border border-primary/20 bg-primary-soft p-6 shadow-sm">
                   <div className="flex items-baseline justify-between">
-                    <h4 className="text-lg font-bold text-foreground">{fullPlatform.name}</h4>
-                    <div><span className="ozzo-display text-2xl text-foreground">₹{fullPlatform.price}</span><span className="text-xs text-muted-foreground"> /user/mo</span></div>
+                    <h4 className="text-lg font-bold text-foreground">{crmWfaPlan.name}</h4>
+                    <div><span className="ozzo-display text-2xl text-foreground">₹{crmWfaPlan.price}</span><span className="text-xs text-muted-foreground"> /user/mo</span></div>
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{fullPlatform.tagline}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground">Add Sales Force Automation — field attendance, GPS, orders, payment collection and distribution — so office and field run on one login.</p>
-                  <Link href="/products/sfa" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore Sales Force Automation <ArrowRight className="h-4 w-4" /></Link>
+                  <p className="mt-1 text-sm text-muted-foreground">{crmWfaPlan.tagline}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground">Everything in CRM plus field-force tracking — selfie + GPS attendance, live location, geo-tagged visits, beat routes and expenses — so office and field run on one login.</p>
+                  <Link href="#field" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">See field-force features <ArrowRight className="h-4 w-4" /></Link>
                 </div>
                 <div className="mt-auto rounded-3xl border border-dashed border-border p-6">
                   <p className="flex items-center gap-2 text-sm font-semibold text-foreground"><Sparkles className="h-4 w-4 text-primary" /> In every plan</p>

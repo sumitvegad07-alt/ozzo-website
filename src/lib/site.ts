@@ -183,6 +183,14 @@ export const sfaTiers: PricingTier[] = [
   },
 ];
 
+/** CRM paired with field-force (WFA) tracking — the combo shown on the CRM page.
+ * (WFA is the field-visibility tier of SFA; CRM + WFA is a real ₹200 plan.) */
+export const crmWfaPlan = {
+  name: "CRM + WFA",
+  price: 200,
+  tagline: "Front office + field force",
+};
+
 /** The full CRM + SFA platform, kept for AI/LLM briefs and schema accuracy. */
 export const combinedPlans = [
   {

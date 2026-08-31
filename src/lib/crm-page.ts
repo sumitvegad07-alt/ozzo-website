@@ -189,6 +189,41 @@ export const crmCapabilities: { icon: string; title: string; body: string }[] = 
   },
 ];
 
+/** Field-force (WFA) capabilities that pair with the CRM — geo visits land on
+ * the same customer/lead record. All grounded in the WORKFORCE catalog. */
+export const crmFieldForce: { icon: string; title: string; body: string }[] = [
+  {
+    icon: "Fingerprint",
+    title: "Selfie + GPS attendance",
+    body: "Reps punch in from the app with a selfie and GPS (and the odometer, if you require it). The day classifies itself — present, late, short — and queues offline.",
+  },
+  {
+    icon: "Navigation",
+    title: "Live location & history",
+    body: "A Live Feed of current positions, an All-Locations map for any rep and day, and a per-rep Track Report — so you know who's out and where they've been.",
+  },
+  {
+    icon: "MapPin",
+    title: "Geo-tagged visits on the record",
+    body: "Reps check in at a customer or lead on site; the GPS-stamped visit lands on the same CRM record as the messages, deals and quotes.",
+  },
+  {
+    icon: "Route",
+    title: "Beat & route planning",
+    body: "Plan each rep's beat, assign it for the period, and they work it in order from the app — the outlet that keeps getting missed stops getting missed.",
+  },
+  {
+    icon: "Building2",
+    title: "Territory & assignment",
+    body: "Model your geography country → state → city → area, and route customers and leads to the right rep area-wise instead of one by one.",
+  },
+  {
+    icon: "ReceiptText",
+    title: "Expenses & tracking health",
+    body: "Field expense claims with approval, plus a Tracking Health screen that flags a phone with a dead battery or GPS off — before it costs you a day of data.",
+  },
+];
+
 /** SECTION 6 — Role-based benefits (tabs). */
 export const crmRoles: {
   role: string;
@@ -294,7 +329,7 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Are quotations branded with my company letterhead?",
-    a: "Yes. Quotations (and orders, dispatch notes and receipts) use your own company letterhead and document templates, so everything a customer receives looks like it came from your business.",
+    a: "Yes. Quotations use your own company letterhead and document templates, so everything a customer receives looks like it came from your business.",
   },
   {
     q: "Can field visits show up in the CRM?",
@@ -326,7 +361,7 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does OZZO CRM cost?",
-    a: "CRM is ₹100 per user per month, minimum 3 users, on annual billing (half-yearly adds 20%, quarterly adds 30%). You can combine it with Sales Force Automation for the full platform at ₹450 per user per month.",
+    a: "CRM is ₹100 per user per month, minimum 3 users, on annual billing (half-yearly adds 20%, quarterly adds 30%). Add field-force tracking — attendance, GPS, geo-tagged visits, routes and expenses — as CRM + WFA for ₹200 per user per month.",
   },
   {
     q: "Is there a free trial, and how do I get started?",

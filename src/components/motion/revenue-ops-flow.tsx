@@ -1,45 +1,48 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { UserPlus, FileText, ShoppingCart, Truck, IndianRupee, Repeat } from "lucide-react";
+import { UserPlus, MessageCircle, MapPin, FileText, CircleCheck } from "lucide-react";
 import { useInView } from "./use-in-view";
 
-/** The revenue lifecycle OZZO actually runs, end to end — every stage is a
- * shipped module (Leads, Quotations, Orders, Dispatch, Payments/outstanding). */
-const STAGES = [
+export type FlowStage = { icon: React.ElementType; label: string; meta: string };
+
+/** Default: the CRM + field-force (WFA) flow — every stage is a shipped module
+ * (Leads, WhatsApp/AI, geo-tagged field visits, Quotations, Customers).
+ * No SFA stages here. Callers may pass their own `stages`. */
+const DEFAULT_STAGES: FlowStage[] = [
   { icon: UserPlus, label: "Lead", meta: "captured + tagged" },
+  { icon: MessageCircle, label: "Follow-up", meta: "WhatsApp + AI" },
+  { icon: MapPin, label: "Field visit", meta: "selfie + GPS" },
   { icon: FileText, label: "Quotation", meta: "branded PDF" },
-  { icon: ShoppingCart, label: "Order", meta: "offline capture" },
-  { icon: Truck, label: "Dispatch", meta: "+ pending queue" },
-  { icon: IndianRupee, label: "Collection", meta: "outstanding ↓" },
-  { icon: Repeat, label: "Repeat", meta: "next cycle" },
+  { icon: CircleCheck, label: "Won", meta: "customer + repeat" },
 ];
 
-export function RevenueOpsFlow() {
+export function RevenueOpsFlow({ stages = DEFAULT_STAGES }: { stages?: FlowStage[] }) {
   const [ref, inView] = useInView<HTMLDivElement>();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
-    const id = setInterval(() => setActive((v) => (v + 1) % (STAGES.length + 2)), 900);
+    const id = setInterval(() => setActive((v) => (v + 1) % (stages.length + 2)), 900);
     return () => clearInterval(id);
-  }, [inView]);
+  }, [inView, stages.length]);
 
-  const fill = Math.min(active, STAGES.length - 1);
+  const fill = Math.min(active, stages.length - 1);
+  const cols =
+    stages.length === 5 ? "sm:grid-cols-3 md:grid-cols-5" : "sm:grid-cols-3 md:grid-cols-6";
 
   return (
     <div ref={ref} className="rounded-3xl border border-border bg-card p-6 shadow-sm md:p-8">
       <div className="relative">
-        {/* progress rail */}
         <div className="absolute left-0 right-0 top-7 hidden h-0.5 bg-border md:block">
           <div
             className="h-full bg-primary transition-all duration-700 ease-out"
-            style={{ width: `${(fill / (STAGES.length - 1)) * 100}%` }}
+            style={{ width: `${(fill / (stages.length - 1)) * 100}%` }}
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 md:grid-cols-6">
-          {STAGES.map((s, i) => {
+        <div className={`grid grid-cols-2 gap-x-3 gap-y-6 ${cols}`}>
+          {stages.map((s, i) => {
             const on = i <= fill;
             const Icon = s.icon;
             return (
