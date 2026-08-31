@@ -31,13 +31,14 @@ export function SiteFooter() {
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2">
-            <span className="flex items-center gap-2">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
-                <MessageCircle className="h-5 w-5" />
-              </span>
-              <span className="text-xl font-bold tracking-tight text-white">
-                {brand.name}
-              </span>
+            <span className="flex items-center">
+              {/* Footer sits on the dark ink background — use the neon dark variant. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/logo-dark.png"
+                alt={brand.name}
+                className="h-9 w-auto"
+              />
             </span>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
               CRM, workforce and field-sales automation in one platform — a web

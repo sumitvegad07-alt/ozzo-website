@@ -42,10 +42,8 @@ export const metadata: Metadata = {
     "distributor management software",
     "sales team tracking India",
   ],
-  icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
-  },
+  // Favicon + apple-touch icon come from the file-based convention
+  // (src/app/icon.png and src/app/apple-icon.png) — the OZZO brand mark.
   formatDetection: { email: false, address: false, telephone: false },
 };
 

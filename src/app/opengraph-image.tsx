@@ -1,10 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { brand } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const alt = `${brand.name} — ${brand.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// Embed the neon wordmark as a data URI — the OG card renders on a dark
+// gradient, so the dark-background variant fits.
+const logoSrc = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "public/brand/logo-dark.png"),
+).toString("base64")}`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -22,26 +30,9 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: 18,
-              background: "#7c3aed",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: 40,
-              fontWeight: 800,
-            }}
-          >
-            O
-          </div>
-          <div style={{ color: "white", fontSize: 44, fontWeight: 800 }}>
-            {brand.name}
-          </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoSrc} height={72} alt={brand.name} />
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
