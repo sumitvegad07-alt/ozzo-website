@@ -7,12 +7,17 @@ import {
   ShoppingCart,
   IndianRupee,
   WifiOff,
-  Sparkles,
 } from "lucide-react";
 import { Container, SectionHeading, PrimaryCTA, SecondaryCTA, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
+import { RouteCompliance } from "@/components/motion/route-compliance";
+import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
+import { OrderGuards } from "@/components/motion/order-guards";
+import { SchemeCalc } from "@/components/motion/scheme-calc";
+import { TradeNetwork } from "@/components/motion/trade-network";
+import { PricingTiers, type Tier } from "@/components/motion/pricing-tiers";
 import {
   JsonLd,
   breadcrumbSchema,
@@ -29,6 +34,15 @@ import {
   sfaMobile,
   sfaFaqs,
 } from "@/lib/sfa-page";
+
+const pricingTiers: Tier[] = sfaTiers.map((t) => ({
+  name: t.name,
+  price: t.price,
+  priceNote: t.priceNote,
+  tagline: t.tagline,
+  popular: t.popular,
+  features: t.features,
+}));
 
 /* ─────────────────────────── Field-activity dashboard mock ─────────────────────────── */
 
@@ -52,7 +66,6 @@ function FieldDashboardVisual() {
         </div>
 
         <div className="grid grid-cols-[1.3fr_1fr] gap-0">
-          {/* map */}
           <div className="ozzo-grid relative h-56 border-r border-border bg-primary-soft text-primary/25">
             <svg viewBox="0 0 300 224" className="absolute inset-0 h-full w-full" aria-hidden>
               <path
@@ -79,7 +92,6 @@ function FieldDashboardVisual() {
             </span>
           </div>
 
-          {/* live feed list */}
           <div className="space-y-2 p-3">
             <p className="ozzo-eyebrow text-[9px] text-muted-foreground">Live feed</p>
             {reps.map((r) => (
@@ -94,7 +106,6 @@ function FieldDashboardVisual() {
           </div>
         </div>
 
-        {/* bottom rows */}
         <div className="grid grid-cols-2 gap-2 border-t border-border p-3">
           <div className="flex items-center gap-2 rounded-lg border border-border bg-card-2 p-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-success/15 text-success">
@@ -117,7 +128,6 @@ function FieldDashboardVisual() {
         </div>
       </div>
 
-      {/* floating outstanding chip */}
       <div className="absolute -bottom-6 -right-4 w-44 rounded-2xl border border-border bg-card p-3 shadow-xl shadow-black/[0.1] animate-float">
         <p className="ozzo-eyebrow text-[9px] text-muted-foreground">Collected today</p>
         <p className="mt-1 flex items-center gap-1 text-lg font-extrabold text-foreground">
@@ -226,6 +236,37 @@ function MobileShowcaseVisual() {
   );
 }
 
+/* Small reusable heading for demonstration sections. */
+function DemoHead({
+  eyebrow,
+  title,
+  body,
+  points,
+}: {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+}) {
+  return (
+    <div>
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h2 className="ozzo-display mt-4 text-3xl text-foreground md:text-[2.5rem] md:leading-[1.1]">{title}</h2>
+      <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{body}</p>
+      <ul className="mt-7 space-y-3.5">
+        {points.map((p) => (
+          <li key={p} className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
+              <Check className="h-3 w-3" strokeWidth={3} />
+            </span>
+            <span className="text-[15px] leading-relaxed text-foreground">{p}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /* ══════════════════════════════ Page ══════════════════════════════ */
 
 export function SfaProductPage() {
@@ -250,9 +291,7 @@ export function SfaProductPage() {
         <Container>
           <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <Reveal>
-                <Eyebrow>OZZO SFA · Sales Force Automation</Eyebrow>
-              </Reveal>
+              <Reveal><Eyebrow>OZZO SFA · Sales Force Automation</Eyebrow></Reveal>
               <Reveal delay={80}>
                 <h1 className="ozzo-display mt-4 max-w-2xl text-[2.4rem] leading-[1.05] text-foreground sm:text-5xl md:text-[3.5rem]">
                   Know what your field team is doing —{" "}
@@ -261,7 +300,7 @@ export function SfaProductPage() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                  See where your reps are, which visits happened and which were missed,
+                  See where your reps are, which visits happened and which were skipped,
                   and how orders and collections are flowing — live. Then take the order,
                   collect the cash, and watch outstanding and stock keep themselves. One
                   field product, from starter tracking to full sales &amp; distribution.
@@ -275,11 +314,8 @@ export function SfaProductPage() {
               </Reveal>
               <Reveal delay={320}>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {["Selfie + GPS attendance", "Live location", "Offline orders", "Auto outstanding"].map((c) => (
-                    <span
-                      key={c}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm"
-                    >
+                  {["Selfie + GPS attendance", "Route compliance", "Offline orders", "Auto outstanding"].map((c) => (
+                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm">
                       <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                       {c}
                     </span>
@@ -287,9 +323,7 @@ export function SfaProductPage() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={200} variant="scale">
-              <FieldDashboardVisual />
-            </Reveal>
+            <Reveal delay={200} variant="scale"><FieldDashboardVisual /></Reveal>
           </div>
         </Container>
       </section>
@@ -306,7 +340,7 @@ export function SfaProductPage() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/60">
               Six moments make up a field day. SFA turns each one into something you can
-              see, instead of something you're told about at night.
+              see, instead of something you&apos;re told about at night.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -317,13 +351,9 @@ export function SfaProductPage() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-primary">
                       <Icon name={d.icon} className="h-5 w-5" />
                     </span>
-                    <span className="rounded-full bg-white/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-white/80">
-                      {d.time}
-                    </span>
+                    <span className="rounded-full bg-white/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-white/80">{d.time}</span>
                   </div>
-                  <div className="mb-1 flex items-center gap-2">
-                    <span className="text-[11px] font-bold text-primary">STEP {i + 1}</span>
-                  </div>
+                  <div className="mb-1"><span className="text-[11px] font-bold text-primary">STEP {i + 1}</span></div>
                   <h3 className="text-lg font-bold text-white">{d.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-white/60">{d.body}</p>
                 </div>
@@ -333,23 +363,136 @@ export function SfaProductPage() {
         </Container>
       </section>
 
-      {/* ─────────── SECTION 3 · Manager visibility ─────────── */}
+      {/* ─────────── SECTION 3 · Route compliance DEMO ─────────── */}
       <section className="py-24 md:py-28">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal variant="left">
+              <DemoHead
+                eyebrow="Route compliance"
+                title="Never lose a planned customer visit again."
+                body="Plan the beat once. On the ground the rep works it in order, and the app records every stop as visited or skipped — a skip needs a reason. Your web monitor shows exactly who covered what."
+                points={[
+                  "Planned sequence vs what actually happened, per rep",
+                  "Skipping is gated — a reason is logged, not a silent miss",
+                  "Coverage, completed and skipped stops on the manager monitor",
+                  "The outlet that kept getting missed finally stops getting missed",
+                ]}
+              />
+            </Reveal>
+            <Reveal variant="right" delay={100}><RouteCompliance /></Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────── SECTION 4 · Manager visibility + live feed ─────────── */}
+      <section className="border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <SectionHeading
             eyebrow="Manager visibility"
             title="Watch the day. Don't reconstruct it."
-            description="Four real-time screens put the whole field force in front of you — where they are, where they've been, and whether the phone is honestly reporting."
+            description="Four real-time screens put the whole field force in front of you — and a live activity stream shows the moves as they happen."
           />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {sfaManagerViews.map((v, i) => (
-              <Reveal key={v.title} delay={i * 60}>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
+              {sfaManagerViews.map((v, i) => (
+                <Reveal key={v.title} delay={i * 60}>
+                  <div className="h-full rounded-3xl border border-border bg-card p-6 shadow-sm">
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                      <Icon name={v.icon} className="h-5 w-5" />
+                    </div>
+                    <h3 className="mb-1.5 text-base font-bold text-foreground">{v.title}</h3>
+                    <p className="text-[13px] leading-relaxed text-muted-foreground">{v.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal variant="right" delay={100}><LiveActivityFeed /></Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────── SECTION 5 · Order guardrails DEMO ─────────── */}
+      <section className="py-24 md:py-28">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <Reveal variant="right" delay={100} className="lg:order-2"><OrderGuards /></Reveal>
+            <Reveal variant="left" className="lg:order-1">
+              <DemoHead
+                eyebrow="Order control"
+                title="Every order is checked before it's booked."
+                body="This is where money leaks close. An order can be checked against the customer's credit limit, their overdue days, and real available stock — and set to warn or hard-block. No more selling deeper to a shop that already owes you."
+                points={[
+                  "Credit-limit control: warn or block when an order crosses the limit",
+                  "Overdue control: block new orders while a customer is past due",
+                  "Stock control: flag or block when a line exceeds what's on hand",
+                  "Each guardrail is per-account — ignore, warn, or block",
+                ]}
+              />
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────── SECTION 6 · Scheme DEMO ─────────── */}
+      <section className="border-y border-border bg-card-2 py-24 md:py-28">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal variant="left">
+              <DemoHead
+                eyebrow="Trade schemes"
+                title="Complex trade schemes, calculated automatically."
+                body="Nobody should work out free-goods maths by hand at the counter. Define the scheme once — quantity slabs, order-value slabs, or buy-X-get-Y-free — and the pricing engine detects and applies it on the order, invoice and PDF."
+                points={[
+                  "Free goods (buy 100 → get 10 free), with a per-order cap",
+                  "Quantity slabs — % off, amount off, or a special price",
+                  "Order-value slabs for whole-order incentives",
+                  "Applied automatically — no manual maths, no missed claim",
+                ]}
+              />
+            </Reveal>
+            <Reveal variant="right" delay={100}><SchemeCalc /></Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────── SECTION 7 · Trade network DEMO (secondary sales) ─────────── */}
+      <section className="py-24 md:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Distribution & secondary sales"
+            title="See what happens after you sell to the distributor."
+            description="Classify your customers into trade levels, and every order tags itself Primary or Secondary automatically — with outstanding tracked at each level of the chain."
+          />
+          <Reveal><TradeNetwork /></Reveal>
+        </Container>
+      </section>
+
+      {/* ─────────── SECTION 8 · Depth: the rest, in stories ─────────── */}
+      <section className="border-y border-border bg-card-2 py-24 md:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Everything else that ships"
+            title="The field basics, done properly"
+            description="The day-to-day capabilities your team leans on — verified, in production, on web and the Android app."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {sfaStories.map((s, i) => (
+              <Reveal key={s.kicker} delay={i * 60}>
                 <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                    <Icon name={v.icon} className="h-6 w-6" />
+                    <Icon name={s.icon} className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-foreground">{v.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{v.body}</p>
+                  <div className="ozzo-eyebrow mb-1.5 text-primary">{s.kicker}</div>
+                  <h3 className="mb-2 text-lg font-bold text-foreground">{s.title}</h3>
+                  <ul className="mt-3 space-y-2">
+                    {s.points.slice(0, 3).map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={3} />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Reveal>
             ))}
@@ -357,48 +500,7 @@ export function SfaProductPage() {
         </Container>
       </section>
 
-      {/* ─────────── SECTIONS 4-8 · Feature stories ─────────── */}
-      <section className="border-y border-border bg-card-2 py-24 md:py-28">
-        <Container>
-          <div className="space-y-20 md:space-y-28">
-            {sfaStories.map((s, i) => (
-              <div key={s.kicker} className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
-                <Reveal
-                  variant={i % 2 ? "right" : "left"}
-                  className={`md:col-span-6 ${i % 2 ? "md:order-2" : ""}`}
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                    <Icon name={s.icon} className="h-6 w-6" />
-                  </div>
-                  <div className="ozzo-eyebrow text-primary">{s.kicker}</div>
-                  <h2 className="ozzo-display mt-3 text-3xl text-foreground md:text-[2.4rem] md:leading-[1.1]">
-                    {s.title}
-                  </h2>
-                  <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{s.body}</p>
-                </Reveal>
-                <Reveal
-                  delay={100}
-                  variant={i % 2 ? "left" : "right"}
-                  className={`md:col-span-6 ${i % 2 ? "md:order-1" : ""}`}
-                >
-                  <ul className="space-y-4 rounded-3xl border border-border bg-card p-8 shadow-sm">
-                    {s.points.map((p) => (
-                      <li key={p} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        <span className="text-[15px] leading-relaxed text-foreground">{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ─────────── SECTION 9 · Reporting & analytics ─────────── */}
+      {/* ─────────── SECTION 9 · Reporting ─────────── */}
       <section className="py-24 md:py-28">
         <Container>
           <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -409,8 +511,7 @@ export function SfaProductPage() {
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                 Attendance, visits, orders and collections roll into reports as they
-                happen — and every rep gets a Daily Sales Report on a single line. Manage
-                by the numbers, not the loudest update at night.
+                happen — and every rep gets a Daily Sales Report on a single line.
               </p>
               <ul className="mt-7 grid gap-3.5 sm:grid-cols-2">
                 {sfaReports.map((p) => (
@@ -423,29 +524,25 @@ export function SfaProductPage() {
                 ))}
               </ul>
             </Reveal>
-            <Reveal variant="right" delay={100}>
-              <SfaReportsVisual />
-            </Reveal>
+            <Reveal variant="right" delay={100}><SfaReportsVisual /></Reveal>
           </div>
         </Container>
       </section>
 
-      {/* ─────────── SECTION 10 · Mobile app showcase ─────────── */}
+      {/* ─────────── SECTION 10 · Mobile showcase ─────────── */}
       <section className="border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <div className="grid items-center gap-14 lg:grid-cols-2">
-            <Reveal variant="left">
-              <MobileShowcaseVisual />
-            </Reveal>
+            <Reveal variant="left"><MobileShowcaseVisual /></Reveal>
             <Reveal variant="right" delay={100}>
-              <Eyebrow>The rep's app</Eyebrow>
+              <Eyebrow>The rep&apos;s app</Eyebrow>
               <h2 className="ozzo-display mt-4 text-3xl text-foreground md:text-[2.6rem] md:leading-[1.1]">
                 Built for one hand, on the road, off the grid.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                 Everything a rep needs on the ground, in a rugged Android app that keeps
-                working when the network doesn't — then syncs itself the moment a bar of
-                signal returns.
+                working when the network doesn&apos;t — then syncs itself the moment a bar
+                of signal returns.
               </p>
               <ul className="mt-7 grid gap-3.5 sm:grid-cols-2">
                 {sfaMobile.map((p) => (
@@ -465,7 +562,7 @@ export function SfaProductPage() {
         </Container>
       </section>
 
-      {/* ─────────── SECTION 11 · Industry use cases ─────────── */}
+      {/* ─────────── SECTION 11 · Industries ─────────── */}
       <section className="py-24 md:py-28">
         <Container>
           <SectionHeading
@@ -494,83 +591,19 @@ export function SfaProductPage() {
           <SectionHeading
             eyebrow="Pricing"
             title="One product, three tiers"
-            description="Per user, per month, minimum 3 users. Start with field visibility and move up as you grow — WFA Starter and SFA Professional are tiers of the same product, not different tools."
+            description="Start with field visibility and move up as you grow — WFA Starter and SFA Professional are tiers of the same product, not different tools."
           />
-          <div className="grid gap-6 lg:grid-cols-3">
-            {sfaTiers.map((tier, i) => (
-              <Reveal key={tier.name} delay={i * 80}>
-                <div
-                  className={`relative flex h-full flex-col rounded-3xl border p-8 shadow-sm ${
-                    tier.popular
-                      ? "border-primary/40 bg-card ring-2 ring-primary/30 shadow-lg shadow-primary/5"
-                      : "border-border bg-card"
-                  }`}
-                >
-                  {tier.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-md">
-                      Most popular
-                    </span>
-                  )}
-                  <h3 className="text-xl font-bold text-foreground">{tier.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{tier.tagline}</p>
-                  <div className="mt-5 flex items-baseline gap-1">
-                    {tier.price === null ? (
-                      <span className="ozzo-display text-4xl text-foreground">{tier.priceNote}</span>
-                    ) : (
-                      <>
-                        <span className="ozzo-display text-5xl text-foreground">₹{tier.price}</span>
-                        <span className="text-sm font-medium text-muted-foreground">/user/mo</span>
-                      </>
-                    )}
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    {tier.price === null ? "Full CRM + SFA platform · ₹450/user" : "Minimum 3 users"}
-                  </p>
-                  <ul className="mt-6 flex-1 space-y-3">
-                    {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-foreground">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/book-demo"
-                    className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition-all hover:-translate-y-0.5 ${
-                      tier.popular
-                        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary-hover"
-                        : "bg-muted text-foreground hover:bg-muted/70"
-                    }`}
-                  >
-                    {tier.price === null ? "Talk to sales" : "Book a demo"} <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-dashed border-border bg-card p-6">
-            <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <Sparkles className="h-4 w-4 text-primary" /> In every tier
-            </p>
+          <PricingTiers tiers={pricingTiers} />
+          <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-dashed border-border bg-card p-6">
+            <p className="text-sm font-semibold text-foreground">In every tier</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {includedInEveryPlan.map((b) => (
-                <span
-                  key={b}
-                  className="rounded-full border border-border bg-card-2 px-2.5 py-1 text-xs font-medium text-muted-foreground"
-                >
+                <span key={b} className="rounded-full border border-border bg-card-2 px-2.5 py-1 text-xs font-medium text-muted-foreground">
                   {b}
                 </span>
               ))}
             </div>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-muted-foreground">
-            Annual billing is the base rate · half-yearly +20% · quarterly +30% · 10-day
-            &amp; 30-day refundable trials.{" "}
-            <Link href="/book-demo" className="font-semibold text-primary hover:underline">
-              Book a demo for the right tier →
-            </Link>
-          </p>
         </Container>
       </section>
 

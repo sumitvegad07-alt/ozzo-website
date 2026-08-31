@@ -189,6 +189,60 @@
   100% { opacity: 0; }
 }
 
+/* ---- Motion-graphics primitives (business-workflow animations) ---- */
+
+/* A dot travelling along a route path (used with offset-path). */
+@keyframes ozzo-drive {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+/* Drawing a stroked path (route line) via dashoffset. */
+@keyframes ozzo-draw {
+  from { stroke-dashoffset: var(--dash, 600); }
+  to { stroke-dashoffset: 0; }
+}
+
+/* A card/row sliding up into a feed. */
+@keyframes ozzo-feed-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* A payload chip flowing left→right down a pipeline. */
+@keyframes ozzo-flow {
+  0% { opacity: 0; transform: translateX(-6px); }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(6px); }
+}
+
+/* A "blocked" element shaking to reject an action. */
+@keyframes ozzo-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* A stop pin popping in. */
+@keyframes ozzo-pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Gentle vertical bob for network nodes. */
+@keyframes ozzo-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.ozzo-anim-paused * {
+  animation-play-state: paused !important;
+}
+
 /* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
