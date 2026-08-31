@@ -60,6 +60,8 @@ export type ProductLine = {
   fullName: string;
   sub: string;
   price: number;
+  /** When true, `price` is the entry-tier "from" price, not a flat rate. */
+  priceFrom?: boolean;
   accentClass: string;
   dotClass: string;
   ringClass: string;
@@ -67,7 +69,16 @@ export type ProductLine = {
   features: string[];
 };
 
-/** Verified, in-production capabilities only (per the feature master catalog). */
+/**
+ * The public product model is TWO products only:
+ *   1. CRM — win & keep customers
+ *   2. SFA (Sales Force Automation) — run & grow field sales
+ *
+ * Field-force tracking (formerly marketed as "WFA / Workforce Automation")
+ * is NOT a separate product — it is the entry tier of Sales Force Automation
+ * (see `sfaTiers` → "WFA Starter"). Every claim is grounded in the feature
+ * master catalog.
+ */
 export const productLines: ProductLine[] = [
   {
     slug: "crm",
@@ -90,64 +101,95 @@ export const productLines: ProductLine[] = [
     ],
   },
   {
-    slug: "wfa",
-    name: "WFA",
-    fullName: "Workforce Automation",
-    sub: "Run your field force",
-    price: 150,
-    accentClass: "text-cyan-400",
-    dotClass: "bg-cyan-400",
-    ringClass: "ring-cyan-500/20",
-    summary:
-      "Know where your field team is, that they showed up, and that they visited the right customers — with live GPS, selfie attendance and geo-tagged visits from a rugged mobile app.",
-    features: [
-      "Live GPS tracking & location history",
-      "Attendance with selfie & GPS punch-in",
-      "Geo-tagged customer & lead visits",
-      "Expense claims with approval",
-      "Beat / route planning & territory management",
-      "Works offline — syncs when back online",
-    ],
-  },
-  {
     slug: "sfa",
     name: "SFA",
     fullName: "Sales Force Automation",
-    sub: "Sell & distribute",
-    price: 350,
+    sub: "Run & grow field sales",
+    price: 150,
+    priceFrom: true,
     accentClass: "text-emerald-400",
     dotClass: "bg-emerald-400",
     ringClass: "ring-emerald-500/20",
     summary:
-      "Take orders in the field, collect payments, and keep outstanding under control — with dealer/distributor management and sales analytics. Includes everything in Workforce.",
+      "Know exactly what your field team is doing — attendance, GPS and visits — then take the order, collect the cash and watch outstanding and stock keep themselves. One field product, from starter tracking to full sales & distribution.",
     features: [
-      "Order management with offline capture",
-      "Payment collection & outstanding tracking",
-      "Customer financials & credit limits",
-      "Dealer & distributor (trade-level) management",
-      "Dispatch & pending-dispatch queue",
-      "Sales analytics — includes all of Workforce",
+      "Selfie + GPS attendance & live location",
+      "Geo-tagged visits, beat routes & territory",
+      "Offline order capture, dispatch & branded PDF",
+      "Field payment collection & self-calculating outstanding",
+      "Distributor / dealer / retailer trade levels",
+      "Sales analytics, Ageing & a per-rep Daily Sales Report",
     ],
   },
 ];
 
-/** Combined plans (per the OZZO Pricing & Feature Catalogue). */
-export const combinedPlans = [
+export type PricingTier = {
+  name: string;
+  /** null = custom / talk-to-us pricing. */
+  price: number | null;
+  priceNote?: string;
+  tagline: string;
+  popular?: boolean;
+  features: string[];
+};
+
+/**
+ * The three tiers of the single Sales Force Automation product.
+ * WFA Starter is the field-visibility entry tier; SFA Professional adds the
+ * full sell-collect-distribute flow; Enterprise adds the CRM line for the
+ * complete platform.
+ */
+export const sfaTiers: PricingTier[] = [
   {
-    name: "CRM + WFA",
-    price: 200,
-    tagline: "Front office + field force",
-    popular: true,
+    name: "WFA Starter",
+    price: 150,
+    tagline: "Field visibility & attendance",
     features: [
-      "Everything in CRM",
-      "Everything in Workforce",
-      "One team, one platform",
+      "Selfie + GPS attendance, auto-classified",
+      "Live location, All-Locations map & Track Report",
+      "Geo-tagged customer & lead visits",
+      "Beat / route planning & territory management",
+      "Expense claims with approval",
+      "Tracking Health + full offline capture",
     ],
   },
   {
+    name: "SFA Professional",
+    price: 350,
+    popular: true,
+    tagline: "Sell, collect & distribute",
+    features: [
+      "Everything in WFA Starter",
+      "Offline order capture, dispatch & order PDF",
+      "Field payment collection with proof & approval",
+      "Customer financials, credit limits & auto outstanding",
+      "Closing stock derived from movement — no inventory tool",
+      "Distributor / dealer / retailer levels, discounts & sales analytics",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: null,
+    priceNote: "Custom",
+    tagline: "The complete platform + CRM",
+    features: [
+      "Everything in SFA Professional",
+      "Add the CRM line — shared WhatsApp inbox & pipelines",
+      "AI knowledge-base assistant & branded quotations",
+      "Custom fields across 12 record types",
+      "Roles & permissions with data-scoping",
+      "Guided onboarding mapped to your workflow",
+    ],
+  },
+];
+
+/** The full CRM + SFA platform, kept for AI/LLM briefs and schema accuracy. */
+export const combinedPlans = [
+  {
     name: "CRM + SFA",
     price: 450,
-    tagline: "The complete platform",
+    tagline: "The complete platform — front office and field, one login",
+    popular: true,
     features: [
       "Everything in CRM",
       "Everything in SFA",
@@ -169,10 +211,9 @@ export const includedInEveryPlan = [
 
 export const productInterestOptions = [
   "CRM",
-  "Workforce (WFA)",
-  "Sales & Distribution (SFA)",
-  "CRM + Workforce",
-  "CRM + Sales",
+  "Field tracking — WFA Starter",
+  "Sales & distribution — SFA Professional",
+  "Full platform — CRM + SFA",
   "Not sure — help me choose",
 ];
 

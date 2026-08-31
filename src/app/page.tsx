@@ -293,9 +293,9 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="The suite"
             title="Start with what hurts most. It's all connected."
-            description="Buy CRM, Workforce or Sales & Distribution on its own, or combine them — every line shares one customer record, one login and one source of truth. SFA already includes everything in Workforce."
+            description="Two products — CRM to win and keep customers, and Sales Force Automation to run your field team. Buy either on its own or combine them; both share one customer record, one login and one source of truth. Field-force tracking is the entry tier of SFA, not a separate tool."
           />
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {productLines.map((line, i) => (
               <Reveal key={line.slug} delay={i * 90}>
                 <Link
@@ -319,6 +319,9 @@ export default function HomePage() {
                     </span>
                     <div className="text-right">
                       <div className="ozzo-display text-2xl text-foreground">
+                        {line.priceFrom && (
+                          <span className="mr-1 align-middle text-xs font-semibold text-muted-foreground">from</span>
+                        )}
                         ₹{line.price}
                       </div>
                       <div className="text-xs text-muted-foreground">/user/mo</div>

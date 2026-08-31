@@ -146,11 +146,10 @@ export const chapters = [
   },
 ];
 
-/** Editorial one-liners for the three product lines (the suite). */
+/** Editorial one-liners for the two product lines (the suite). */
 export const suiteLines: Record<string, string> = {
   crm: "Catch every enquiry and reply on WhatsApp — before it goes cold.",
-  wfa: "Know your team showed up, and visited the outlets they were meant to.",
-  sfa: "Take the order, collect the cash, and watch the outstanding — one flow.",
+  sfa: "See what the field team did, take the order, and collect the cash — one flow.",
 };
 
 /** Business-owner outcomes (why), not feature names (what). */
@@ -274,16 +273,16 @@ export const faqs = [
     a: "OZZO is one platform that combines a CRM, field-workforce tracking, and sales & distribution — with a web dashboard for managers and a mobile app for your reps. It replaces the separate CRM, GPS tracker and messaging tools most field teams juggle today.",
   },
   {
-    q: "What's the difference between CRM, WFA and SFA?",
-    a: "CRM is for winning and keeping customers — leads, deals, WhatsApp and quotations. WFA (Workforce Automation) runs your field team — GPS, attendance, visits, expenses and beat planning. SFA adds sales & distribution — orders, payments, financials and dealer/distributor management, and it already includes everything in Workforce.",
+    q: "What's the difference between CRM and SFA?",
+    a: "CRM is for winning and keeping customers — leads, deals, a shared WhatsApp inbox and quotations. SFA (Sales Force Automation) runs your field team end to end: attendance, GPS and visits at the entry tier (WFA Starter), then orders, payment collection, customer financials, stock and distributor/dealer management as you grow. Field-force tracking isn't a separate product — it's the first tier of SFA.",
   },
   {
     q: "Do I have to buy the whole platform?",
-    a: "No. Pick a single line (CRM, WFA or SFA) or combine them (CRM + WFA, or CRM + SFA). Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
+    a: "No. Pick CRM on its own, SFA on its own, or the full platform (CRM + SFA). Within SFA you choose the tier that fits — WFA Starter for field visibility, SFA Professional for the full sell-collect-distribute flow. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
   },
   {
     q: "How is it priced?",
-    a: "Per user, per month, with a minimum of 3 users: CRM ₹100, WFA ₹150, SFA ₹350, CRM+WFA ₹200 and CRM+SFA ₹450. Annual is the base rate; half-yearly adds 20% and quarterly adds 30%. Share your details and our team will help you pick the right fit.",
+    a: "Per user, per month, with a minimum of 3 users: CRM ₹100; SFA from ₹150 (WFA Starter) to ₹350 (SFA Professional); the full CRM + SFA platform ₹450. Annual is the base rate; half-yearly adds 20% and quarterly adds 30%. Share your details and our team will help you pick the right fit.",
   },
   {
     q: "Does it work without internet in the field?",

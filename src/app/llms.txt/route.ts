@@ -1,4 +1,4 @@
-import { SITE_URL, brand, contact, productLines, combinedPlans } from "@/lib/site";
+import { SITE_URL, brand, contact, productLines, sfaTiers, combinedPlans } from "@/lib/site";
 import { faqs } from "@/lib/content";
 
 export const dynamic = "force-static";
@@ -16,9 +16,17 @@ export function GET() {
   lines.push("");
   lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps (Android today, with iOS on the way), and works offline.`);
   lines.push("");
-  lines.push("## Product lines (priced per user, per month, min 3 users)");
+  lines.push("## Products (priced per user, per month, min 3 users)");
+  lines.push("There are TWO products only: CRM, and Sales Force Automation (SFA). Field-force tracking (formerly 'WFA / Workforce Automation') is NOT a separate product — it is the entry tier ('WFA Starter') of SFA.");
   for (const p of productLines) {
-    lines.push(`- **${p.name} — ${p.fullName}** (₹${p.price}/user/mo): ${p.summary} Key features: ${p.features.join("; ")}.`);
+    const price = p.priceFrom ? `from ₹${p.price}` : `₹${p.price}`;
+    lines.push(`- **${p.name} — ${p.fullName}** (${price}/user/mo): ${p.summary} Key features: ${p.features.join("; ")}.`);
+  }
+  lines.push("");
+  lines.push("### Sales Force Automation tiers");
+  for (const t of sfaTiers) {
+    const price = t.price === null ? (t.priceNote ?? "custom") : `₹${t.price}/user/mo`;
+    lines.push(`- **${t.name}** (${price}): ${t.tagline}. ${t.features.join("; ")}.`);
   }
   for (const c of combinedPlans) {
     lines.push(`- **${c.name}** (₹${c.price}/user/mo): ${c.tagline}. ${c.features.join("; ")}.`);
@@ -33,7 +41,6 @@ export function GET() {
   lines.push(`- Home: ${SITE_URL}/`);
   lines.push(`- Products overview: ${SITE_URL}/products`);
   lines.push(`- CRM: ${SITE_URL}/products/crm`);
-  lines.push(`- Workforce Automation (WFA): ${SITE_URL}/products/wfa`);
   lines.push(`- Sales Force Automation (SFA): ${SITE_URL}/products/sfa`);
   lines.push(`- Book a demo: ${SITE_URL}/book-demo`);
   lines.push(`- Contact: ${SITE_URL}/contact`);

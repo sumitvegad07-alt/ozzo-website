@@ -30,14 +30,14 @@ import { productLines, includedInEveryPlan } from "@/lib/site";
 import { suiteLines } from "@/lib/content";
 
 export const metadata = pageMetadata({
-  title: "Products — CRM, Workforce & Sales Force Automation",
+  title: "Products — CRM & Sales Force Automation",
   description:
-    "Explore OZZO's three product lines: CRM for winning customers, WFA for field-workforce tracking, and SFA for sales & distribution — with WhatsApp CRM, GPS, orders, payments and 11 built-in reports.",
+    "Explore OZZO's two products: CRM for winning and keeping customers, and Sales Force Automation for running your field team — field tracking, attendance, orders, payments and distribution — with WhatsApp CRM, GPS and 11 built-in reports.",
   path: "/products",
   keywords: [
     "CRM features",
-    "field force automation",
     "sales force automation software",
+    "field force tracking",
     "WhatsApp shared inbox",
     "GPS attendance",
     "order and payment collection app",
@@ -100,9 +100,10 @@ export default function ProductsPage() {
             One platform for your whole revenue engine
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Three product lines you can buy on their own or combine — all sharing
-            one customer record, one login and one source of truth across the web
-            dashboard and the Android field app.
+            Two products you can buy on their own or combine — CRM to win and keep
+            customers, and Sales Force Automation to run your field team end to end.
+            Both share one customer record, one login and one source of truth across
+            the web dashboard and the Android field app.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             {productLines.map((p) => (
@@ -165,6 +166,9 @@ export default function ProductsPage() {
                   {line.summary}
                 </p>
                 <div className="mt-6 flex items-baseline gap-2">
+                  {line.priceFrom && (
+                    <span className="text-sm font-semibold text-muted-foreground">from</span>
+                  )}
                   <span className="ozzo-display text-4xl text-foreground">
                     ₹{line.price}
                   </span>

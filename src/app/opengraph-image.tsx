@@ -57,13 +57,13 @@ export default function OpengraphImage() {
             Run the whole field day on one app
           </div>
           <div style={{ color: "#a0a0b0", fontSize: 30, maxWidth: 860 }}>
-            CRM · Workforce · Field Sales — one platform, web dashboard + mobile
+            CRM + Sales Force Automation — one platform, web dashboard + mobile
             app.
           </div>
         </div>
 
         <div style={{ display: "flex", gap: 16 }}>
-          {["CRM", "Workforce", "Sales & Distribution"].map((t) => (
+          {["CRM", "Sales Force Automation", "Web + Mobile"].map((t) => (
             <div
               key={t}
               style={{

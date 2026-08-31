@@ -2,41 +2,44 @@ import Link from "next/link";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Container, SectionHeading } from "./ui";
 import { Reveal } from "./reveal";
-import { productLines, combinedPlans, includedInEveryPlan } from "@/lib/site";
+import { productLines, sfaTiers, combinedPlans, includedInEveryPlan } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type Tier = {
   name: string;
-  price: number;
+  price: number | null;
+  priceNote?: string;
   tagline: string;
   features: string[];
-  accent: string;
   popular?: boolean;
+  group: "CRM" | "SFA";
 };
 
+const crmLine = productLines.find((p) => p.slug === "crm")!;
+const fullPlatform = combinedPlans[0];
+
+/**
+ * Two products, priced by tier:
+ *   CRM (one price) · SFA (WFA Starter / SFA Professional / Enterprise).
+ * Field-force tracking is the entry tier of SFA — never a separate product.
+ */
 const tiers: Tier[] = [
-  ...productLines.map((p) => ({
-    name: p.name,
-    price: p.price,
-    tagline: p.sub,
-    features: p.features.slice(0, 5),
-    accent: p.accentClass,
+  {
+    name: "CRM",
+    price: crmLine.price,
+    tagline: crmLine.sub,
+    features: crmLine.features.slice(0, 5),
+    group: "CRM",
+  },
+  ...sfaTiers.map((t): Tier => ({
+    name: t.name,
+    price: t.price,
+    priceNote: t.priceNote,
+    tagline: t.tagline,
+    features: t.features.slice(0, 5),
+    popular: t.popular,
+    group: "SFA",
   })),
-  {
-    name: combinedPlans[0].name,
-    price: combinedPlans[0].price,
-    tagline: combinedPlans[0].tagline,
-    features: combinedPlans[0].features,
-    accent: "text-primary",
-    popular: true,
-  },
-  {
-    name: combinedPlans[1].name,
-    price: combinedPlans[1].price,
-    tagline: combinedPlans[1].tagline,
-    features: combinedPlans[1].features,
-    accent: "text-foreground",
-  },
 ];
 
 export function PricingSection() {
@@ -45,11 +48,11 @@ export function PricingSection() {
       <Container>
         <SectionHeading
           eyebrow="Simple, transparent pricing"
-          title="Pay only for what your team needs"
-          description="Priced per user, per month, minimum 3 users. Pick one line or combine them — SFA already includes everything in Workforce."
+          title="Two products. Pay only for what you need."
+          description="Priced per user, per month, minimum 3 users. CRM stands alone; Sales Force Automation comes in three tiers — field tracking (WFA Starter) up to the full sell-collect-distribute flow. Combine both for the complete platform."
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {tiers.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 60}>
               <div
@@ -65,19 +68,20 @@ export function PricingSection() {
                     Most popular
                   </span>
                 )}
-                <h3 className={cn("text-xl font-bold", tier.accent)}>
-                  {tier.name}
-                </h3>
-                <p className="mb-4 text-xs text-muted-foreground">
-                  {tier.tagline}
-                </p>
+                <span className="ozzo-eyebrow text-[10px] text-muted-foreground">{tier.group}</span>
+                <h3 className="mt-1 text-xl font-bold text-foreground">{tier.name}</h3>
+                <p className="mb-4 text-xs text-muted-foreground">{tier.tagline}</p>
                 <div className="mb-6 flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-foreground">
-                    ₹{tier.price.toLocaleString("en-IN")}
-                  </span>
-                  <span className="text-sm font-medium text-muted-foreground">
-                    /user/mo
-                  </span>
+                  {tier.price === null ? (
+                    <span className="text-3xl font-extrabold text-foreground">{tier.priceNote}</span>
+                  ) : (
+                    <>
+                      <span className="text-3xl font-extrabold text-foreground">
+                        ₹{tier.price.toLocaleString("en-IN")}
+                      </span>
+                      <span className="text-sm font-medium text-muted-foreground">/user/mo</span>
+                    </>
+                  )}
                 </div>
                 <Link
                   href="/book-demo"
@@ -88,7 +92,7 @@ export function PricingSection() {
                       : "bg-muted text-foreground hover:bg-muted/70",
                   )}
                 >
-                  Get a quote <ArrowRight className="h-4 w-4" />
+                  {tier.price === null ? "Talk to sales" : "Get a quote"} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <ul className="flex-1 space-y-3">
                   {tier.features.map((f) => (
@@ -96,7 +100,7 @@ export function PricingSection() {
                       key={f}
                       className="flex items-start gap-2.5 text-sm font-medium text-foreground"
                     >
-                      <Check className={cn("h-5 w-5 shrink-0", tier.accent)} />
+                      <Check className="h-5 w-5 shrink-0 text-primary" />
                       {f}
                     </li>
                   ))}
@@ -110,11 +114,10 @@ export function PricingSection() {
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             <div className="shrink-0">
               <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                <Sparkles className="h-4 w-4 text-primary" /> Included in every
-                plan
+                <Sparkles className="h-4 w-4 text-primary" /> Included in every plan
               </p>
               <p className="text-xs text-muted-foreground">
-                The essentials, whichever line you choose
+                The essentials, whichever you choose
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -132,8 +135,9 @@ export function PricingSection() {
         </div>
 
         <p className="mt-8 text-center text-sm text-muted-foreground">
-          Annual billing is the base rate · half-yearly +20% · quarterly +30% ·
-          10-day &amp; 30-day trials available.{" "}
+          The full platform — CRM + SFA together — is ₹{fullPlatform.price}/user/mo.
+          Annual billing is the base rate · half-yearly +20% · quarterly +30% · 10-day
+          &amp; 30-day trials available.{" "}
           <Link href="/book-demo" className="font-semibold text-primary hover:underline">
             Book a demo for the right plan →
           </Link>
