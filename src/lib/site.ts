@@ -7,7 +7,7 @@
  */
 
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://ozzo.app"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://ozzo.co.in"
 ).replace(/\/$/, "");
 
 export const brand = {
@@ -19,18 +19,18 @@ export const brand = {
     "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI.",
   // Where prospects sign in / sign up. Kept OFF the marketing pages
   // on purpose — this is the separate app URL only.
-  appUrl: "https://app.ozzo.app",
+  appUrl: "https://app.ozzo.co.in",
 };
 
 export const contact = {
-  // TODO: replace all of these with your real details.
-  email: "hello@ozzo.app",
-  salesEmail: "sales@ozzo.app",
-  phoneDisplay: "+91 00000 00000",
-  phoneE164: "+910000000000",
-  whatsappDisplay: "+91 00000 00000",
+  email: "hello@ozzo.co.in",
+  // Single shared mailbox for now; both point at the same inbox.
+  salesEmail: "hello@ozzo.co.in",
+  phoneDisplay: "+91 97220 74310",
+  phoneE164: "+919722074310",
+  whatsappDisplay: "+91 97220 74310",
   // Digits only, country code first, no + or spaces (for wa.me links).
-  whatsappNumber: "910000000000",
+  whatsappNumber: "919722074310",
   // Optional street address — improves local SEO. Leave blank to omit.
   address: {
     street: "",
