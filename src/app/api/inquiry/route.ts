@@ -75,61 +75,12 @@ export async function POST(request: Request) {
     );
   }
 
-  // TEMP DIAGNOSTIC — remove after debugging email delivery.
-  const _debug = await debugTeamAlert(data);
-  return NextResponse.json({ ok: true, _debug });
-}
+  // Best-effort email alert (never blocks a successful submission).
+  await sendTeamAlert(data).catch((e) =>
+    console.error("[inquiry] email alert failed:", e),
+  );
 
-// TEMP DIAGNOSTIC — safe: never returns the secret, only whether it
-// exists (+3-char prefix) and Resend's HTTP response. Remove after use.
-async function debugTeamAlert(data: {
-  name: string;
-  company?: string;
-  email?: string;
-  phone: string;
-  teamSize?: string;
-  message?: string;
-  pagePath?: string;
-}) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.INQUIRY_NOTIFY_EMAIL;
-  const from =
-    process.env.INQUIRY_FROM_EMAIL || "OZZO Website <onboarding@resend.dev>";
-  const info = {
-    hasKey: !!apiKey,
-    keyPrefix: apiKey ? apiKey.slice(0, 3) : null,
-    keyLen: apiKey ? apiKey.length : 0,
-    hasNotify: !!to,
-    to: to ?? null,
-    from,
-  };
-  if (!apiKey || !to) return { ...info, sent: false, reason: "missing-env" };
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: to.split(",").map((s) => s.trim()),
-        reply_to: data.email || undefined,
-        subject: `New lead: ${data.name}`,
-        html: `<p>Diagnostic send for ${escapeHtml(data.name)} (${escapeHtml(
-          data.phone,
-        )}).</p>`,
-      }),
-    });
-    return {
-      ...info,
-      sent: res.ok,
-      status: res.status,
-      body: (await res.text()).slice(0, 300),
-    };
-  } catch (e) {
-    return { ...info, sent: false, error: String(e).slice(0, 300) };
-  }
+  return NextResponse.json({ ok: true });
 }
 
 async function sendTeamAlert(data: {
