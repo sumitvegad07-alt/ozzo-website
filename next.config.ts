@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   compress: true,
   // Pin the workspace root so the parent repo's lockfile isn't picked up.
   turbopack: { root: projectRoot },
+  async rewrites() {
+    return [
+      // Founder digital visiting card — served as a standalone static page
+      // (no site chrome) for instant load. Clean URL: ozzo.co.in/card
+      { source: "/card", destination: "/card.html" },
+    ];
+  },
   async redirects() {
     return [
       // Workforce Automation is no longer a separate product — it is the entry
@@ -19,6 +26,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    const noindex = { key: "X-Robots-Tag", value: "noindex, nofollow" };
     return [
       {
         source: "/:path*",
@@ -28,6 +36,12 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },
+      // Unlisted founder card + its assets: reachable by direct link only,
+      // never indexed by search engines.
+      { source: "/card", headers: [noindex] },
+      { source: "/card.html", headers: [noindex] },
+      { source: "/card-cover.png", headers: [noindex] },
+      { source: "/sumit-vegad.vcf", headers: [noindex] },
     ];
   },
 };

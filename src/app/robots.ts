@@ -7,7 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        // Keep the unlisted founder card (and its assets) out of search engines.
+        disallow: ["/api/", "/card", "/sumit-vegad.vcf"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
