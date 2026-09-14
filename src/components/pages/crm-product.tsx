@@ -21,7 +21,7 @@ import {
   faqSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
-import { productLines, crmWfaPlan, includedInEveryPlan } from "@/lib/site";
+import { productLines, includedInEveryPlan } from "@/lib/site";
 import {
   crmProblems,
   crmCapabilities,
@@ -336,8 +336,8 @@ export function CrmProductPage() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            Field force is the <span className="font-semibold text-foreground">CRM + WFA</span> plan — ₹{crmWfaPlan.price}/user/mo.{" "}
-            <Link href="#pricing" className="font-semibold text-primary hover:underline">See pricing →</Link>
+            Add the field team on the <span className="font-semibold text-foreground">CRM + Field</span> plan — office and field on one login.{" "}
+            <Link href="/plans" className="font-semibold text-primary hover:underline">Compare plans →</Link>
           </p>
         </Container>
       </section>
@@ -473,34 +473,29 @@ export function CrmProductPage() {
       {/* ─────────── SECTION 11 · FAQ ─────────── */}
       <section className="border-y border-border bg-card-2"><FaqSection items={crmFaqs} heading /></section>
 
-      {/* ─────────── SECTION 12 · Pricing ─────────── */}
-      <section id="pricing" className="py-24 md:py-28">
+      {/* ─────────── SECTION 12 · Plans ─────────── */}
+      <section id="plans" className="py-24 md:py-28">
         <Container>
-          <SectionHeading eyebrow="Pricing" title="Simple pricing for OZZO CRM" description="Per user, per month, minimum 3 users. Annual billing is the base rate — half-yearly adds 20%, quarterly adds 30%." />
+          <SectionHeading eyebrow="Plans" title="Buy CRM on its own — or add the field team" description="CRM stands alone for your front office. When your reps go on the road, add the Field line and every visit lands on the same customer record — one login for office and field." />
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             <Reveal>
               <div className={`relative flex h-full flex-col rounded-3xl border border-primary/30 bg-card p-8 shadow-lg shadow-primary/5 ring-2 ${crmLine.ringClass}`}>
                 <span className="absolute -top-3 left-8 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-md">CRM on its own</span>
                 <h3 className={`text-xl font-bold ${crmLine.accentClass}`}>CRM<span className="ml-2 text-sm font-medium text-muted-foreground">{crmLine.sub}</span></h3>
-                <div className="mt-4 flex items-baseline gap-1"><span className="ozzo-display text-5xl text-foreground">₹{crmLine.price}</span><span className="text-sm font-medium text-muted-foreground">/user/mo</span></div>
-                <p className="mt-1 text-xs text-muted-foreground">Minimum 3 users</p>
                 <ul className="mt-6 flex-1 space-y-3">
                   {crmLine.features.map((f) => (<li key={f} className="flex items-start gap-2.5 text-sm text-foreground"><Check className={`mt-0.5 h-4 w-4 shrink-0 ${crmLine.accentClass}`} />{f}</li>))}
                 </ul>
-                <Link href="/book-demo" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary-hover">Book a demo <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/book-demo" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary-hover">Start free trial <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </Reveal>
             <Reveal delay={100}>
               <div className="flex h-full flex-col gap-4">
-                <p className="ozzo-eyebrow text-muted-foreground">Add the field force</p>
+                <p className="ozzo-eyebrow text-muted-foreground">Add the field team</p>
                 <div className="rounded-3xl border border-primary/20 bg-primary-soft p-6 shadow-sm">
-                  <div className="flex items-baseline justify-between">
-                    <h4 className="text-lg font-bold text-foreground">{crmWfaPlan.name}</h4>
-                    <div><span className="ozzo-display text-2xl text-foreground">₹{crmWfaPlan.price}</span><span className="text-xs text-muted-foreground"> /user/mo</span></div>
-                  </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{crmWfaPlan.tagline}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground">Everything in CRM plus field-force tracking — selfie + GPS attendance, live location, geo-tagged visits, beat routes and expenses — so office and field run on one login.</p>
-                  <Link href="#field" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">See field-force features <ArrowRight className="h-4 w-4" /></Link>
+                  <h4 className="text-lg font-bold text-foreground">CRM + Field</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">Front office + field force, one login</p>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground">Everything in CRM plus field-force tracking — selfie + GPS attendance, live location, geo-tagged visits, beat routes and expenses — so office and field run on one record.</p>
+                  <Link href="/plans" className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Compare every plan <ArrowRight className="h-4 w-4" /></Link>
                 </div>
                 <div className="mt-auto rounded-3xl border border-dashed border-border p-6">
                   <p className="flex items-center gap-2 text-sm font-semibold text-foreground"><Sparkles className="h-4 w-4 text-primary" /> In every plan</p>

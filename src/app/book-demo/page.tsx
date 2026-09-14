@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
 
 const reassurances = [
   "A real walkthrough built around your workflow — no generic tour",
-  "Straight answers on pricing and setup",
+  "Straight answers on plans and setup",
   "A refundable trial so your team can try it live before you commit",
 ];
 

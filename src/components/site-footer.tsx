@@ -99,6 +99,14 @@ export function SiteFooter() {
               ))}
               <li>
                 <Link
+                  href="/plans"
+                  className="text-sm text-white/60 transition-colors hover:text-primary"
+                >
+                  Plans &amp; packages
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/products"
                   className="text-sm text-white/60 transition-colors hover:text-primary"
                 >

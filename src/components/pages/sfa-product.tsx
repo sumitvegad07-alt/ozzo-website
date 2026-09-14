@@ -17,14 +17,13 @@ import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
 import { OrderGuards } from "@/components/motion/order-guards";
 import { SchemeCalc } from "@/components/motion/scheme-calc";
 import { TradeNetwork } from "@/components/motion/trade-network";
-import { PricingTiers, type Tier } from "@/components/motion/pricing-tiers";
 import {
   JsonLd,
   breadcrumbSchema,
   faqSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
-import { sfaTiers, includedInEveryPlan } from "@/lib/site";
+import { includedInEveryPlan } from "@/lib/site";
 import { industries } from "@/lib/content";
 import {
   sfaRepDay,
@@ -34,15 +33,6 @@ import {
   sfaMobile,
   sfaFaqs,
 } from "@/lib/sfa-page";
-
-const pricingTiers: Tier[] = sfaTiers.map((t) => ({
-  name: t.name,
-  price: t.price,
-  priceNote: t.priceNote,
-  tagline: t.tagline,
-  popular: t.popular,
-  features: t.features,
-}));
 
 /* ─────────────────────────── Field-activity dashboard mock ─────────────────────────── */
 
@@ -309,7 +299,7 @@ export function SfaProductPage() {
               <Reveal delay={240}>
                 <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                   <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>
-                  <SecondaryCTA href="#pricing">See pricing</SecondaryCTA>
+                  <SecondaryCTA href="/plans">Compare plans</SecondaryCTA>
                 </div>
               </Reveal>
               <Reveal delay={320}>
@@ -585,17 +575,40 @@ export function SfaProductPage() {
         </Container>
       </section>
 
-      {/* ─────────── SECTION 12 · Pricing ─────────── */}
-      <section id="pricing" className="scroll-mt-24 border-y border-border bg-card-2 py-24 md:py-28">
+      {/* ─────────── SECTION 12 · Plans ─────────── */}
+      <section id="plans" className="scroll-mt-24 border-y border-border bg-card-2 py-24 md:py-28">
         <Container>
           <SectionHeading
-            eyebrow="Pricing"
-            title="One product, three tiers"
-            description="Start with field visibility and move up as you grow — WFA Starter and SFA Professional are tiers of the same product, not different tools."
+            eyebrow="Plans"
+            title="Start with field visibility. Grow into full sales."
+            description="Field and Sales are lines of the same product, not different tools — begin with attendance, GPS and visits, then add orders, collections, stock and schemes whenever you're ready, on the same data."
           />
-          <PricingTiers tiers={pricingTiers} />
-          <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-dashed border-border bg-card p-6">
-            <p className="text-sm font-semibold text-foreground">In every tier</p>
+          <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2">
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-sm">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted text-cyan-500">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground">Field</h3>
+              <p className="mt-1 text-sm text-muted-foreground">See your field team, live</p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground">
+                Selfie + GPS attendance, live location, geo-tagged visits, beat routes,
+                territory and expense claims.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-primary/30 bg-card p-8 shadow-sm ring-2 ring-primary/20">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted text-emerald-500">
+                <ShoppingCart className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground">Sales</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Sell, collect &amp; distribute</p>
+              <p className="mt-4 text-sm leading-relaxed text-foreground">
+                Everything in Field, plus offline orders, multi-unit, field collection,
+                auto outstanding, auto stock, schemes, price lists and distribution.
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto mt-6 max-w-4xl rounded-3xl border border-dashed border-border bg-card p-6">
+            <p className="text-sm font-semibold text-foreground">In every plan</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {includedInEveryPlan.map((b) => (
                 <span key={b} className="rounded-full border border-border bg-card-2 px-2.5 py-1 text-xs font-medium text-muted-foreground">
@@ -603,6 +616,10 @@ export function SfaProductPage() {
                 </span>
               ))}
             </div>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <PrimaryCTA href="/plans">Compare every module</PrimaryCTA>
+            <SecondaryCTA href="/book-demo">Book a demo</SecondaryCTA>
           </div>
         </Container>
       </section>

@@ -274,15 +274,15 @@ export const faqs = [
   },
   {
     q: "What's the difference between CRM and SFA?",
-    a: "CRM is for winning and keeping customers — leads, deals, a shared WhatsApp inbox and quotations. SFA (Sales Force Automation) runs your field team end to end: attendance, GPS and visits at the entry tier (WFA Starter), then orders, payment collection, customer financials, stock and distributor/dealer management as you grow. Field-force tracking isn't a separate product — it's the first tier of SFA.",
+    a: "CRM is for winning and keeping customers — leads, deals, a shared WhatsApp inbox and quotations. SFA (Sales Force Automation) runs your field team end to end: attendance, GPS and visits on the Field line, then orders, payment collection, customer financials, stock and distributor/dealer management on the Sales line as you grow. Field-force tracking isn't a separate product — it's the entry line of SFA.",
   },
   {
     q: "Do I have to buy the whole platform?",
-    a: "No. Pick CRM on its own, SFA on its own, or the full platform (CRM + SFA). Within SFA you choose the tier that fits — WFA Starter for field visibility, SFA Professional for the full sell-collect-distribute flow. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
+    a: "No. Pick CRM on its own, SFA on its own, or the full platform (CRM + SFA). Within SFA you choose the line that fits — Field for field visibility, Sales for the full sell-collect-distribute flow. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
   },
   {
-    q: "How is it priced?",
-    a: "Per user, per month, with a minimum of 3 users: CRM ₹100; SFA from ₹150 (WFA Starter) to ₹350 (SFA Professional); the full CRM + SFA platform ₹450. Annual is the base rate; half-yearly adds 20% and quarterly adds 30%. Share your details and our team will help you pick the right fit.",
+    q: "How are plans structured?",
+    a: "By product line, not by feature drip: CRM for the front office, Field for workforce visibility, Sales for the full sell-collect-distribute flow, and Complete for CRM and Sales together. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements. Compare them module by module on the Plans page, then share your details and our team will recommend the right fit and put together a package for you.",
   },
   {
     q: "Does it work without internet in the field?",
@@ -295,6 +295,26 @@ export const faqs = [
   {
     q: "Do I need the WhatsApp Business API?",
     a: "WhatsApp CRM — the shared inbox, templates and the AI assistant — is included in any plan with the CRM line. You connect your official WhatsApp Business number to use it.",
+  },
+  {
+    q: "Which industries is OZZO built for?",
+    a: "Any business whose people sell, service or deliver in the field — distribution & FMCG, manufacturing, building materials, pharma & healthcare, agri-inputs, real estate & agencies, retail & wholesale, and field-service teams. If your team works off a beat, a route or a set of customers on the ground, OZZO fits the way they already work.",
+  },
+  {
+    q: "Can OZZO replace my separate GPS tracker, CRM and spreadsheets?",
+    a: "Yes — that's the point. Instead of stitching a CRM, a GPS tracker, a bulk-messaging tool and a pile of spreadsheets that never agree, OZZO puts customers, messages, visits, orders, collections and reports on one record with one login. Outstanding and stock keep themselves, so there's no accounting tool to bolt on either.",
+  },
+  {
+    q: "Do managers and field reps use the same system?",
+    a: "Yes. Managers work a full web dashboard — pipelines, catalogue, reports, roles and settings — while reps use the Android app for check-ins, orders, collections and attendance. Both run on one database, so what a rep captures in the field is what the manager sees in the office, in real time.",
+  },
+  {
+    q: "Is my data secure, and do I own it?",
+    a: "Yes. Granular per-module roles and data-scoping decide exactly what each person can see and do, and the customer database belongs to your business — not to the rep who leaves. Everything is yours to export whenever you want.",
+  },
+  {
+    q: "Does OZZO handle distributors, dealers and secondary sales?",
+    a: "Yes. Classify customers into trade levels — distributor, dealer, retailer — and every order tags itself Primary or Secondary automatically, with outstanding tracked at each level of the chain. Trade schemes, price lists and multi-unit ordering are all built in.",
   },
   {
     q: "How do we get started?",

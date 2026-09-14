@@ -18,7 +18,6 @@ import {
 } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { Icon } from "@/components/icon";
-import { PricingSection } from "@/components/pricing-section";
 import { FaqSection } from "@/components/faq-section";
 import {
   pageMetadata,
@@ -165,22 +164,11 @@ export default function ProductsPage() {
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                   {line.summary}
                 </p>
-                <div className="mt-6 flex items-baseline gap-2">
-                  {line.priceFrom && (
-                    <span className="text-sm font-semibold text-muted-foreground">from</span>
-                  )}
-                  <span className="ozzo-display text-4xl text-foreground">
-                    ₹{line.price}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    /user/mo · min 3 users
-                  </span>
-                </div>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <PrimaryCTA href={`/products/${line.slug}`}>
                     Explore {line.name}
                   </PrimaryCTA>
-                  <SecondaryCTA href="/book-demo">Book a demo</SecondaryCTA>
+                  <SecondaryCTA href="/plans">See plans</SecondaryCTA>
                 </div>
               </Reveal>
 
@@ -281,7 +269,33 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      <PricingSection />
+      {/* Plans pointer */}
+      <section className="py-24">
+        <Container>
+          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-10 shadow-sm md:p-14">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-[90px]" />
+            <div className="relative flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-xl">
+                <Eyebrow>Plans &amp; packages</Eyebrow>
+                <h2 className="ozzo-display mt-4 text-3xl text-foreground md:text-4xl">
+                  See every module, plan by plan
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                  Compare CRM, Field, Sales and the complete platform side by side —
+                  attendance, GPS, orders, collections, stock, schemes and WhatsApp CRM,
+                  laid out module by module. Then book a demo for a package built around
+                  your team.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col gap-3">
+                <PrimaryCTA href="/plans">Compare plans</PrimaryCTA>
+                <SecondaryCTA href="/book-demo">Book a demo</SecondaryCTA>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <FaqSection />
 
       {/* CTA */}

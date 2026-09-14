@@ -94,14 +94,9 @@ export function softwareApplicationSchema() {
       "@type": "Offer",
       name: `${brand.name} ${p.name}`,
       description: p.summary,
-      price: p.price,
       priceCurrency: "INR",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: p.price,
-        priceCurrency: "INR",
-        unitText: "user/month",
-      },
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/plans`,
     })),
   };
 }

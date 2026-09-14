@@ -1,4 +1,4 @@
-import { SITE_URL, brand, contact, productLines, sfaTiers, combinedPlans } from "@/lib/site";
+import { SITE_URL, brand, contact, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 
 export const dynamic = "force-static";
@@ -16,24 +16,21 @@ export function GET() {
   lines.push("");
   lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps (Android today, with iOS on the way), and works offline.`);
   lines.push("");
-  lines.push("## Products (priced per user, per month, min 3 users)");
-  lines.push("There are TWO products only: CRM, and Sales Force Automation (SFA). Field-force tracking (formerly 'WFA / Workforce Automation') is NOT a separate product — it is the entry tier ('WFA Starter') of SFA.");
+  lines.push("## Products");
+  lines.push("There are TWO products only: CRM, and Sales Force Automation (SFA). Field-force tracking (formerly 'WFA / Workforce Automation') is NOT a separate product — it is the entry tier ('Field') of SFA.");
   for (const p of productLines) {
-    const price = p.priceFrom ? `from ₹${p.price}` : `₹${p.price}`;
-    lines.push(`- **${p.name} — ${p.fullName}** (${price}/user/mo): ${p.summary} Key features: ${p.features.join("; ")}.`);
+    lines.push(`- **${p.name} — ${p.fullName}**: ${p.summary} Key features: ${p.features.join("; ")}.`);
   }
   lines.push("");
-  lines.push("### Sales Force Automation tiers");
-  for (const t of sfaTiers) {
-    const price = t.price === null ? (t.priceNote ?? "custom") : `₹${t.price}/user/mo`;
-    lines.push(`- **${t.name}** (${price}): ${t.tagline}. ${t.features.join("; ")}.`);
-  }
-  for (const c of combinedPlans) {
-    lines.push(`- **${c.name}** (₹${c.price}/user/mo): ${c.tagline}. ${c.features.join("; ")}.`);
-  }
+  lines.push("### Plans / packages (compare at /plans)");
+  lines.push("Plans are structured by product line, not by price tier. Public pricing is not published; a quote is provided on a demo call.");
+  lines.push("- **CRM** — front office: leads, deals, shared WhatsApp inbox + AI assistant, branded quotations, one customer record.");
+  lines.push("- **Field** — field visibility (the WFA line): selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
+  lines.push("- **Sales** — full field sales (the SFA line): everything in Field plus offline orders, multi-unit ordering, field payment collection, auto outstanding, auto stock, trade schemes, price lists and distributor/dealer/retailer levels.");
+  lines.push("- **Complete** — CRM and Sales together on one login: the whole platform, one customer record, 11 reports + DSR.");
   lines.push("");
-  lines.push("## Pricing notes");
-  lines.push("- Annual billing is the base rate; half-yearly adds 20%; quarterly adds 30%.");
+  lines.push("## Plans notes");
+  lines.push("- OZZO does not publish per-user prices publicly; pricing is quoted on a demo call, matched to team size and the line chosen.");
   lines.push("- 10-day and 30-day refundable trials are available.");
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
@@ -42,6 +39,7 @@ export function GET() {
   lines.push(`- Products overview: ${SITE_URL}/products`);
   lines.push(`- CRM: ${SITE_URL}/products/crm`);
   lines.push(`- Sales Force Automation (SFA): ${SITE_URL}/products/sfa`);
+  lines.push(`- Plans & packages: ${SITE_URL}/plans`);
   lines.push(`- Book a demo: ${SITE_URL}/book-demo`);
   lines.push(`- Contact: ${SITE_URL}/contact`);
   lines.push("");

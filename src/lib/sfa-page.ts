@@ -195,8 +195,8 @@ export const sfaFaqs: { q: string; a: string }[] = [
     a: "OZZO SFA is one product that runs your entire field-sales operation. It shows you what your team is doing — selfie + GPS attendance, live location and geo-tagged visits — and lets reps capture orders offline, collect payments in the field, and keep outstanding and stock calculated automatically. It's a web dashboard for managers and an Android app for reps.",
   },
   {
-    q: "What's the difference between WFA and SFA?",
-    a: "They aren't separate products. WFA Starter is the entry tier of Sales Force Automation — field visibility: attendance, GPS, visits, routes and expenses. SFA Professional is the full product, adding order booking, payment collection, customer financials, stock and distributor/dealer management on top. You move up a tier, not across to another product.",
+    q: "What's the difference between the Field and Sales lines?",
+    a: "They aren't separate products. Field is the entry line of Sales Force Automation — field visibility: attendance, GPS, visits, routes and expenses. Sales is the full line, adding order booking, payment collection, customer financials, stock and distributor/dealer management on top. You move up a line, not across to another product.",
   },
   {
     q: "Who is OZZO SFA for?",
@@ -264,7 +264,7 @@ export const sfaFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does OZZO SFA cost?",
-    a: "Per user, per month, minimum 3 users: WFA Starter (field visibility) ₹150, SFA Professional (the full sell-collect-distribute flow) ₹350. Enterprise adds the CRM line for the complete platform and is quoted to your team (the full CRM + SFA platform is ₹450). Annual is the base rate; half-yearly adds 20%, quarterly adds 30%.",
+    a: "OZZO doesn't publish per-user rates publicly. SFA comes as two lines — Field (workforce visibility) and Sales (the full sell-collect-distribute flow) — and pricing is matched to your team size and the line you choose. Book a free demo or request a callback and our team will put together a package for you; a refundable trial is available so you can try it live first.",
   },
   {
     q: "Is there a free trial, and how do I get started?",

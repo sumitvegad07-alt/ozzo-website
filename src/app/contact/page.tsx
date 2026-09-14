@@ -79,7 +79,7 @@ export default function ContactPage() {
               We&apos;re a message away
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Questions about the platform, pricing or getting set up? Reach us
+              Questions about the platform, plans or getting set up? Reach us
               on whichever channel suits you — a real person replies.
             </p>
           </div>

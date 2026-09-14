@@ -35,7 +35,7 @@ export default function TermsPage() {
           <h2>Inquiries</h2>
           <p>
             Submitting an inquiry does not create a contract or obligation to purchase. Product
-            availability, features and pricing shown here may change and are confirmed at the time of
+            availability, features and plans may change and are confirmed by our team at the time of
             purchase.
           </p>
 

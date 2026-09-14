@@ -16,6 +16,7 @@ import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
 import { JsonLd, faqSchema, softwareApplicationSchema } from "@/lib/seo";
 import { brand, productLines } from "@/lib/site";
+import { plans, featureGroups } from "@/lib/plans";
 import {
   productStats,
   removed,
@@ -317,15 +318,9 @@ export default function HomePage() {
                         className="h-6 w-6"
                       />
                     </span>
-                    <div className="text-right">
-                      <div className="ozzo-display text-2xl text-foreground">
-                        {line.priceFrom && (
-                          <span className="mr-1 align-middle text-xs font-semibold text-muted-foreground">from</span>
-                        )}
-                        ₹{line.price}
-                      </div>
-                      <div className="text-xs text-muted-foreground">/user/mo</div>
-                    </div>
+                    <span className={`ozzo-eyebrow text-[10px] ${line.accentClass}`}>
+                      {line.sub}
+                    </span>
                   </div>
                   <h3 className={`text-2xl font-bold ${line.accentClass}`}>
                     {line.name}
@@ -393,6 +388,50 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* ─────────────── Modules showcase (SEO depth) ─────────────── */}
+      <section id="modules" className="border-y border-border bg-card-2 py-24 md:py-32">
+        <Container>
+          <SectionHeading
+            eyebrow="Everything under one login"
+            title="Every module your field team needs — in one place"
+            description="From attendance to distribution, OZZO ships the whole toolkit as one connected system. No add-on marketplace, no integrations to babysit — just the modules a field-sales business actually runs on, on web and the Android app."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featureGroups.map((g, i) => (
+              <Reveal key={g.name} delay={i * 40}>
+                <div className="group h-full rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
+                      <Icon name={g.icon} className="h-5 w-5" />
+                    </span>
+                    <h3 className="text-base font-bold text-foreground">{g.name}</h3>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {g.rows.slice(0, 4).map((row) => (
+                      <li
+                        key={row.feature}
+                        className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground"
+                      >
+                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={3} />
+                        {row.feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/plans"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+            >
+              See every module, plan by plan <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
       {/* ─────────────── CRM spotlight ─────────────── */}
       <CrmSpotlight />
 
@@ -424,6 +463,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─────────────── Plans teaser ─────────────── */}
+      <section id="plans" className="py-24 md:py-32">
+        <Container>
+          <SectionHeading
+            eyebrow="Plans & packages"
+            title="Start with the line that fits your team"
+            description="Buy the front office, field visibility, or full field sales — and grow into the rest on the same data. No public price tags; a package built around your team, quoted on a quick call."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {plans.map((plan, i) => (
+              <Reveal key={plan.key} delay={i * 70}>
+                <Link
+                  href="/plans"
+                  className={`group flex h-full flex-col rounded-3xl border bg-card p-6 shadow-sm ring-1 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/[0.05] ${
+                    plan.popular
+                      ? "border-primary/40 ring-primary/30"
+                      : "border-border ring-transparent"
+                  }`}
+                >
+                  {plan.popular && (
+                    <span className="mb-3 w-fit rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-foreground">
+                      Most popular
+                    </span>
+                  )}
+                  <div className="mb-3 flex items-center gap-2.5">
+                    <span className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-muted ${plan.accentClass} transition-transform duration-300 group-hover:scale-110`}>
+                      <Icon name={plan.icon} className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className={`text-lg font-bold ${plan.accentClass}`}>{plan.name}</h3>
+                      <p className="text-[11px] text-muted-foreground">{plan.tagline}</p>
+                    </div>
+                  </div>
+                  <ul className="flex-1 space-y-2">
+                    {plan.highlights.slice(0, 4).map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
+                        <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${plan.accentClass}`} strokeWidth={3} />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    View plan
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <PrimaryCTA href="/plans">Compare all plans</PrimaryCTA>
+          </div>
+        </Container>
+      </section>
+
       {/* ─────────────── FAQ ─────────────── */}
       <FaqSection />
 
@@ -443,7 +537,7 @@ export default function HomePage() {
               <ul className="space-y-4">
                 {[
                   "A real walkthrough built around your workflow",
-                  "Straight answers on pricing and setup",
+                  "Straight answers on plans and setup",
                   "A refundable trial so your team can try it live",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">

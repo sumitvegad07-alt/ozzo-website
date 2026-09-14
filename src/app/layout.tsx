@@ -5,6 +5,7 @@ import { SITE_URL, brand } from "@/lib/site";
 import { JsonLd, organizationSchema, websiteSchema } from "@/lib/seo";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
+import { ExitIntentPopup } from "@/components/exit-intent-popup";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -69,6 +70,7 @@ export default function RootLayout({
         <SiteNavbar />
         <main id="main">{children}</main>
         <SiteFooter />
+        <ExitIntentPopup />
       </body>
     </html>
   );

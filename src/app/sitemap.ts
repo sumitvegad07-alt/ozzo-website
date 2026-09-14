@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // /products/wfa permanently redirects and is not listed here.
     { path: "/products/crm", priority: 0.9, freq: "weekly" },
     { path: "/products/sfa", priority: 0.9, freq: "weekly" },
+    { path: "/plans", priority: 0.9, freq: "weekly" },
     { path: "/book-demo", priority: 0.8, freq: "monthly" },
     { path: "/contact", priority: 0.7, freq: "monthly" },
     { path: "/privacy", priority: 0.3, freq: "yearly" },

@@ -59,9 +59,6 @@ export type ProductLine = {
   name: string;
   fullName: string;
   sub: string;
-  price: number;
-  /** When true, `price` is the entry-tier "from" price, not a flat rate. */
-  priceFrom?: boolean;
   accentClass: string;
   dotClass: string;
   ringClass: string;
@@ -75,9 +72,10 @@ export type ProductLine = {
  *   2. SFA (Sales Force Automation) — run & grow field sales
  *
  * Field-force tracking (formerly marketed as "WFA / Workforce Automation")
- * is NOT a separate product — it is the entry tier of Sales Force Automation
- * (see `sfaTiers` → "WFA Starter"). Every claim is grounded in the feature
- * master catalog.
+ * is NOT a separate product — it is the "Field" entry line of Sales Force
+ * Automation. Plans are compared, module by module and without published
+ * prices, on the /plans page (see src/lib/plans.ts). Every claim is grounded
+ * in the feature master catalog.
  */
 export const productLines: ProductLine[] = [
   {
@@ -85,7 +83,6 @@ export const productLines: ProductLine[] = [
     name: "CRM",
     fullName: "Customer Relationship Management",
     sub: "Win & keep customers",
-    price: 100,
     accentClass: "text-violet-400",
     dotClass: "bg-violet-400",
     ringClass: "ring-violet-500/20",
@@ -105,8 +102,6 @@ export const productLines: ProductLine[] = [
     name: "SFA",
     fullName: "Sales Force Automation",
     sub: "Run & grow field sales",
-    price: 150,
-    priceFrom: true,
     accentClass: "text-emerald-400",
     dotClass: "bg-emerald-400",
     ringClass: "ring-emerald-500/20",
@@ -123,89 +118,6 @@ export const productLines: ProductLine[] = [
   },
 ];
 
-export type PricingTier = {
-  name: string;
-  /** null = custom / talk-to-us pricing. */
-  price: number | null;
-  priceNote?: string;
-  tagline: string;
-  popular?: boolean;
-  features: string[];
-};
-
-/**
- * The three tiers of the single Sales Force Automation product.
- * WFA Starter is the field-visibility entry tier; SFA Professional adds the
- * full sell-collect-distribute flow; Enterprise adds the CRM line for the
- * complete platform.
- */
-export const sfaTiers: PricingTier[] = [
-  {
-    name: "WFA Starter",
-    price: 150,
-    tagline: "Field visibility & attendance",
-    features: [
-      "Selfie + GPS attendance, auto-classified",
-      "Live location, All-Locations map & Track Report",
-      "Geo-tagged customer & lead visits",
-      "Beat / route planning & territory management",
-      "Expense claims with approval",
-      "Tracking Health + full offline capture",
-    ],
-  },
-  {
-    name: "SFA Professional",
-    price: 350,
-    popular: true,
-    tagline: "Sell, collect & distribute",
-    features: [
-      "Everything in WFA Starter",
-      "Offline order capture, dispatch & order PDF",
-      "Field payment collection with proof & approval",
-      "Customer financials, credit limits & auto outstanding",
-      "Closing stock derived from movement — no inventory tool",
-      "Distributor / dealer / retailer levels, discounts & sales analytics",
-    ],
-  },
-  {
-    name: "Enterprise",
-    price: null,
-    priceNote: "Custom",
-    tagline: "The complete platform + CRM",
-    features: [
-      "Everything in SFA Professional",
-      "Add the CRM line — shared WhatsApp inbox & pipelines",
-      "AI knowledge-base assistant & branded quotations",
-      "Custom fields across 12 record types",
-      "Roles & permissions with data-scoping",
-      "Guided onboarding mapped to your workflow",
-    ],
-  },
-];
-
-/** CRM paired with field-force (WFA) tracking — the combo shown on the CRM page.
- * (WFA is the field-visibility tier of SFA; CRM + WFA is a real ₹200 plan.) */
-export const crmWfaPlan = {
-  name: "CRM + WFA",
-  price: 200,
-  tagline: "Front office + field force",
-};
-
-/** The full CRM + SFA platform, kept for AI/LLM briefs and schema accuracy. */
-export const combinedPlans = [
-  {
-    name: "CRM + SFA",
-    price: 450,
-    tagline: "The complete platform — front office and field, one login",
-    popular: true,
-    features: [
-      "Everything in CRM",
-      "Everything in SFA",
-      "Sell, track & distribute in one place",
-    ],
-  },
-];
-
 /** Included in every plan, regardless of line. */
 export const includedInEveryPlan = [
   "Customers",
@@ -215,14 +127,6 @@ export const includedInEveryPlan = [
   "Leave",
   "Holiday",
   "Announcements",
-];
-
-export const productInterestOptions = [
-  "CRM",
-  "Field tracking — WFA Starter",
-  "Sales & distribution — SFA Professional",
-  "Full platform — CRM + SFA",
-  "Not sure — help me choose",
 ];
 
 export const teamSizeOptions = [

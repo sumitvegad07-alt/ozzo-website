@@ -281,7 +281,7 @@ export const crmComparison: {
   { feature: "Field visits on the same record", spreadsheet: false, generic: false, ozzo: true },
   { feature: "Android app that works offline", spreadsheet: false, generic: "Limited", ozzo: true },
   { feature: "Custom fields & roles / data-scoping", spreadsheet: false, generic: "Higher tiers", ozzo: true },
-  { feature: "Priced for Indian teams", spreadsheet: "Free but costly", generic: "Per-seat, steep", ozzo: "From ₹100/user" },
+  { feature: "Built for Indian field-sales teams", spreadsheet: "Generic", generic: "Global-first", ozzo: true },
   { feature: "Set up with a guided demo", spreadsheet: false, generic: "Self-serve", ozzo: true },
 ];
 
@@ -301,7 +301,7 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How is OZZO CRM different from a generic CRM?",
-    a: "OZZO is built around how Indian field-sales teams actually work: a shared WhatsApp inbox with an AI assistant is core (not a paid add-on), geo-tagged field visits sit on the same customer record, quotations print on your letterhead, the Android app works fully offline, and it's priced from ₹100 per user. You get a guided setup instead of being left to configure everything yourself.",
+    a: "OZZO is built around how Indian field-sales teams actually work: a shared WhatsApp inbox with an AI assistant is core (not a paid add-on), geo-tagged field visits sit on the same customer record, quotations print on your letterhead, and the Android app works fully offline. You also get a guided setup instead of being left to configure everything yourself.",
   },
   {
     q: "Does OZZO CRM work with WhatsApp?",
@@ -357,11 +357,11 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Is OZZO CRM suitable for small businesses?",
-    a: "Yes. Pricing starts at ₹100 per user per month with a minimum of 3 users, so a small team gets a real CRM — WhatsApp, pipelines, quotations and reports — without enterprise pricing or a long implementation.",
+    a: "Yes. Even a small team gets a real CRM — WhatsApp, pipelines, quotations and reports — without a long implementation. Plans are flexible and start with the essentials, so you're not paying for modules you won't switch on.",
   },
   {
     q: "How much does OZZO CRM cost?",
-    a: "CRM is ₹100 per user per month, minimum 3 users, on annual billing (half-yearly adds 20%, quarterly adds 30%). Add field-force tracking — attendance, GPS, geo-tagged visits, routes and expenses — as CRM + WFA for ₹200 per user per month.",
+    a: "OZZO doesn't publish per-user rates publicly — pricing is matched to your team size and the plan you choose (CRM on its own, or CRM plus the field team). Book a free demo or request a callback and our team will put together a package for you. A refundable trial is available so you can try it live first.",
   },
   {
     q: "Is there a free trial, and how do I get started?",
