@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       // Founder digital visiting card — served as a standalone static page
       // (no site chrome) for instant load. Clean URL: ozzo.co.in/card
       { source: "/card", destination: "/card.html" },
+      { source: "/card-editor", destination: "/card-editor.html" },
     ];
   },
   async redirects() {
@@ -40,6 +41,8 @@ const nextConfig: NextConfig = {
       // never indexed by search engines.
       { source: "/card", headers: [noindex] },
       { source: "/card.html", headers: [noindex] },
+      { source: "/card-editor", headers: [noindex] },
+      { source: "/card-editor.html", headers: [noindex] },
       { source: "/card-cover.png", headers: [noindex] },
       { source: "/sumit-vegad.vcf", headers: [noindex] },
     ];

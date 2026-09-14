@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Card Editor — OZZO</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="/icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--violet:#7834E8;--violet2:#A657ED;--ink:#0B0C16;--paper:#FBFAF6;--card:#fff;--fg:#171923;--muted:#5B5B67;--border:#E4E3DE;--soft:#F1F0EB;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--fg);-webkit-font-smoothing:antialiased}
+  .top{background:var(--ink);color:#fff;padding:18px 20px;display:flex;align-items:center;gap:12px}
+  .top img{height:26px}
+  .top .t{font-weight:700;font-size:15px}
+  .top .pill{margin-left:auto;font-size:12px;color:#cfcbde;background:#1c1533;padding:6px 12px;border-radius:999px}
+  .wrap{max-width:1120px;margin:0 auto;padding:22px 16px 60px;display:grid;grid-template-columns:1fr 400px;gap:26px;align-items:start}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin:0 0 12px;font-weight:700}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:0 2px 6px rgba(11,12,22,.03)}
+  label.f{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin:12px 0 5px}
+  input[type=text],input[type=url],select{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:11px;font-family:inherit;font-size:14px;color:var(--fg);background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(120,52,232,.12)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .photo-row{display:flex;align-items:center;gap:16px;margin-top:6px}
+  .pv{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet2));display:flex;align-items:center;justify-content:center;overflow:hidden;flex:0 0 auto;border:3px solid #fff;box-shadow:0 6px 16px -8px rgba(120,52,232,.5)}
+  .pv img{width:100%;height:100%;object-fit:cover}
+  .pv span{color:#fff;font-weight:800;font-size:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:11px;border:1px solid var(--border);background:#fff;color:var(--fg);font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn:hover{background:var(--soft)}
+  .btn.ghost{border-style:dashed}
+  .btn.danger{color:#c0392b;border-color:#f0d0cc}
+  .btn.primary{background:linear-gradient(100deg,var(--violet),var(--violet2));color:#fff;border:none;box-shadow:0 10px 20px -8px rgba(120,52,232,.55)}
+  .btn.primary:hover{filter:brightness(1.05)}
+  .btn.block{width:100%;justify-content:center;padding:14px;font-size:15px}
+  .link{border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:10px;background:#fff}
+  .link.off{opacity:.55;background:var(--soft)}
+  .link .hd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .link .hd select{width:auto;flex:1;font-weight:600}
+  .sw{position:relative;display:inline-flex;align-items:center;cursor:pointer;user-select:none;font-size:12px;color:var(--muted);gap:7px}
+  .sw input{position:absolute;opacity:0} .sw .track{width:38px;height:22px;border-radius:999px;background:#d5d4ce;transition:.15s;position:relative}
+  .sw .track:after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .sw input:checked + .track{background:var(--violet)} .sw input:checked + .track:after{transform:translateX(16px)}
+  .del{margin-left:auto;color:#c0392b;background:none;border:none;cursor:pointer;font-size:18px;line-height:1;padding:2px 6px}
+  .hint{font-size:11.5px;color:var(--muted);margin-top:4px}
+  .preview-wrap{position:sticky;top:18px}
+  .frame{width:100%;max-width:390px;height:720px;border:1px solid var(--border);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 24px 50px -22px rgba(11,12,22,.28);margin:0 auto}
+  iframe{width:100%;height:100%;border:0}
+  .actions{margin-top:16px;display:flex;flex-direction:column;gap:10px;max-width:390px;margin-left:auto;margin-right:auto}
+  .steps{font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:10px}
+  .steps b{color:var(--fg)}
+  .note{background:#EEE7FC;border:1px solid #dcccfa;color:#4b2aa3;border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.55;margin-top:12px}
+  .msg{font-size:12.5px;color:var(--violet);font-weight:600;min-height:16px;text-align:center;margin-top:2px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="/brand/logo-dark.png" alt="OZZO" />
+    <span class="t">Digital Card Editor</span>
+    <span class="pill">Private tool · not indexed</span>
+  </div>
+
+  <div class="wrap">
+    <div class="left">
+      <div class="panel">
+        <h2>Profile</h2>
+        <div class="grid2">
+          <div><label class="f">Full name</label><input type="text" id="i-name"></div>
+          <div><label class="f">Initials (fallback)</label><input type="text" id="i-initials" maxlength="3"></div>
+        </div>
+        <div class="grid2">
+          <div><label class="f">Title / role</label><input type="text" id="i-role"></div>
+          <div><label class="f">Company</label><input type="text" id="i-org"></div>
+        </div>
+        <label class="f">Short tagline (used in the saved contact note)</label>
+        <input type="text" id="i-tagline">
+
+        <label class="f">Profile photo</label>
+        <div class="photo-row">
+          <div class="pv" id="pv"></div>
+          <div>
+            <input type="file" id="i-photo" accept="image/*" style="display:none">
+            <button class="btn" onclick="document.getElementById('i-photo').click()">Upload photo</button>
+            <button class="btn danger" id="rm-photo" style="margin-left:6px">Remove</button>
+            <div class="hint">Square works best. It's saved inside the card file — no separate upload.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Links & socials</h2>
+        <div id="links"></div>
+        <button class="btn ghost" id="add-link">＋ Add a link</button>
+        <div class="hint" style="margin-top:8px">Toggle any row off to hide it. Add Instagram, YouTube, Facebook, LinkedIn, X, Telegram, a maps pin, or a custom link — paste the full URL.</div>
+      </div>
+    </div>
+
+    <div class="preview-wrap">
+      <div class="frame"><iframe id="frame" title="Live preview"></iframe></div>
+      <div class="actions">
+        <button class="btn primary block" id="download">⬇ Download updated card.html</button>
+        <button class="btn block" id="copy">Copy configuration (JSON)</button>
+        <div class="msg" id="msg"></div>
+        <div class="note">
+          <b>To publish your changes:</b>
+          <div class="steps">
+            1. Click <b>Download updated card.html</b>.<br>
+            2. Open your repo → <b>github.com/sumitvegad07-alt/ozzo-website</b> → the <b>public</b> folder → click <b>card.html</b> → the pencil (Edit) → delete all, paste the new file… <i>or</i> use <b>Add file → Upload files</b> and drop the downloaded card.html to replace it.<br>
+            3. Commit. It's live at <b>ozzo.co.in/card</b> in ~1 minute. The link & QR never change.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const TYPE_DEFAULTS = {
+  email:     {label:"Email me",            sub:"Work email",           ph:"you@company.com"},
+  phone:     {label:"Call me",             sub:"Mobile · tap to call", ph:"+919876543210"},
+  whatsapp:  {label:"Chat on WhatsApp",    sub:"",                     ph:"919876543210 (number only)"},
+  website:   {label:"Visit our website",   sub:"",                     ph:"https://ozzo.co.in"},
+  instagram: {label:"Follow on Instagram", sub:"",                     ph:"https://instagram.com/yourhandle"},
+  youtube:   {label:"Subscribe on YouTube",sub:"",                     ph:"https://youtube.com/@yourchannel"},
+  facebook:  {label:"Follow on Facebook",  sub:"",                     ph:"https://facebook.com/yourpage"},
+  linkedin:  {label:"Connect on LinkedIn", sub:"",                     ph:"https://linkedin.com/in/you"},
+  twitter:   {label:"Follow on X",         sub:"",                     ph:"https://x.com/yourhandle"},
+  telegram:  {label:"Message on Telegram", sub:"",                     ph:"https://t.me/yourhandle"},
+  maps:      {label:"Find us on the map",  sub:"",                     ph:"https://maps.app.goo.gl/..."},
+  custom:    {label:"Custom link",         sub:"",                     ph:"https://..."}
+};
+const TYPE_ORDER = ["email","phone","whatsapp","website","instagram","youtube","facebook","linkedin","twitter","telegram","maps","custom"];
+const TYPE_NAMES = {email:"Email",phone:"Phone",whatsapp:"WhatsApp",website:"Website",instagram:"Instagram",youtube:"YouTube",facebook:"Facebook",linkedin:"LinkedIn",twitter:"X (Twitter)",telegram:"Telegram",maps:"Map / location",custom:"Custom"};
+
+let TEMPLATE = "", C = null;
+
+async function boot(){
+  try{
+    TEMPLATE = await (await fetch("/card.html?raw="+Date.now())).text();
+    const m = TEMPLATE.match(/\/\*CARD_START\*\/([\s\S]*?)\/\*CARD_END\*\//);
+    const objText = m[1].replace(/^[\s\S]*?const\s+CARD\s*=\s*/, "").replace(/;\s*$/, "");
+    C = (new Function("return ("+objText+")"))();
+  }catch(e){
+    C = {name:"Sumit Vegad",role:"CEO",org:"OZZO Technologies",initials:"SV",photo:"",tagline:"",links:[]};
+  }
+  fillForm(); renderLinks(); refresh();
+}
+
+function fillForm(){
+  i("name").value=C.name||""; i("role").value=C.role||""; i("org").value=C.org||"";
+  i("initials").value=C.initials||""; i("tagline").value=C.tagline||"";
+  drawPhoto();
+}
+function i(id){return document.getElementById("i-"+id) || document.getElementById(id);}
+function drawPhoto(){
+  const pv=document.getElementById("pv");
+  if(C.photo) pv.innerHTML='<img src="'+C.photo+'">';
+  else pv.innerHTML='<span>'+((C.initials||(C.name||"").split(" ").map(w=>w[0]).join("").slice(0,2)).toUpperCase())+'</span>';
+}
+
+function renderLinks(){
+  const box=document.getElementById("links"); box.innerHTML="";
+  (C.links||[]).forEach((l,idx)=>{
+    const d=document.createElement("div"); d.className="link"+(l.on?"":" off");
+    const opts=TYPE_ORDER.map(t=>'<option value="'+t+'"'+(t===l.type?' selected':'')+'>'+TYPE_NAMES[t]+'</option>').join("");
+    d.innerHTML =
+      '<div class="hd">'+
+        '<label class="sw"><input type="checkbox" '+(l.on?'checked':'')+' data-k="on" data-i="'+idx+'"><span class="track"></span></label>'+
+        '<select data-k="type" data-i="'+idx+'">'+opts+'</select>'+
+        '<button class="del" title="Remove" data-del="'+idx+'">✕</button>'+
+      '</div>'+
+      '<div class="grid2">'+
+        '<input type="text" placeholder="Button text" value="'+esc(l.label||"")+'" data-k="label" data-i="'+idx+'">'+
+        '<input type="text" placeholder="Small caption (optional)" value="'+esc(l.sub||"")+'" data-k="sub" data-i="'+idx+'">'+
+      '</div>'+
+      '<input type="text" style="margin-top:8px" placeholder="'+(TYPE_DEFAULTS[l.type]||TYPE_DEFAULTS.custom).ph+'" value="'+esc(l.value||"")+'" data-k="value" data-i="'+idx+'">';
+    box.appendChild(d);
+  });
+}
+function esc(s){return String(s).replace(/"/g,"&quot;");}
+
+document.getElementById("links").addEventListener("input",e=>{
+  const t=e.target, idx=t.getAttribute("data-i"), k=t.getAttribute("data-k");
+  if(idx==null) return;
+  const l=C.links[+idx];
+  if(k==="on") l.on=t.checked;
+  else if(k==="type"){ l.type=t.value; const dft=TYPE_DEFAULTS[t.value];
+    if(!l.label||Object.values(TYPE_DEFAULTS).some(x=>x.label===l.label)) l.label=dft.label;
+    renderLinks(); }
+  else l[k]=t.value;
+  document.querySelectorAll(".link")[+ (idx)]?.classList.toggle("off", !C.links[+idx].on);
+  refresh();
+});
+document.getElementById("links").addEventListener("click",e=>{
+  const del=e.target.getAttribute && e.target.getAttribute("data-del");
+  if(del!=null){ C.links.splice(+del,1); renderLinks(); refresh(); }
+});
+document.getElementById("add-link").addEventListener("click",()=>{
+  const dft=TYPE_DEFAULTS.instagram;
+  C.links.push({type:"instagram",value:"",label:dft.label,sub:dft.sub,on:true});
+  renderLinks(); refresh();
+});
+
+["name","role","org","initials","tagline"].forEach(id=>{
+  i(id).addEventListener("input",()=>{ C[id]=i(id).value; if(id==="name"||id==="initials")drawPhoto(); refresh(); });
+});
+
+// photo upload -> square crop -> dataURL
+i("photo").addEventListener("change",e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=ev=>{ const img=new Image(); img.onload=()=>{
+    const s=Math.min(img.width,img.height), cv=document.createElement("canvas"); cv.width=cv.height=512;
+    const cx=cv.getContext("2d");
+    cx.drawImage(img,(img.width-s)/2,(img.height-s)/2,s,s,0,0,512,512);
+    C.photo=cv.toDataURL("image/jpeg",0.85); drawPhoto(); refresh();
+  }; img.src=ev.target.result; };
+  rd.readAsDataURL(f);
+});
+document.getElementById("rm-photo").addEventListener("click",()=>{ C.photo=""; drawPhoto(); refresh(); });
+
+function serialize(){
+  const cfg = "\n/*CARD_START*/\nconst CARD = "+JSON.stringify(C,null,2)+";\n/*CARD_END*/\n";
+  return TEMPLATE.replace(/\/\*CARD_START\*\/[\s\S]*?\/\*CARD_END\*\//, cfg.trim());
+}
+function refresh(){ document.getElementById("frame").srcdoc = serialize(); }
+
+document.getElementById("download").addEventListener("click",()=>{
+  const blob=new Blob([serialize()],{type:"text/html"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="card.html";
+  document.body.appendChild(a); a.click(); a.remove();
+  msg("Downloaded card.html — now upload it to your repo's public folder.");
+});
+document.getElementById("copy").addEventListener("click",async()=>{
+  try{ await navigator.clipboard.writeText(JSON.stringify(C,null,2)); msg("Configuration copied to clipboard."); }
+  catch{ msg("Copy failed — select the JSON manually."); }
+});
+function msg(t){ document.getElementById("msg").textContent=t; setTimeout(()=>{document.getElementById("msg").textContent="";},4000); }
+
+boot();
+</script>
+</body>
+</html>
