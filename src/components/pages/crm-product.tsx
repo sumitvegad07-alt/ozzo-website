@@ -485,7 +485,7 @@ export function CrmProductPage() {
                 <ul className="mt-6 flex-1 space-y-3">
                   {crmLine.features.map((f) => (<li key={f} className="flex items-start gap-2.5 text-sm text-foreground"><Check className={`mt-0.5 h-4 w-4 shrink-0 ${crmLine.accentClass}`} />{f}</li>))}
                 </ul>
-                <Link href="/book-demo" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary-hover">Start free trial <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/book-demo" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary-hover">Book a demo <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </Reveal>
             <Reveal delay={100}>
@@ -517,7 +517,7 @@ export function CrmProductPage() {
             <div className="pointer-events-none absolute -top-16 left-1/2 h-56 w-[600px] -translate-x-1/2 rounded-full bg-primary/30 blur-[100px]" />
             <div className="relative">
               <h2 className="ozzo-display mx-auto max-w-2xl text-3xl md:text-5xl">Give every enquiry a process to move through.</h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-white/60">Book a free, no-pressure demo. We&apos;ll map OZZO CRM to how your team sells and set up a refundable trial with your own data.</p>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-white/60">Book a free, no-pressure demo. We&apos;ll map OZZO CRM to how your team sells and show you exactly how it runs on your own data.</p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>
                 <Link href="/products" className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white/10">Compare products <ArrowRight className="h-4 w-4" /></Link>

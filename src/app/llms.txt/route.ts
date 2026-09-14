@@ -22,16 +22,16 @@ export function GET() {
     lines.push(`- **${p.name} — ${p.fullName}**: ${p.summary} Key features: ${p.features.join("; ")}.`);
   }
   lines.push("");
-  lines.push("### Plans / packages (compare at /plans)");
-  lines.push("Plans are structured by product line, not by price tier. Public pricing is not published; a quote is provided on a demo call.");
+  lines.push("### Plans / packages (compare module-by-module at /plans)");
+  lines.push("There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations. Public pricing is not published; a quote is provided on a demo call.");
   lines.push("- **CRM** — front office: leads, deals, shared WhatsApp inbox + AI assistant, branded quotations, one customer record.");
-  lines.push("- **Field** — field visibility (the WFA line): selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
-  lines.push("- **Sales** — full field sales (the SFA line): everything in Field plus offline orders, multi-unit ordering, field payment collection, auto outstanding, auto stock, trade schemes, price lists and distributor/dealer/retailer levels.");
-  lines.push("- **Complete** — CRM and Sales together on one login: the whole platform, one customer record, 11 reports + DSR.");
+  lines.push("- **WFA** — field visibility: selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
+  lines.push("- **CRM + WFA** — the front office plus the field team on one login; visits land on the same customer record.");
+  lines.push("- **SFA** — full field sales (includes WFA): offline orders, multi-unit ordering, field payment collection, auto outstanding, auto stock, trade schemes, price lists and distributor/dealer/retailer levels.");
+  lines.push("- **CRM + SFA** — the complete platform: CRM and full field sales on one customer record, 11 reports + DSR.");
   lines.push("");
   lines.push("## Plans notes");
-  lines.push("- OZZO does not publish per-user prices publicly; pricing is quoted on a demo call, matched to team size and the line chosen.");
-  lines.push("- 10-day and 30-day refundable trials are available.");
+  lines.push("- OZZO does not publish per-user prices publicly; pricing is quoted on a demo call, matched to team size and the plan chosen.");
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
   lines.push("## Key pages");

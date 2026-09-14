@@ -141,7 +141,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
                   Book a free demo and our team will call you, map OZZO to how
-                  your field team works, and set up a refundable trial.
+                  your field team works, and show you exactly how it fits.
                 </p>
                 <Link
                   href="/book-demo"

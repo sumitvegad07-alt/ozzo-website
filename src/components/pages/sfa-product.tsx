@@ -639,7 +639,7 @@ export function SfaProductPage() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-lg text-white/60">
                 Book a free, no-pressure demo. We&apos;ll map SFA to how your field team
-                works and set up a refundable trial with your own data.
+                works and show you exactly how it runs on your own data.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>

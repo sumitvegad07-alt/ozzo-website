@@ -23,9 +23,9 @@ import { plans, setsApart, includedEverywhere, planFaqs } from "@/lib/plans";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
-  title: "Plans & Packages — CRM, Field & Sales Force Automation",
+  title: "Plans & Packages — CRM, WFA & SFA",
   description:
-    "Compare OZZO plans module by module — CRM, Field (workforce tracking), Sales Force Automation and the complete platform. Attendance, GPS, visits, orders, collections, auto-outstanding, stock, schemes and WhatsApp CRM. Refundable trials — book a demo for a quote.",
+    "Compare OZZO plans module by module — CRM, WFA, CRM + WFA, SFA and CRM + SFA. Attendance, GPS, visits, orders, collections, auto-outstanding, stock, schemes and WhatsApp CRM, laid out plan by plan. Book a demo for a package built for your team.",
   path: "/plans",
   keywords: [
     "field sales software plans",
@@ -63,17 +63,16 @@ export default function PlansPage() {
             <span className="ozzo-gradient-text">field team</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Buy the line that fits how your team works today — front office, field
-            visibility, or full field sales — and move up whenever you&apos;re ready.
-            Every module below is live in production. Compare them side by side, then
-            book a demo for a package built around your team.
+            Five plans built from three product lines — CRM, WFA and SFA. Buy the
+            combination that fits how your team works, and add the rest on the same data
+            whenever you&apos;re ready. Every module below is live in production.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>
+            <PrimaryCTA href="/book-demo">Book a demo</PrimaryCTA>
             <SecondaryCTA href="#compare">Compare every module</SecondaryCTA>
           </div>
           <p className="mt-5 text-sm font-medium text-muted-foreground">
-            10 &amp; 30-day refundable trials · no card required · guided setup
+            Web dashboard + Android app · works offline · guided onboarding
           </p>
         </Container>
       </section>
@@ -81,58 +80,54 @@ export default function PlansPage() {
       {/* ─────────────── Plan cards ─────────────── */}
       <section className="py-16 md:py-20">
         <Container>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (
-              <Reveal key={plan.key} delay={i * 70}>
+              <Reveal key={plan.id} delay={i * 60}>
                 <div
                   className={cn(
-                    "relative flex h-full flex-col rounded-3xl border bg-card p-6 shadow-sm ring-1",
+                    "relative flex h-full flex-col rounded-3xl border bg-card p-5 shadow-sm ring-1",
                     plan.popular
                       ? "border-primary/40 ring-primary/30"
                       : "border-border ring-transparent",
                   )}
                 >
                   {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-md">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground shadow-md">
                       Most popular
                     </span>
                   )}
-                  <div className="mb-4 flex items-center gap-3">
-                    <span
-                      className={cn(
-                        "flex h-11 w-11 items-center justify-center rounded-2xl bg-muted",
-                        plan.accentClass,
-                      )}
-                    >
-                      <Icon name={plan.icon} className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h2 className={cn("text-xl font-bold", plan.accentClass)}>
-                        {plan.name}
-                      </h2>
-                      <p className="text-xs text-muted-foreground">{plan.tagline}</p>
-                    </div>
-                  </div>
+                  <span
+                    className={cn(
+                      "mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted",
+                      plan.accentClass,
+                    )}
+                  >
+                    <Icon name={plan.icon} className="h-5 w-5" />
+                  </span>
+                  <h2 className={cn("text-lg font-bold", plan.accentClass)}>
+                    {plan.name}
+                  </h2>
+                  <p className="text-xs text-muted-foreground">{plan.tagline}</p>
 
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                     {plan.blurb}
                   </p>
 
                   {plan.inherits && (
-                    <p className="mt-4 text-xs font-semibold text-foreground">
+                    <p className="mt-4 text-[11px] font-semibold text-foreground">
                       Everything in{" "}
                       <span className="text-primary">{plan.inherits}</span>, plus:
                     </p>
                   )}
 
-                  <ul className="mt-3 flex-1 space-y-2.5">
+                  <ul className="mt-3 flex-1 space-y-2">
                     {plan.highlights.map((h) => (
                       <li
                         key={h}
-                        className="flex items-start gap-2.5 text-sm text-foreground"
+                        className="flex items-start gap-2 text-[13px] leading-snug text-foreground"
                       >
                         <Check
-                          className={cn("mt-0.5 h-4 w-4 shrink-0", plan.accentClass)}
+                          className={cn("mt-0.5 h-3.5 w-3.5 shrink-0", plan.accentClass)}
                           strokeWidth={2.5}
                         />
                         {h}
@@ -143,13 +138,13 @@ export default function PlansPage() {
                   <Link
                     href="/book-demo"
                     className={cn(
-                      "mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-all hover:-translate-y-0.5",
+                      "mt-5 inline-flex w-full items-center justify-center gap-1.5 rounded-full px-4 py-2.5 text-[13px] font-bold transition-all hover:-translate-y-0.5",
                       plan.popular
                         ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary-hover"
                         : "border border-border bg-card text-foreground shadow-sm hover:border-primary/30",
                     )}
                   >
-                    {plan.cta} <ArrowRight className="h-4 w-4" />
+                    Book a demo <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </Reveal>
@@ -239,14 +234,14 @@ export default function PlansPage() {
                 center={false}
                 eyebrow="Get a package built for you"
                 title="Tell us your team. We'll size the plan."
-                description="Share your team size and how your field team works, and we'll recommend the right line — then set up a refundable trial with your own data before you commit."
+                description="Share your team size and how your field team works, and we'll recommend the right plan and put together a package built around your workflow."
                 className="mb-8"
               />
               <ul className="space-y-4">
                 {[
                   "A recommendation matched to how you actually sell",
                   "A guided demo on your own workflow",
-                  "A refundable trial so your team can try it live",
+                  "A package sized to your team and plan",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">

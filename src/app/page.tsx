@@ -3,6 +3,7 @@ import {
   CheckCircle2,
   Monitor,
   Smartphone,
+  WifiOff,
   ArrowRight,
   Check,
 } from "lucide-react";
@@ -14,6 +15,10 @@ import { HeroVisual } from "@/components/hero-visual";
 import { CrmSpotlight } from "@/components/crm-spotlight";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
+import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
+import { RouteCompliance } from "@/components/motion/route-compliance";
+import { OrderGuards } from "@/components/motion/order-guards";
+import { WhatsAppThread } from "@/components/motion/whatsapp-thread";
 import { JsonLd, faqSchema, softwareApplicationSchema } from "@/lib/seo";
 import { brand, productLines } from "@/lib/site";
 import { plans, featureGroups } from "@/lib/plans";
@@ -27,6 +32,60 @@ import {
   industries,
   faqs,
 } from "@/lib/content";
+
+/** Animated product demos shown in the "OZZO in motion" showcase. */
+const motionDemos: {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+  node: React.ReactNode;
+}[] = [
+  {
+    eyebrow: "WhatsApp CRM",
+    title: "Every customer message, one shared inbox",
+    body: "Chats on your official WhatsApp number land against the right lead — with templates and an AI assistant answering routine questions from your own knowledge base.",
+    points: [
+      "Shared team inbox — never stuck on a personal phone",
+      "AI replies to routine questions instantly",
+      "Every message on the customer's timeline",
+    ],
+    node: <WhatsAppThread />,
+  },
+  {
+    eyebrow: "Route compliance",
+    title: "The beat gets worked — in order",
+    body: "Plan the beat once. On the ground the rep works it in sequence, and every stop is recorded visited or skipped — a skip needs a reason, not a silent miss.",
+    points: [
+      "Planned sequence vs what actually happened",
+      "Skipping is gated — a reason is logged",
+      "The outlet that kept getting missed stops getting missed",
+    ],
+    node: <RouteCompliance />,
+  },
+  {
+    eyebrow: "Order control",
+    title: "Every order checked before it's booked",
+    body: "This is where the money leaks close. An order is checked against the customer's credit limit, overdue days and real stock — set to warn or hard-block, per account.",
+    points: [
+      "Credit-limit control: warn or block over the limit",
+      "Overdue control: block new orders while past due",
+      "Stock control: flag when a line exceeds what's on hand",
+    ],
+    node: <OrderGuards />,
+  },
+  {
+    eyebrow: "Live field feed",
+    title: "Watch the day happen — don't reconstruct it",
+    body: "Attendance, visits, orders and collections stream onto one screen as they happen, so you manage the field by facts in real time, not a WhatsApp round-up at night.",
+    points: [
+      "Punch-ins, visits, orders and payments, live",
+      "Offline captures sync the moment signal returns",
+      "One screen — the whole field force, in real time",
+    ],
+    node: <LiveActivityFeed />,
+  },
+];
 
 export default function HomePage() {
   return (
@@ -79,8 +138,8 @@ export default function HomePage() {
               <Reveal delay={320}>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-muted-foreground">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-4 w-4 text-success" /> 10 &amp;
-                    30-day refundable trials
+                    <WifiOff className="h-4 w-4 text-success" /> Works fully
+                    offline
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Monitor className="h-4 w-4 text-primary" /> Web dashboard
@@ -150,6 +209,58 @@ export default function HomePage() {
                   </p>
                 </div>
               </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────────── OZZO in motion (animated showcase) ─────────────── */}
+      <section id="in-motion" className="relative overflow-hidden border-y border-border bg-card-2 py-24 md:py-32">
+        <div className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
+        <Container className="relative">
+          <SectionHeading
+            eyebrow="See it in motion"
+            title="Not screenshots — the product, working"
+            description="Every OZZO module is a moment in the field day. Here are four of them, in motion — messaging, coverage, order control and the live feed that ties them together."
+          />
+          <div className="space-y-20 md:space-y-28">
+            {motionDemos.map((d, i) => (
+              <div
+                key={d.title}
+                className="grid items-center gap-10 md:grid-cols-2 md:gap-14"
+              >
+                <Reveal
+                  variant={i % 2 ? "right" : "left"}
+                  className={i % 2 ? "md:order-2" : ""}
+                >
+                  <Eyebrow>{d.eyebrow}</Eyebrow>
+                  <h3 className="ozzo-display mt-4 text-3xl text-foreground md:text-[2.4rem] md:leading-[1.1]">
+                    {d.title}
+                  </h3>
+                  <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                    {d.body}
+                  </p>
+                  <ul className="mt-7 space-y-3.5">
+                    {d.points.map((p) => (
+                      <li key={p} className="flex items-start gap-3">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
+                          <Check className="h-3 w-3" strokeWidth={3} />
+                        </span>
+                        <span className="text-[15px] leading-relaxed text-foreground">
+                          {p}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+                <Reveal
+                  delay={100}
+                  variant={i % 2 ? "left" : "right"}
+                  className={i % 2 ? "md:order-1" : ""}
+                >
+                  {d.node}
+                </Reveal>
+              </div>
             ))}
           </div>
         </Container>
@@ -471,12 +582,12 @@ export default function HomePage() {
             title="Start with the line that fits your team"
             description="Buy the front office, field visibility, or full field sales — and grow into the rest on the same data. No public price tags; a package built around your team, quoted on a quick call."
           />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (
-              <Reveal key={plan.key} delay={i * 70}>
+              <Reveal key={plan.id} delay={i * 60}>
                 <Link
                   href="/plans"
-                  className={`group flex h-full flex-col rounded-3xl border bg-card p-6 shadow-sm ring-1 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/[0.05] ${
+                  className={`group flex h-full flex-col rounded-3xl border bg-card p-5 shadow-sm ring-1 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/[0.05] ${
                     plan.popular
                       ? "border-primary/40 ring-primary/30"
                       : "border-border ring-transparent"
@@ -487,18 +598,14 @@ export default function HomePage() {
                       Most popular
                     </span>
                   )}
-                  <div className="mb-3 flex items-center gap-2.5">
-                    <span className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-muted ${plan.accentClass} transition-transform duration-300 group-hover:scale-110`}>
-                      <Icon name={plan.icon} className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <h3 className={`text-lg font-bold ${plan.accentClass}`}>{plan.name}</h3>
-                      <p className="text-[11px] text-muted-foreground">{plan.tagline}</p>
-                    </div>
-                  </div>
-                  <ul className="flex-1 space-y-2">
+                  <span className={`mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-muted ${plan.accentClass} transition-transform duration-300 group-hover:scale-110`}>
+                    <Icon name={plan.icon} className="h-5 w-5" />
+                  </span>
+                  <h3 className={`text-base font-bold ${plan.accentClass}`}>{plan.name}</h3>
+                  <p className="text-[11px] text-muted-foreground">{plan.tagline}</p>
+                  <ul className="mt-3 flex-1 space-y-2">
                     {plan.highlights.slice(0, 4).map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
+                      <li key={h} className="flex items-start gap-2 text-[12px] leading-snug text-muted-foreground">
                         <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${plan.accentClass}`} strokeWidth={3} />
                         {h}
                       </li>
@@ -531,14 +638,14 @@ export default function HomePage() {
                 center={false}
                 eyebrow="See it on your own workflow"
                 title="Book a free, no-pressure demo"
-                description="Share a few details and our team will call you, understand how your field team works, and show you exactly how OZZO fits — then set up a guided, refundable trial."
+                description="Share a few details and our team will call you, understand how your field team works, and show you exactly how OZZO fits — with guided onboarding to get you live."
                 className="mb-8"
               />
               <ul className="space-y-4">
                 {[
                   "A real walkthrough built around your workflow",
                   "Straight answers on plans and setup",
-                  "A refundable trial so your team can try it live",
+                  "Guided onboarding and data migration, with you",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" />

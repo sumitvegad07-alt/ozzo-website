@@ -156,7 +156,7 @@ export function ExitIntentPopup() {
             <p id="exit-intent-title-desktop" className="mb-3 hidden text-sm font-semibold text-foreground md:block">
               Request a callback — we&apos;ll show you OZZO on your workflow.
             </p>
-            <InquiryForm compact />
+            <InquiryForm compact stack />
           </div>
         </div>
       </div>

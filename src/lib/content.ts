@@ -318,6 +318,6 @@ export const faqs = [
   },
   {
     q: "How do we get started?",
-    a: "Just share your details on this site. Our team will call you, understand your workflow, and set up a guided demo and trial so you can see OZZO working with your own team before you commit.",
+    a: "Just share your details on this site. Our team will call you, understand your workflow, and set up a guided demo so you can see OZZO working with your own team before you decide.",
   },
 ];

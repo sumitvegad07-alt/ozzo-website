@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           <h2>How we use your information</h2>
           <ul>
             <li>To contact you about your inquiry, including calling or messaging you</li>
-            <li>To understand your requirements and arrange a demo or trial</li>
+            <li>To understand your requirements and arrange a demo</li>
             <li>To improve our products and this website</li>
           </ul>
           <p>We do not sell your personal information to third parties.</p>

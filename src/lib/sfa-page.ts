@@ -264,10 +264,10 @@ export const sfaFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does OZZO SFA cost?",
-    a: "OZZO doesn't publish per-user rates publicly. SFA comes as two lines — Field (workforce visibility) and Sales (the full sell-collect-distribute flow) — and pricing is matched to your team size and the line you choose. Book a free demo or request a callback and our team will put together a package for you; a refundable trial is available so you can try it live first.",
+    a: "OZZO doesn't publish per-user rates publicly. SFA comes as two lines — WFA (workforce visibility) and the full SFA sell-collect-distribute flow — and pricing is matched to your team size and the plan you choose. Book a demo or request a callback and our team will put together a package for you.",
   },
   {
-    q: "Is there a free trial, and how do I get started?",
-    a: "Yes — a refundable trial (10-day and 30-day options). Share a few details to book a free demo; our team will call you, map SFA to how your field team works, and set up the trial with your own data before you commit.",
+    q: "How do I get started?",
+    a: "Share a few details to book a demo. Our team will call you, map SFA to how your field team works, and help set it up with your own data before you decide.",
   },
 ];

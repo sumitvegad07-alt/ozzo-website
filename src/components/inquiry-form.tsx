@@ -12,7 +12,14 @@ type Status = "idle" | "submitting" | "success" | "error";
 const fieldBase =
   "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30";
 
-export function InquiryForm({ compact = false }: { compact?: boolean }) {
+export function InquiryForm({
+  compact = false,
+  stack = false,
+}: {
+  compact?: boolean;
+  /** Force all fields into a single full-width column (for narrow panels). */
+  stack?: boolean;
+}) {
   const pathname = usePathname();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -108,7 +115,7 @@ export function InquiryForm({ compact = false }: { compact?: boolean }) {
         </label>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className={cn("grid gap-4", stack ? "grid-cols-1" : "sm:grid-cols-2")}>
         <Field label="Your name" error={errors.name} required>
           <input
             name="name"

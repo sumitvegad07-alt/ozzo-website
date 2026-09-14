@@ -361,10 +361,10 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does OZZO CRM cost?",
-    a: "OZZO doesn't publish per-user rates publicly — pricing is matched to your team size and the plan you choose (CRM on its own, or CRM plus the field team). Book a free demo or request a callback and our team will put together a package for you. A refundable trial is available so you can try it live first.",
+    a: "OZZO doesn't publish per-user rates publicly — pricing is matched to your team size and the plan you choose (CRM on its own, or CRM plus the field team). Book a demo or request a callback and our team will put together a package for you.",
   },
   {
-    q: "Is there a free trial, and how do I get started?",
-    a: "Yes — a refundable trial (10-day and 30-day options) so your team can try it live. Share a few details to book a free demo; our team will call you, understand your workflow, set up the trial, and help migrate your data before you commit.",
+    q: "How do I get started?",
+    a: "Share a few details to book a demo. Our team will call you, understand your workflow, help set it up with your own data, and migrate your existing customers and leads before you decide.",
   },
 ];

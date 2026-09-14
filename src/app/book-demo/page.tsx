@@ -7,15 +7,15 @@ import { brand } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Book a free demo",
   description:
-    "Book a free, no-pressure OZZO demo. Share a few details and our team will call you, map OZZO to how your field team works, and set up a guided, refundable trial.",
+    "Book a free, no-pressure OZZO demo. Share a few details and our team will call you, map OZZO to how your field team works, and show you exactly how it fits.",
   path: "/book-demo",
-  keywords: ["OZZO demo", "book a CRM demo", "field sales software demo", "free trial"],
+  keywords: ["OZZO demo", "book a CRM demo", "field sales software demo", "sales force automation demo"],
 });
 
 const reassurances = [
   "A real walkthrough built around your workflow — no generic tour",
   "Straight answers on plans and setup",
-  "A refundable trial so your team can try it live before you commit",
+  "Guided onboarding and data migration, done with you",
 ];
 
 export default function BookDemoPage() {
@@ -44,8 +44,8 @@ export default function BookDemoPage() {
               <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
                 Share a few details and our team will call you, understand how
                 your field team actually works, and show you exactly how{" "}
-                {brand.name} fits — then set up a guided trial. It takes under a
-                minute.
+                {brand.name} fits — with guided onboarding to get you live. It
+                takes under a minute.
               </p>
 
               <ul className="mt-8 space-y-4">

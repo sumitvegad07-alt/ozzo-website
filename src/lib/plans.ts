@@ -1,47 +1,50 @@
 /**
- * Plans & Packages — a module-wise capability model for the /plans page.
+ * Plans & Packages — the five sellable OZZO plans, module by module.
  *
- * IMPORTANT: this file carries NO pricing. OZZO's public marketing does not
- * publish per-user rates; the site presents plans by CAPABILITY and routes
- * every "how much" question to a demo/quote. Every row below is grounded in a
- * shipped, production-verified module (see OZZO_FEATURE_MASTER_CATALOG.md and
- * the product pages). Column entitlements follow the real line-plan model:
+ * Mirrors the app's canonical plan catalog (wacrm-web/src/lib/plans/catalog.ts):
+ *   Three product lines — CRM, WFA (Workforce Automation), SFA (Sales Force
+ *   Automation). SFA always includes WFA. The five plans are combinations:
+ *   CRM · WFA · CRM + WFA · SFA · CRM + SFA.
  *
- *   CRM      — front office: leads, WhatsApp+AI, quotations, one customer record
- *   FIELD    — field visibility (the WFA line): attendance, GPS, visits, routes
- *   SALES    — full field sales (the SFA line): FIELD + orders, collections,
- *              outstanding, stock, schemes, distribution
- *   COMPLETE — CRM + SALES together, one login, one source of truth
- *
- * A boolean renders as a tick / dash; a string renders as a short qualifier.
+ * This file carries NO pricing and NO trial language — public marketing routes
+ * every "how much" question to a demo. Each comparison row is tagged with the
+ * product LINE that owns it, so every plan column is derived from the real
+ * entitlement map and can never drift from the app.
  */
 
-export type PlanKey = "crm" | "field" | "sales" | "complete";
+export type PlanId = "CRM" | "WFA" | "CRM_WFA" | "SFA" | "CRM_SFA";
+export type ProductLine = "crm" | "wfa" | "sfa";
+
+/** Display order across cards and the comparison table. */
+export const planOrder: PlanId[] = ["CRM", "WFA", "CRM_WFA", "SFA", "CRM_SFA"];
+
+/** Which product lines each plan turns on (SFA includes WFA). */
+export const PLAN_LINES: Record<PlanId, Record<ProductLine, boolean>> = {
+  CRM: { crm: true, wfa: false, sfa: false },
+  WFA: { crm: false, wfa: true, sfa: false },
+  CRM_WFA: { crm: true, wfa: true, sfa: false },
+  SFA: { crm: false, wfa: true, sfa: true },
+  CRM_SFA: { crm: true, wfa: true, sfa: true },
+};
 
 export type Plan = {
-  key: PlanKey;
+  id: PlanId;
+  /** Short header name (also the comparison column label). */
   name: string;
-  /** One-line positioning under the name. */
   tagline: string;
-  /** Lucide icon name understood by <Icon />. */
   icon: string;
-  /** Accent utility classes reused from the product-line palette. */
   accentClass: string;
   ringClass: string;
-  /** "Everything in X, plus" ladder note (null for the base card). */
+  /** Card ladder note ("Everything in X, plus…"); null hides it. */
   inherits: string | null;
-  /** Short outward blurb for the plan card. */
   blurb: string;
-  /** 5–6 headline capabilities for the card. */
   highlights: string[];
   popular?: boolean;
-  /** CTA label — no plan quotes a price, only a next step. */
-  cta: string;
 };
 
 export const plans: Plan[] = [
   {
-    key: "crm",
+    id: "CRM",
     name: "CRM",
     tagline: "Win & keep customers",
     icon: "MessageSquare",
@@ -49,75 +52,82 @@ export const plans: Plan[] = [
     ringClass: "ring-violet-500/20",
     inherits: null,
     blurb:
-      "The front office: capture every enquiry, work it on WhatsApp with an AI assistant, and quote in minutes — all on one shared customer record.",
+      "The front office. Capture every enquiry, work it on WhatsApp with an AI assistant, and quote in minutes — on one shared customer record.",
     highlights: [
       "Leads, deals & visual Kanban pipelines",
-      "Shared WhatsApp inbox + AI knowledge assistant",
-      "Branded PDF quotations on your letterhead",
-      "One customer timeline — messages, deals, visits",
+      "Shared WhatsApp inbox + AI assistant",
+      "Branded PDF quotations",
       "Custom fields, roles & data-scoping",
     ],
-    cta: "Start free trial",
   },
   {
-    key: "field",
-    name: "Field",
+    id: "WFA",
+    name: "WFA",
     tagline: "See your field team, live",
     icon: "MapPin",
     accentClass: "text-cyan-500",
     ringClass: "ring-cyan-500/20",
-    inherits: "the essentials",
+    inherits: null,
     blurb:
-      "Field visibility done properly: selfie-and-GPS attendance, live location, geo-tagged visits and beat routes that reps actually work in order.",
+      "Workforce Automation. Selfie-and-GPS attendance, live location, geo-tagged visits and beat routes your reps actually work in order.",
     highlights: [
-      "Selfie + GPS attendance, auto-classified",
-      "Live location, map & tracking health",
-      "Geo-tagged customer & lead visits",
-      "Beat / route planning & compliance",
-      "Territory management & expense claims",
+      "Selfie + GPS attendance & live location",
+      "Geo-tagged visits & beat routes",
+      "Territory management",
+      "Expense claims with auto distance",
     ],
-    cta: "Start free trial",
   },
   {
-    key: "sales",
-    name: "Sales",
+    id: "CRM_WFA",
+    name: "CRM + WFA",
+    tagline: "Front office + field force",
+    icon: "Layers",
+    accentClass: "text-blue-500",
+    ringClass: "ring-blue-500/20",
+    inherits: "CRM and WFA",
+    blurb:
+      "Your customer database gets a field team. Every geo-tagged visit lands on the same record your office works from — one login, office and field.",
+    highlights: [
+      "Everything in CRM",
+      "Everything in WFA",
+      "Field visits on the customer record",
+      "WhatsApp CRM + live field tracking",
+    ],
+  },
+  {
+    id: "SFA",
+    name: "SFA",
     tagline: "Sell, collect & distribute",
     icon: "ShoppingCart",
     accentClass: "text-emerald-500",
     ringClass: "ring-emerald-500/20",
-    inherits: "Field",
-    popular: true,
+    inherits: "WFA",
     blurb:
-      "The full field-sales engine: take the order offline, collect the cash, and watch outstanding and stock keep themselves — no accounting bolt-on.",
+      "The full field-sales engine. Take the order offline, collect the cash, and watch outstanding and stock keep themselves — no accounting bolt-on.",
     highlights: [
       "Offline order capture + multi-unit ordering",
-      "Field payment collection with proof",
-      "Auto outstanding, credit limits & ageing",
-      "Auto closing stock from movement",
-      "Trade schemes, price lists & discount control",
+      "Field collection, auto outstanding & credit limits",
+      "Auto closing stock, trade schemes & price lists",
       "Distributor / dealer / retailer levels",
     ],
-    cta: "Start free trial",
   },
   {
-    key: "complete",
-    name: "Complete",
-    tagline: "The whole platform, one login",
-    icon: "Layers",
+    id: "CRM_SFA",
+    name: "CRM + SFA",
+    tagline: "The complete platform",
+    icon: "Sparkles",
     accentClass: "text-primary",
     ringClass: "ring-primary/25",
-    inherits: "Sales",
+    inherits: "SFA",
+    popular: true,
     blurb:
-      "Everything OZZO does — CRM and field sales on one customer record. The office and the field finally work from the same source of truth.",
+      "Everything OZZO does — CRM and full field sales on one customer record. The office and the field finally run from one source of truth.",
     highlights: [
-      "Everything in CRM + everything in Sales",
+      "Everything in CRM + everything in SFA",
       "WhatsApp & AI on your field customers",
       "One login, one customer record, one truth",
       "11 built-in reports + a per-rep DSR",
-      "Roles, data-scoping & reporting hierarchy",
-      "Guided onboarding mapped to your workflow",
     ],
-    cta: "Book a demo",
   },
 ];
 
@@ -160,12 +170,14 @@ export type MatrixValue = boolean | string;
 
 export type FeatureRow = {
   feature: string;
-  /** Optional short clarifier shown under the feature name. */
   note?: string;
-  crm: MatrixValue;
-  field: MatrixValue;
-  sales: MatrixValue;
-  complete: MatrixValue;
+  /**
+   * The product line that owns this capability. "base" = in every plan.
+   * A plan column is a tick when the plan turns that line on.
+   */
+  line: "base" | ProductLine;
+  /** Per-plan overrides for nuanced rows (e.g. a "Basic" qualifier). */
+  values?: Partial<Record<PlanId, MatrixValue>>;
 };
 
 export type FeatureGroup = {
@@ -174,173 +186,189 @@ export type FeatureGroup = {
   rows: FeatureRow[];
 };
 
+/** Resolve one cell for a plan — override wins, else derive from the line. */
+export function cellValue(row: FeatureRow, plan: PlanId): MatrixValue {
+  if (row.values && plan in row.values) return row.values[plan]!;
+  if (row.line === "base") return true;
+  return PLAN_LINES[plan][row.line];
+}
+
 /**
- * The module-wise capability matrix. Column truth follows the line-plan model
- * above; a `true` means the module ships on that plan today.
+ * The module-wise capability matrix. Column truth is derived from the line tag
+ * plus the entitlement map above, so it always matches what the app unlocks.
  */
 export const featureGroups: FeatureGroup[] = [
   {
     name: "Attendance & workforce",
     icon: "Fingerprint",
     rows: [
-      { feature: "Selfie + GPS punch in / out", note: "Location-verified attendance", crm: "Basic", field: true, sales: true, complete: true },
-      { feature: "Auto-classified attendance (present / late)", crm: false, field: true, sales: true, complete: true },
-      { feature: "Shifts, rosters & attendance muster", crm: false, field: true, sales: true, complete: true },
-      { feature: "Odometer capture on punch", crm: false, field: true, sales: true, complete: true },
-      { feature: "Leave management & approval flow", crm: true, field: true, sales: true, complete: true },
-      { feature: "Holiday calendar & announcements", crm: true, field: true, sales: true, complete: true },
+      {
+        feature: "Selfie + GPS punch in / out",
+        note: "Location-verified attendance",
+        line: "wfa",
+        values: { CRM: "Basic" },
+      },
+      { feature: "Auto-classified attendance (present / late)", line: "wfa" },
+      { feature: "Shifts, rosters & attendance muster", line: "wfa" },
+      { feature: "Odometer capture on punch", line: "wfa" },
+      { feature: "Leave management & approval flow", line: "base" },
+      { feature: "Holiday calendar & announcements", line: "base" },
     ],
   },
   {
     name: "Location tracking",
     icon: "Navigation",
     rows: [
-      { feature: "Live location of every punched-in rep", crm: false, field: true, sales: true, complete: true },
-      { feature: "All-locations map & daily timeline", crm: false, field: true, sales: true, complete: true },
-      { feature: "Historical track report", crm: false, field: true, sales: true, complete: true },
-      { feature: "Tracking Health — flags a dead / drifting device", crm: false, field: true, sales: true, complete: true },
-      { feature: "Distance travelled (GPS + odometer)", crm: false, field: true, sales: true, complete: true },
-      { feature: "Geo-fencing on visit check-in / out", crm: false, field: true, sales: true, complete: true },
+      { feature: "Live location of every punched-in rep", line: "wfa" },
+      { feature: "All-locations map & daily timeline", line: "wfa" },
+      { feature: "Historical track report", line: "wfa" },
+      { feature: "Tracking Health — flags a dead / drifting device", line: "wfa" },
+      { feature: "Distance travelled (GPS + odometer)", line: "wfa" },
+      { feature: "Geo-fencing on visit check-in / out", line: "wfa" },
     ],
   },
   {
     name: "Visits, beats & territory",
     icon: "Route",
     rows: [
-      { feature: "Geo-tagged customer & lead visits", crm: "Add WFA", field: true, sales: true, complete: true },
-      { feature: "Beat / route planning & calendar", crm: false, field: true, sales: true, complete: true },
-      { feature: "Route compliance — skip needs a reason", crm: false, field: true, sales: true, complete: true },
-      { feature: "Territory master (country → state → city → area)", crm: false, field: true, sales: true, complete: true },
-      { feature: "Area-wise assignment of reps & customers", crm: false, field: true, sales: true, complete: true },
-      { feature: "Productive-visit reporting", note: "A visit that produced an order", crm: false, field: true, sales: true, complete: true },
+      { feature: "Geo-tagged customer & lead visits", line: "wfa" },
+      { feature: "Beat / route planning & calendar", line: "wfa" },
+      { feature: "Route compliance — skip needs a reason", line: "wfa" },
+      { feature: "Territory master (country → state → city → area)", line: "wfa" },
+      { feature: "Area-wise assignment of reps & customers", line: "wfa" },
+      { feature: "Productive-visit reporting", note: "A visit that produced an order", line: "wfa" },
     ],
   },
   {
     name: "Orders & distribution",
     icon: "ShoppingCart",
     rows: [
-      { feature: "Order capture — fully offline", crm: false, field: false, sales: true, complete: true },
-      { feature: "Multi-unit order collection", note: "Sell in box, piece, case — auto-converted", crm: false, field: false, sales: true, complete: true },
-      { feature: "Order guardrails (credit / overdue / stock)", note: "Ignore, warn or block, per account", crm: false, field: false, sales: true, complete: true },
-      { feature: "Dispatch & delivery workflow", crm: false, field: false, sales: true, complete: true },
-      { feature: "Distributor / dealer / retailer trade levels", crm: false, field: false, sales: true, complete: true },
-      { feature: "Primary vs secondary sales tagging", crm: false, field: false, sales: true, complete: true },
-      { feature: "Bulk product upload & custom order fields", crm: false, field: false, sales: true, complete: true },
+      { feature: "Order capture — fully offline", line: "sfa" },
+      { feature: "Multi-unit order collection", note: "Box, piece, case — auto-converted", line: "sfa" },
+      { feature: "Order guardrails (credit / overdue / stock)", note: "Ignore, warn or block", line: "sfa" },
+      { feature: "Dispatch & delivery workflow", line: "sfa" },
+      { feature: "Distributor / dealer / retailer trade levels", line: "sfa" },
+      { feature: "Primary vs secondary sales tagging", line: "sfa" },
+      { feature: "Bulk product upload & custom order fields", line: "sfa" },
     ],
   },
   {
     name: "Payments & outstanding",
     icon: "IndianRupee",
     rows: [
-      { feature: "Field payment collection with proof", crm: false, field: false, sales: true, complete: true },
-      { feature: "Self-calculating outstanding per customer", crm: false, field: false, sales: true, complete: true },
-      { feature: "Credit limits & overdue-days control", crm: false, field: false, sales: true, complete: true },
-      { feature: "Customer financials & ledger view", crm: false, field: false, sales: true, complete: true },
-      { feature: "Ageing report", crm: false, field: false, sales: true, complete: true },
+      { feature: "Field payment collection with proof", line: "sfa" },
+      { feature: "Self-calculating outstanding per customer", line: "sfa" },
+      { feature: "Credit limits & overdue-days control", line: "sfa" },
+      { feature: "Customer financials & ledger view", line: "sfa" },
+      { feature: "Ageing report", line: "sfa" },
     ],
   },
   {
     name: "Stock",
     icon: "Boxes",
     rows: [
-      { feature: "Closing stock derived from movement", note: "No separate inventory tool", crm: false, field: false, sales: true, complete: true },
-      { feature: "Stock ledger per product", crm: false, field: false, sales: true, complete: true },
-      { feature: "Stock check inside order guardrails", crm: false, field: false, sales: true, complete: true },
+      { feature: "Closing stock derived from movement", note: "No separate inventory tool", line: "sfa" },
+      { feature: "Stock ledger per product", line: "sfa" },
+      { feature: "Stock check inside order guardrails", line: "sfa" },
     ],
   },
   {
     name: "Pricing, schemes & catalogue",
     icon: "Percent",
     rows: [
-      { feature: "Trade schemes (free goods, slabs, buy-X-get-Y)", crm: false, field: false, sales: true, complete: true },
-      { feature: "Customer-specific price lists", crm: false, field: false, sales: true, complete: true },
-      { feature: "Product-specific discount limits", crm: false, field: false, sales: true, complete: true },
-      { feature: "Applied automatically on order, invoice & PDF", crm: false, field: false, sales: true, complete: true },
+      { feature: "Trade schemes (free goods, slabs, buy-X-get-Y)", line: "sfa" },
+      { feature: "Customer-specific price lists", line: "sfa" },
+      { feature: "Product-specific discount limits", line: "sfa" },
+      { feature: "Applied automatically on order, invoice & PDF", line: "sfa" },
     ],
   },
   {
     name: "CRM & WhatsApp",
     icon: "MessageSquare",
     rows: [
-      { feature: "Leads, deals & visual Kanban pipelines", crm: true, field: false, sales: false, complete: true },
-      { feature: "Shared WhatsApp team inbox & templates", crm: true, field: false, sales: false, complete: true },
-      { feature: "AI assistant on your own knowledge base", crm: true, field: false, sales: false, complete: true },
-      { feature: "Branded PDF quotations", crm: true, field: false, sales: false, complete: true },
-      { feature: "One customer timeline — office + field", crm: true, field: false, sales: false, complete: true },
+      { feature: "Leads, deals & visual Kanban pipelines", line: "crm" },
+      { feature: "Shared WhatsApp team inbox & templates", line: "crm" },
+      { feature: "AI assistant on your own knowledge base", line: "crm" },
+      { feature: "Branded PDF quotations", line: "crm" },
+      { feature: "One customer timeline — office + field", line: "crm" },
     ],
   },
   {
     name: "Documents",
     icon: "FileText",
     rows: [
-      { feature: "Order / dispatch / receipt PDFs", crm: false, field: false, sales: true, complete: true },
-      { feature: "Your company letterhead & templates", crm: true, field: false, sales: true, complete: true },
-      { feature: "Quotation PDFs with version trail", crm: true, field: false, sales: false, complete: true },
+      { feature: "Order / dispatch / receipt PDFs", line: "sfa" },
+      { feature: "Quotation PDFs with version trail", line: "crm" },
+      { feature: "Your company letterhead & templates", line: "base" },
     ],
   },
   {
     name: "Reports, dashboards & DSR",
     icon: "PieChart",
     rows: [
-      { feature: "Configurable report engine (save & export)", crm: true, field: true, sales: true, complete: true },
-      { feature: "Lead, Deal & Quotation reports", crm: true, field: false, sales: false, complete: true },
-      { feature: "Attendance, Visit & Expense reports", crm: false, field: true, sales: true, complete: true },
-      { feature: "Order, Sales, Payment & Ageing reports", crm: false, field: false, sales: true, complete: true },
-      { feature: "Daily Sales Report (per rep, one line)", crm: false, field: "Visits", sales: true, complete: true },
-      { feature: "Plan-aware dashboards", crm: true, field: true, sales: true, complete: true },
+      { feature: "Configurable report engine (save & export)", line: "base" },
+      { feature: "Lead, Deal & Quotation reports", line: "crm" },
+      { feature: "Attendance, Visit & Expense reports", line: "wfa" },
+      { feature: "Order, Sales, Payment & Ageing reports", line: "sfa" },
+      {
+        feature: "Daily Sales Report (per rep, one line)",
+        line: "sfa",
+        values: { WFA: "Visits", CRM_WFA: "Visits" },
+      },
+      { feature: "Plan-aware dashboards", line: "base" },
     ],
   },
   {
     name: "Expenses",
     icon: "ReceiptText",
     rows: [
-      { feature: "Expense claims with proof capture", crm: false, field: true, sales: true, complete: true },
-      { feature: "Auto travel-distance claim", crm: false, field: true, sales: true, complete: true },
-      { feature: "Multi-level approval flow", crm: false, field: true, sales: true, complete: true },
-      { feature: "Custom expense categories & limits", crm: false, field: true, sales: true, complete: true },
+      { feature: "Expense claims with proof capture", line: "wfa" },
+      { feature: "Auto travel-distance claim", line: "wfa" },
+      { feature: "Multi-level approval flow", line: "wfa" },
+      { feature: "Custom expense categories & limits", line: "wfa" },
     ],
   },
   {
     name: "Platform, admin & security",
     icon: "ShieldCheck",
     rows: [
-      { feature: "Web dashboard + Android field app", crm: true, field: true, sales: true, complete: true },
-      { feature: "Full offline capture & auto-sync", crm: true, field: true, sales: true, complete: true },
-      { feature: "Custom fields across 12 record types", crm: true, field: true, sales: true, complete: true },
-      { feature: "Roles, per-module rights & data-scoping", crm: true, field: true, sales: true, complete: true },
-      { feature: "Reporting hierarchy (manager / approver)", crm: true, field: true, sales: true, complete: true },
-      { feature: "Real-time sync (web ↔ mobile)", crm: true, field: true, sales: true, complete: true },
-      { feature: "Bulk import framework", crm: true, field: true, sales: true, complete: true },
-      { feature: "Guided onboarding & data migration", crm: true, field: true, sales: true, complete: true },
+      { feature: "Web dashboard + Android field app", line: "base" },
+      { feature: "Full offline capture & auto-sync", line: "base" },
+      { feature: "Custom fields across 12 record types", line: "base" },
+      { feature: "Roles, per-module rights & data-scoping", line: "base" },
+      { feature: "Reporting hierarchy (manager / approver)", line: "wfa" },
+      { feature: "Real-time sync (web ↔ mobile)", line: "base" },
+      { feature: "Bulk import framework", line: "base" },
+      { feature: "Guided onboarding & data migration", line: "base" },
     ],
   },
 ];
 
-/** No-price FAQs for the Plans page — every "cost" answer routes to a demo. */
+/** No-price, no-trial FAQs for the Plans page — every "cost" routes to a demo. */
 export const planFaqs: { q: string; a: string }[] = [
   {
     q: "How are OZZO plans structured?",
-    a: "By product line, not by feature drip. CRM runs your front office; Field (WFA) gives you field visibility — attendance, GPS, visits and routes; Sales (SFA) adds the full sell-collect-distribute flow with orders, payments, outstanding, stock and schemes; and Complete is CRM and Sales together on one login. You buy the line that fits how your team works and move up whenever you're ready.",
+    a: "Around three product lines — CRM for your front office, WFA (Workforce Automation) for field visibility, and SFA (Sales Force Automation) for the full sell-collect-distribute flow. SFA always includes WFA. The five plans are combinations: CRM, WFA, CRM + WFA, SFA, and CRM + SFA. You buy the combination that fits how your team works.",
   },
   {
     q: "Which plan is right for my team?",
-    a: "If you sell and support customers from the office, start with CRM. If your priority is knowing what your field team is doing, start with Field. If reps take orders and collect money on the ground, choose Sales. If you want the office and the field on one record, choose Complete. Book a demo and we'll recommend the exact fit for your workflow.",
+    a: "If you sell and support customers from the office, start with CRM. If your priority is knowing what your field team is doing, choose WFA. Want both? CRM + WFA. If reps take orders and collect money on the ground, choose SFA — and add the front office with CRM + SFA for the complete platform. Book a demo and we'll recommend the exact fit.",
   },
   {
-    q: "Can I start on one plan and upgrade later?",
-    a: "Yes. The plans are a ladder — everything in a lower line carries into the higher one, on the same data. You can start with field visibility and add the full sales flow, or start with CRM and add the field team, without migrating anything.",
+    q: "What's the difference between WFA and SFA?",
+    a: "WFA is field visibility: attendance, GPS, live location, geo-tagged visits, routes, territory and expenses. SFA is the full field-sales line and always includes WFA, adding order capture, payment collection, outstanding, stock, schemes and distributor/dealer management on top. You move up a line, not across to another product.",
   },
   {
-    q: "Is there a free trial?",
-    a: "Yes — a refundable trial with 10-day and 30-day options, so your own team can use OZZO live with your real data before you commit. Share a few details to book a demo and we'll set it up.",
+    q: "Can I combine plans or upgrade later?",
+    a: "Yes. Each line snaps onto the others on the same data — add the CRM front office to a field team, or add full field sales to a CRM, without migrating anything. You can start narrow and grow into the complete platform whenever you're ready.",
   },
   {
     q: "Do I have to buy the whole platform?",
-    a: "No. Each line stands on its own. Every plan already includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements — so even the entry line is a complete, usable system.",
+    a: "No. Each line stands on its own. Every plan already includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements — so even a single line is a complete, usable system.",
   },
   {
     q: "How do I get a quote?",
-    a: "Tell us your team size and which line fits, and our team will put together the right package for you. Just book a demo or request a callback — there's no obligation.",
+    a: "Tell us your team size and which plan fits, and our team will put together the right package for you. Just book a demo or request a callback — a real person will map it to your workflow.",
   },
   {
     q: "Does OZZO need any other software to run?",
