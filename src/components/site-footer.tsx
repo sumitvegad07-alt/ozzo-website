@@ -121,6 +121,14 @@ export function SiteFooter() {
             <ul className="space-y-3">
               <li>
                 <Link
+                  href="/blog"
+                  className="text-sm text-white/60 transition-colors hover:text-primary"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-sm text-white/60 transition-colors hover:text-primary"
                 >

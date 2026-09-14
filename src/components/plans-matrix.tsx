@@ -108,9 +108,12 @@ export function PlansMatrix() {
         </div>
       </div>
 
-      {/* ---------- Desktop: full five-column table, no horizontal scroll ---------- */}
-      <div className="hidden overflow-hidden rounded-3xl border border-border bg-card shadow-sm lg:block">
-        <table className="w-full table-fixed border-collapse text-left">
+      {/* ---------- Desktop: five-column table, sticky header, no horizontal scroll ---------- */}
+      {/* NB: no overflow-hidden on any ancestor — it would disable the sticky
+          header. Corners are rounded on the corner cells instead, which needs
+          border-separate (border-collapse ignores cell radius). */}
+      <div className="hidden rounded-3xl border border-border bg-card shadow-sm lg:block">
+        <table className="w-full table-fixed border-separate border-spacing-0 text-left [&_tbody_tr:last-child_td:first-child]:rounded-bl-3xl [&_tbody_tr:last-child_td:last-child]:rounded-br-3xl [&_thead_th:first-child]:rounded-tl-3xl [&_thead_th:last-child]:rounded-tr-3xl">
           <colgroup>
             <col className="w-[28%]" />
             {planOrder.map((id) => (
@@ -119,7 +122,7 @@ export function PlansMatrix() {
           </colgroup>
           <thead>
             <tr>
-              <th className="border-b border-border bg-card px-5 py-4 align-bottom text-sm font-bold text-muted-foreground">
+              <th className="sticky top-20 z-20 border-b border-border bg-card px-5 py-4 align-bottom text-sm font-bold text-muted-foreground">
                 Compare every module
               </th>
               {planOrder.map((id) => {
@@ -128,8 +131,8 @@ export function PlansMatrix() {
                   <th
                     key={id}
                     className={cn(
-                      "border-b border-border px-2 py-4 text-center align-bottom",
-                      p.popular ? "bg-primary-soft" : "bg-card",
+                      "sticky top-20 z-20 border-b border-border bg-card px-2 py-4 text-center align-bottom",
+                      p.popular && "border-x border-primary/30",
                     )}
                   >
                     {p.popular && (

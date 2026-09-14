@@ -114,6 +114,33 @@ export function faqSchema(items: { q: string; a: string }[]) {
   };
 }
 
+/** BlogPosting schema for an individual article. */
+export function blogPostingSchema(post: {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+}) {
+  const url = `${SITE_URL}/blog/${post.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: brand.legalName,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/brand/icon.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    url,
+  };
+}
+
 /** BreadcrumbList schema. */
 export function breadcrumbSchema(crumbs: { name: string; path: string }[]) {
   return {

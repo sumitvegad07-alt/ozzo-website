@@ -40,6 +40,7 @@ export function GET() {
   lines.push(`- CRM: ${SITE_URL}/products/crm`);
   lines.push(`- Sales Force Automation (SFA): ${SITE_URL}/products/sfa`);
   lines.push(`- Plans & packages: ${SITE_URL}/plans`);
+  lines.push(`- Blog: ${SITE_URL}/blog`);
   lines.push(`- Book a demo: ${SITE_URL}/book-demo`);
   lines.push(`- Contact: ${SITE_URL}/contact`);
   lines.push("");

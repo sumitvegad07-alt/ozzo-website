@@ -220,8 +220,8 @@ export default function HomePage() {
         <Container className="relative">
           <SectionHeading
             eyebrow="See it in motion"
-            title="Not screenshots — the product, working"
-            description="Every OZZO module is a moment in the field day. Here are four of them, in motion — messaging, coverage, order control and the live feed that ties them together."
+            title="See how your field day actually runs"
+            description="Every OZZO module is a moment in the field day. Here are four of them, live — messaging, coverage, order control and the feed that ties them together."
           />
           <div className="space-y-20 md:space-y-28">
             {motionDemos.map((d, i) => (
