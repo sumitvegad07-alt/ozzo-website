@@ -12,6 +12,7 @@ import { Parallax } from "@/components/motion/parallax";
 import { TimelineProgress } from "@/components/motion/timeline-progress";
 import { StackedChapters } from "@/components/motion/stacked-chapters";
 import { IndustryTiles } from "@/components/motion/industry-tiles";
+import { TiltCard } from "@/components/motion/tilt-card";
 import { CrmSpotlight } from "@/components/crm-spotlight";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
@@ -110,21 +111,23 @@ export default function HomePage() {
           <div className="grid gap-5 md:grid-cols-2">
             {removed.map((r, i) => (
               <Reveal key={r.tag} delay={i * 70}>
-                <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0" />
-                  <div className="mb-6 flex items-center gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
-                      <Icon name={r.icon} className="h-6 w-6" />
-                    </span>
-                    <span className="ozzo-eyebrow text-primary">{r.tag}</span>
+                <TiltCard className="rounded-3xl">
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0" />
+                    <div className="mb-6 flex items-center gap-4">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
+                        <Icon name={r.icon} className="h-6 w-6" />
+                      </span>
+                      <span className="ozzo-eyebrow text-primary">{r.tag}</span>
+                    </div>
+                    <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">
+                      {r.title}
+                    </h3>
+                    <p className="text-[15px] leading-relaxed text-muted-foreground">
+                      {r.body}
+                    </p>
                   </div>
-                  <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">
-                    {r.title}
-                  </h3>
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">
-                    {r.body}
-                  </p>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -288,9 +291,10 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {productLines.map((line, i) => (
               <Reveal key={line.slug} delay={i * 90}>
+                <TiltCard className="rounded-3xl">
                 <Link
                   href={`/products#${line.slug}`}
-                  className={`group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-sm ring-1 ${line.ringClass} transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/[0.05]`}
+                  className={`group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-sm ring-1 ${line.ringClass} transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]`}
                 >
                   <div className="mb-6 flex items-center justify-between">
                     <span
@@ -336,6 +340,7 @@ export default function HomePage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -353,24 +358,26 @@ export default function HomePage() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {platformFeatures.map((f, i) => (
               <Reveal key={f.title} delay={i * 60}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-[0.06] ${f.gradient}`}
-                  />
-                  <div className="relative z-10">
+                <TiltCard className="rounded-3xl">
+                  <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
                     <div
-                      className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg transition-transform duration-500 group-hover:scale-110 ${f.gradient}`}
-                    >
-                      <Icon name={f.icon} className="h-6 w-6" />
+                      className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-[0.06] ${f.gradient}`}
+                    />
+                    <div className="relative z-10">
+                      <div
+                        className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg transition-transform duration-500 group-hover:scale-110 ${f.gradient}`}
+                      >
+                        <Icon name={f.icon} className="h-6 w-6" />
+                      </div>
+                      <h3 className="mb-2.5 text-xl font-bold tracking-tight text-foreground">
+                        {f.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {f.description}
+                      </p>
                     </div>
-                    <h3 className="mb-2.5 text-xl font-bold tracking-tight text-foreground">
-                      {f.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {f.description}
-                    </p>
                   </div>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -388,25 +395,27 @@ export default function HomePage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featureGroups.map((g, i) => (
               <Reveal key={g.name} delay={i * 40}>
-                <div className="group h-full rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
-                      <Icon name={g.icon} className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-base font-bold text-foreground">{g.name}</h3>
+                <TiltCard className="rounded-3xl" max={5}>
+                  <div className="group h-full rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-primary transition-transform duration-300 group-hover:scale-110">
+                        <Icon name={g.icon} className="h-5 w-5" />
+                      </span>
+                      <h3 className="text-base font-bold text-foreground">{g.name}</h3>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {g.rows.slice(0, 4).map((row) => (
+                        <li
+                          key={row.feature}
+                          className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground"
+                        >
+                          <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={3} />
+                          {row.feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-1.5">
-                    {g.rows.slice(0, 4).map((row) => (
-                      <li
-                        key={row.feature}
-                        className="flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground"
-                      >
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={3} />
-                        {row.feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -447,9 +456,10 @@ export default function HomePage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (
               <Reveal key={plan.id} delay={i * 60}>
+                <TiltCard className="rounded-3xl">
                 <Link
                   href="/plans"
-                  className={`group flex h-full flex-col rounded-3xl border bg-card p-5 shadow-sm ring-1 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/[0.05] ${
+                  className={`group flex h-full flex-col rounded-3xl border bg-card p-5 shadow-sm ring-1 transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05] ${
                     plan.popular
                       ? "border-primary/40 ring-primary/30"
                       : "border-border ring-transparent"
@@ -478,6 +488,7 @@ export default function HomePage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
