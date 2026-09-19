@@ -29,6 +29,9 @@ export function SiteNavbar() {
   }, [pathname]);
 
   const productsActive = pathname.startsWith("/products");
+  // The home hero is dark; keep the floating pill solid there so the
+  // (unchanged) logo and menu stay readable over it.
+  const solid = scrolled || pathname === "/";
 
   function openProducts() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -43,7 +46,7 @@ export function SiteNavbar() {
       <nav
         className={cn(
           "mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 md:px-5",
-          scrolled
+          solid
             ? "border border-border bg-card/80 shadow-lg shadow-black/[0.04] backdrop-blur-xl"
             : "border border-transparent bg-transparent",
         )}

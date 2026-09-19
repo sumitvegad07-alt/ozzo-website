@@ -129,17 +129,28 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ─────────────── OZZO in motion (animated showcase) ─────────────── */}
-      <section id="in-motion" className="relative overflow-hidden border-y border-border bg-card-2 py-24 md:py-32">
-        <Parallax speed={80} className="pointer-events-none absolute -top-32 right-0">
-          <div className="h-[420px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
+      {/* ─────────────── OZZO in motion (animated showcase · dark band) ─────────────── */}
+      <section id="in-motion" className="relative overflow-hidden bg-ink py-24 text-white md:py-32">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <Parallax speed={90} className="pointer-events-none absolute -top-24 right-0">
+          <div className="h-[460px] w-[560px] rounded-full bg-[#7c3aed]/25 blur-[140px]" />
         </Parallax>
-        <Container className="relative">
-          <SectionHeading
-            eyebrow="See it in motion"
-            title="See how your field day actually runs"
-            description="Every OZZO module is a moment in the field day. Here are four of them, live — messaging, coverage, order control and the feed that ties them together."
-          />
+        <Parallax speed={70} className="pointer-events-none absolute top-1/3 -left-24">
+          <div className="h-[420px] w-[420px] rounded-full bg-[#2563eb]/20 blur-[140px]" />
+        </Parallax>
+        <Container className="relative z-10">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <Eyebrow center className="text-primary">See it in motion</Eyebrow>
+            <h2 className="ozzo-display mt-4 text-4xl md:text-5xl">
+              See how your field day{" "}
+              <span className="ozzo-gradient-bright">actually runs</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/60">
+              Every OZZO module is a moment in the field day. Here are four of
+              them, live — messaging, coverage, order control and the feed that
+              ties them together.
+            </p>
+          </div>
           <div className="space-y-20 md:space-y-28">
             {motionDemos.map((d, i) => (
               <div
@@ -151,19 +162,19 @@ export default function HomePage() {
                   className={i % 2 ? "md:order-2" : ""}
                 >
                   <Eyebrow>{d.eyebrow}</Eyebrow>
-                  <h3 className="ozzo-display mt-4 text-3xl text-foreground md:text-[2.4rem] md:leading-[1.1]">
+                  <h3 className="ozzo-display mt-4 text-3xl text-white md:text-[2.4rem] md:leading-[1.1]">
                     {d.title}
                   </h3>
-                  <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+                  <p className="mt-5 text-lg leading-relaxed text-white/65">
                     {d.body}
                   </p>
                   <ul className="mt-7 space-y-3.5">
                     {d.points.map((p) => (
                       <li key={p} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/25 text-[#c4b5fd]">
                           <Check className="h-3 w-3" strokeWidth={3} />
                         </span>
-                        <span className="text-[15px] leading-relaxed text-foreground">
+                        <span className="text-[15px] leading-relaxed text-white/85">
                           {p}
                         </span>
                       </li>
@@ -545,21 +556,30 @@ export default function HomePage() {
       {/* ─────────────── FAQ ─────────────── */}
       <FaqSection />
 
-      {/* ─────────────── Final CTA with form ─────────────── */}
-      <section id="get-started" className="relative overflow-hidden py-24 md:py-32">
-        <Parallax speed={90} className="pointer-events-none absolute -bottom-32 left-1/2">
-          <div className="h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]" />
+      {/* ─────────────── Final CTA with form (dark band) ─────────────── */}
+      <section id="get-started" className="relative overflow-hidden bg-ink py-24 text-white md:py-32">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <Parallax speed={90} className="pointer-events-none absolute -bottom-40 left-1/2">
+          <div className="h-[520px] w-[920px] -translate-x-1/2 rounded-full bg-[#7c3aed]/25 blur-[140px]" />
+        </Parallax>
+        <Parallax speed={60} className="pointer-events-none absolute -top-24 right-6">
+          <div className="h-[380px] w-[380px] rounded-full bg-[#2563eb]/20 blur-[130px]" />
         </Parallax>
         <Container className="relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <SectionHeading
-                center={false}
-                eyebrow="See it on your own workflow"
-                title="Book a free, no-pressure demo"
-                description="Share a few details and our team will call you, understand how your field team works, and show you exactly how OZZO fits — with guided onboarding to get you live."
-                className="mb-8"
-              />
+              <div className="mb-8 max-w-xl">
+                <Eyebrow className="text-primary">See it on your own workflow</Eyebrow>
+                <h2 className="ozzo-display mt-4 text-4xl md:text-5xl">
+                  Book a free,{" "}
+                  <span className="ozzo-gradient-bright">no-pressure demo</span>
+                </h2>
+                <p className="mt-5 text-lg leading-relaxed text-white/60">
+                  Share a few details and our team will call you, understand how
+                  your field team works, and show you exactly how OZZO fits — with
+                  guided onboarding to get you live.
+                </p>
+              </div>
               <ul className="space-y-4">
                 {[
                   "A real walkthrough built around your workflow",
@@ -567,8 +587,8 @@ export default function HomePage() {
                   "Guided onboarding and data migration, with you",
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" />
-                    <span className="text-foreground">{point}</span>
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#37e0a0]" />
+                    <span className="text-white/85">{point}</span>
                   </li>
                 ))}
               </ul>
