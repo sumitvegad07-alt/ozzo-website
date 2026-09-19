@@ -1,17 +1,15 @@
 import Link from "next/link";
 import {
   CheckCircle2,
-  Monitor,
-  Smartphone,
-  WifiOff,
   ArrowRight,
   Check,
 } from "lucide-react";
-import { Container, SectionHeading, PrimaryCTA, SecondaryCTA, Eyebrow } from "@/components/ui";
+import { Container, SectionHeading, PrimaryCTA, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { Icon } from "@/components/icon";
-import { CountUp } from "@/components/count-up";
-import { HeroVisual } from "@/components/hero-visual";
+import { HomeHero } from "@/components/home-hero";
+import { Parallax } from "@/components/motion/parallax";
+import { TimelineProgress } from "@/components/motion/timeline-progress";
 import { CrmSpotlight } from "@/components/crm-spotlight";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
@@ -20,10 +18,9 @@ import { RouteCompliance } from "@/components/motion/route-compliance";
 import { OrderGuards } from "@/components/motion/order-guards";
 import { WhatsAppThread } from "@/components/motion/whatsapp-thread";
 import { JsonLd, faqSchema, softwareApplicationSchema } from "@/lib/seo";
-import { brand, productLines } from "@/lib/site";
+import { productLines } from "@/lib/site";
 import { plans, featureGroups } from "@/lib/plans";
 import {
-  productStats,
   removed,
   dayTimeline,
   chapters,
@@ -93,89 +90,7 @@ export default function HomePage() {
       <JsonLd data={[softwareApplicationSchema(), faqSchema(faqs)]} />
 
       {/* ─────────────── Hero ─────────────── */}
-      <section className="relative overflow-hidden pt-32 md:pt-40">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[560px] w-[820px] -translate-x-1/2 rounded-full bg-primary/15 blur-[130px]" />
-        <Container>
-          <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <Reveal>
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                  </span>
-                  CRM · Workforce · Field Sales — one platform
-                </div>
-              </Reveal>
-
-              <Reveal delay={80}>
-                <h1 className="ozzo-display max-w-2xl text-[2.75rem] leading-[1.03] text-foreground sm:text-6xl md:text-[4.1rem]">
-                  Run the whole field day on{" "}
-                  <span className="ozzo-gradient-text">one app</span>.
-                </h1>
-              </Reveal>
-
-              <Reveal delay={160}>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                  {brand.name}{" "}unifies your CRM, your on-ground workforce and your
-                  sales &amp; distribution into a single system — a web dashboard
-                  for managers and a mobile app for reps. Outstanding, stock and
-                  reports keep themselves, with{" "}
-                  <span className="font-semibold text-foreground">
-                    no accounting software to bolt on.
-                  </span>
-                </p>
-              </Reveal>
-
-              <Reveal delay={240}>
-                <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                  <PrimaryCTA href="/book-demo">Book a free demo</PrimaryCTA>
-                  <SecondaryCTA href="#story">See how the day flows</SecondaryCTA>
-                </div>
-              </Reveal>
-
-              <Reveal delay={320}>
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <WifiOff className="h-4 w-4 text-success" /> Works fully
-                    offline
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Monitor className="h-4 w-4 text-primary" /> Web dashboard
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Smartphone className="h-4 w-4 text-primary" /> Mobile app
-                    <span className="rounded-full bg-primary-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary">
-                      iOS soon
-                    </span>
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-
-            <Reveal delay={200} variant="scale">
-              <HeroVisual />
-            </Reveal>
-          </div>
-
-          {/* honest product counters */}
-          <Reveal delay={120}>
-            <div className="mt-16 grid grid-cols-3 divide-x divide-border rounded-3xl border border-border bg-card/70 py-7 shadow-sm backdrop-blur md:mt-20">
-              {productStats.map((s) => (
-                <div key={s.label} className="px-4 text-center">
-                  <div className="ozzo-display text-3xl text-foreground md:text-5xl">
-                    <CountUp to={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="mx-auto mt-2 max-w-[9rem] text-xs text-muted-foreground md:text-sm">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <HomeHero />
 
       {/* ─────────────── Differentiators ("removed") ─────────────── */}
       <section id="why" className="py-24 md:py-32">
@@ -216,7 +131,9 @@ export default function HomePage() {
 
       {/* ─────────────── OZZO in motion (animated showcase) ─────────────── */}
       <section id="in-motion" className="relative overflow-hidden border-y border-border bg-card-2 py-24 md:py-32">
-        <div className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
+        <Parallax speed={80} className="pointer-events-none absolute -top-32 right-0">
+          <div className="h-[420px] w-[520px] rounded-full bg-primary/10 blur-[120px]" />
+        </Parallax>
         <Container className="relative">
           <SectionHeading
             eyebrow="See it in motion"
@@ -258,7 +175,7 @@ export default function HomePage() {
                   variant={i % 2 ? "left" : "right"}
                   className={i % 2 ? "md:order-1" : ""}
                 >
-                  {d.node}
+                  <Parallax speed={34}>{d.node}</Parallax>
                 </Reveal>
               </div>
             ))}
@@ -286,8 +203,8 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto max-w-3xl">
-            {/* vertical line */}
-            <div className="absolute left-[27px] top-2 bottom-2 w-px bg-white/15 md:left-1/2" />
+            {/* vertical line — draws with scroll */}
+            <TimelineProgress className="absolute left-[27px] top-2 bottom-2 w-px md:left-1/2" />
             <div className="space-y-3">
               {dayTimeline.map((d, i) => (
                 <Reveal key={d.time} delay={i * 60} variant={i % 2 ? "right" : "left"}>
@@ -630,7 +547,9 @@ export default function HomePage() {
 
       {/* ─────────────── Final CTA with form ─────────────── */}
       <section id="get-started" className="relative overflow-hidden py-24 md:py-32">
-        <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]" />
+        <Parallax speed={90} className="pointer-events-none absolute -bottom-32 left-1/2">
+          <div className="h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]" />
+        </Parallax>
         <Container className="relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
