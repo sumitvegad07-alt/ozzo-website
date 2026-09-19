@@ -57,6 +57,60 @@ function Block({ block }: { block: BlogBlock }) {
           {block.text}
         </blockquote>
       );
+    case "compare":
+      return (
+        <div className="mt-9 grid gap-4 sm:grid-cols-2">
+          {block.columns.map((col) => (
+            <div
+              key={col.label}
+              className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-sm"
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary text-lg font-bold text-white">
+                  {col.label.slice(0, 1)}
+                </span>
+                <div>
+                  <div className="ozzo-display text-xl text-foreground">{col.label}</div>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {col.tagline}
+                  </div>
+                </div>
+              </div>
+              <ul className="mt-5 space-y-3">
+                {col.points.map((pt) => (
+                  <li
+                    key={pt}
+                    className="flex items-start gap-2.5 text-[15px] leading-relaxed text-foreground/85"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      );
+    case "decision":
+      return (
+        <div className="mt-9 overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+          {block.rows.map((row, i) => (
+            <div
+              key={row.when}
+              className={`flex flex-col gap-2 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${
+                i > 0 ? "border-t border-border" : ""
+              }`}
+            >
+              <span className="text-[15px] leading-relaxed text-foreground/85">
+                {row.when}
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-1.5 self-start whitespace-nowrap rounded-full bg-primary-soft px-3 py-1 text-sm font-bold text-primary sm:self-auto">
+                <ArrowRight className="h-3.5 w-3.5" /> {row.pick}
+              </span>
+            </div>
+          ))}
+        </div>
+      );
     default:
       return (
         <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">

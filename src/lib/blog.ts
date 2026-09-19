@@ -14,7 +14,14 @@ export type BlogBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "ul"; items: string[] }
-  | { type: "quote"; text: string };
+  | { type: "quote"; text: string }
+  /** Side-by-side comparison graphic — renders as branded cards, no image files. */
+  | {
+      type: "compare";
+      columns: { label: string; tagline: string; points: string[] }[];
+    }
+  /** "Pick by your situation" panel — situation on the left, recommendation badge on the right. */
+  | { type: "decision"; rows: { when: string; pick: string }[] };
 
 export type BlogPost = {
   slug: string;
@@ -32,6 +39,129 @@ export type BlogPost = {
 };
 
 export const posts: BlogPost[] = [
+  {
+    slug: "crm-or-sfa-which-does-your-field-team-need",
+    title: "CRM or SFA: which does your field team actually need?",
+    description:
+      "OZZO comes in two products — CRM and SFA. Here's the plain-English difference, who each one is for, and how to choose without paying for more than you'll use.",
+    date: "2026-09-19",
+    author: "Team OZZO",
+    tags: ["CRM", "Sales force automation", "Field sales"],
+    emoji: "🧭",
+    readingMinutes: 6,
+    body: [
+      {
+        type: "p",
+        text: "When a growing sales business first looks for software, the same question comes up: do we need a CRM, or one of those field-tracking apps? The honest answer is that they solve two different problems, and the right choice depends on where your team spends its day — at a desk working enquiries, or out on the road in front of customers. OZZO is built as two products for exactly this reason: CRM and SFA. This is the plain-English guide to telling them apart.",
+      },
+      {
+        type: "compare",
+        columns: [
+          {
+            label: "CRM",
+            tagline: "Your front office",
+            points: [
+              "Capture and work every enquiry in a visual pipeline",
+              "One shared WhatsApp inbox with an AI assistant for routine questions",
+              "Branded quotations and one shared customer record",
+            ],
+          },
+          {
+            label: "SFA",
+            tagline: "Your field office",
+            points: [
+              "Selfie-and-GPS attendance, live location and geo-tagged visits",
+              "Offline order capture, dispatch and field payment collection",
+              "Outstanding and stock that keep themselves up to date",
+            ],
+          },
+        ],
+      },
+      {
+        type: "h2",
+        text: "CRM is for winning and keeping customers",
+      },
+      {
+        type: "p",
+        text: "A CRM is your front office. Its job is to make sure no enquiry is forgotten, every deal is moving, and every customer conversation lives somewhere the whole team can see — not on one person's phone.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Capture every lead and work it through a visual pipeline, so nothing goes cold unnoticed",
+          "Reply to customers on WhatsApp from one shared team inbox, with templates and an AI assistant that answers routine questions from your own knowledge base",
+          "Send branded quotations as clean PDFs",
+          "Keep one shared customer record — enquiries, chats, tasks and quotes on a single timeline",
+        ],
+      },
+      {
+        type: "p",
+        text: "If your team mostly chases enquiries, quotes and follow-ups — and the pain is leads slipping through the cracks or customer history walking out when a rep leaves — CRM is where you start.",
+      },
+      {
+        type: "h2",
+        text: "SFA is for running a team that sells on the road",
+      },
+      {
+        type: "p",
+        text: "SFA — Sales Force Automation — is your field office. Its job is to give you an honest picture of what your reps are doing, then turn each visit into an order, a collection and up-to-date books, without anyone re-keying anything at night.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Selfie-and-GPS attendance and live location, so \"reached the customer\" means the phone was actually there",
+          "Geo-tagged visits, beat routes and territories that make coverage measurable instead of a hope",
+          "Offline order capture — the app works with no signal and syncs when it's back",
+          "Field payment collection with outstanding that recalculates itself, and closing stock derived from actual movement",
+        ],
+      },
+      {
+        type: "p",
+        text: "One thing that trips people up: the light \"field tracking\" tier — attendance, location and visits — is not a separate product. In OZZO it's simply the entry level of SFA (the Field line). You grow from starter tracking up to full sales-and-distribution on the same system, rather than switching apps later.",
+      },
+      {
+        type: "h2",
+        text: "A quick way to decide",
+      },
+      {
+        type: "decision",
+        rows: [
+          {
+            when: "Team mostly at a desk, working enquiries and quotes",
+            pick: "CRM",
+          },
+          {
+            when: "Team mostly on the road, and you can't verify what happened in the field",
+            pick: "SFA (Field line)",
+          },
+          {
+            when: "Reps take actual orders and collect payments at the counter",
+            pick: "Full SFA",
+          },
+          {
+            when: "You need both the front office and the field team on one login",
+            pick: "CRM + SFA",
+          },
+        ],
+      },
+      {
+        type: "h2",
+        text: "You don't have to choose forever",
+      },
+      {
+        type: "p",
+        text: "The two products aren't a fork in the road. They sit on one customer record, so a WhatsApp conversation your office had and a visit your rep made in the field land on the same customer. Many businesses begin with the one problem that's costing them most and add the other line when they're ready — no migration, no second database.",
+      },
+      {
+        type: "quote",
+        text: "Pick by where the pain is today, not by the longest feature list. You can always grow into the rest on the same data.",
+      },
+      {
+        type: "p",
+        text: "If you're not sure which side your pain sits on, that's a normal place to be — it's the quickest thing to work out on a short demo call, using your own team as the example.",
+      },
+    ],
+  },
   {
     slug: "signs-field-sales-team-outgrown-spreadsheets-whatsapp",
     title: "5 signs your field sales team has outgrown spreadsheets and WhatsApp",
