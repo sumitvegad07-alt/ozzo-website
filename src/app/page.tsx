@@ -10,6 +10,8 @@ import { Icon } from "@/components/icon";
 import { HomeHero } from "@/components/home-hero";
 import { Parallax } from "@/components/motion/parallax";
 import { TimelineProgress } from "@/components/motion/timeline-progress";
+import { StackedChapters } from "@/components/motion/stacked-chapters";
+import { IndustryTiles } from "@/components/motion/industry-tiles";
 import { CrmSpotlight } from "@/components/crm-spotlight";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
@@ -271,59 +273,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-20 md:space-y-28">
-            {chapters.map((c, i) => (
-              <div
-                key={c.n}
-                className="grid items-center gap-10 md:grid-cols-12 md:gap-14"
-              >
-                {/* number / stat side */}
-                <Reveal
-                  variant={i % 2 ? "right" : "left"}
-                  className={`md:col-span-5 ${i % 2 ? "md:order-2" : ""}`}
-                >
-                  <div className="ozzo-eyebrow text-primary">{c.kicker}</div>
-                  <div className="ozzo-display mt-2 text-8xl leading-none text-primary/15 md:text-[9rem]">
-                    {c.n}
-                  </div>
-                  <div className="mt-6 inline-flex flex-col rounded-3xl border border-border bg-card p-6 shadow-sm">
-                    <span className="ozzo-display text-4xl text-foreground md:text-5xl">
-                      {c.stat.value}
-                    </span>
-                    <span className="mt-1 max-w-[13rem] text-sm text-muted-foreground">
-                      {c.stat.label}
-                    </span>
-                  </div>
-                </Reveal>
-
-                {/* copy side */}
-                <Reveal
-                  delay={100}
-                  variant={i % 2 ? "left" : "right"}
-                  className={`md:col-span-7 ${i % 2 ? "md:order-1" : ""}`}
-                >
-                  <h3 className="ozzo-display text-3xl text-foreground md:text-[2.6rem] md:leading-[1.08]">
-                    {c.title}
-                  </h3>
-                  <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                    {c.body}
-                  </p>
-                  <ul className="mt-7 space-y-4">
-                    {c.points.map((p) => (
-                      <li key={p} className="flex items-start gap-3">
-                        <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary">
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        <span className="text-[15px] leading-relaxed text-foreground">
-                          {p}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </div>
-            ))}
-          </div>
+          <StackedChapters items={chapters} />
         </Container>
       </section>
 
@@ -481,25 +431,9 @@ export default function HomePage() {
             Built for field-first businesses
           </Eyebrow>
         </Container>
-        <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-card-2 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-card-2 to-transparent" />
-          <div className="flex w-max animate-marquee gap-4 pr-4">
-            {[...industries, ...industries].map((ind, i) => (
-              <div
-                key={`${ind.name}-${i}`}
-                className="flex shrink-0 items-center gap-3 rounded-2xl border border-border bg-card px-5 py-4 shadow-sm"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                  <Icon name={ind.icon} className="h-5 w-5" />
-                </span>
-                <span className="whitespace-nowrap text-sm font-semibold text-foreground">
-                  {ind.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Container>
+          <IndustryTiles items={industries} />
+        </Container>
       </section>
 
       {/* ─────────────── Plans teaser ─────────────── */}
