@@ -13,7 +13,7 @@ import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/motion/parallax";
 import { IndustryTiles } from "@/components/motion/industry-tiles";
 import { TiltCard } from "@/components/motion/tilt-card";
-import { StackedSteps } from "@/components/motion/stacked-steps";
+import { RepDayScrolly } from "@/components/motion/rep-day-scrolly";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { BeatItinerary } from "@/components/motion/beat-itinerary";
@@ -323,9 +323,14 @@ export function SfaProductPage() {
       </section>
 
       {/* ─────────── SECTION 2 · Daily life of a rep ─────────── */}
-      <section className="relative overflow-hidden bg-ink py-24 text-white md:py-28">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[380px] w-[680px] -translate-x-1/2 rounded-full bg-primary/25 blur-[130px]" />
+      {/* No overflow-hidden on the section itself — it would break the
+          position:sticky scrollytelling below. The glow is clipped by an
+          inner absolutely-positioned layer instead. */}
+      <section className="relative bg-ink py-24 text-white md:py-28">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="ozzo-grid absolute inset-0 text-white/[0.05]" />
+          <div className="absolute left-1/2 top-0 h-[380px] w-[680px] -translate-x-1/2 rounded-full bg-primary/25 blur-[130px]" />
+        </div>
         <Container className="relative z-10">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <Eyebrow center className="text-primary">A day in the field</Eyebrow>
@@ -337,7 +342,7 @@ export function SfaProductPage() {
               see, instead of something you&apos;re told about at night.
             </p>
           </div>
-          <StackedSteps items={sfaRepDay} />
+          <RepDayScrolly steps={sfaRepDay} />
         </Container>
       </section>
 
