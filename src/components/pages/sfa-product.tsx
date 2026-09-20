@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Container, SectionHeading, PrimaryCTA, SecondaryCTA, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { Parallax } from "@/components/motion/parallax";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { RouteCompliance } from "@/components/motion/route-compliance";
@@ -275,21 +276,27 @@ export function SfaProductPage() {
       />
 
       {/* ─────────── SECTION 1 · Hero ─────────── */}
-      <section className="relative overflow-hidden pt-32 pb-10 md:pt-40">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-primary/15 blur-[130px]" />
-        <Container>
+      <section className="relative overflow-hidden bg-ink pt-32 pb-16 text-white md:pt-40 md:pb-20">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <Parallax speed={80} className="pointer-events-none absolute -left-24 -top-24">
+          <div className="h-[480px] w-[480px] rounded-full bg-[#2563eb]/25 blur-[140px]" />
+        </Parallax>
+        <Parallax speed={100} className="pointer-events-none absolute right-0 -top-16">
+          <div className="h-[520px] w-[520px] rounded-full bg-[#7c3aed]/30 blur-[150px]" />
+        </Parallax>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-background" />
+        <Container className="relative z-10">
           <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <Reveal><Eyebrow>OZZO SFA · Sales Force Automation</Eyebrow></Reveal>
               <Reveal delay={80}>
-                <h1 className="ozzo-display mt-4 max-w-2xl text-[2.4rem] leading-[1.05] text-foreground sm:text-5xl md:text-[3.5rem]">
+                <h1 className="ozzo-display mt-4 max-w-2xl text-[2.4rem] leading-[1.05] text-white sm:text-5xl md:text-[3.5rem]">
                   Know what your field team is doing —{" "}
-                  <span className="ozzo-gradient-text">without chasing updates</span>.
+                  <span className="ozzo-gradient-bright">without chasing updates</span>.
                 </h1>
               </Reveal>
               <Reveal delay={160}>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">
                   See where your reps are, which visits happened and which were skipped,
                   and how orders and collections are flowing — live. Then take the order,
                   collect the cash, and watch outstanding and stock keep themselves. One
@@ -305,8 +312,8 @@ export function SfaProductPage() {
               <Reveal delay={320}>
                 <div className="mt-8 flex flex-wrap gap-2">
                   {["Selfie + GPS attendance", "Route compliance", "Offline orders", "Auto outstanding"].map((c) => (
-                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white/90 backdrop-blur">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#a855f7]" />
                       {c}
                     </span>
                   ))}

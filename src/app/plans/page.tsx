@@ -53,16 +53,18 @@ export default function PlansPage() {
       />
 
       {/* ─────────────── Hero ─────────────── */}
-      <section className="relative overflow-hidden pt-36 pb-10 md:pt-44">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-primary/15 blur-[130px]" />
+      <section className="relative overflow-hidden bg-ink pt-36 pb-16 text-white md:pt-44">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-20 -top-24 h-[460px] w-[460px] rounded-full bg-[#2563eb]/25 blur-[140px]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 -top-16 h-[500px] w-[500px] rounded-full bg-[#7c3aed]/30 blur-[150px]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-background" />
         <Container className="relative z-10 text-center">
           <Eyebrow center>Plans &amp; packages</Eyebrow>
-          <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.5rem] leading-[1.04] text-foreground md:text-6xl">
+          <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.5rem] leading-[1.04] text-white md:text-6xl">
             Plans that grow with your{" "}
-            <span className="ozzo-gradient-text">field team</span>
+            <span className="ozzo-gradient-bright">field team</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
             Five plans built from three product lines — CRM, WFA and SFA. Buy the
             combination that fits how your team works, and add the rest on the same data
             whenever you&apos;re ready. Every module below is live in production.
@@ -71,7 +73,7 @@ export default function PlansPage() {
             <PrimaryCTA href="/book-demo">Book a demo</PrimaryCTA>
             <SecondaryCTA href="#compare">Compare every module</SecondaryCTA>
           </div>
-          <p className="mt-5 text-sm font-medium text-muted-foreground">
+          <p className="mt-5 text-sm font-medium text-white/55">
             Web dashboard + Android app · works offline · guided onboarding
           </p>
         </Container>

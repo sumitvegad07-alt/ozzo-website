@@ -30,18 +30,19 @@ export default function BookDemoPage() {
         ]}
       />
 
-      <section className="relative overflow-hidden pt-36 pb-24 md:pt-44">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[500px] w-[720px] -translate-x-1/2 rounded-full bg-primary/15 blur-[130px]" />
+      <section className="relative overflow-hidden bg-ink pt-36 pb-24 text-white md:pt-44">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-20 -top-24 h-[460px] w-[460px] rounded-full bg-[#2563eb]/22 blur-[140px]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 -top-16 h-[500px] w-[500px] rounded-full bg-[#7c3aed]/28 blur-[150px]" />
         <Container className="relative z-10">
           <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Left: pitch */}
             <div>
               <Eyebrow>See it on your own workflow</Eyebrow>
-              <h1 className="ozzo-display mt-4 max-w-lg text-4xl leading-[1.06] text-foreground md:text-5xl">
-                Book a free, no-pressure demo
+              <h1 className="ozzo-display mt-4 max-w-lg text-4xl leading-[1.06] text-white md:text-5xl">
+                Book a free, <span className="ozzo-gradient-bright">no-pressure demo</span>
               </h1>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/65">
                 Share a few details and our team will call you, understand how
                 your field team actually works, and show you exactly how{" "}
                 {brand.name} fits — with guided onboarding to get you live. It
@@ -51,24 +52,24 @@ export default function BookDemoPage() {
               <ul className="mt-8 space-y-4">
                 {reassurances.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" />
-                    <span className="text-foreground">{r}</span>
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#37e0a0]" />
+                    <span className="text-white/85">{r}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-muted-foreground">
+              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/60">
                 <span className="flex items-center gap-1.5">
-                  <Monitor className="h-4 w-4 text-primary" /> Web dashboard
+                  <Monitor className="h-4 w-4 text-[#a855f7]" /> Web dashboard
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Smartphone className="h-4 w-4 text-primary" /> Mobile app
-                  <span className="rounded-full bg-primary-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary">
+                  <Smartphone className="h-4 w-4 text-[#a855f7]" /> Mobile app
+                  <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#c4b5fd]">
                     iOS soon
                   </span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <WifiOff className="h-4 w-4 text-primary" /> Works offline
+                  <WifiOff className="h-4 w-4 text-[#a855f7]" /> Works offline
                 </span>
               </div>
             </div>

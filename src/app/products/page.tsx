@@ -90,15 +90,18 @@ export default function ProductsPage() {
       />
 
       {/* Header */}
-      <section className="relative overflow-hidden pt-36 pb-16 md:pt-44">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[460px] w-[720px] -translate-x-1/2 rounded-full bg-primary/15 blur-[130px]" />
+      <section className="relative overflow-hidden bg-ink pt-36 pb-20 text-white md:pt-44">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-20 -top-24 h-[460px] w-[460px] rounded-full bg-[#2563eb]/25 blur-[140px]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 -top-16 h-[500px] w-[500px] rounded-full bg-[#7c3aed]/30 blur-[150px]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-background" />
         <Container className="relative z-10 text-center">
           <Eyebrow center>The OZZO platform</Eyebrow>
-          <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.6rem] leading-[1.04] text-foreground md:text-6xl">
-            One platform for your whole revenue engine
+          <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.6rem] leading-[1.04] text-white md:text-6xl">
+            One platform for your whole{" "}
+            <span className="ozzo-gradient-bright">revenue engine</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
             Two products you can buy on their own or combine — CRM to win and keep
             customers, and Sales Force Automation to run your field team end to end.
             Both share one customer record, one login and one source of truth across
@@ -109,7 +112,7 @@ export default function ProductsPage() {
               <a
                 key={p.slug}
                 href={`#${p.slug}`}
-                className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40"
+                className="rounded-full border border-white/15 bg-white/[0.06] px-5 py-2.5 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/40"
               >
                 {p.name} — {p.sub}
               </a>

@@ -69,16 +69,17 @@ export default function ContactPage() {
         ]}
       />
 
-      <section className="relative overflow-hidden pt-36 pb-24 md:pt-44">
-        <div className="ozzo-grid pointer-events-none absolute inset-0 -z-10 text-foreground/[0.04]" />
-        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[460px] w-[700px] -translate-x-1/2 rounded-full bg-primary/12 blur-[130px]" />
+      <section className="relative overflow-hidden bg-ink pt-36 pb-24 text-white md:pt-44">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-20 -top-24 h-[440px] w-[440px] rounded-full bg-[#2563eb]/22 blur-[140px]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 -top-16 h-[480px] w-[480px] rounded-full bg-[#7c3aed]/28 blur-[150px]" />
         <Container className="relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow center>Talk to us</Eyebrow>
-            <h1 className="ozzo-display mt-4 text-4xl leading-[1.06] text-foreground md:text-5xl">
-              We&apos;re a message away
+            <h1 className="ozzo-display mt-4 text-4xl leading-[1.06] text-white md:text-5xl">
+              We&apos;re a <span className="ozzo-gradient-bright">message away</span>
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-lg leading-relaxed text-white/65">
               Questions about the platform, plans or getting set up? Reach us
               on whichever channel suits you — a real person replies.
             </p>
@@ -112,7 +113,7 @@ export default function ContactPage() {
           </div>
 
           {/* hours + address */}
-          <div className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground sm:flex-row">
+          <div className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-x-8 gap-y-3 text-sm text-white/60 sm:flex-row">
             <span className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-primary" /> {contact.hours}
             </span>
