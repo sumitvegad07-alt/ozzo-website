@@ -10,6 +10,7 @@ import {
 import { Container, SectionHeading, PrimaryCTA, SecondaryCTA, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/motion/parallax";
+import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { RoleTabs } from "@/components/role-tabs";
 import { FaqSection } from "@/components/faq-section";
@@ -224,11 +225,13 @@ export function CrmProductPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {crmProblems.map((p, i) => (
               <Reveal key={p.title} delay={i * 60}>
-                <div className="group h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-destructive/10 text-destructive"><Icon name={p.icon} className="h-6 w-6" /></div>
-                  <h3 className="mb-2 text-lg font-bold text-foreground">{p.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                </div>
+                <TiltCard className="rounded-3xl" max={6}>
+                  <div className="group h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-destructive/10 text-destructive"><Icon name={p.icon} className="h-6 w-6" /></div>
+                    <h3 className="mb-2 text-lg font-bold text-foreground">{p.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+                  </div>
+                </TiltCard>
               </Reveal>
             ))}
             <Reveal delay={crmProblems.length * 60}>
@@ -332,13 +335,15 @@ export function CrmProductPage() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {crmFieldForce.map((c, i) => (
               <Reveal key={c.title} delay={i * 50}>
-                <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                    <Icon name={c.icon} className="h-6 w-6" />
+                <TiltCard className="rounded-3xl" max={6}>
+                  <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                      <Icon name={c.icon} className="h-6 w-6" />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-foreground">{c.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-foreground">{c.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -360,11 +365,13 @@ export function CrmProductPage() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {crmCapabilities.map((c, i) => (
               <Reveal key={c.title} delay={i * 50}>
-                <div className="h-full rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary"><Icon name={c.icon} className="h-6 w-6" /></div>
-                  <h3 className="mb-2 text-lg font-bold text-foreground">{c.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                </div>
+                <TiltCard className="rounded-3xl" max={6}>
+                  <div className="h-full rounded-3xl border border-border bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary"><Icon name={c.icon} className="h-6 w-6" /></div>
+                    <h3 className="mb-2 text-lg font-bold text-foreground">{c.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+                  </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>

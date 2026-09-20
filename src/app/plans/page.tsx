@@ -86,6 +86,7 @@ export default function PlansPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (
               <Reveal key={plan.id} delay={i * 60}>
+                <TiltCard className="rounded-3xl" max={6}>
                 <div
                   className={cn(
                     "relative flex h-full flex-col rounded-3xl border bg-card p-5 shadow-sm ring-1",
@@ -150,6 +151,7 @@ export default function PlansPage() {
                     Book a demo <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
