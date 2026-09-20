@@ -134,13 +134,13 @@ export default function ContactPage() {
 
           {/* Book a demo banner */}
           <div className="mx-auto mt-14 max-w-4xl">
-            <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-primary-soft p-8 text-center md:p-12">
-              <div className="pointer-events-none absolute -top-16 left-1/2 h-48 w-[500px] -translate-x-1/2 rounded-full bg-primary/20 blur-[100px]" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.05] p-8 text-center backdrop-blur md:p-12">
+              <div className="pointer-events-none absolute -top-16 left-1/2 h-48 w-[500px] -translate-x-1/2 rounded-full bg-[#7c3aed]/25 blur-[100px]" />
               <div className="relative">
-                <h2 className="ozzo-display text-2xl text-foreground md:text-3xl">
-                  Prefer a guided walkthrough?
+                <h2 className="ozzo-display text-2xl text-white md:text-3xl">
+                  Prefer a <span className="ozzo-gradient-bright">guided walkthrough?</span>
                 </h2>
-                <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+                <p className="mx-auto mt-3 max-w-lg text-white/65">
                   Book a free demo and our team will call you, map OZZO to how
                   your field team works, and show you exactly how it fits.
                 </p>

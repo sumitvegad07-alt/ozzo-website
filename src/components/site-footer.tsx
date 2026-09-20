@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, Play } from "lucide-react";
 import { brand, contact, productLines } from "@/lib/site";
 
 const socialLinks = [
@@ -9,168 +9,142 @@ const socialLinks = [
   { label: "YouTube", href: contact.social.youtube },
 ].filter((s) => s.href);
 
+const policies = [
+  { label: "Contact Us", href: "/contact" },
+  { label: "Book a demo", href: "/book-demo" },
+  { label: "Blog", href: "/blog" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
+
+const products = [
+  { label: "Sales Force Automation", href: "/products/sfa" },
+  { label: "Customer Relationship Management", href: "/products/crm" },
+  { label: "Plans & packages", href: "/plans" },
+  { label: "All features", href: "/products" },
+];
+
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden bg-ink pt-20 pb-8 text-white">
+    <footer className="relative overflow-hidden bg-ink pt-20 text-white">
       <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.04]" />
-      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-primary/20 blur-[130px]" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        {/* Top band — closing line + CTA */}
-        <div className="mb-14 flex flex-col gap-6 border-b border-white/10 pb-14 md:flex-row md:items-end md:justify-between">
-          <h2 className="ozzo-display max-w-xl text-3xl text-white md:text-4xl">
-            Put the whole field day{" "}
-            <span className="ozzo-gradient-text">in one place.</span>
-          </h2>
-          <Link
-            href="/book-demo"
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
-          >
-            Book a free demo
-          </Link>
-        </div>
+      <div className="pointer-events-none absolute -top-24 right-0 h-[380px] w-[520px] rounded-full bg-[#7c3aed]/20 blur-[140px]" />
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div className="col-span-2">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-2 gap-10 gap-y-12 md:grid-cols-12">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-4">
             <span className="flex items-center">
               {/* Footer sits on the dark ink background — use the neon dark variant. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/logo-dark.png"
-                alt={brand.name}
-                className="h-9 w-auto"
-              />
+              <img src="/brand/logo-dark.png" alt={brand.name} className="h-9 w-auto" />
             </span>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
-              CRM, workforce and field-sales automation in one platform — a web
-              dashboard for managers and a mobile app for reps, powered by
-              WhatsApp and AI.
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
+              Close every loop. CRM, field workforce and sales &amp; distribution
+              in one platform — a web dashboard for managers and a mobile app for
+              reps, powered by WhatsApp and AI.
             </p>
             <div className="mt-6 space-y-2 text-sm">
-              <a
-                href={`mailto:${contact.email}`}
-                className="flex items-center gap-2 text-white/60 transition-colors hover:text-primary"
-              >
+              <a href={`mailto:${contact.email}`} className="flex items-center gap-2 text-white/60 transition-colors hover:text-[#c4b5fd]">
                 <Mail className="h-4 w-4" /> {contact.email}
               </a>
-              <a
-                href={`tel:${contact.phoneE164}`}
-                className="flex items-center gap-2 text-white/60 transition-colors hover:text-primary"
-              >
+              <a href={`tel:${contact.phoneE164}`} className="flex items-center gap-2 text-white/60 transition-colors hover:text-[#c4b5fd]">
                 <Phone className="h-4 w-4" /> {contact.phoneDisplay}
               </a>
-              <a
-                href={`https://wa.me/${contact.whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white/60 transition-colors hover:text-primary"
-              >
+              <a href={`https://wa.me/${contact.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 transition-colors hover:text-[#c4b5fd]">
                 <MessageCircle className="h-4 w-4" /> WhatsApp us
               </a>
             </div>
             {socialLinks.length > 0 && (
-              <div className="mt-6 flex items-center gap-4">
+              <div className="mt-6 flex items-center gap-3">
                 {socialLinks.map((s) => (
                   <a
                     key={s.label}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-white/60 transition-colors hover:text-primary"
+                    aria-label={s.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-[11px] font-bold text-white/70 transition-colors hover:border-[#a855f7]/50 hover:text-white"
                   >
-                    {s.label}
+                    {s.label.slice(0, 2)}
                   </a>
                 ))}
               </div>
             )}
           </div>
 
-          <div>
-            <h2 className="mb-4 font-bold text-white">Products</h2>
-            <ul className="space-y-3">
-              {productLines.map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    href={`/products#${p.slug}`}
-                    className="text-sm text-white/60 transition-colors hover:text-primary"
-                  >
-                    {p.name} — {p.sub}
+          {/* Policies */}
+          <div className="md:col-span-3">
+            <h2 className="ozzo-eyebrow mb-5 text-white/40">Policies</h2>
+            <ul className="space-y-3.5">
+              {policies.map((p) => (
+                <li key={p.href}>
+                  <Link href={p.href} className="text-sm text-white/65 transition-colors hover:text-[#c4b5fd]">
+                    {p.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/plans"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Plans &amp; packages
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  All features
-                </Link>
-              </li>
             </ul>
           </div>
 
-          <div>
-            <h2 className="mb-4 font-bold text-white">Company</h2>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Contact us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/book-demo"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Book a demo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-sm text-white/60 transition-colors hover:text-primary"
-                >
-                  Terms of Service
-                </Link>
-              </li>
+          {/* Products */}
+          <div className="md:col-span-3">
+            <h2 className="ozzo-eyebrow mb-5 text-white/40">Products</h2>
+            <ul className="space-y-3.5">
+              {products.map((p) => (
+                <li key={p.href}>
+                  <Link href={p.href} className="text-sm text-white/65 transition-colors hover:text-[#c4b5fd]">
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
+          </div>
+
+          {/* Mobile app */}
+          <div className="col-span-2 md:col-span-2">
+            <h2 className="ozzo-eyebrow mb-5 text-white/40">Mobile App</h2>
+            <a
+              href="https://play.google.com/store"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 transition-colors hover:border-[#a855f7]/50"
+            >
+              <Play className="h-6 w-6 fill-current text-[#a855f7]" />
+              <span className="leading-tight">
+                <span className="block text-[10px] uppercase tracking-wide text-white/50">Get it on</span>
+                <span className="block text-sm font-bold text-white">Google Play</span>
+              </span>
+            </a>
+            <p className="mt-4 max-w-[15rem] text-xs leading-relaxed text-white/45">
+              OZZO Sales — check in, capture visits and update leads from the field.
+            </p>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} {brand.legalName}. All rights reserved.
-          </p>
-          <p className="text-xs text-white/40">
-            Made for growing field-sales teams.
+        {/* Bottom bar */}
+        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/10 py-8 text-sm text-white/50 sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} {brand.legalName}. All rights reserved.</p>
+          <p className="flex flex-wrap items-center gap-x-2">
+            <a href={`mailto:${contact.email}`} className="transition-colors hover:text-white">{contact.email}</a>
+            <span aria-hidden>·</span>
+            <a href={`tel:${contact.phoneE164}`} className="transition-colors hover:text-white">{contact.phoneDisplay}</a>
           </p>
         </div>
+      </div>
+
+      {/* Giant brand watermark */}
+      <div className="pointer-events-none relative z-0 flex justify-center overflow-hidden" aria-hidden>
+        <span
+          className="ozzo-display select-none whitespace-nowrap leading-[0.8] tracking-tighter"
+          style={{
+            fontSize: "clamp(6rem, 26vw, 24rem)",
+            color: "rgba(168,85,247,0.06)",
+            transform: "translateY(28%)",
+          }}
+        >
+          {brand.name}
+        </span>
       </div>
     </footer>
   );

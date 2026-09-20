@@ -38,10 +38,16 @@ import {
 /* ─────────────────────────── Field-activity dashboard mock ─────────────────────────── */
 
 function FieldDashboardVisual() {
-  const reps = [
-    { name: "Ravi K.", status: "On route · 6 of 9", live: true },
-    { name: "Neha S.", status: "At Ganesh Stores", live: true },
-    { name: "Arjun M.", status: "Punched in · 07:40", live: false },
+  const orders = [
+    { c: "Sri Balaji Stores", v: "₹18,400", tag: "Offline · synced", off: true },
+    { c: "Ganesh Traders", v: "₹9,250", tag: "Booked · 11:20", off: false },
+    { c: "Anand Hardware", v: "₹27,600", tag: "Dispatched", off: false },
+  ];
+  const stock = [72, 44, 88, 30, 61, 52];
+  const kpis = [
+    { label: "Orders today", value: "₹3.4L", sub: "22 orders", tint: "bg-primary-soft text-primary" },
+    { label: "Collected", value: "₹1.28L", sub: "on the counter", tint: "bg-success/15 text-success" },
+    { label: "Outstanding", value: "₹8.6L", sub: "↓ auto", tint: "bg-warning/15 text-warning" },
   ];
   return (
     <div className="relative mx-auto w-full max-w-lg">
@@ -52,79 +58,67 @@ function FieldDashboardVisual() {
           <span className="h-2.5 w-2.5 rounded-full bg-warning/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
           <span className="ml-3 flex-1 truncate rounded-md bg-card px-3 py-1 text-[11px] font-medium text-muted-foreground">
-            OZZO · Field force · Live
+            OZZO · Sales &amp; distribution · Live
           </span>
         </div>
 
-        <div className="grid grid-cols-[1.3fr_1fr] gap-0">
-          <div className="ozzo-grid relative h-56 border-r border-border bg-primary-soft text-primary/25">
-            <svg viewBox="0 0 300 224" className="absolute inset-0 h-full w-full" aria-hidden>
-              <path
-                d="M30 190 C90 150 110 100 170 96 S250 60 275 40"
-                fill="none"
-                stroke="var(--primary)"
-                strokeWidth="3"
-                strokeDasharray="2 8"
-                strokeLinecap="round"
-                opacity="0.55"
-              />
-            </svg>
-            <span className="absolute left-6 top-[176px] flex h-3 w-3 items-center justify-center">
-              <span className="absolute h-3 w-3 rounded-full bg-success/50 [animation:ozzo-pulse-ring_2s_ease-out_infinite]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-success" />
-            </span>
-            <span className="absolute left-[150px] top-[84px] flex h-3 w-3 items-center justify-center">
-              <span className="absolute h-3 w-3 rounded-full bg-primary/50 [animation:ozzo-pulse-ring_2s_ease-out_infinite]" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-            </span>
-            <MapPin className="absolute right-6 top-6 h-5 w-5 text-primary" />
-            <span className="absolute bottom-3 left-3 rounded-full bg-card px-2.5 py-1 text-[10px] font-semibold text-foreground shadow-sm">
-              3 reps live
-            </span>
-          </div>
+        {/* KPI row */}
+        <div className="grid grid-cols-3 gap-2 p-3">
+          {kpis.map((k) => (
+            <div key={k.label} className="rounded-xl border border-border bg-card-2 p-2.5">
+              <span className={`mb-2 flex h-7 w-7 items-center justify-center rounded-lg ${k.tint}`}>
+                <IndianRupee className="h-4 w-4" />
+              </span>
+              <p className="ozzo-display text-lg leading-none text-foreground">{k.value}</p>
+              <p className="mt-1 text-[9px] font-bold text-foreground">{k.label}</p>
+              <p className="text-[9px] text-muted-foreground">{k.sub}</p>
+            </div>
+          ))}
+        </div>
 
-          <div className="space-y-2 p-3">
-            <p className="ozzo-eyebrow text-[9px] text-muted-foreground">Live feed</p>
-            {reps.map((r) => (
-              <div key={r.name} className="rounded-lg border border-border bg-card-2 p-2">
-                <div className="flex items-center gap-1.5">
-                  <span className={`h-1.5 w-1.5 rounded-full ${r.live ? "bg-success" : "bg-muted-foreground/40"}`} />
-                  <span className="text-[11px] font-bold text-foreground">{r.name}</span>
+        {/* stock + recent orders */}
+        <div className="grid grid-cols-[0.9fr_1.1fr] gap-2 px-3 pb-3">
+          <div className="rounded-xl border border-border bg-card-2 p-3">
+            <p className="text-[10px] font-bold text-foreground">Stock cover</p>
+            <div className="mt-3 flex h-20 items-end gap-1.5">
+              {stock.map((h, i) => (
+                <div key={i} className="flex-1 rounded-t bg-gradient-to-t from-primary/40 to-primary" style={{ height: `${h}%` }} />
+              ))}
+            </div>
+            <p className="mt-2 text-[9px] leading-tight text-muted-foreground">Derived from every order &amp; dispatch</p>
+          </div>
+          <div className="space-y-1.5 rounded-xl border border-border bg-card-2 p-3">
+            <p className="text-[10px] font-bold text-foreground">Recent orders</p>
+            {orders.map((o) => (
+              <div key={o.c} className="flex items-center justify-between gap-2 rounded-lg bg-card px-2 py-1.5">
+                <div className="min-w-0">
+                  <p className="truncate text-[10px] font-bold text-foreground">{o.c}</p>
+                  <p className="flex items-center gap-1 text-[9px] text-muted-foreground">
+                    {o.off && <WifiOff className="h-2.5 w-2.5" />}
+                    {o.tag}
+                  </p>
                 </div>
-                <p className="mt-0.5 text-[9px] text-muted-foreground">{r.status}</p>
+                <span className="shrink-0 text-[10px] font-extrabold text-foreground">{o.v}</span>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="grid grid-cols-2 gap-2 border-t border-border p-3">
-          <div className="flex items-center gap-2 rounded-lg border border-border bg-card-2 p-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-success/15 text-success">
-              <Fingerprint className="h-4 w-4" />
-            </span>
-            <div>
-              <p className="text-[10px] font-bold text-foreground">Attendance</p>
-              <p className="text-[9px] text-muted-foreground">14 present · 1 late</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 rounded-lg border border-border bg-card-2 p-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-soft text-primary">
-              <ShoppingCart className="h-4 w-4" />
-            </span>
-            <div>
-              <p className="text-[10px] font-bold text-foreground">Orders today</p>
-              <p className="text-[9px] text-muted-foreground">₹3.4L · 22 orders</p>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <div className="absolute -bottom-6 -right-4 w-44 rounded-2xl border border-border bg-card p-3 shadow-xl shadow-black/[0.1] animate-float">
-        <p className="ozzo-eyebrow text-[9px] text-muted-foreground">Collected today</p>
+      {/* floating: order control — a distinct SFA capability */}
+      <div className="absolute -left-4 top-8 w-48 rounded-2xl border border-border bg-card p-3 shadow-xl shadow-black/[0.1] animate-float">
+        <p className="ozzo-eyebrow text-[9px] text-warning">Order control</p>
+        <p className="mt-1 text-xs font-bold text-foreground">Credit limit reached</p>
+        <p className="text-[10px] text-muted-foreground">Over-limit order held for approval</p>
+      </div>
+
+      {/* floating: auto outstanding */}
+      <div className="absolute -bottom-6 -right-4 w-44 rounded-2xl border border-border bg-card p-3 shadow-xl shadow-black/[0.1] animate-float" style={{ animationDelay: "1.2s" }}>
+        <p className="ozzo-eyebrow text-[9px] text-muted-foreground">Auto outstanding</p>
         <p className="mt-1 flex items-center gap-1 text-lg font-extrabold text-foreground">
-          <IndianRupee className="h-4 w-4" />1,28,500
+          <IndianRupee className="h-4 w-4" />8,60,200
         </p>
-        <p className="text-[10px] font-medium text-success">↓ outstanding updated live</p>
+        <p className="text-[10px] font-medium text-success">recalculated on collection</p>
       </div>
     </div>
   );
