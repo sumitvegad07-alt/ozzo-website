@@ -139,7 +139,7 @@ export function SiteFooter() {
           className="ozzo-display select-none whitespace-nowrap leading-[0.8] tracking-tighter"
           style={{
             fontSize: "clamp(6rem, 26vw, 24rem)",
-            color: "rgba(168,85,247,0.06)",
+            color: "rgba(232,229,255,0.16)",
             transform: "translateY(28%)",
           }}
         >
