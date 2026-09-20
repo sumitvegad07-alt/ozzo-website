@@ -17,6 +17,7 @@ import {
   Eyebrow,
 } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import {
@@ -236,34 +237,40 @@ export default function ProductsPage() {
       </section>
 
       {/* Platform capabilities */}
-      <section className="border-y border-border bg-card-2 py-24 md:py-28">
-        <Container>
-          <SectionHeading
-            eyebrow="Built into the platform"
-            title="Enterprise-grade foundations, out of the box"
-            description="The capabilities that make OZZO safe to run your whole business on."
-          />
+      <section className="relative overflow-hidden bg-ink py-24 text-white md:py-28">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 -top-16 h-[440px] w-[440px] rounded-full bg-[#7c3aed]/22 blur-[140px]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-16 top-1/3 h-[380px] w-[380px] rounded-full bg-[#2563eb]/18 blur-[140px]" />
+        <Container className="relative z-10">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <Eyebrow center>Built into the platform</Eyebrow>
+            <h2 className="ozzo-display mt-4 text-4xl md:text-5xl">
+              Enterprise-grade foundations,{" "}
+              <span className="ozzo-gradient-bright">out of the box</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/60">
+              The capabilities that make OZZO safe to run your whole business on.
+            </p>
+          </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {platformCapabilities.map((c, i) => (
               <Reveal key={c.title} delay={i * 60}>
-                <div className="h-full rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/[0.05]">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                    <c.icon className="h-6 w-6" />
+                <TiltCard className="rounded-3xl">
+                  <div className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-shadow duration-300 hover:shadow-xl hover:shadow-black/30">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-[#c4b5fd]">
+                      <c.icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-white">{c.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/60">{c.body}</p>
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-foreground">
-                    {c.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {c.body}
-                  </p>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
           <div className="mt-10 text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#c4b5fd] hover:underline"
             >
               Have a specific requirement? Talk to our team{" "}
               <ArrowRight className="h-4 w-4" />

@@ -8,6 +8,7 @@ import {
   Eyebrow,
 } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { PlansMatrix } from "@/components/plans-matrix";
 import { FaqSection } from "@/components/faq-section";
@@ -176,27 +177,34 @@ export default function PlansPage() {
       </section>
 
       {/* ─────────────── What sets us apart ─────────────── */}
-      <section className="border-y border-border bg-card-2 py-20 md:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="What sets OZZO apart"
-            title="The things a spreadsheet and a generic tool can't do"
-            description="Every plan is built on the same foundations — the ones that make OZZO safe to run a whole field business on."
-          />
+      <section className="relative overflow-hidden bg-ink py-20 text-white md:py-24">
+        <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.05]" />
+        <div className="animate-drift-a pointer-events-none absolute -left-16 -top-16 h-[420px] w-[420px] rounded-full bg-[#2563eb]/20 blur-[140px]" />
+        <div className="animate-drift-b pointer-events-none absolute right-0 bottom-0 h-[440px] w-[440px] rounded-full bg-[#7c3aed]/22 blur-[150px]" />
+        <Container className="relative z-10">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <Eyebrow center>What sets OZZO apart</Eyebrow>
+            <h2 className="ozzo-display mt-4 text-4xl md:text-5xl">
+              The things a spreadsheet and a generic tool{" "}
+              <span className="ozzo-gradient-bright">can&apos;t do</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/60">
+              Every plan is built on the same foundations — the ones that make
+              OZZO safe to run a whole field business on.
+            </p>
+          </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {setsApart.map((s, i) => (
               <Reveal key={s.title} delay={i * 60}>
-                <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-sm">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                    <Icon name={s.icon} className="h-6 w-6" />
+                <TiltCard className="rounded-3xl" max={6}>
+                  <div className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur transition-shadow duration-300 hover:shadow-xl hover:shadow-black/30">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/20 text-[#c4b5fd]">
+                      <Icon name={s.icon} className="h-6 w-6" />
+                    </div>
+                    <h3 className="mb-2 text-base font-bold text-white">{s.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/60">{s.body}</p>
                   </div>
-                  <h3 className="mb-2 text-base font-bold text-foreground">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {s.body}
-                  </p>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
