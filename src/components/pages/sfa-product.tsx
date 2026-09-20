@@ -13,6 +13,7 @@ import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/motion/parallax";
 import { IndustryTiles } from "@/components/motion/industry-tiles";
 import { TiltCard } from "@/components/motion/tilt-card";
+import { StackedSteps } from "@/components/motion/stacked-steps";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { BeatItinerary } from "@/components/motion/beat-itinerary";
@@ -336,23 +337,7 @@ export function SfaProductPage() {
               see, instead of something you&apos;re told about at night.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {sfaRepDay.map((d, i) => (
-              <Reveal key={d.title} delay={i * 70}>
-                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition-all duration-300 hover:bg-white/[0.07]">
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-primary">
-                      <Icon name={d.icon} className="h-5 w-5" />
-                    </span>
-                    <span className="rounded-full bg-white/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-white/80">{d.time}</span>
-                  </div>
-                  <div className="mb-1"><span className="text-[11px] font-bold text-primary">STEP {i + 1}</span></div>
-                  <h3 className="text-lg font-bold text-white">{d.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/60">{d.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <StackedSteps items={sfaRepDay} />
         </Container>
       </section>
 
