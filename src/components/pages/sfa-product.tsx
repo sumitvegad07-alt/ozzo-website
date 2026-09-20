@@ -13,7 +13,7 @@ import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/motion/parallax";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
-import { RouteCompliance } from "@/components/motion/route-compliance";
+import { BeatItinerary } from "@/components/motion/beat-itinerary";
 import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
 import { OrderGuards } from "@/components/motion/order-guards";
 import { SchemeCalc } from "@/components/motion/scheme-calc";
@@ -371,7 +371,7 @@ export function SfaProductPage() {
                 ]}
               />
             </Reveal>
-            <Reveal variant="right" delay={100}><RouteCompliance /></Reveal>
+            <Reveal variant="right" delay={100}><BeatItinerary /></Reveal>
           </div>
         </Container>
       </section>
