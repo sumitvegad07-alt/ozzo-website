@@ -11,6 +11,8 @@ import {
 import { Container, SectionHeading, PrimaryCTA, SecondaryCTA, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/motion/parallax";
+import { IndustryTiles } from "@/components/motion/industry-tiles";
+import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { BeatItinerary } from "@/components/motion/beat-itinerary";
@@ -388,13 +390,15 @@ export function SfaProductPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               {sfaManagerViews.map((v, i) => (
                 <Reveal key={v.title} delay={i * 60}>
-                  <div className="h-full rounded-3xl border border-border bg-card p-6 shadow-sm">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-soft text-primary">
-                      <Icon name={v.icon} className="h-5 w-5" />
+                  <TiltCard className="rounded-3xl" max={6}>
+                    <div className="h-full rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-black/[0.05]">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                        <Icon name={v.icon} className="h-5 w-5" />
+                      </div>
+                      <h3 className="mb-1.5 text-base font-bold text-foreground">{v.title}</h3>
+                      <p className="text-[13px] leading-relaxed text-muted-foreground">{v.body}</p>
                     </div>
-                    <h3 className="mb-1.5 text-base font-bold text-foreground">{v.title}</h3>
-                    <p className="text-[13px] leading-relaxed text-muted-foreground">{v.body}</p>
-                  </div>
+                  </TiltCard>
                 </Reveal>
               ))}
             </div>
@@ -561,18 +565,7 @@ export function SfaProductPage() {
             title="Made for teams that live on the road"
             description="If your people sell, service or deliver in the field, SFA fits the way they already work."
           />
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {industries.map((ind, i) => (
-              <Reveal key={ind.name} delay={i * 50}>
-                <div className="flex h-full items-center gap-3 rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                    <Icon name={ind.icon} className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-semibold text-foreground">{ind.name}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <IndustryTiles items={industries} />
         </Container>
       </section>
 
