@@ -26,11 +26,11 @@ export const contact = {
   email: "hello@ozzo.co.in",
   // Single shared mailbox for now; both point at the same inbox.
   salesEmail: "hello@ozzo.co.in",
-  phoneDisplay: "+91 97220 74310",
-  phoneE164: "+919722074310",
-  whatsappDisplay: "+91 97220 74310",
+  phoneDisplay: "+91 92271 26301",
+  phoneE164: "+919227126301",
+  whatsappDisplay: "+91 92271 26301",
   // Digits only, country code first, no + or spaces (for wa.me links).
-  whatsappNumber: "919722074310",
+  whatsappNumber: "919227126301",
   // Optional street address — improves local SEO. Leave blank to omit.
   address: {
     street: "",
