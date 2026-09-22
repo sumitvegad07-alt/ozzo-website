@@ -113,13 +113,13 @@ export const industries: Industry[] = [
   // ─────────────────────────────────────────── CPVC & PVC PIPES (flagship)
   {
     slug: "cpvc-pvc-pipe-companies",
-    sector: "Plastics",
+    sector: "Pipes & Fittings",
     name: "CPVC & PVC Pipe Companies",
     icon: "Factory",
-    metaTitle: "Field sales software for CPVC & PVC pipe companies | OZZO",
+    metaTitle: "Field sales software for CPVC, PVC & uPVC pipe companies | OZZO",
     metaDescription:
-      "OZZO is built for PVC & CPVC pipe brands: 15,000+ SKUs at multiple units, resin-linked price changes pushed to the field, dealer credit & secondary-sales visibility, plumber/contractor engagement, and a CRM pipeline for project sales — one system.",
-    keywords: ["PVC pipe company software", "CPVC pipe distribution software", "pipe manufacturer field sales", "plumbing pipe SFA India", "pipe dealer management software", "field sales software for pipe brands"],
+      "OZZO is built for PVC, CPVC & uPVC pipe brands: 15,000+ SKUs at multiple units, resin-linked price changes pushed to the field, dealer credit & secondary-sales visibility, plumber/contractor engagement, and a CRM pipeline for project sales — one system.",
+    keywords: ["PVC pipe company software", "CPVC pipe distribution software", "uPVC pipe distribution", "pipe manufacturer field sales", "plumbing pipe SFA India", "pipe dealer management software", "field sales software for pipe brands"],
     image: "/industries/pvc-cpvc-pipes-hero.jpg",
     imageAlt: "CPVC and PVC pipes and fittings installed along a wall",
     tagline: "The pipe business runs on the plumber's word, a 15,000-SKU catalogue and a resin price that never sits still. OZZO is built for exactly that.",
@@ -719,6 +719,237 @@ export const industries: Industry[] = [
       { q: "Is OZZO built for farm-equipment and implement companies?", a: "Yes. OZZO runs the whole high-value field motion — a CRM pipeline for demo-and-finance sales, dealer coverage, spare-parts orders, after-sales service visits, and dealer outstanding — in one system." },
       { q: "Can OZZO manage after-sales service, not just sales?", a: "Yes. Log after-sales service visits and tasks against the customer and machine and track them to closure — the service that wins the farmer's next purchase — alongside the sales pipeline." },
       { q: "Does OZZO handle the long, financed equipment sale?", a: "Yes. A CRM pipeline moves high-value leads through stages with demo scheduling, branded quotations, financing follow-up and next-step reminders, so a considered buyer doesn't go cold." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── HDPE PIPES
+  {
+    slug: "hdpe-pipe-companies",
+    sector: "Pipes & Fittings",
+    name: "HDPE Pipe Companies",
+    icon: "Droplets",
+    metaTitle: "Field sales software for HDPE pipe companies | OZZO",
+    metaDescription:
+      "OZZO is built for HDPE pipe brands: government water & irrigation project pipelines (Jal Jeevan, AMRUT), an agri dealer network, resin-linked price changes, fusion-jointing support, and dealer credit — one system.",
+    keywords: ["HDPE pipe company software", "HDPE pipe distribution India", "Jal Jeevan Mission dealer", "irrigation pipe field sales", "HDPE dealer management", "PE100 pipe project sales"],
+    image: "/industries/hdpe-pipe-companies-hero.jpg",
+    imageAlt: "Black HDPE drip-irrigation lines running through a field",
+    tagline: "HDPE lives on government water projects, irrigation dealers and a resin price that moves — with fusion-jointing on every site. OZZO runs that whole motion.",
+    intro:
+      "HDPE isn't sold like plumbing pipe. It goes into Jal Jeevan and AMRUT water schemes, canal irrigation, gas and telecom — through government tenders and an agri dealer network, jointed by fusion welding on site. OZZO gives HDPE pipe companies a project pipeline, dealer coverage and price control in one system.",
+    stats: [
+      { value: "₹3.6 lakh cr", label: "Jal Jeevan Mission masterplan driving HDPE water-pipe demand", note: "Programme scale" },
+      { value: "Coils & fusion", label: "long lengths jointed on site by butt / electrofusion welding" },
+      { value: "Crude-linked", label: "PE resin prices move, forcing price-list revisions" },
+    ],
+    painPoints: [
+      { title: "Government projects are the market — and they're tender-driven", body: "JJM, AMRUT and canal-irrigation orders come through long-cycle tenders and approvals; a beat-and-order app can't run that pipeline of specs, approvals and follow-ups." },
+      { title: "Resin-linked prices move under long project timelines", body: "PE resin tracks crude; a price that shifts between quotation and supply, across a long project, quietly decides the margin." },
+      { title: "An agri dealer network alongside the projects", body: "Beyond projects, irrigation dealers serve farmers and contractors — two very different sales motions to run at once." },
+      { title: "Fusion jointing means technical, site-level support", body: "HDPE is welded on site; reps carry technical support and machine/contractor coordination, not just an order pad." },
+      { title: "Credit and secondary across a spread-out network", body: "Orders move on credit to dealers and contractors across districts; outstanding and real movement are hard to see." },
+    ],
+    solutions: [
+      { pain: "Run the project / tender pipeline", how: "A CRM pipeline for JJM/AMRUT and irrigation projects — stages, approvals, branded quotations and follow-ups — so long-cycle tender business doesn't slip." },
+      { pain: "Keep quotes current as resin moves", how: "Update the price-list engine centrally and reps quote the current PE price — so resin swings between quotation and supply don't erode margin." },
+      { pain: "Run projects and the agri dealer beat together", how: "The project pipeline and the irrigation-dealer field beat live on one login and one customer record." },
+      { pain: "Coordinate site & technical support", how: "Log site visits, fusion/technical support and contractor coordination against the project and customer, so nothing lives in a rep's head." },
+      { pain: "Control credit & see movement", how: "Trade levels, self-calculating outstanding, credit limits and primary/secondary tagging across the spread-out network, with an Ageing report." },
+    ],
+    workflow: [
+      { title: "Work the project pipeline", body: "Move JJM/AMRUT and irrigation tenders through stages, send branded quotations, follow up on approvals." },
+      { title: "Cover the irrigation dealer beat", body: "Geo-stamped dealer and contractor visits; orders at current PE prices, offline if needed." },
+      { title: "Support the site", body: "Log fusion/technical support and contractor coordination against the project." },
+      { title: "Collect & recover", body: "Collections against outstanding; credit limits and Ageing keep dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a beat-and-order app", body: "HDPE's real revenue is long-cycle government and irrigation projects — a pure order app can't run that tender pipeline of specs, approvals and follow-ups." },
+      { label: "Not an enterprise FMCG SFA", body: "HDPE is project- and resin-driven infrastructure, not fast-moving packaged goods — and OZZO is priced for the business, not national CPG budgets." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM runs the tender pipeline but has no irrigation-dealer field beat, multi-unit orders, trade levels or outstanding — you'd stitch tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "Tender business stops slipping", body: "Every JJM/AMRUT and irrigation project has a stage, a quotation and a next step." },
+      { title: "Current PE prices in every quote", body: "Resin moves and the price list is live in the field the same day — margin holds across long projects." },
+      { title: "Projects and dealers in one view", body: "The tender pipeline and the irrigation-dealer beat share one record." },
+      { title: "Credit and movement under control", body: "Outstanding self-calculates and secondary shows real movement across the network." },
+    ],
+    cockpit: {
+      header: "JJM project · Krishna dist.",
+      headerBadge: "Pipeline",
+      sectionTitle: "One field app for projects and the beat",
+      sectionBody: "A JJM/irrigation project pipeline, current PE prices, site/fusion support and the dealer beat — on one screen, online or off.",
+      rows: [
+        { icon: "Droplets", title: "PE100 · 110 mm coil", subtitle: "JJM water supply · 1,200 m", value: "₹3.4L" },
+        { icon: "FileText", title: "Tender quotation", subtitle: "Stage: Approval · follow-up Mon", badge: "PE price locked to today's rate", badgeTone: "primary" },
+        { icon: "Wrench", title: "Fusion support · site", subtitle: "Contractor trained · joint check", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹3.1L", sub: "/ ₹4L limit", fillPct: 78 },
+      chips: [
+        { label: "Irrigation beat", sub: "6 dealers covered", tone: "gradient" },
+        { label: "Secondary ✓ to contractor", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["CRM pipeline for water/irrigation projects", "Price-list engine (PE resin)", "Geo-tagged dealer & site visits", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Branded PDF quotations"],
+    honestNote:
+      "OZZO runs your HDPE field sales — project pipeline, dealer coverage, pricing, site support and outstanding. It is not a fusion-machine, hydraulic-design or e-tender portal system; it works alongside those, owning the sales and distribution side.",
+    faqs: [
+      { q: "Is OZZO built for HDPE pipe companies?", a: "Yes. OZZO runs the HDPE motion — a project pipeline for Jal Jeevan/AMRUT and irrigation tenders, an agri dealer beat, resin-linked price control, site/fusion support logging, and dealer credit — in one system." },
+      { q: "Can OZZO handle government water-project sales?", a: "Yes. A CRM pipeline moves tender and project business through stages with approvals, branded quotations and follow-ups, alongside the irrigation-dealer field beat on one record." },
+      { q: "How does OZZO deal with PE resin price changes?", a: "Update the price-list engine centrally and every rep quotes the current PE price, so resin swings between quotation and supply don't erode margin across long projects." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── STAINLESS STEEL PIPES
+  {
+    slug: "stainless-steel-pipe-companies",
+    sector: "Pipes & Fittings",
+    name: "Stainless Steel Pipe Companies",
+    icon: "Factory",
+    metaTitle: "Field sales software for stainless steel pipe companies | OZZO",
+    metaDescription:
+      "OZZO is built for SS pipe & tube brands: grade/spec technical selling (304/316, seamless/welded, schedules), industrial project quotations, fabricator & stockist dealers, mill-certificate references, and dealer credit — one system.",
+    keywords: ["stainless steel pipe software", "SS pipe distribution India", "304 316 pipe field sales", "fabricator dealer management", "industrial pipe project sales", "SS tube stockist software"],
+    image: "/industries/stainless-steel-pipe-companies-hero.jpg",
+    imageAlt: "Stacked stainless steel pipes and tubes",
+    tagline: "SS pipe is a grade-and-spec technical sale into industry — 304 vs 316, seamless vs welded, schedules and certificates. OZZO runs that B2B motion.",
+    intro:
+      "Stainless steel pipe isn't a counter sale — it's specified by grade, schedule and standard into food, pharma, chemical and industrial projects, quoted against drawings, and served from stock to fabricators and OEMs. OZZO gives SS pipe companies a technical project pipeline, stockist/dealer coverage and outstanding in one system.",
+    stats: [
+      { value: "304 / 316", label: "grade decides the sale — spec, corrosion class and certificate matter" },
+      { value: "Ex-stock", label: "seamless / welded / ERW across NB sizes and schedules, quoted to spec" },
+      { value: "Project-led", label: "food, pharma, chemical and industrial projects drive demand" },
+    ],
+    painPoints: [
+      { title: "Every sale is grade- and spec-specific", body: "304 vs 316, seamless vs welded, NB size and schedule, standard (ASTM/ASME) — getting the exact spec and matching stock right is the sale; errors are costly." },
+      { title: "Quotations against drawings and BOQs", body: "Industrial and project buyers quote against drawings and bills of quantity, with long approval cycles — not a beat-and-order motion." },
+      { title: "Fabricators, OEMs and stockist dealers", body: "The channel is fabricators, OEMs and stockists, each buying differently — coverage and relationship depth matter." },
+      { title: "Certificates and quality are part of the deal", body: "Mill test certificates and standards are expected; tracking what spec and certs went to whom is real work." },
+      { title: "Credit and outstanding on high-value orders", body: "Orders are large and on credit; outstanding and recovery are a serious working-capital question." },
+    ],
+    solutions: [
+      { pain: "Sell to spec, accurately", how: "A full catalogue by grade, construction, NB size and schedule with customer-specific price lists — so reps quote the exact spec and stock at the current price." },
+      { pain: "Run the project / quotation pipeline", how: "A CRM pipeline for industrial and project enquiries — quotations against drawings, approval stages and follow-ups — so high-value deals don't slip." },
+      { pain: "Cover fabricators, OEMs and stockists", how: "Trade levels and geo-tagged visits keep the fabricator/OEM/stockist channel covered, with history on one record." },
+      { pain: "Keep spec and certs on the record", how: "Custom fields capture grade, schedule, standard and certificate references against each order and customer — not in a rep's head." },
+      { pain: "Control credit on big orders", how: "Self-calculating outstanding, credit limits before the next order and an Ageing report across the channel." },
+    ],
+    workflow: [
+      { title: "Work the project pipeline", body: "Move industrial/project enquiries through stages, quote against drawings, follow up on approvals." },
+      { title: "Cover the channel", body: "Geo-stamped fabricator, OEM and stockist visits; orders to exact spec at current prices." },
+      { title: "Capture spec & certs", body: "Grade, schedule, standard and certificate references recorded against the order." },
+      { title: "Collect & recover", body: "Collections against outstanding; credit limits and Ageing keep high-value dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not a beat-and-order app", body: "SS is a technical, spec-driven, project-quoted B2B sale — a pure order app can't run drawings-based quotations, approval cycles and grade/spec accuracy." },
+      { label: "Not an FMCG SFA", body: "Industrial SS pipe is nothing like fast-moving packaged goods — no merchandising or shelf audits; it's spec, certs and projects, priced for the business." },
+      { label: "Not a bare CRM", body: "A CRM runs the pipeline but has no spec catalogue, stockist field beat, multi-unit orders or outstanding — you'd stitch tools. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "Quotes go out to exact spec", body: "Grade, schedule and standard captured right — fewer costly spec errors, faster quotes." },
+      { title: "High-value deals don't slip", body: "Every industrial/project enquiry has a stage, a quotation and a next step." },
+      { title: "The channel stays covered", body: "Fabricators, OEMs and stockists worked and on one record." },
+      { title: "Credit on big orders controlled", body: "Outstanding self-calculates and Ageing flags overdue accounts." },
+    ],
+    cockpit: {
+      header: "Project desk · Ahmedabad",
+      headerBadge: "Quote to spec",
+      sectionTitle: "One field app for spec-driven sales",
+      sectionBody: "Grade-and-schedule quoting, a drawings-based project pipeline, fabricator/stockist coverage and outstanding — on one screen.",
+      rows: [
+        { icon: "Layers", title: "SS 316L · 2″ SCH-10", subtitle: "Seamless · pharma project", value: "₹2.6L" },
+        { icon: "FileText", title: "Quotation vs drawing", subtitle: "Stage: Approval · MTC attached", badge: "Grade & schedule locked to spec", badgeTone: "primary" },
+        { icon: "UserRound", title: "Shah Fabricators · OEM", subtitle: "304 line · secondary tracked", check: true, tone: "success" },
+      ],
+      meter: { label: "Account outstanding", value: "₹5.2L", sub: "/ ₹6L limit", fillPct: 87 },
+      chips: [
+        { label: "Project deal", sub: "food-plant · quotation sent", tone: "gradient" },
+        { label: "Spec + MTC ✓", sub: "on the order record", tone: "glass" },
+      ],
+    },
+    modules: ["Spec catalogue (grade / schedule / standard)", "CRM pipeline for industrial projects", "Customer-specific price lists", "Custom fields (grade, MTC, standard)", "Outstanding, credit limits & Ageing", "Branded PDF quotations"],
+    honestNote:
+      "OZZO runs your SS field sales — spec quoting, project pipeline, channel coverage and outstanding. It is not a metallurgical, mill-test-lab or inventory-ERP system; it records spec and certificate references and works alongside your back-end.",
+    faqs: [
+      { q: "Is OZZO built for stainless steel pipe and tube companies?", a: "Yes. OZZO runs the SS motion — grade/spec quoting (304/316, seamless/welded, schedules), a drawings-based project pipeline, fabricator/OEM/stockist coverage, certificate references and dealer credit — in one system." },
+      { q: "Can OZZO capture grade, schedule and mill certificates?", a: "Yes. Custom fields record grade, schedule, standard and mill-test-certificate references against each order and customer, so the spec history is on the record." },
+      { q: "Does OZZO handle project quotations against drawings?", a: "Yes. A CRM pipeline moves industrial and project enquiries through stages with branded quotations, spec capture, approvals and follow-ups." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── CAST IRON PIPES
+  {
+    slug: "cast-iron-pipe-companies",
+    sector: "Pipes & Fittings",
+    name: "Cast Iron Pipe Companies",
+    icon: "Building2",
+    metaTitle: "Field sales software for cast iron pipe companies | OZZO",
+    metaDescription:
+      "OZZO is built for cast iron (CI / SG iron) drainage pipe brands: getting specified in high-rise soil stacks, builder/plumber influence, municipal & project tenders, dealer coverage and outstanding — one system.",
+    keywords: ["cast iron pipe software", "CI drainage pipe distribution", "SG iron pipe field sales", "soil pipe project sales India", "builder specification field app", "municipal pipe tender"],
+    image: "/industries/cast-iron-pipe-companies-hero.jpg",
+    imageAlt: "Heavy flanged iron drainage pipes",
+    tagline: "Cast iron is won by getting specified — in high-rise soil stacks and municipal projects — through builders, plumbers and consultants. OZZO runs that spec-led motion.",
+    intro:
+      "Cast iron drainage pipe is specified, not impulse-bought: chosen in premium high-rise soil stacks (quiet and fire-safe) and municipal sewerage through builders, consultants and plumbing contractors, plus tenders. OZZO gives CI/SG-iron pipe companies a specification pipeline, contractor influence, dealer coverage and outstanding in one system.",
+    stats: [
+      { value: "Specified", label: "won at design stage in high-rise soil stacks — quiet & fire-safe" },
+      { value: "Builders + civic", label: "premium real estate and municipal projects drive demand" },
+      { value: "Contractor-led", label: "plumbing contractors and consultants influence the choice" },
+    ],
+    painPoints: [
+      { title: "The sale is won at specification, not the counter", body: "CI gets designed into a high-rise's soil stack by builders and consultants; if your reps aren't influencing the spec, you're not in the project." },
+      { title: "Builders, consultants and plumbing contractors decide", body: "A web of influencers — developer, MEP consultant, plumbing contractor — drives the choice, so relationships and engagement have to be tracked." },
+      { title: "Long project and municipal tender cycles", body: "High-rise projects and municipal sewerage run on long cycles with approvals and drawings — not a beat-and-order motion." },
+      { title: "Heavy product, dealer coverage and logistics", body: "CI is heavy; dealer coverage, order capture and delivery coordination matter across projects." },
+      { title: "Credit and outstanding on project supply", body: "Project supply is on credit; outstanding and recovery across builders and dealers are a working-capital risk." },
+    ],
+    solutions: [
+      { pain: "Win the specification", how: "Track builders, MEP consultants and plumbing contractors as influencers, with geo-stamped engagement visits and the project they're specifying on the record." },
+      { pain: "Run the project pipeline", how: "A CRM pipeline for high-rise and municipal projects — stages, approvals, branded quotations and follow-ups — so spec-led deals don't slip." },
+      { pain: "Manage contractor influence", how: "Every influencer's engagement, the project and the spec live on one record — not in a rep's memory." },
+      { pain: "Cover dealers & coordinate supply", how: "Geo-tagged dealer visits, offline order capture and delivery coordination across heavy project supply." },
+      { pain: "Control project credit", how: "Trade levels, self-calculating outstanding, credit limits and an Ageing report across builders and dealers." },
+    ],
+    workflow: [
+      { title: "Engage the spec", body: "Meet builders, consultants and plumbing contractors; log engagement and the project being specified." },
+      { title: "Work the project pipeline", body: "Move high-rise/municipal projects through stages, send branded quotations, follow up on approvals." },
+      { title: "Cover dealers & coordinate", body: "Geo-stamped dealer visits, order capture and delivery coordination for heavy supply." },
+      { title: "Collect & recover", body: "Collections against outstanding; credit limits and Ageing keep project dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not a beat-and-order app", body: "CI is a specification-led, project sale won through builders and consultants — a pure order app can't run influencer engagement, the spec pipeline and approvals." },
+      { label: "Not an FMCG SFA", body: "Cast iron drainage isn't fast-moving packaged goods — it's spec-driven project supply, priced for the business, not national CPG budgets." },
+      { label: "Not a bare CRM", body: "A CRM runs the pipeline but has no dealer field beat, order capture, trade levels or outstanding — you'd stitch tools. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "You're in the spec", body: "Influencer engagement is tracked, so your brand is designed into the soil stack — not discovered too late." },
+      { title: "Project deals don't slip", body: "Every high-rise and municipal project has a stage, a quotation and a next step." },
+      { title: "Dealer supply stays covered", body: "Heavy project supply coordinated across dealers on one record." },
+      { title: "Project credit controlled", body: "Outstanding self-calculates and Ageing flags overdue builders and dealers." },
+    ],
+    cockpit: {
+      header: "Tower project · Mumbai",
+      headerBadge: "Specification",
+      sectionTitle: "One field app to win the spec",
+      sectionBody: "Influencer engagement, a high-rise/municipal project pipeline, dealer coverage and outstanding — the whole spec-led motion on one screen.",
+      rows: [
+        { icon: "Building2", title: "CI soil stack · 100 mm", subtitle: "32-storey tower · hubless", value: "₹6.8L" },
+        { icon: "UserRound", title: "MEP consultant · engaged", subtitle: "Specifying your brand · fire-safe", check: true, tone: "primary" },
+        { icon: "FileText", title: "Project quotation", subtitle: "Stage: Approval · follow-up Wed", badge: "Builder + contractor aligned", badgeTone: "primary" },
+      ],
+      meter: { label: "Project outstanding", value: "₹4.4L", sub: "/ ₹5L limit", fillPct: 88 },
+      chips: [
+        { label: "Specified", sub: "brand in the soil stack", tone: "gradient" },
+        { label: "Municipal tender", sub: "in the pipeline", tone: "glass" },
+      ],
+    },
+    modules: ["Influencer engagement (builders / consultants / plumbers)", "CRM pipeline for high-rise & municipal projects", "Geo-tagged dealer & site visits", "Offline order capture", "Outstanding, credit limits & Ageing", "Branded PDF quotations"],
+    honestNote:
+      "OZZO runs your CI field sales — specification engagement, project pipeline, dealer coverage and outstanding. It is not a structural-design, BIM or municipal e-tender portal; it works alongside those, owning the sales and distribution side.",
+    faqs: [
+      { q: "Is OZZO built for cast iron drainage pipe companies?", a: "Yes. OZZO runs the CI/SG-iron motion — winning the specification in high-rise soil stacks through builders and consultants, a project and municipal pipeline, dealer coverage and outstanding — in one system." },
+      { q: "How does OZZO help win the specification?", a: "Track builders, MEP consultants and plumbing contractors as influencers with geo-stamped engagement visits and the project they're specifying on the record — so your brand gets designed in, not discovered late." },
+      { q: "Can OZZO run high-rise and municipal project sales?", a: "Yes. A CRM pipeline moves projects through stages with branded quotations, approvals and follow-ups, alongside the dealer field beat on one record." },
     ],
   },
 ];
