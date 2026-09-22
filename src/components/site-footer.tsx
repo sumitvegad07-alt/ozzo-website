@@ -21,6 +21,8 @@ const products = [
   { label: "Sales Force Automation", href: "/products/sfa" },
   { label: "Customer Relationship Management", href: "/products/crm" },
   { label: "Plans & packages", href: "/plans" },
+  { label: "Industries", href: "/industries" },
+  { label: "Compare alternatives", href: "/compare" },
   { label: "All features", href: "/products" },
 ];
 

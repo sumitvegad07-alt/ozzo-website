@@ -55,6 +55,8 @@ import {
   Bell,
   Repeat,
   Sparkles,
+  SprayCan,
+  Wheat,
   type LucideIcon,
 } from "lucide-react";
 
@@ -115,6 +117,8 @@ const map: Record<string, LucideIcon> = {
   Bell,
   Repeat,
   Sparkles,
+  SprayCan,
+  Wheat,
 };
 
 export function Icon({

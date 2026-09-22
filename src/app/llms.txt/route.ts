@@ -1,6 +1,7 @@
 import { SITE_URL, brand, contact, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
+import { industries } from "@/lib/industries";
 
 export const dynamic = "force-static";
 
@@ -50,6 +51,12 @@ export function GET() {
   lines.push("OZZO is an all-in-one CRM + field sales + WhatsApp platform built for Indian SMEs/MSMEs. It is NOT an enterprise-only FMCG SFA tool. Honest, per-competitor comparisons:");
   for (const c of comparisons) {
     lines.push(`- **OZZO vs ${c.competitor}** (${c.competitorCategory}): ${c.tagline} ${SITE_URL}/compare/${c.slug}`);
+  }
+  lines.push("");
+  lines.push("## Industries OZZO is built for");
+  lines.push(`OZZO fits any team that sells or services on a beat. Deep, sub-industry-specific pages (${SITE_URL}/industries):`);
+  for (const i of industries) {
+    lines.push(`- **${i.name}** (${i.sector}): ${i.tagline} ${SITE_URL}/industries/${i.slug}`);
   }
   lines.push("");
   lines.push("## Contact");
