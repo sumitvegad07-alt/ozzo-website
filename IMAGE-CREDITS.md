@@ -15,6 +15,8 @@ Industry-page hero images are sourced from free, commercial-use stock libraries.
 | `public/industries/hdpe-pipe-companies-hero.jpg` | Pexels photo #10606633 (https://www.pexels.com/photo/10606633/) | [Pexels License](https://www.pexels.com/license/) | Black HDPE drip-irrigation lines in a field; HDPE Pipe Companies hero. |
 | `public/industries/stainless-steel-pipe-companies-hero.jpg` | Pexels photo #12951634 (https://www.pexels.com/photo/12951634/) | [Pexels License](https://www.pexels.com/license/) | Stacked stainless steel pipes/tubes; Stainless Steel Pipe Companies hero. |
 | `public/industries/cast-iron-pipe-companies-hero.jpg` | Pexels photo #38893871 (https://www.pexels.com/photo/38893871/) | [Pexels License](https://www.pexels.com/license/) | Heavy flanged iron pipes; Cast Iron Pipe Companies hero. |
+| `public/industries/food-beverage-companies-hero.jpg` | Pexels photo #21582447 (https://www.pexels.com/photo/21582447/) | [Pexels License](https://www.pexels.com/license/) | Vibrant snack aisle; Food & Beverage Companies hero. |
+| `public/industries/fmcg-companies-hero.jpg` | Pexels photo #16211537 (https://www.pexels.com/photo/16211537/) | [Pexels License](https://www.pexels.com/license/) | Well-stocked retail product wall; FMCG Companies hero. |
 
 The Pexels License permits free commercial and non-commercial use, no
 attribution required (though appreciated), with modification allowed. See

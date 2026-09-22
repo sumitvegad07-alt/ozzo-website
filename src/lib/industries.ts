@@ -952,6 +952,160 @@ export const industries: Industry[] = [
       { q: "Can OZZO run high-rise and municipal project sales?", a: "Yes. A CRM pipeline moves projects through stages with branded quotations, approvals and follow-ups, alongside the dealer field beat on one record." },
     ],
   },
+
+  // ─────────────────────────────────────────── FOOD & BEVERAGE
+  {
+    slug: "food-beverage-companies",
+    sector: "FMCG & Consumer Goods",
+    name: "Food & Beverage Companies",
+    icon: "ShoppingBag",
+    metaTitle: "Field sales software for food & beverage companies | OZZO",
+    metaDescription:
+      "OZZO is built for food & beverage brands and distributors: high-frequency retail coverage, near-expiry & damage returns from the field, batch/expiry capture, trade schemes, secondary sales and outstanding — one affordable system.",
+    keywords: ["food beverage distribution software", "FMCG food SFA India", "snacks distribution field sales", "beverage distributor management", "expiry returns field app", "food distributor secondary sales"],
+    image: "/industries/food-beverage-companies-hero.jpg",
+    imageAlt: "Vibrant snack aisle in a retail store",
+    tagline: "Food moves fast and expires faster. It's won on daily retail coverage, fresh stock and schemes — not a monthly beat. OZZO runs that pace.",
+    intro:
+      "Packaged food and beverage is a freshness game: short shelf-life, near-expiry returns, damage, and a wide retail universe that needs frequent visits. OZZO gives F&B brands and distributors high-frequency coverage, field returns capture, schemes and secondary visibility in one affordable system.",
+    stats: [
+      { value: "Shelf-life", label: "short expiry windows mean freshness and FEFO decide waste and returns" },
+      { value: "High-frequency", label: "outlets need weekly or daily visits, not a monthly beat" },
+      { value: "Returns & damage", label: "near-expiry and breakage eat margin if they're not caught in the field" },
+    ],
+    painPoints: [
+      { title: "Freshness and expiry decide profit", body: "Short shelf-life means near-expiry stock, FEFO and returns are constant; product that ages on a shelf becomes a return and a loss." },
+      { title: "A wide retail universe, visited often", body: "Kirana and general-trade outlets need frequent visits to stay stocked and fresh — coverage frequency, not just reach, is the job." },
+      { title: "Near-expiry and damage returns from the field", body: "Breakage and near-expiry have to be spotted, recorded and reconciled at the outlet, or they quietly bleed margin." },
+      { title: "Schemes and competition on every shelf", body: "F&B is scheme-heavy and competitive; running promotions cleanly and seeing what actually sold matters." },
+      { title: "Secondary sales and outstanding", body: "Distributor-to-retailer movement and outstanding drive the real business, but primary billing hides it." },
+    ],
+    solutions: [
+      { pain: "Cover outlets at the right frequency", how: "Beat routes and geo-tagged visits keep a wide retail universe visited often, with productive-call visibility — coverage frequency you can actually manage." },
+      { pain: "Capture returns and expiry in the field", how: "Record near-expiry and damage returns against the outlet on the visit, and capture batch/expiry as fields — so losses are caught early, not at reconciliation." },
+      { pain: "Run schemes and see what sold", how: "Trade schemes and price lists apply at the counter, with automatic primary/secondary tagging to see real movement to retailers." },
+      { pain: "Take orders offline, fast", how: "Offline order capture with a multi-unit catalogue keeps the high-frequency beat moving even in low-signal markets." },
+      { pain: "Control secondary & outstanding", how: "Trade levels, self-calculating outstanding, credit limits and an Ageing report across the distributor–retailer chain." },
+    ],
+    workflow: [
+      { title: "Work the daily beat", body: "Beat routes run the high-frequency outlet list; the rep works it, outlet by outlet." },
+      { title: "Visit: order, scheme, returns", body: "Geo-stamped visit; order offline, apply the scheme, record near-expiry/damage returns." },
+      { title: "See secondary movement", body: "Primary/secondary shows what's actually reaching and leaving the retailer." },
+      { title: "Collect & recover", body: "Collections against outstanding; credit limits and Ageing keep dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a tracker", body: "A tracker shows a rep visited an outlet — not high-frequency productive coverage, field returns, schemes, secondary and outstanding, which is the F&B job." },
+      { label: "Not an enterprise FMCG SFA (for big brands)", body: "Enterprise CPG platforms with AI image-recognition shelf audits are built and priced for national brands. OZZO is for regional and SME F&B brands and distributors that want CRM + field + WhatsApp affordably." },
+      { label: "Not a food-ERP", body: "OZZO isn't a lot-traceability, FSSAI-compliance or warehouse-FEFO ERP — it runs the field: coverage, orders, returns, schemes, secondary and outstanding, alongside your ERP." },
+    ],
+    outcomes: [
+      { title: "Fresh stock, fewer returns", body: "Frequent coverage and field returns capture mean less product ages into a loss." },
+      { title: "The retail universe stays covered", body: "Beat frequency is managed, not hoped for — productive calls, not just visits." },
+      { title: "Schemes run clean and visible", body: "Promotions apply at the counter and secondary shows what actually sold." },
+      { title: "Secondary & credit under control", body: "Outstanding self-calculates and Ageing flags overdue outlets." },
+    ],
+    cockpit: {
+      header: "GT beat · Rajkot",
+      headerBadge: "High-frequency",
+      sectionTitle: "One field app at retail pace",
+      sectionBody: "High-frequency coverage, offline orders, schemes and near-expiry returns — captured at the outlet, so freshness and margin hold.",
+      rows: [
+        { icon: "ShoppingBag", title: "Wafers · 45 g × 60", subtitle: "Kirana · order offline", value: "₹4,200" },
+        { icon: "Percent", title: "Combo scheme · 12 + 1", subtitle: "Applied at the counter", check: true, tone: "success" },
+        { icon: "FileWarning", title: "Near-expiry return", subtitle: "2 cases · recorded at outlet", badge: "Caught in the field, not at month-end", badgeTone: "amber" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹32,000", sub: "/ ₹40k limit", fillPct: 80 },
+      chips: [
+        { label: "Productive call ✓", sub: "order + scheme placed", tone: "gradient" },
+        { label: "Secondary ✓ to retailer", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Beat routes & high-frequency coverage", "Offline order capture (multi-unit)", "Near-expiry & damage returns capture", "Trade schemes & price lists", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing"],
+    honestNote:
+      "OZZO runs your F&B field sales — coverage, orders, returns, schemes, secondary and outstanding. It is not a lot-traceability, FSSAI-compliance or warehouse-FEFO ERP; it captures batch/expiry and field returns and works alongside your ERP.",
+    faqs: [
+      { q: "Is OZZO built for food and beverage distribution?", a: "Yes. OZZO handles the F&B field motion — high-frequency retail coverage, offline order capture, near-expiry and damage returns from the field, trade schemes, secondary sales and outstanding — in one affordable system." },
+      { q: "Can OZZO capture near-expiry and damage returns in the field?", a: "Yes. Reps record near-expiry and damage returns against the outlet on the visit, and batch/expiry can be captured as fields — so losses are caught early, not discovered at reconciliation." },
+      { q: "How is OZZO different from an enterprise FMCG SFA?", a: "Enterprise CPG platforms with AI shelf-audit are built and priced for national brands. OZZO is for regional and SME F&B brands and distributors wanting CRM, field sales and WhatsApp in one affordable system." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── FMCG
+  {
+    slug: "fmcg-companies",
+    sector: "FMCG & Consumer Goods",
+    name: "FMCG Companies",
+    icon: "ShoppingCart",
+    metaTitle: "Field sales software for FMCG companies | OZZO",
+    metaDescription:
+      "OZZO is built for FMCG brands and distributors: wide retail coverage, must-stock assortment and reorder discipline, retail-execution visibility, trade schemes, secondary sales and outstanding — one affordable system for regional & SME brands.",
+    keywords: ["FMCG distribution software India", "FMCG field sales app", "retail execution software SME", "distributor management FMCG", "secondary sales FMCG", "FMCG SFA affordable"],
+    image: "/industries/fmcg-companies-hero.jpg",
+    imageAlt: "Well-stocked retail shelf of FMCG products",
+    tagline: "FMCG is won store by store — assortment on the shelf, reorders that actually happen, and schemes that land. OZZO runs that execution at SME scale.",
+    intro:
+      "For an FMCG brand or distributor, the battle is retail execution across a huge outlet universe: the right assortment stocked, retailers reordering, schemes landing and secondary sales visible. OZZO gives regional and SME FMCG brands that execution — coverage, assortment, schemes and outstanding — affordably.",
+    stats: [
+      { value: "50,000+", label: "stores a growing FMCG brand needs across GT, MT and quick-commerce", note: "Category scale" },
+      { value: "60% GT", label: "of sales still come from traditional-trade kirana outlets" },
+      { value: "Reorder", label: "the real problem: distributors underdeliver and retailers don't reorder" },
+    ],
+    painPoints: [
+      { title: "Retail execution across a huge universe", body: "Presence in tens of thousands of outlets across GT/MT/quick-commerce, with the right assortment on the shelf — reach alone isn't enough, execution is." },
+      { title: "Distributors underdeliver, retailers don't reorder", body: "The classic regional-brand wall: primary loads the distributor, but secondary to retailers and reorders quietly stall." },
+      { title: "Assortment and must-stock discipline", body: "Wide SKU ranges with must-stock lines and new launches; keeping the right assortment live per outlet is hard." },
+      { title: "Schemes, visibility and competition", body: "Trade schemes, display and share-of-shelf are constant; running promotions cleanly and seeing what sold matters." },
+      { title: "Secondary sales and outstanding", body: "The business lives in secondary movement and outstanding, which primary billing hides." },
+    ],
+    solutions: [
+      { pain: "Drive execution, not just visits", how: "Beat routes, geo-tagged visits and productive-call visibility so coverage means the right outlets worked with the right assortment — not just a check-in." },
+      { pain: "Fix reorder and secondary", how: "Automatic primary/secondary tagging and outstanding show whether product is actually reaching and reordering at the retailer — the regional-brand blindspot, made visible." },
+      { pain: "Keep assortment & must-stock live", how: "A full catalogue with custom fields and per-outlet ordering so must-stock lines and new launches stay on the shelf, captured offline." },
+      { pain: "Run schemes cleanly", how: "Trade schemes and price lists apply at the counter, with secondary tagging to see what actually sold through." },
+      { pain: "Control credit & dues", how: "Trade levels, self-calculating outstanding, credit limits and an Ageing report across distributor and retailer." },
+    ],
+    workflow: [
+      { title: "Work the beat", body: "Beat routes run the outlet list with the right assortment target per store." },
+      { title: "Visit: order, scheme, execution", body: "Geo-stamped visit; order the must-stock range offline, apply schemes, capture what's needed." },
+      { title: "See secondary & reorder", body: "Primary/secondary shows real movement and where reorders are stalling." },
+      { title: "Collect & recover", body: "Collections against outstanding; credit limits and Ageing keep dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a tracker", body: "A tracker shows a rep reached a store — not assortment, reorder, schemes, secondary and outstanding, which is the FMCG execution job." },
+      { label: "Not an enterprise FMCG SFA (for big brands)", body: "Bizom/FieldAssist-class platforms with AI image-recognition shelf audits are built and priced for national CPG. OZZO is for regional and SME FMCG brands and distributors that want CRM + field + WhatsApp affordably." },
+      { label: "Not a bare CRM", body: "A CRM has no field beat, offline orders, trade levels, schemes or secondary/outstanding — you'd stitch tools. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "Execution you can measure", body: "Productive coverage with the right assortment, not just visit counts." },
+      { title: "Reorders stop stalling", body: "Secondary visibility shows where retailers aren't reordering, in time to fix it." },
+      { title: "Schemes land and show through", body: "Promotions apply at the counter and secondary shows what actually sold." },
+      { title: "Secondary & credit controlled", body: "Outstanding self-calculates and Ageing flags overdue outlets." },
+    ],
+    cockpit: {
+      header: "GT beat · Surat",
+      headerBadge: "Retail execution",
+      sectionTitle: "One field app for retail execution",
+      sectionBody: "Assortment on the shelf, reorders that happen, schemes that land and secondary you can see — store by store, at SME scale.",
+      rows: [
+        { icon: "ShoppingCart", title: "Toothpaste 100 g × 72", subtitle: "Must-stock · order offline", value: "₹6,480" },
+        { icon: "ClipboardList", title: "Assortment check", subtitle: "8/10 must-stock lines live", badge: "2 lines out of stock · flagged", badgeTone: "amber" },
+        { icon: "Percent", title: "Scheme · 10 + 1", subtitle: "Applied at the counter", check: true, tone: "success" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹28,500", sub: "/ ₹35k limit", fillPct: 81 },
+      chips: [
+        { label: "Productive call ✓", sub: "assortment + scheme", tone: "gradient" },
+        { label: "Reorder ✓ tracked", sub: "secondary vs primary", tone: "glass" },
+      ],
+    },
+    modules: ["Beat routes & productive coverage", "Offline order capture & assortment", "Trade schemes & price lists", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "WhatsApp CRM & Daily Sales Report"],
+    honestNote:
+      "OZZO runs your FMCG field execution — coverage, assortment, orders, schemes, secondary and outstanding. It does not ship AI image-recognition shelf audits or planogram-compliance scoring like enterprise CPG platforms; it gives regional and SME brands the execution and visibility that matter, affordably.",
+    faqs: [
+      { q: "Is OZZO built for FMCG brands and distributors?", a: "Yes — especially regional and SME FMCG brands. OZZO handles retail execution across a wide outlet universe: coverage, must-stock assortment, reorder/secondary visibility, trade schemes and outstanding, with CRM and WhatsApp in one affordable system." },
+      { q: "How does OZZO fix the 'retailers don't reorder' problem?", a: "Automatic primary/secondary tagging and outstanding show whether product is actually reaching and reordering at the retailer — the regional-brand blindspot — so you can act where reorders stall." },
+      { q: "How is OZZO different from Bizom or FieldAssist?", a: "Those enterprise CPG platforms (with AI shelf-audit) are built and priced for national brands. OZZO is for regional and SME FMCG brands and distributors that want CRM, field sales and WhatsApp in one affordable system." },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
