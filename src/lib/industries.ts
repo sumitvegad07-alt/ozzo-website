@@ -490,6 +490,237 @@ export const industries: Industry[] = [
       { q: "Can OZZO work in low-connectivity rural areas?", a: "Yes. Orders, visits, attendance and collections all capture fully offline and sync automatically once the rep is back in signal." },
     ],
   },
+
+  // ─────────────────────────────────────────── POULTRY FEED & INTEGRATORS
+  {
+    slug: "poultry-feed-integrators",
+    sector: "Agriculture",
+    name: "Poultry Feed & Integrators",
+    icon: "Bird",
+    metaTitle: "Field sales software for poultry feed & integrators | OZZO",
+    metaDescription:
+      "OZZO helps poultry feed companies and integrators run the field — coverage of thousands of contract and independent farms, feed-price changes pushed to the field, dealer and farmer credit control, and offtake/secondary visibility.",
+    keywords: ["poultry feed software", "poultry integrator field sales", "broiler layer feed distribution", "poultry feed dealer management India", "contract farming field app"],
+    image: "/industries/poultry-feed-integrators-hero.jpg",
+    imageAlt: "Commercial broiler poultry farm interior",
+    tagline: "Feed is most of a poultry farmer's cost, its price never sits still, and your reps work thousands of scattered farms on credit. OZZO runs exactly that.",
+    intro:
+      "Whether you run captive feed for contract farms or sell through a dealer network to independent broiler and layer farmers, the poultry business turns on feed price, farm coverage and credit. OZZO gives poultry feed companies and integrators visibility and control across all three.",
+    stats: [
+      { value: "60–70%", label: "of a poultry farmer's cost is feed — so feed price and timing decide the relationship", note: "Industry range" },
+      { value: "Volatile", label: "feed prices swing and compress margins before bird prices adjust" },
+      { value: "1000s", label: "of contract and independent farms an integrator's field team must cover" },
+    ],
+    painPoints: [
+      { title: "Feed price moves faster than you can update the field", body: "Maize and soya swing sharply; a stale rate card or a slow price update quietly erodes margin on every tonne of feed booked." },
+      { title: "Thousands of scattered farms to actually cover", body: "Contract and independent broiler and layer farms are spread across districts. Knowing which farms your reps really reached, and what they need, is genuinely hard." },
+      { title: "Credit runs down to the farmer", body: "Feed moves on credit through dealers to farmers who pay after the flock sells; outstanding across the chain is the number that decides your working capital." },
+      { title: "Offtake and secondary movement are invisible", body: "Primary billing to the dealer says nothing about which farms are actually lifting feed and growing — an early warning you don't get." },
+      { title: "Advisory and relationship drive the sale", body: "Placement, feed conversion and support keep a farmer loyal; without a record of what your reps did on each farm, the relationship lives in someone's head." },
+    ],
+    solutions: [
+      { pain: "Push feed prices the day the market moves", how: "Update the price-list engine centrally and every rep quotes the current feed price instantly — no stale rate cards when maize and soya swing — with schemes to hold volume." },
+      { pain: "Cover every farm, and prove it", how: "Geo-tagged farm visits, beat routes and selfie-GPS attendance turn 'covered' into a fact across thousands of scattered contract and independent farms." },
+      { pain: "Control credit down to the farmer", how: "Trade levels (distributor / dealer / farm), self-calculating outstanding, credit limits before the next order, and an Ageing report — so exposure is managed, not guessed." },
+      { pain: "See offtake and secondary", how: "Automatic primary/secondary tagging shows which farms are actually lifting feed, so you spot a slowing farm early." },
+      { pain: "Keep the farm relationship on the record", how: "Every visit, order and note lives on the farm's customer record — placement, feed, support and history in one place, not in a rep's head." },
+    ],
+    workflow: [
+      { title: "Route the farm beat", body: "Plan each rep's beat across contract and independent farms; the route runs farm by farm." },
+      { title: "Visit & take the feed order", body: "Geo-stamped farm visit; feed order in bags or tonnes captured offline, at the current price." },
+      { title: "Collect & cap credit", body: "Record collections against outstanding; credit limits gate the next dispatch." },
+      { title: "Watch offtake & recover", body: "Primary/secondary and Ageing show which farms are lifting and who's overdue." },
+    ],
+    whyNotOthers: [
+      { label: "Not a farm / flock-management system", body: "OZZO isn't an FCR, placement or biosecurity tool — it's the field-sales and distribution layer: coverage, feed orders, price, credit and secondary movement, around whatever farm-management you already run." },
+      { label: "Not just a tracker", body: "A tracker shows a rep reached a farm — not feed-price updates, multi-level credit, schemes or offtake visibility across thousands of farms." },
+      { label: "Not an enterprise CPG SFA", body: "Poultry feed isn't packaged-goods merchandising — it's price-sensitive, credit-heavy, farm-by-farm distribution, priced for the business, not national CPG budgets." },
+    ],
+    outcomes: [
+      { title: "Current feed prices in every rep's hand", body: "When maize or soya moves, the new price is live in the field the same day — margin stops leaking." },
+      { title: "Every farm genuinely covered", body: "Geo-stamped visits make coverage of scattered farms a fact, not a claim." },
+      { title: "Credit exposure managed to the farmer", body: "Outstanding self-calculates and credit limits gate the next order down the chain." },
+      { title: "Slowing farms surface early", body: "Offtake and secondary visibility flag a farm that's lifting less, in time to act." },
+    ],
+    cockpit: {
+      header: "Broiler belt · Namakkal",
+      headerBadge: "Live feed price",
+      sectionTitle: "One field app for the farm belt",
+      sectionBody: "Feed prices, farm-by-farm orders, credit down to the farmer and offtake — captured across thousands of scattered farms, online or off.",
+      rows: [
+        { icon: "Bird", title: "Broiler Starter · 50 kg", subtitle: "Contract farm · 80 bags", value: "₹1,20,000" },
+        { icon: "TrendingUp", title: "Feed price revised", subtitle: "Maize ▲ · new list pushed", badge: "Reps quote today's feed price", badgeTone: "primary" },
+        { icon: "UserRound", title: "SKM Farms · Contract farm", subtitle: "Offtake steady · secondary tracked", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer + farm dues", value: "₹4.6L", sub: "/ ₹5L limit", fillPct: 88 },
+      chips: [
+        { label: "Offtake dip", sub: "1 farm lifting less", tone: "gradient" },
+        { label: "Secondary ✓ to farm", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Price-list engine for feed prices", "Trade levels (distributor / dealer / farm)", "Offline order capture (bags / tonnes)", "Outstanding, credit limits & Ageing", "Geo-tagged farm visits & beat routes", "Primary/secondary & Daily Sales Report"],
+    honestNote:
+      "OZZO runs your poultry field sales, farm coverage and credit — it is not a flock/farm-management, FCR or biosecurity system. It works alongside whatever production tools you use; OZZO owns the sales, distribution and outstanding side.",
+    faqs: [
+      { q: "Is OZZO built for poultry feed companies and integrators?", a: "Yes. OZZO handles feed-price changes pushed to the field, coverage of thousands of contract and independent farms, credit control down to the farmer, and offtake/secondary visibility — the field-sales and distribution side of a poultry business." },
+      { q: "How does OZZO handle feed-price volatility?", a: "Update the price-list engine centrally and every rep quotes the current feed price instantly, so maize and soya swings don't leave stale rate cards in the field. Schemes help hold volume when prices move." },
+      { q: "Does OZZO manage the contract-farming chain and credit?", a: "Yes — classify distributors, dealers and farms as trade levels, with self-calculating outstanding, credit limits before the next order, and an Ageing report across the chain." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── AQUACULTURE & FISH FEED
+  {
+    slug: "aquaculture-fish-feed",
+    sector: "Agriculture",
+    name: "Aquaculture & Fish Feed",
+    icon: "Fish",
+    metaTitle: "Field sales software for aquaculture & fish feed companies | OZZO",
+    metaDescription:
+      "OZZO helps shrimp and fish feed companies run the field — reach dispersed pond farmers through the distributor–sub-dealer chain, log technical advisory, push prices, and control 30–60 day credit and secondary movement.",
+    keywords: ["aquaculture feed software", "shrimp feed distribution India", "fish feed dealer management", "aqua feed field sales", "pond farmer field app"],
+    image: "/industries/aquaculture-fish-feed-hero.jpg",
+    imageAlt: "Coastal aquaculture farm with floating rafts",
+    tagline: "Aqua feed reaches dispersed pond farmers through a long, credit-heavy chain, against cheaper farm-made feed, and rides on technical advice. OZZO runs the field side.",
+    intro:
+      "Whether you sell shrimp or fish feed direct to corporate farms or through distributors and sub-dealers to thousands of independent pond farmers, the aqua business turns on credit, coverage and advisory. OZZO gives aquafeed companies visibility and control across the chain.",
+    stats: [
+      { value: "30–60 days", label: "credit terms feed makers extend, stretching further down the sub-dealer chain", note: "Industry range" },
+      { value: "65–70%", label: "of organized feed flows through distributors and sub-dealers to independent farmers", note: "Industry data" },
+      { value: "Advisory-led", label: "feeding and disease advice keep a pond farmer loyal — not just price" },
+    ],
+    painPoints: [
+      { title: "Dispersed pond farmers, a long sub-dealer chain", body: "Independent shrimp and fish farmers are scattered across coastal and inland belts, reached through distributors and sub-dealers — coverage and reliable secondary data are hard." },
+      { title: "Credit runs 30–60 days and further", body: "Feed moves on extended credit down to farmers who pay at harvest; outstanding across the chain is the working-capital risk." },
+      { title: "Cheaper farm-made feed competes", body: "Rice-bran and mustard-cake home feeds undercut commercial feed by 30–40%, so your reps sell on results and advice, not just availability." },
+      { title: "Advisory and timing drive the sale", body: "The right feed at the right stage, disease guidance and stocking advice keep a farmer buying — but only if what your reps did on each pond is recorded." },
+      { title: "Price and secondary are hard to see", body: "Raw-material swings move your price list, and primary billing hides whether feed is actually reaching the pond." },
+    ],
+    solutions: [
+      { pain: "Reach the pond through the chain", how: "Distributor and sub-dealer trade levels with geo-tagged farm visits, so the dispersed pond-farmer base actually gets covered and secondary movement is visible." },
+      { pain: "Control 30–60 day credit", how: "Self-calculating outstanding at each level, credit limits before the next order, and an Ageing report — so extended credit down the chain is managed, not guessed." },
+      { pain: "Sell on advice, on the record", how: "Log each pond visit, the advice given and the stage/feed — so the advisory relationship that beats cheap farm-made feed lives on the farm's record." },
+      { pain: "Keep prices current", how: "Update the price-list engine centrally when raw materials swing, and every rep quotes the current price — with schemes to hold volume." },
+      { pain: "See real movement to the pond", how: "Automatic primary/secondary tagging shows whether feed is reaching farmers, not just billed to the distributor." },
+    ],
+    workflow: [
+      { title: "Route the pond beat", body: "Plan the beat across distributors, sub-dealers and farms; the route runs stop by stop." },
+      { title: "Visit, advise & order", body: "Geo-stamped pond visit, feeding/stage advice logged, feed order captured offline at the current price." },
+      { title: "Collect & cap credit", body: "Record collections against outstanding; credit limits gate the next dispatch." },
+      { title: "Watch movement & recover", body: "Primary/secondary and Ageing show what's reaching ponds and who's overdue." },
+    ],
+    whyNotOthers: [
+      { label: "Not a pond / water-quality system", body: "OZZO isn't a water-quality, disease-diagnostic or pond-management tool — it's the field-sales and distribution layer: coverage, advisory logging, orders, price, credit and secondary movement." },
+      { label: "Not just a tracker", body: "A tracker can't manage the distributor–sub-dealer chain, 30–60 day credit, price updates or secondary visibility to dispersed ponds." },
+      { label: "Not an enterprise CPG SFA", body: "Aqua feed is credit-heavy, advisory-led, farm-by-farm distribution — not packaged-goods merchandising, and priced for the business, not national CPG budgets." },
+    ],
+    outcomes: [
+      { title: "Dispersed ponds actually covered", body: "Geo-stamped visits make coverage of scattered farms a fact across the sub-dealer chain." },
+      { title: "Extended credit stays bounded", body: "Outstanding self-calculates and credit limits gate the next order down the chain." },
+      { title: "The advisory edge is captured", body: "Each pond's advice and history are on the record — the relationship that beats cheap farm-made feed." },
+      { title: "You see feed reach the pond", body: "Secondary visibility shows real movement, not just distributor billing." },
+    ],
+    cockpit: {
+      header: "Shrimp belt · Nellore",
+      headerBadge: "Live price list",
+      sectionTitle: "One field app for the pond belt",
+      sectionBody: "Distributor-to-pond coverage, advisory on the record, current prices and 30–60 day credit — captured in the field, online or off.",
+      rows: [
+        { icon: "Fish", title: "Shrimp Grower · 25 kg", subtitle: "Sub-dealer · 60 bags", value: "₹90,000" },
+        { icon: "Droplets", title: "Pond visit · advice logged", subtitle: "Stage feed · disease check", check: true, tone: "primary" },
+        { icon: "UserRound", title: "Sagar Aqua · Sub-dealer", subtitle: "Secondary tracked · 45-day credit", check: true, tone: "success" },
+      ],
+      meter: { label: "Chain outstanding", value: "₹3.8L", sub: "/ ₹4.5L limit", fillPct: 84 },
+      chips: [
+        { label: "Advisory", sub: "logged on the pond", tone: "gradient" },
+        { label: "Secondary ✓ to pond", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Trade levels (distributor / sub-dealer / farm)", "Geo-tagged pond visits & advisory notes", "Offline order capture (bags)", "Price-list engine & schemes", "Outstanding, credit limits & Ageing", "Primary/secondary & Daily Sales Report"],
+    honestNote:
+      "OZZO runs your aqua field sales, coverage, advisory logging and credit — it is not a water-quality, disease-diagnostic or pond-management system. It owns the sales, distribution and outstanding side alongside your technical tools.",
+    faqs: [
+      { q: "Is OZZO built for shrimp and fish feed companies?", a: "Yes. OZZO handles reaching dispersed pond farmers through the distributor–sub-dealer chain, logging technical advisory, pushing price changes, and controlling 30–60 day credit and secondary movement — the field-sales side of an aquafeed business." },
+      { q: "Can OZZO capture the advisory a rep gives on each pond?", a: "Yes. Each geo-stamped pond visit records the advice, stage and feed on the farm's customer record — so the advisory relationship that beats cheap farm-made feed is captured, not lost." },
+      { q: "How does OZZO handle the long aqua credit chain?", a: "Trade levels for distributor, sub-dealer and farm, with self-calculating outstanding, credit limits before the next order, and an Ageing report across the chain." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── AGRICULTURE EQUIPMENT
+  {
+    slug: "agriculture-equipment",
+    sector: "Agriculture",
+    name: "Agriculture Equipment",
+    icon: "Tractor",
+    metaTitle: "Field sales software for agriculture equipment companies | OZZO",
+    metaDescription:
+      "OZZO helps farm-equipment and implement companies run the field — dealer coverage, a CRM pipeline for high-value demo-and-finance sales, spare-parts orders, after-sales service visits, and dealer outstanding.",
+    keywords: ["farm equipment dealer software", "agriculture implement field sales", "tractor dealer management India", "farm machinery CRM", "after-sales service field app agriculture"],
+    image: "/industries/agriculture-equipment-hero.jpg",
+    imageAlt: "Tractor with an implement working a field",
+    tagline: "Equipment is a high-value, demo-and-finance sale, bought seasonally, and won or lost on after-sales service. OZZO runs the whole field motion.",
+    intro:
+      "Farm equipment isn't a fast-moving consumable — it's a considered, financed purchase through a dealer network, with after-sales service that decides the next sale. OZZO gives equipment and implement companies a CRM pipeline, dealer coverage, spare-parts orders and service visibility in one system.",
+    stats: [
+      { value: "Seasonal", label: "demand concentrated around crop cycles and subsidy timing" },
+      { value: "Financed", label: "most purchases need credit — and rural financing is scarce and costly", note: "Local-lender rates up to ~48%" },
+      { value: "After-sales", label: "breakdowns in remote villages decide whether the farmer buys again" },
+    ],
+    painPoints: [
+      { title: "A long, considered, financed sale", body: "Equipment is high-value and demo-driven; leads take weeks, hinge on financing, and need disciplined follow-up — a beat-and-order app alone can't run it." },
+      { title: "Seasonal, subsidy-timed demand", body: "Buying concentrates around crop cycles and subsidy disbursement; miss the window and you miss the sale." },
+      { title: "Financing is the bottleneck", body: "Rural credit is scarce and costly, so a deal stalls without follow-up on finance and paperwork." },
+      { title: "After-sales service wins the next sale", body: "Breakdowns happen in remote villages far from the dealer; slow service and spare-parts delays lose the farmer's next purchase." },
+      { title: "Dealer coverage and dues", body: "A wide dealer network needs real coverage, spare-parts order capture and outstanding control — not guesswork." },
+    ],
+    solutions: [
+      { pain: "Run the demo-and-finance pipeline", how: "A CRM pipeline for high-value leads — stages, demo scheduling, branded quotations, financing follow-up and next-step reminders — so no considered buyer goes cold." },
+      { pain: "Time the seasonal window", how: "Beat routes, tasks and the pipeline keep reps working the right dealers and prospects when crop cycles and subsidies drive demand." },
+      { pain: "Capture spare-parts orders in the field", how: "A multi-unit catalogue and offline order capture for spare parts and consumables, at current prices, from the dealer counter." },
+      { pain: "Run after-sales service as field visits", how: "Log service visits and tasks against the customer and machine, so breakdowns in remote villages are tracked to closure — the thing that wins the next sale." },
+      { pain: "Cover dealers and control dues", how: "Geo-tagged dealer visits, self-calculating outstanding and credit limits across the dealer network, with an Ageing report." },
+    ],
+    workflow: [
+      { title: "Work the pipeline & demos", body: "Move high-value leads through stages, schedule demos, send branded quotations, follow up on finance." },
+      { title: "Cover the dealer beat", body: "Geo-stamped dealer visits; spare-parts orders captured offline at current prices." },
+      { title: "Service the machine", body: "Log after-sales service visits and tasks against the machine, tracked to closure." },
+      { title: "Collect & recover", body: "Record collections against outstanding; credit limits and Ageing keep dealer dues in check." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a beat-and-order app", body: "A pure order app can't run a weeks-long, demo-and-finance pipeline for a high-value machine — you'd lose the considered buyer. OZZO carries the CRM pipeline and the field beat together." },
+      { label: "Not a full service / warranty ERP", body: "OZZO isn't a workshop, warranty-claim or parts-inventory ERP — it manages leads, dealer visits, spare-parts orders, service visits and outstanding, alongside whatever back-end you run." },
+      { label: "Not an enterprise CPG SFA", body: "Equipment is a considered, financed, service-led sale — nothing like fast-moving packaged goods — and OZZO is priced for the business, not national CPG budgets." },
+    ],
+    outcomes: [
+      { title: "No considered buyer goes cold", body: "Every high-value lead has a stage, a quotation and a next step — demo and financing follow-up on the record." },
+      { title: "You hit the seasonal window", body: "Reps work the right dealers and prospects when crop cycles and subsidies drive demand." },
+      { title: "Service closes the loop", body: "After-sales visits are tracked to closure, so a remote breakdown wins the next sale instead of losing it." },
+      { title: "Dealer dues stay in check", body: "Outstanding self-calculates and Ageing flags overdue dealers across the network." },
+    ],
+    cockpit: {
+      header: "Rabi season · Rajkot",
+      headerBadge: "Pipeline",
+      sectionTitle: "One field app for the whole sale",
+      sectionBody: "A demo-and-finance pipeline, dealer coverage, spare-parts orders and after-sales service — the full high-value equipment motion on one screen.",
+      rows: [
+        { icon: "Tractor", title: "45 HP Tractor · demo", subtitle: "Stage: Finance · follow-up Fri", badge: "Quotation sent · subsidy form pending", badgeTone: "primary" },
+        { icon: "Wrench", title: "Service visit · rotavator", subtitle: "Breakdown · tracked to closure", check: true, tone: "success" },
+        { icon: "Package", title: "Spare parts order", subtitle: "Dealer counter · captured offline", value: "₹18,500" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹2.7L", sub: "/ ₹3.5L limit", fillPct: 77 },
+      chips: [
+        { label: "Demo booked", sub: "Sat · 2 prospects", tone: "gradient" },
+        { label: "Service ✓ closed", sub: "next sale protected", tone: "glass" },
+      ],
+    },
+    modules: ["CRM pipeline (demos, quotations, finance follow-up)", "Geo-tagged dealer visits & beat routes", "Spare-parts order capture (offline)", "After-sales service visits & tasks", "Outstanding, credit limits & Ageing", "Branded PDF quotations"],
+    honestNote:
+      "OZZO runs the field motion — pipeline, dealer coverage, spare-parts orders, service visits and outstanding. It is not a workshop/warranty-claim or parts-inventory ERP; it works alongside your back-end systems.",
+    faqs: [
+      { q: "Is OZZO built for farm-equipment and implement companies?", a: "Yes. OZZO runs the whole high-value field motion — a CRM pipeline for demo-and-finance sales, dealer coverage, spare-parts orders, after-sales service visits, and dealer outstanding — in one system." },
+      { q: "Can OZZO manage after-sales service, not just sales?", a: "Yes. Log after-sales service visits and tasks against the customer and machine and track them to closure — the service that wins the farmer's next purchase — alongside the sales pipeline." },
+      { q: "Does OZZO handle the long, financed equipment sale?", a: "Yes. A CRM pipeline moves high-value leads through stages with demo scheduling, branded quotations, financing follow-up and next-step reminders, so a considered buyer doesn't go cold." },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

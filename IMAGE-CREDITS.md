@@ -9,6 +9,9 @@ Industry-page hero images are sourced from free, commercial-use stock libraries.
 | `public/industries/fertilizer-distributors-hero.jpg` | Pexels photo #4956961 (https://www.pexels.com/photo/4956961/) | [Pexels License](https://www.pexels.com/license/) | Worker loading a urea fertilizer bag onto a truck; Fertilizer Distributors hero. |
 | `public/industries/agrochemical-pesticide-companies-hero.jpg` | Pexels photo #37993891 (https://www.pexels.com/photo/37993891/) | [Pexels License](https://www.pexels.com/license/) | Tractor boom-spraying a crop field; Agrochemical & Pesticide Companies hero. |
 | `public/industries/animal-feed-manufacturers-hero.jpg` | Pexels photo #6339152 (https://www.pexels.com/photo/6339152/) | [Pexels License](https://www.pexels.com/license/) | Indian dairy cattle; Animal Feed Manufacturers hero. |
+| `public/industries/poultry-feed-integrators-hero.jpg` | Pexels photo #17765441 (https://www.pexels.com/photo/17765441/) | [Pexels License](https://www.pexels.com/license/) | Commercial broiler poultry farm; Poultry Feed & Integrators hero. |
+| `public/industries/aquaculture-fish-feed-hero.jpg` | Pexels photo #38430248 (https://www.pexels.com/photo/38430248/) | [Pexels License](https://www.pexels.com/license/) | Coastal aquaculture farm; Aquaculture & Fish Feed hero. |
+| `public/industries/agriculture-equipment-hero.jpg` | Pexels photo #30248663 (https://www.pexels.com/photo/30248663/) | [Pexels License](https://www.pexels.com/license/) | Tractor with implement working a field; Agriculture Equipment hero. |
 
 The Pexels License permits free commercial and non-commercial use, no
 attribution required (though appreciated), with modification allowed. See
