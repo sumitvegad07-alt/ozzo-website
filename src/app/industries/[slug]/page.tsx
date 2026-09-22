@@ -21,7 +21,7 @@ export async function generateMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
     path: `/industries/${data.slug}`,
-    keywords: data.keywords,
+    keywords: [...data.keywords, ...(data.seo?.keywords ?? [])],
   });
 }
 

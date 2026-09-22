@@ -447,6 +447,24 @@ export function IndustryPage({
         </Container>
       </section>
 
+      {/* ─────────── Keyword-targeted SFA/WFA SEO section ─────────── */}
+      {data.seo && (
+        <section className="border-t border-border py-16 md:py-20">
+          <Container className="max-w-3xl">
+            <h2 className="ozzo-display text-2xl text-foreground md:text-3xl">
+              {data.seo.heading}
+            </h2>
+            <div className="mt-5 space-y-4">
+              {data.seo.body.map((p, i) => (
+                <p key={i} className="text-base leading-relaxed text-muted-foreground">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <FaqSection items={data.faqs} />
 
       {/* ─────────── Related industries ─────────── */}

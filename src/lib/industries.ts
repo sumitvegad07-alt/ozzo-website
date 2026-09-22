@@ -27,6 +27,16 @@ export type IndustryStep = { title: string; body: string };
 export type IndustryStat = { value: string; label: string; note?: string };
 export type IndustryWhyNot = { label: string; body: string };
 export type IndustryOutcome = { title: string; body: string };
+/**
+ * Keyword-targeted SEO section — 2–3 readable paragraphs written around the
+ * high-intent SFA/WFA search terms for THIS industry ("SFA for X",
+ * "salesman tracking software for X", "order booking app for X", plus the
+ * industry's own feature language like RTM/route-to-market for FMCG). Its
+ * `keywords` also extend the page's <meta keywords>. Focus: SFA + WFA (field
+ * sales + workforce/GPS tracking), not CRM. Keep it genuinely useful, not
+ * keyword-stuffed.
+ */
+export type IndustrySeo = { heading: string; body: string[]; keywords: string[] };
 
 /**
  * Data-driven "field cockpit" — a tailored, illustrative app glimpse per
@@ -102,6 +112,8 @@ export type Industry = {
   outcomes?: IndustryOutcome[];
   /** Tailored "field cockpit" visual for the dark "see it work" section. */
   cockpit?: Cockpit;
+  /** Keyword-targeted SFA/WFA SEO section (for Google long-tail ranking). */
+  seo?: IndustrySeo;
   /** Key OZZO modules that matter most for this industry. */
   modules: string[];
   /** What OZZO complements but does NOT replace (honesty). */
@@ -122,6 +134,14 @@ export const industries: Industry[] = [
     keywords: ["PVC pipe company software", "CPVC pipe distribution software", "uPVC pipe distribution", "pipe manufacturer field sales", "plumbing pipe SFA India", "pipe dealer management software", "field sales software for pipe brands"],
     image: "/industries/pvc-cpvc-pipes-hero.jpg",
     imageAlt: "CPVC and PVC pipes and fittings installed along a wall",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for CPVC & PVC pipe companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for PVC, CPVC and uPVC pipe companies that combines multi-unit order booking (piece, bundle, metre, kg), resin-linked price-list updates, dealer and secondary-sales management and outstanding in one field app. With a 15,000-SKU catalogue, multi-unit order booking is the core — reps quote the current price and book the exact SKU and unit at the counter, even offline.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for pipe field teams: GPS attendance, live location, and geo-tagged dealer and plumber/contractor visits. So \"SFA for pipe companies\", \"order booking app for pipe distributors\" and \"salesman tracking software\" are one system. Multi-unit order booking, price-list control, secondary sales and GPS field tracking make OZZO a practical pipe distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for pipe companies", "PVC CPVC pipe distributor management software", "sales force automation software for pipe brands", "salesman tracking software for pipe distribution", "order booking app for pipe distributors", "multi unit order booking pipes", "field sales software for pipe companies"],
+    },
     tagline: "The pipe business runs on the plumber's word, a 15,000-SKU catalogue and a resin price that never sits still. OZZO is built for exactly that.",
     intro:
       "Selling pipe isn't selling packaged goods. The plumber decides your brand, your catalogue runs to thousands of SKUs across sizes and pressure classes, resin prices move your price list constantly, and you're running a dealer beat and long-cycle project sales at the same time. OZZO handles all of it in one system.",
@@ -204,6 +224,14 @@ export const industries: Industry[] = [
       "Seed demand lives and dies by a few weeks of sowing window, moves through a deep dealer network on credit, and depends on reps actually reaching the field. OZZO gives seed companies visibility and control over exactly that — without a heavy enterprise rollout.",
     image: "/industries/seed-companies-hero.jpg",
     imageAlt: "Indian farmer broadcasting seeds by hand in a field",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for seed companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for seed companies that puts season-timed order booking, dealer outstanding and credit control, trade schemes and territory management into one field app. In the seed trade, dealer outstanding and collection are make-or-break — every order and collection updates a self-calculating outstanding with credit limits, and the Ageing report surfaces overdue dealers before the season turns. Reps book orders in the field, offline in rural belts.",
+        "OZZO doubles as field-force tracking (WFA) and salesman location tracking software for seed companies: selfie + GPS attendance, live location, beat routes and geo-tagged dealer visits. So \"SFA for seed companies\", \"dealer management software for seeds\" and \"salesman tracking app\" are one system. Season-timed order booking, outstanding and collection control, and GPS field tracking make OZZO a practical seed distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for seed companies", "sales force automation software for seed distribution", "seed dealer management software", "salesman tracking app for seeds", "order booking app for seed companies", "field sales software for seeds", "outstanding collection software for seed dealers"],
+    },
     stats: [
       { value: "A few weeks", label: "the sowing window a whole season's demand is compressed into" },
       { value: "15–25%", label: "counterfeit seed incidence in some regions in peak years", note: "Industry estimate" },
@@ -281,6 +309,14 @@ export const industries: Industry[] = [
       "Fertilizer moves seasonally through a long dealer chain on tight credit, into regions where the network is patchy and reporting is done from memory. OZZO gives fertilizer companies and distributors real field visibility and outstanding control across that chain.",
     image: "/industries/fertilizer-distributors-hero.jpg",
     imageAlt: "Worker loading a urea fertilizer bag onto a distribution truck",
+    seo: {
+      heading: "Sales force automation (SFA) & distributor management for fertilizer",
+      body: [
+        "OZZO is a sales force automation (SFA) and distributor management software for fertilizer companies that combines order booking, distributor–dealer–retailer management, outstanding and credit control, and secondary-sales tracking in one field app. Across a long fertilizer dealer chain, distributor management and outstanding control are the core — orders book offline in weak-network regions, credit limits gate the next dispatch, and the Ageing report keeps exposure in check.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for fertilizer distributors: GPS attendance, live location and geo-tagged dealer visits. So \"SFA for fertilizer\", \"distributor management software for fertilizer\" and \"salesman tracking software\" are one system. Order booking, distributor management, outstanding and collection, and GPS field tracking make OZZO a practical fertilizer distribution and sales-tracking system. (OZZO complements — it does not replace — the government e-Urvarak/DBT POS.)",
+      ],
+      keywords: ["SFA for fertilizer", "fertilizer distributor management software", "sales force automation software for fertilizer", "salesman tracking software for fertilizer", "order booking app for fertilizer dealers", "secondary sales software fertilizer", "field sales app for fertilizer"],
+    },
     stats: [
       { value: "15–45 days", label: "manufacturer-to-dealer credit that stretches further down the chain" },
       { value: "Seasonal", label: "demand that spikes with the crop calendar and shifts with the monsoon" },
@@ -356,6 +392,14 @@ export const industries: Industry[] = [
       "Agrochemical demand can spike overnight with a pest attack, moves through a vast private retail channel, and rides on dealer credit and field advisory. OZZO gives crop-protection companies the field visibility and outstanding control to respond fast and get paid.",
     image: "/industries/agrochemical-pesticide-companies-hero.jpg",
     imageAlt: "Tractor boom-spraying crop protection across a green field",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for agrochemical companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for agrochemical and pesticide companies that brings order booking, trade schemes, secondary-sales management and outstanding into one field app. When a pest outbreak spikes demand, geo-tagged visits and offline order booking surface it in real time so you can move stock and reps to the zone — while schemes apply at the counter and outstanding keeps itself.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for crop-protection field teams: GPS attendance, live location and geo-tagged retailer visits across a fragmented channel. So \"SFA for agrochemicals\", \"order booking app for pesticide distributors\" and \"salesman tracking software\" are one system. Order booking, schemes, secondary sales and GPS field tracking make OZZO a practical agrochemical distribution and sales-tracking system. (It complements, not replaces, pesticide QR/batch compliance.)",
+      ],
+      keywords: ["SFA for agrochemicals", "sales force automation software for pesticide companies", "agrochemical distributor management software", "salesman tracking software for agrochemicals", "order booking app for pesticide distributors", "crop protection field sales software", "secondary sales software agrochemical"],
+    },
     stats: [
       { value: "Overnight", label: "how fast demand can spike when a pest outbreak hits" },
       { value: "~90%", label: "of pesticide retail handled by the private, fragmented channel", note: "Industry data" },
@@ -431,6 +475,14 @@ export const industries: Industry[] = [
       "Feed moves factory → distributor → dealer → sub-dealer → farmer, almost entirely on credit, with demand that swings with the dairy calendar. For feed companies the real bottleneck is working capital tied up in dealer and farmer dues — exactly what OZZO makes visible and controllable.",
     image: "/industries/animal-feed-manufacturers-hero.jpg",
     imageAlt: "Indian dairy cattle at a farm",
+    seo: {
+      heading: "Sales force automation (SFA) & collection software for animal feed",
+      body: [
+        "OZZO is a sales force automation (SFA) software for cattle and poultry feed companies where outstanding and collection are the whole game. Multi-level dealer and sub-dealer outstanding self-calculates, credit limits gate the next order, and the Ageing report turns ₹15–25 lakh of dealer dues into a number you manage — with order booking (bags and tonnes) offline and collections recorded in the field.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for feed companies: GPS attendance, live location and geo-tagged dealer visits across rural belts. So \"SFA for animal feed\", \"outstanding and collection software for feed dealers\" and \"salesman tracking app\" are one system. Order booking, outstanding and collection control, and GPS field tracking make OZZO a practical animal-feed distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for animal feed", "cattle feed dealer management software", "sales force automation software for feed companies", "outstanding collection software feed dealers", "salesman tracking app for feed", "order booking app for feed distributors", "poultry feed field sales software"],
+    },
     stats: [
       { value: "₹15–25L", label: "unrecovered farmer dues a single 100-tonne/month dealer can carry", note: "Industry estimate" },
       { value: "30–60 days", label: "farmers pay at the milk cycle — the dealer funds the gap" },
@@ -503,6 +555,14 @@ export const industries: Industry[] = [
     keywords: ["poultry feed software", "poultry integrator field sales", "broiler layer feed distribution", "poultry feed dealer management India", "contract farming field app"],
     image: "/industries/poultry-feed-integrators-hero.jpg",
     imageAlt: "Commercial broiler poultry farm interior",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for poultry feed & integrators",
+      body: [
+        "OZZO is a sales force automation (SFA) software for poultry feed companies and integrators that combines feed-price updates pushed to the field, order booking, farm coverage and dealer/farmer outstanding in one app. Because feed is most of a farmer's cost, the price-list engine keeps every rep quoting today's feed price, order booking works offline across scattered farms, and outstanding self-calculates down to the farmer.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for poultry field teams: GPS attendance, live location and geo-tagged farm visits across thousands of contract and independent farms. So \"SFA for poultry feed\", \"salesman tracking software for poultry\" and \"order booking app\" are one system. Feed-price control, order booking, outstanding and GPS field tracking make OZZO a practical poultry-feed distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for poultry feed", "poultry feed dealer management software", "sales force automation software for poultry", "salesman tracking software for poultry feed", "order booking app for poultry feed", "contract farming field app", "poultry integrator field sales software"],
+    },
     tagline: "Feed is most of a poultry farmer's cost, its price never sits still, and your reps work thousands of scattered farms on credit. OZZO runs exactly that.",
     intro:
       "Whether you run captive feed for contract farms or sell through a dealer network to independent broiler and layer farmers, the poultry business turns on feed price, farm coverage and credit. OZZO gives poultry feed companies and integrators visibility and control across all three.",
@@ -580,6 +640,14 @@ export const industries: Industry[] = [
     keywords: ["aquaculture feed software", "shrimp feed distribution India", "fish feed dealer management", "aqua feed field sales", "pond farmer field app"],
     image: "/industries/aquaculture-fish-feed-hero.jpg",
     imageAlt: "Coastal aquaculture farm with floating rafts",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for aquaculture & fish feed",
+      body: [
+        "OZZO is a sales force automation (SFA) software for shrimp and fish feed companies that combines order booking, distributor–sub-dealer management, 30–60 day credit and outstanding, and pond-visit advisory logging in one field app. Reaching dispersed pond farmers through the sub-dealer chain, OZZO books orders offline, records the technical advice given on each pond, and self-calculates outstanding with credit limits across the chain.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for aqua field teams: GPS attendance, live location and geo-tagged pond visits. So \"SFA for aquaculture feed\", \"fish feed distributor management\" and \"salesman tracking app\" are one system. Order booking, distributor management, outstanding and collection, and GPS field tracking make OZZO a practical aquafeed distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for aquaculture feed", "shrimp feed distributor management software", "sales force automation software for fish feed", "salesman tracking software for aqua feed", "order booking app for aquaculture", "pond farmer field app", "aqua feed field sales software"],
+    },
     tagline: "Aqua feed reaches dispersed pond farmers through a long, credit-heavy chain, against cheaper farm-made feed, and rides on technical advice. OZZO runs the field side.",
     intro:
       "Whether you sell shrimp or fish feed direct to corporate farms or through distributors and sub-dealers to thousands of independent pond farmers, the aqua business turns on credit, coverage and advisory. OZZO gives aquafeed companies visibility and control across the chain.",
@@ -657,6 +725,14 @@ export const industries: Industry[] = [
     keywords: ["farm equipment dealer software", "agriculture implement field sales", "tractor dealer management India", "farm machinery CRM", "after-sales service field app agriculture"],
     image: "/industries/agriculture-equipment-hero.jpg",
     imageAlt: "Tractor with an implement working a field",
+    seo: {
+      heading: "Sales force automation (SFA) & field service tracking for agriculture equipment",
+      body: [
+        "OZZO is a sales force automation (SFA) and field-service software for farm-equipment and implement companies that combines dealer coverage, spare-parts order booking, after-sales service visits and dealer outstanding in one app. Across a wide dealer network, reps book spare-parts orders at the counter offline, log after-sales service visits against the machine and track them to closure, while outstanding self-calculates with credit limits.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for equipment field teams: GPS attendance, live location and geo-tagged dealer and service visits. So \"SFA for farm equipment\", \"dealer management software\" and \"field service app\" are one system. Spare-parts order booking, after-sales service tracking, outstanding and GPS field tracking make OZZO a practical agriculture-equipment sales, service and tracking system.",
+      ],
+      keywords: ["SFA for farm equipment", "agriculture equipment dealer management software", "sales force automation software for tractors", "field service app for farm equipment", "salesman tracking software for equipment", "spare parts order booking app", "after sales service tracking agriculture"],
+    },
     tagline: "Equipment is a high-value, demo-and-finance sale, bought seasonally, and won or lost on after-sales service. OZZO runs the whole field motion.",
     intro:
       "Farm equipment isn't a fast-moving consumable — it's a considered, financed purchase through a dealer network, with after-sales service that decides the next sale. OZZO gives equipment and implement companies a CRM pipeline, dealer coverage, spare-parts orders and service visibility in one system.",
@@ -734,6 +810,14 @@ export const industries: Industry[] = [
     keywords: ["HDPE pipe company software", "HDPE pipe distribution India", "Jal Jeevan Mission dealer", "irrigation pipe field sales", "HDPE dealer management", "PE100 pipe project sales"],
     image: "/industries/hdpe-pipe-companies-hero.jpg",
     imageAlt: "Black HDPE drip-irrigation lines running through a field",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for HDPE pipe companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for HDPE pipe companies that combines dealer order booking, resin-linked price-list updates, site and fusion support visits, and dealer outstanding in one field app. Alongside government water and irrigation projects, the irrigation dealer beat runs on OZZO — reps book orders offline at the current PE price, and outstanding self-calculates with credit limits.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for HDPE field teams: GPS attendance, live location and geo-tagged dealer and site visits. So \"SFA for HDPE pipes\", \"irrigation pipe dealer management\" and \"salesman tracking app\" are one system. Order booking, price control, site-visit tracking and GPS field tracking make OZZO a practical HDPE distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for HDPE pipes", "HDPE pipe dealer management software", "sales force automation software for HDPE", "salesman tracking software for irrigation pipes", "order booking app for HDPE dealers", "irrigation pipe field sales software", "field sales app for pipe companies"],
+    },
     tagline: "HDPE lives on government water projects, irrigation dealers and a resin price that moves — with fusion-jointing on every site. OZZO runs that whole motion.",
     intro:
       "HDPE isn't sold like plumbing pipe. It goes into Jal Jeevan and AMRUT water schemes, canal irrigation, gas and telecom — through government tenders and an agri dealer network, jointed by fusion welding on site. OZZO gives HDPE pipe companies a project pipeline, dealer coverage and price control in one system.",
@@ -811,6 +895,14 @@ export const industries: Industry[] = [
     keywords: ["stainless steel pipe software", "SS pipe distribution India", "304 316 pipe field sales", "fabricator dealer management", "industrial pipe project sales", "SS tube stockist software"],
     image: "/industries/stainless-steel-pipe-companies-hero.jpg",
     imageAlt: "Stacked stainless steel pipes and tubes",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for stainless steel pipe companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for stainless steel pipe and tube companies that combines spec-based order booking (grade and schedule), stockist and fabricator coverage, and outstanding in one field app. Reps book orders to the exact grade and schedule at the current price, capture grade and MTC references against the order, and outstanding self-calculates with credit limits across the channel.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for SS pipe field teams: GPS attendance, live location and geo-tagged fabricator, OEM and stockist visits. So \"SFA for stainless steel pipes\", \"SS pipe stockist management\" and \"salesman tracking software\" are one system. Spec-based order booking, channel coverage, outstanding and GPS field tracking make OZZO a practical SS-pipe distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for stainless steel pipes", "SS pipe distributor management software", "sales force automation software for steel pipes", "salesman tracking software for SS pipes", "order booking app for steel pipe stockists", "industrial pipe field sales software", "stockist management software steel"],
+    },
     tagline: "SS pipe is a grade-and-spec technical sale into industry — 304 vs 316, seamless vs welded, schedules and certificates. OZZO runs that B2B motion.",
     intro:
       "Stainless steel pipe isn't a counter sale — it's specified by grade, schedule and standard into food, pharma, chemical and industrial projects, quoted against drawings, and served from stock to fabricators and OEMs. OZZO gives SS pipe companies a technical project pipeline, stockist/dealer coverage and outstanding in one system.",
@@ -888,6 +980,14 @@ export const industries: Industry[] = [
     keywords: ["cast iron pipe software", "CI drainage pipe distribution", "SG iron pipe field sales", "soil pipe project sales India", "builder specification field app", "municipal pipe tender"],
     image: "/industries/cast-iron-pipe-companies-hero.jpg",
     imageAlt: "Heavy flanged iron drainage pipes",
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for cast iron pipe companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for cast iron (CI/SG iron) drainage pipe companies that combines dealer order booking, project and site visits, and outstanding in one field app. Alongside the specification work on high-rise and municipal projects, the dealer beat runs on OZZO — reps book orders offline, coordinate heavy supply, and outstanding self-calculates with credit limits.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for cast-iron field teams: GPS attendance, live location and geo-tagged dealer and site visits. So \"SFA for cast iron pipes\", \"drainage pipe dealer management\" and \"salesman tracking software\" are one system. Order booking, site-visit tracking, outstanding and GPS field tracking make OZZO a practical cast-iron distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for cast iron pipes", "cast iron drainage pipe dealer management", "sales force automation software for CI pipes", "salesman tracking software for drainage pipes", "order booking app for pipe dealers", "soil pipe field sales software", "field sales app for drainage pipes"],
+    },
     tagline: "Cast iron is won by getting specified — in high-rise soil stacks and municipal projects — through builders, plumbers and consultants. OZZO runs that spec-led motion.",
     intro:
       "Cast iron drainage pipe is specified, not impulse-bought: chosen in premium high-rise soil stacks (quiet and fire-safe) and municipal sewerage through builders, consultants and plumbing contractors, plus tenders. OZZO gives CI/SG-iron pipe companies a specification pipeline, contractor influence, dealer coverage and outstanding in one system.",
@@ -965,6 +1065,14 @@ export const industries: Industry[] = [
     keywords: ["food beverage distribution software", "FMCG food SFA India", "snacks distribution field sales", "beverage distributor management", "expiry returns field app", "food distributor secondary sales"],
     image: "/industries/food-beverage-companies-hero.jpg",
     imageAlt: "Vibrant snack aisle in a retail store",
+    seo: {
+      heading: "Sales force automation (SFA) & salesman tracking for food & beverage",
+      body: [
+        "OZZO is a sales force automation (SFA) software for food & beverage companies that combines order booking, high-frequency beat and route planning (route-to-market), near-expiry and damage returns, trade schemes and secondary-sales management in one field app. For an F&B distributor, beat planning drives the frequent coverage that keeps stock fresh — reps book orders offline, record returns at the outlet, and outstanding keeps itself. It is the ordering system and the salesman tracker in one.",
+        "It is also a field-force tracking (WFA) and salesman location tracking software for food & beverage: GPS attendance, live location and geo-tagged outlet visits. So \"SFA for food and beverage\", \"order booking app for food distributors\" and \"salesman tracking software\" become one system. That combination of route-to-market beat planning, offline order booking, returns capture and GPS field tracking makes OZZO a practical food & beverage sales-tracking and distribution system.",
+      ],
+      keywords: ["SFA for food and beverage", "sales force automation software for food distributors", "salesman tracking software for food distribution", "order booking app for food distributors", "beat planning software food beverage", "secondary sales software food distribution", "field sales app for beverages"],
+    },
     tagline: "Food moves fast and expires faster. It's won on daily retail coverage, fresh stock and schemes — not a monthly beat. OZZO runs that pace.",
     intro:
       "Packaged food and beverage is a freshness game: short shelf-life, near-expiry returns, damage, and a wide retail universe that needs frequent visits. OZZO gives F&B brands and distributors high-frequency coverage, field returns capture, schemes and secondary visibility in one affordable system.",
@@ -1042,6 +1150,14 @@ export const industries: Industry[] = [
     keywords: ["FMCG distribution software India", "FMCG field sales app", "retail execution software SME", "distributor management FMCG", "secondary sales FMCG", "FMCG SFA affordable"],
     image: "/industries/fmcg-companies-hero.jpg",
     imageAlt: "Well-stocked retail shelf of FMCG products",
+    seo: {
+      heading: "Sales force automation (SFA) & salesman tracking for FMCG",
+      body: [
+        "OZZO is a sales force automation (SFA) software for FMCG that brings order booking, route-to-market (RTM) beat planning, distributor and secondary-sales management, and reporting into one field app. For an FMCG field team, route and beat management is the engine of RTM — every salesman works a planned beat, books orders at the counter even offline, applies schemes on the spot, and outstanding updates itself. It replaces the separate ordering system, GPS tracker and spreadsheets most FMCG distributors still juggle.",
+        "OZZO is also a field-force tracking (WFA) and salesman location tracking software for FMCG: selfie + GPS attendance, live rep location, geo-tagged retail visits and productive-call visibility. So \"sales person location tracking software for FMCG\", \"SFA for FMCG\" and \"ordering system for FMCG\" aren't three tools — they're one. That mix of route-to-market beat planning, order booking and GPS field tracking is what makes OZZO a practical FMCG sales-tracking and distributor-management system for regional and SME brands.",
+      ],
+      keywords: ["SFA for FMCG", "sales force automation software for FMCG", "salesman tracking software for FMCG", "sales person location tracking software for FMCG", "ordering system for FMCG", "order booking app for FMCG", "route to market software FMCG", "distributor management software FMCG", "field force tracking FMCG"],
+    },
     tagline: "FMCG is won store by store — assortment on the shelf, reorders that actually happen, and schemes that land. OZZO runs that execution at SME scale.",
     intro:
       "For an FMCG brand or distributor, the battle is retail execution across a huge outlet universe: the right assortment stocked, retailers reordering, schemes landing and secondary sales visible. OZZO gives regional and SME FMCG brands that execution — coverage, assortment, schemes and outstanding — affordably.",
