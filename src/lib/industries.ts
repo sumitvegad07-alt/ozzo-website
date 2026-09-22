@@ -24,6 +24,45 @@
 export type IndustryPain = { title: string; body: string };
 export type IndustrySolution = { pain: string; how: string };
 export type IndustryStep = { title: string; body: string };
+export type IndustryStat = { value: string; label: string; note?: string };
+export type IndustryWhyNot = { label: string; body: string };
+export type IndustryOutcome = { title: string; body: string };
+
+/**
+ * Data-driven "field cockpit" — a tailored, illustrative app glimpse per
+ * industry (not a screenshot). The generic IndustryCockpit component renders
+ * this, so every industry gets its own on-brand field-app visual from data,
+ * without a bespoke component each. Keep the content genuinely specific to the
+ * trade (real SKUs, schemes, units, roles for THAT industry).
+ */
+export type CockpitRow = {
+  /** lucide icon name (rendered via <Icon/>). */
+  icon: string;
+  title: string;
+  subtitle: string;
+  /** Right-aligned value, e.g. "₹9,860". Omit for a check row. */
+  value?: string;
+  /** Highlighted badge line under the row, e.g. a price/scheme alert. */
+  badge?: string;
+  badgeTone?: "amber" | "primary" | "success";
+  /** Show a success check on the right instead of a value. */
+  check?: boolean;
+  /** Accent colour of the row's icon tile. */
+  tone?: "primary" | "success" | "amber";
+};
+export type CockpitMeter = { label: string; value: string; sub?: string; fillPct: number };
+export type CockpitChip = { label: string; sub: string; tone?: "gradient" | "glass" };
+export type Cockpit = {
+  /** Panel header, e.g. "Today · Rajkot beat". */
+  header: string;
+  headerBadge: string;
+  rows: CockpitRow[];
+  meter?: CockpitMeter;
+  chips?: CockpitChip[];
+  /** Heading + blurb for the dark "see it work" section. */
+  sectionTitle: string;
+  sectionBody: string;
+};
 
 export type Industry = {
   /** URL slug: /industries/<slug> */
@@ -41,12 +80,28 @@ export type Industry = {
   tagline: string;
   /** 1–2 sentence framing under the hero. */
   intro: string;
+  /**
+   * Premium hero image for this industry (path under /public). When present,
+   * the page renders the full-bleed image hero; when absent it falls back to
+   * the gradient hero. Every industry should eventually have one (founder
+   * requirement: a relevant image per industry).
+   */
+  image?: string;
+  imageAlt?: string;
+  /** Cited, industry-specific facts for the animated stat strip. */
+  stats?: IndustryStat[];
   /** The real, researched pain points of this sub-industry. */
   painPoints: IndustryPain[];
   /** How OZZO addresses each pain (kept honest and grounded). */
   solutions: IndustrySolution[];
   /** An industry-specific field-sales flow. */
   workflow: IndustryStep[];
+  /** Why OZZO over the alternatives, FOR THIS INDUSTRY (the competitive angle). */
+  whyNotOthers?: IndustryWhyNot[];
+  /** Honest outcome framing — what changes (no fabricated numbers). */
+  outcomes?: IndustryOutcome[];
+  /** Tailored "field cockpit" visual for the dark "see it work" section. */
+  cockpit?: Cockpit;
   /** Key OZZO modules that matter most for this industry. */
   modules: string[];
   /** What OZZO complements but does NOT replace (honesty). */
@@ -55,6 +110,85 @@ export type Industry = {
 };
 
 export const industries: Industry[] = [
+  // ─────────────────────────────────────────── CPVC & PVC PIPES (flagship)
+  {
+    slug: "cpvc-pvc-pipe-companies",
+    sector: "Plastics",
+    name: "CPVC & PVC Pipe Companies",
+    icon: "Factory",
+    metaTitle: "Field sales software for CPVC & PVC pipe companies | OZZO",
+    metaDescription:
+      "OZZO is built for PVC & CPVC pipe brands: 15,000+ SKUs at multiple units, resin-linked price changes pushed to the field, dealer credit & secondary-sales visibility, plumber/contractor engagement, and a CRM pipeline for project sales — one system.",
+    keywords: ["PVC pipe company software", "CPVC pipe distribution software", "pipe manufacturer field sales", "plumbing pipe SFA India", "pipe dealer management software", "field sales software for pipe brands"],
+    image: "/industries/pvc-cpvc-pipes-hero.jpg",
+    imageAlt: "CPVC and PVC pipes and fittings installed along a wall",
+    tagline: "The pipe business runs on the plumber's word, a 15,000-SKU catalogue and a resin price that never sits still. OZZO is built for exactly that.",
+    intro:
+      "Selling pipe isn't selling packaged goods. The plumber decides your brand, your catalogue runs to thousands of SKUs across sizes and pressure classes, resin prices move your price list constantly, and you're running a dealer beat and long-cycle project sales at the same time. OZZO handles all of it in one system.",
+    stats: [
+      { value: "15,000+", label: "SKUs a pipe brand carries — sizes × pressure classes × fittings", note: "Industry range" },
+      { value: "Crude-linked", label: "PVC resin prices swing with oil, forcing constant price-list revisions" },
+      { value: "Plumbers", label: "decide the brand at the point of use — not the retailer" },
+    ],
+    painPoints: [
+      { title: "The plumber decides your brand — not the shop", body: "Plumbers, contractors and masons specify which pipe brand actually gets used. That's why leaders like FlowGuard ('PlumberKaSaathi'), Astral and Finolex pour investment into plumber engagement and loyalty. A field team that only calls on dealers is invisible to the people who truly drive demand." },
+      { title: "15,000+ SKUs, sold by the piece, bundle, metre and kilo", body: "Sizes × pressure classes/schedules × a long tail of fittings — and every one sold in different units. Capturing an accurate order at the counter (right SKU, right unit, right current price) is genuinely hard, and every error costs margin." },
+      { title: "Resin-price volatility whipsaws your price list", body: "PVC and CPVC resin is crude-linked and moves sharply. When prices rise you must push new rates to the field fast; when they fall, dealers destock and outstanding balloons. A stale rate card quietly bleeds margin on every order booked." },
+      { title: "Dealer credit and secondary sales you can't see", body: "Product moves distributor → dealer → retailer on credit, but primary billing tells you nothing about whether it's actually reaching the counter and the plumber. Slow secondary movement becomes tomorrow's destocking and returns." },
+      { title: "Two sales motions at once — retail channel and projects", body: "Alongside the dealer and retail beat, there's long-cycle project and institutional business (builders, infrastructure, irrigation) that needs a pipeline, quotations and disciplined follow-up. Most field tools do one motion well, not both." },
+    ],
+    solutions: [
+      { pain: "Engage the plumber & contractor network", how: "Model plumbers, contractors and masons as their own customer type; log geo-stamped engagement visits, run trade schemes tied to what they specify, and keep their history on the same record as the dealer they buy from — so demand generation is finally visible." },
+      { pain: "Take complex orders right, in the field", how: "A full catalogue with categories, multi-unit ordering (piece / bundle / metre / kg) and customer-specific price lists — so a rep captures the exact SKU, unit and current price at the counter, offline if there's no signal." },
+      { pain: "Push new prices the day resin moves", how: "Update the price-list engine centrally and every rep quotes the new price instantly — no stale rate cards when resin swings — with trade schemes to move stock when dealers hesitate on the dips." },
+      { pain: "See secondary sales and control credit", how: "Distributor / dealer / retailer trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so you see real movement and recover on time." },
+      { pain: "Run projects and the retail beat in one system", how: "A CRM pipeline for project and institutional deals — leads, stages, branded PDF quotations and follow-ups — running alongside the dealer field beat, on one login and one customer record." },
+    ],
+    workflow: [
+      { title: "Engage the influencer", body: "The rep meets a plumber or contractor, logs a geo-stamped visit and the products they specify, and enrols them in a scheme." },
+      { title: "Work the dealer beat", body: "A counter visit, a multi-unit order at current prices, captured offline and synced — no stale rate card, no skipped outlet." },
+      { title: "Advance a project deal", body: "Update a project-pipeline stage, send a branded PDF quotation, and set the next follow-up so nothing goes cold." },
+      { title: "Collect & watch movement", body: "Record the collection against outstanding; primary/secondary and the Ageing report show what's actually reaching the counter." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "Generic trackers can tell you a rep visited a shop — but not manage 15,000 SKUs at multiple units, push resin-linked price changes, run a project pipeline, or engage plumbers. For a pipe brand, that's most of the job." },
+      { label: "Not an enterprise FMCG SFA", body: "Enterprise CPG platforms are shaped around fast-moving packaged goods and heavy shelf-audit merchandising — built for biscuits and shampoo, not pressure-class pipe SKUs, project sales and plumber influence, and priced for national brands." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM handles the project pipeline but has no native field tracking, multi-unit counter orders, trade levels or dealer outstanding — you'd stitch three tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "Current prices in every rep's hand", body: "When resin moves, the new price list is live in the field the same day — margin stops leaking on stale rates." },
+      { title: "The plumber network becomes visible", body: "Who your reps engaged, what they specify, and which schemes they're in — on the record, not in someone's head." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you finally see what's reaching the counter." },
+      { title: "Projects stop slipping", body: "Every project deal has a stage, a quotation and a next step — no long-cycle opportunity quietly forgotten." },
+    ],
+    cockpit: {
+      header: "Today · Rajkot beat",
+      headerBadge: "Live price list",
+      sectionTitle: "One field app, built for the counter",
+      sectionBody: "Current prices, multi-unit orders, the plumber who specifies your brand, and the dealer's outstanding — captured on one screen in the field, online or off.",
+      rows: [
+        { icon: "Layers", title: "CPVC SDR-11 · 1″", subtitle: "Price list · Central India", value: "₹214/pc", badge: "Resin ▲ 3% · new list pushed to field today", badgeTone: "amber" },
+        { icon: "ShoppingCart", title: "PVC 4″ · 6 kg/cm²", subtitle: "40 pc · 2 bundles · captured offline", value: "₹9,860" },
+        { icon: "UserRound", title: "Ramesh · Plumber", subtitle: "Specifies your brand · in Monsoon scheme", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹2.4L", sub: "/ ₹3L limit", fillPct: 80 },
+      chips: [
+        { label: "Project deal", sub: "Quotation sent · follow-up Fri", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["CRM pipeline for project sales", "Multi-unit ordering (piece / bundle / metre / kg)", "Customer-specific price lists & schemes", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Geo-tagged influencer & dealer visits", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO can model and track your plumber/contractor engagement — as a customer type, with geo-stamped visits, schemes and history — but it is not a consumer-style gamified plumber-rewards app with points redemption. It gives your field team the visibility and tools to run that relationship; a dedicated loyalty app for plumbers is a separate thing.",
+    faqs: [
+      { q: "Is OZZO built for PVC and CPVC pipe companies?", a: "Yes. OZZO handles what makes pipe field sales hard — 15,000+ SKUs at multiple units, resin-linked price-list changes pushed to the field, dealer credit and secondary-sales visibility, plumber/contractor engagement, and a CRM pipeline for project sales — in one system." },
+      { q: "Can OZZO handle our huge SKU range and multiple units?", a: "Yes. A full catalogue with categories and multi-unit ordering (piece, bundle, metre, kilo) plus customer-specific price lists means reps capture the exact SKU, unit and current price at the counter — offline if there's no signal." },
+      { q: "How does OZZO deal with PVC resin price volatility?", a: "Update the price-list engine centrally and every rep quotes the new price instantly — so resin swings don't leave stale rate cards in the field. Trade schemes help move stock when dealers hesitate on price dips." },
+      { q: "Can OZZO manage both dealer sales and project/institutional sales?", a: "Yes. The dealer/retail field beat and a CRM pipeline for long-cycle project deals (stages, branded quotations, follow-ups) run in one system on one customer record — most tools do only one." },
+      { q: "Does OZZO help engage plumbers and contractors?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealers they buy from. It isn't a gamified consumer rewards app, but it makes the influencer relationship visible and manageable." },
+    ],
+  },
+
   // ─────────────────────────────────────────── SEED COMPANIES
   {
     slug: "seed-companies",
@@ -68,6 +202,13 @@ export const industries: Industry[] = [
     tagline: "Run your seed dealer network in the field — season-timed orders, dealer outstanding under control, and every territory actually covered.",
     intro:
       "Seed demand lives and dies by a few weeks of sowing window, moves through a deep dealer network on credit, and depends on reps actually reaching the field. OZZO gives seed companies visibility and control over exactly that — without a heavy enterprise rollout.",
+    image: "/industries/seed-companies-hero.jpg",
+    imageAlt: "Indian farmer broadcasting seeds by hand in a field",
+    stats: [
+      { value: "A few weeks", label: "the sowing window a whole season's demand is compressed into" },
+      { value: "15–25%", label: "counterfeit seed incidence in some regions in peak years", note: "Industry estimate" },
+      { value: "On credit", label: "dealers carry your stock through the season until the crop sells" },
+    ],
     painPoints: [
       { title: "Demand is compressed into a narrow sowing window", body: "A delayed monsoon or a shifted sowing window can turn a season's stock into returns and obsolescence almost overnight. Getting the right variety to the right dealer at the right week is the whole game." },
       { title: "Deep dealer network runs on credit", body: "Distributors, dealers and sub-dealers carry your stock on credit through the season. Outstanding piles up across the chain and gets chased from memory, long after the season has turned." },
@@ -88,6 +229,33 @@ export const industries: Industry[] = [
       { title: "Collect & control credit", body: "Record collections against the dealer's outstanding; the credit limit is checked before the next season's stock goes out." },
       { title: "Watch liquidation & recovery", body: "Primary vs secondary and the Ageing report show what's moving to farmers and what's still owed, in time to act." },
     ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a dealer — but not season-timed order capture, dealer outstanding across the chain, trade schemes, or whether seed actually liquidated to the farmer." },
+      { label: "Not an enterprise FMCG SFA", body: "Seed isn't fast-moving packaged goods on a monthly cycle — it's a sharp seasonal spike with returns/obsolescence risk and a credit-heavy dealer chain. OZZO is priced and shaped for that, not national CPG budgets." },
+      { label: "Not a plain CRM", body: "A CRM records enquiries but has no field visits, offline dealer orders, trade levels or self-calculating outstanding — the things a seasonal seed business actually runs on." },
+    ],
+    outcomes: [
+      { title: "Stock lands inside the sowing window", body: "The right varieties reach the right dealers in the weeks that matter — not after the window has closed." },
+      { title: "Season-end recovery isn't a surprise", body: "Outstanding self-calculates and the Ageing report flags overdue dealers early, so recovery starts before the season turns." },
+      { title: "You see liquidation, not just billing", body: "Primary vs secondary shows whether seed is actually moving to farmers — early warning on next season's returns." },
+      { title: "Every territory truly gets worked", body: "Beat routes and geo-stamped visits make 'covered' a fact, and overlap and channel conflict drop." },
+    ],
+    cockpit: {
+      header: "Kharif beat · Nashik",
+      headerBadge: "Sowing window",
+      sectionTitle: "One field app, built for the season",
+      sectionBody: "Season-timed orders, dealer schemes, outstanding and whether seed is actually liquidating to the farmer — on one screen in the field, online or off.",
+      rows: [
+        { icon: "Sprout", title: "Hybrid Maize · 4 kg pack", subtitle: "60 packs · captured offline", value: "₹42,000" },
+        { icon: "Percent", title: "Early-bird sowing scheme", subtitle: "Pre-season offer · applied", badge: "Dealer enrolled · window pricing", badgeTone: "primary" },
+        { icon: "UserRound", title: "Deshmukh Agri · Dealer", subtitle: "Liquidation 70% · secondary tracked", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹1.8L", sub: "/ ₹2.5L limit", fillPct: 72 },
+      chips: [
+        { label: "Liquidation", sub: "70% moved to farmers", tone: "gradient" },
+        { label: "Secondary ✓ reaching farmer", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
     modules: ["Trade levels (distributor / dealer / retailer)", "Offline order capture", "Field payment collection & outstanding", "Beat routes & territory", "Trade schemes & price lists", "Ageing & Daily Sales Report"],
     honestNote:
       "OZZO manages your field sales, dealer network and outstanding — it is not a seed-certification or lot-traceability compliance system. It works alongside whatever quality/traceability process you already run.",
@@ -111,6 +279,13 @@ export const industries: Industry[] = [
     tagline: "Run your fertilizer dealer chain in the field — seasonal orders, credit under control, and coverage you can actually verify.",
     intro:
       "Fertilizer moves seasonally through a long dealer chain on tight credit, into regions where the network is patchy and reporting is done from memory. OZZO gives fertilizer companies and distributors real field visibility and outstanding control across that chain.",
+    image: "/industries/fertilizer-distributors-hero.jpg",
+    imageAlt: "Worker loading a urea fertilizer bag onto a distribution truck",
+    stats: [
+      { value: "15–45 days", label: "manufacturer-to-dealer credit that stretches further down the chain" },
+      { value: "Seasonal", label: "demand that spikes with the crop calendar and shifts with the monsoon" },
+      { value: "Last mile", label: "coverage in weak-network regions where reporting is done from memory" },
+    ],
     painPoints: [
       { title: "Seasonal demand and stock exposure", body: "Demand spikes with the crop calendar and can shift with the monsoon, so timely availability at the dealer — without overstocking expensive product — is a constant balancing act." },
       { title: "Long credit cycles down the chain", body: "Manufacturer-to-dealer credit typically runs 15–45 days, and dealers extend further to retailers and farmers. Outstanding across the chain is the number that quietly decides margins." },
@@ -129,6 +304,33 @@ export const industries: Industry[] = [
       { title: "Collect and cap credit", body: "Collections hit outstanding immediately; credit limits gate the next dispatch so exposure stays bounded." },
       { title: "Track movement & ageing", body: "Primary vs secondary and Ageing reports expose slow stock and overdue dealers in time to act." },
     ],
+    whyNotOthers: [
+      { label: "Not a fertilizer subsidy POS", body: "OZZO doesn't replace the government e-Urvarak/DBT POS at the counter — it runs everything around your reps, dealers, orders and outstanding, which the POS doesn't touch." },
+      { label: "Not just a tracking app", body: "A tracker can't do seasonal dealer order capture offline, credit-limited dispatch, trade schemes, or secondary-sales visibility across the distributor–dealer–retailer chain." },
+      { label: "Not an enterprise SFA project", body: "You don't need a national-CPG implementation to run a fertilizer field team — OZZO deploys in days at transparent per-user pricing." },
+    ],
+    outcomes: [
+      { title: "Availability tracks the crop calendar", body: "Dealer orders captured in the field — offline where the network is weak — so stock is there when the season needs it." },
+      { title: "Credit exposure stays bounded", body: "Outstanding self-calculates at every level and credit limits gate the next dispatch, so exposure doesn't balloon on the dips." },
+      { title: "Secondary stops being a black box", body: "Primary vs secondary shows whether product is actually reaching retailers and farmers." },
+      { title: "Coverage you can verify", body: "Selfie-GPS visits turn 'covered' into a fact, even in remote belts." },
+    ],
+    cockpit: {
+      header: "Rabi beat · Nagpur",
+      headerBadge: "Live price list",
+      sectionTitle: "One field app for the whole chain",
+      sectionBody: "Seasonal orders, current prices, credit limits and secondary movement across distributor, dealer and retailer — captured in the field, offline where the network is weak.",
+      rows: [
+        { icon: "Package", title: "Urea · 45 kg bag", subtitle: "80 bags · captured offline", value: "₹21,600" },
+        { icon: "TrendingUp", title: "DAP price revised", subtitle: "New list pushed to field", badge: "Reps quote the current rate today", badgeTone: "primary" },
+        { icon: "UserRound", title: "Krishi Kendra · Dealer", subtitle: "Secondary tracked · retailer sales", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹3.2L", sub: "/ ₹4L limit", fillPct: 80 },
+      chips: [
+        { label: "Ageing alert", sub: "2 dealers > 45 days", tone: "gradient" },
+        { label: "Secondary ✓ to retailer", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
     modules: ["Trade levels & primary/secondary", "Offline order capture", "Outstanding, credit limits & Ageing", "Beat routes & territory", "Trade schemes & price lists", "Stock & Daily Sales Report"],
     honestNote:
       "OZZO handles your field sales, dealer coverage and outstanding. It is not a fertilizer-subsidy (e-Urvarak / DBT) POS system and does not process Aadhaar/KCC subsidy sales — it runs alongside the government POS your retail points already use.",
@@ -152,6 +354,13 @@ export const industries: Industry[] = [
     tagline: "Cover the retail channel, catch the demand spike, and keep dealer credit under control — for crop-protection field teams.",
     intro:
       "Agrochemical demand can spike overnight with a pest attack, moves through a vast private retail channel, and rides on dealer credit and field advisory. OZZO gives crop-protection companies the field visibility and outstanding control to respond fast and get paid.",
+    image: "/industries/agrochemical-pesticide-companies-hero.jpg",
+    imageAlt: "Tractor boom-spraying crop protection across a green field",
+    stats: [
+      { value: "Overnight", label: "how fast demand can spike when a pest outbreak hits" },
+      { value: "~90%", label: "of pesticide retail handled by the private, fragmented channel", note: "Industry data" },
+      { value: "Advisory-led", label: "sales ride on correct field advice and demos, not just availability" },
+    ],
     painPoints: [
       { title: "Sudden, weather-driven demand spikes", body: "When sowing starts or a pest outbreak hits, demand can jump in days. Without fast field feedback, dealers face stockouts exactly when farmers need the product." },
       { title: "A huge, fragmented private retail channel", body: "The vast majority of pesticide retail is private and highly fragmented across hundreds of thousands of points, making consistent coverage and reliable secondary-sales data hard." },
@@ -170,6 +379,33 @@ export const industries: Industry[] = [
       { title: "Run schemes & collect", body: "Apply trade schemes at the counter, record collections against outstanding, and enforce credit limits." },
       { title: "See movement & recover", body: "Primary/secondary and Ageing reports show what's liquidating and who's overdue." },
     ],
+    whyNotOthers: [
+      { label: "Not a compliance / QR system", body: "OZZO doesn't handle the pesticide QR-code labelling mandate or batch-licensing registers — it runs your field sales, channel coverage, schemes and outstanding around that compliance." },
+      { label: "Not just a tracker", body: "A tracker won't surface pest-driven demand in real time, run trade schemes across a fragmented retail channel, or show secondary movement and credit." },
+      { label: "Not an enterprise CPG platform", body: "Heavy shelf-audit and merchandising suites are built for packaged FMCG, not spike-driven, advisory-led crop protection — and priced for national brands." },
+    ],
+    outcomes: [
+      { title: "You catch the spike", body: "Geo-tagged visits and offline orders surface pest-driven demand and stockouts in real time, so stock and reps move to the outbreak fast." },
+      { title: "The fragmented channel gets covered", body: "Beat routes and verified visits keep hundreds of retail points actually worked." },
+      { title: "Schemes run clean", body: "Trade schemes and price lists apply at the counter, with primary/secondary tagging to see real movement." },
+      { title: "Credit under control", body: "Outstanding self-calculates and Ageing flags overdue dealers before it's too late." },
+    ],
+    cockpit: {
+      header: "Pest alert · Guntur",
+      headerBadge: "Field demand",
+      sectionTitle: "One field app that catches the spike",
+      sectionBody: "Real-time field demand, trade schemes, secondary movement and dealer outstanding — so you respond to a pest outbreak in hours, not days.",
+      rows: [
+        { icon: "SprayCan", title: "Insecticide · 1 L", subtitle: "Bollworm outbreak · 40 units", value: "₹24,000", badge: "Demand spike flagged from the field", badgeTone: "amber" },
+        { icon: "Percent", title: "Combo scheme · 10 + 1", subtitle: "Applied at the counter", check: true, tone: "success" },
+        { icon: "UserRound", title: "Rythu Agro · Dealer", subtitle: "Secondary tracked · advisory logged", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹2.1L", sub: "/ ₹3L limit", fillPct: 70 },
+      chips: [
+        { label: "Outbreak", sub: "stock redirected to zone", tone: "gradient" },
+        { label: "Secondary ✓ to retailer", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
     modules: ["Beat routes & territory", "Offline order capture", "Trade schemes & price lists", "Outstanding, credit limits & Ageing", "Trade levels & primary/secondary", "Geo-tagged visits & Daily Sales Report"],
     honestNote:
       "OZZO runs your field sales, channel coverage and outstanding. It is not a pesticide regulatory-compliance system — it does not manage the QR-code labelling mandate or batch/expiry licensing registers your compliance process handles. OZZO can capture batch or expiry as custom fields, but formal traceability compliance stays with your existing system.",
@@ -193,6 +429,13 @@ export const industries: Industry[] = [
     tagline: "Run the feed dealer chain where credit is the whole game — coverage, order capture, and outstanding you can finally control.",
     intro:
       "Feed moves factory → distributor → dealer → sub-dealer → farmer, almost entirely on credit, with demand that swings with the dairy calendar. For feed companies the real bottleneck is working capital tied up in dealer and farmer dues — exactly what OZZO makes visible and controllable.",
+    image: "/industries/animal-feed-manufacturers-hero.jpg",
+    imageAlt: "Indian dairy cattle at a farm",
+    stats: [
+      { value: "₹15–25L", label: "unrecovered farmer dues a single 100-tonne/month dealer can carry", note: "Industry estimate" },
+      { value: "30–60 days", label: "farmers pay at the milk cycle — the dealer funds the gap" },
+      { value: "Oct–Feb", label: "concentrate-feed demand peaks with the dairy calendar" },
+    ],
     painPoints: [
       { title: "Credit is the bottleneck", body: "Most farmers buy on credit and pay 30–60 days later at the milk payment, so dealers fund the gap. A single dealer doing 100 tonnes a month can carry ₹15–25 lakh in unrecovered dues — and that exposure runs up the whole chain." },
       { title: "A long dealer–sub-dealer chain", body: "The dealer–sub-dealer model dominates the feed trade, so outstanding, schemes and secondary movement have to be tracked at several levels, not just primary billing." },
@@ -211,6 +454,33 @@ export const industries: Industry[] = [
       { title: "Collect & cap exposure", body: "Record collections against outstanding at every level; credit limits gate the next dispatch." },
       { title: "Manage the season & dues", body: "Daily Sales Report and Ageing keep the seasonal ramp and dealer dues under control." },
     ],
+    whyNotOthers: [
+      { label: "Not just a tracker", body: "A tracker can't manage multi-level outstanding, credit limits, schemes and secondary movement down a dealer–sub-dealer chain — where the whole business is credit." },
+      { label: "Not an accounting tool", body: "OZZO isn't your books — but outstanding and stock self-calculate from every order and collection, so you control field credit without an accounting bolt-on." },
+      { label: "Not an enterprise SFA", body: "A feed business doesn't need a national-CPG rollout — OZZO gives dealer coverage, credit control and seasonal timing, live in days at SME pricing." },
+    ],
+    outcomes: [
+      { title: "Exposure becomes a managed number", body: "₹15–25L of dealer dues stops being a guess — outstanding self-calculates and credit limits gate the next order." },
+      { title: "The whole chain is visible", body: "Distributor, dealer and sub-dealer dues and secondary movement — not just the first invoice." },
+      { title: "You ride the seasonal peak", body: "Orders and stock stay aligned to the dairy calendar's Oct–Feb ramp." },
+      { title: "Rural coverage you can trust", body: "Selfie-GPS visits confirm reps reached scattered dealers, syncing when signal returns." },
+    ],
+    cockpit: {
+      header: "Beat · Anand",
+      headerBadge: "Dairy season",
+      sectionTitle: "One field app where credit is the game",
+      sectionBody: "Multi-level dealer dues, credit limits, collections and seasonal orders — so ₹15–25L of exposure becomes a number you manage, not a guess.",
+      rows: [
+        { icon: "Wheat", title: "Cattle Feed · 50 kg", subtitle: "Dealer + sub-dealer · 120 bags", value: "₹96,000" },
+        { icon: "IndianRupee", title: "Collection recorded", subtitle: "₹40,000 · against outstanding", check: true, tone: "success" },
+        { icon: "UserRound", title: "Patel Traders · Sub-dealer", subtitle: "Secondary tracked · credit limit set", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer dues", value: "₹18.4L", sub: "/ ₹20L limit", fillPct: 92 },
+      chips: [
+        { label: "Credit alert", sub: "sub-dealer near limit", tone: "gradient" },
+        { label: "Secondary ✓ to farmer", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
     modules: ["Trade levels (distributor / dealer / sub-dealer)", "Outstanding, credit limits & Ageing", "Offline order capture", "Beat routes & territory", "Trade schemes & price lists", "Daily Sales Report"],
     honestNote:
       "OZZO manages field sales, dealer coverage and outstanding — it is not an accounting or a feed-formulation/production system. Because outstanding and stock self-calculate, most feed teams run it without a separate accounting bolt-on for the field side.",
