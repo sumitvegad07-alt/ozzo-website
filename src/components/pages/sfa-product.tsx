@@ -25,7 +25,7 @@ import {
   JsonLd,
   breadcrumbSchema,
   faqSchema,
-  softwareApplicationSchema,
+  productSchema,
 } from "@/lib/seo";
 import { includedInEveryPlan } from "@/lib/site";
 import { industries } from "@/lib/content";
@@ -262,7 +262,7 @@ export function SfaProductPage() {
     <>
       <JsonLd
         data={[
-          softwareApplicationSchema(),
+          productSchema("sfa"),
           faqSchema(sfaFaqs),
           breadcrumbSchema([
             { name: "Home", path: "/" },

@@ -12,7 +12,7 @@ export const SITE_URL = (
 
 export const brand = {
   name: "OZZO",
-  // TODO: replace with your registered legal entity name.
+  // Registered legal entity name (confirmed) — feeds Organization schema.
   legalName: "OZZO Technologies",
   tagline: "CRM, Workforce & Field Sales — in one platform",
   description:

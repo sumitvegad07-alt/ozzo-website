@@ -101,6 +101,35 @@ export function softwareApplicationSchema() {
   };
 }
 
+/**
+ * Per-product SoftwareApplication schema — describes a single product line
+ * (CRM or SFA) as its own offering, so AI engines can distinguish
+ * "OZZO CRM" from "OZZO SFA" as distinct products rather than only seeing
+ * the whole platform. Use on the individual /products/[slug] pages.
+ */
+export function productSchema(slug: string) {
+  const line = productLines.find((p) => p.slug === slug);
+  if (!line) return softwareApplicationSchema();
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `${brand.name} ${line.name}`,
+    alternateName: `${brand.name} ${line.fullName}`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, Android",
+    description: line.summary,
+    url: `${SITE_URL}/products/${line.slug}`,
+    featureList: line.features,
+    publisher: { "@type": "Organization", name: brand.legalName },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/plans`,
+    },
+  };
+}
+
 /** FAQPage schema from a Q/A list. */
 export function faqSchema(items: { q: string; a: string }[]) {
   return {

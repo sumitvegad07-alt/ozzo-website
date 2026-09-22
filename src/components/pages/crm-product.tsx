@@ -21,7 +21,7 @@ import {
   JsonLd,
   breadcrumbSchema,
   faqSchema,
-  softwareApplicationSchema,
+  productSchema,
 } from "@/lib/seo";
 import { productLines, includedInEveryPlan } from "@/lib/site";
 import {
@@ -155,7 +155,7 @@ export function CrmProductPage() {
     <>
       <JsonLd
         data={[
-          softwareApplicationSchema(),
+          productSchema("crm"),
           faqSchema(crmFaqs),
           breadcrumbSchema([
             { name: "Home", path: "/" },

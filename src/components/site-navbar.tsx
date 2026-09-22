@@ -150,6 +150,18 @@ export function SiteNavbar() {
           </Link>
 
           <Link
+            href="/compare"
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+              pathname.startsWith("/compare")
+                ? "bg-primary-soft text-primary"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+            )}
+          >
+            Compare
+          </Link>
+
+          <Link
             href="/blog"
             className={cn(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
@@ -225,6 +237,12 @@ export function SiteNavbar() {
             className="mt-1 rounded-xl px-3 py-2.5 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
           >
             Plans &amp; packages
+          </Link>
+          <Link
+            href="/compare"
+            className="rounded-xl px-3 py-2.5 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            Compare
           </Link>
           <Link
             href="/blog"
