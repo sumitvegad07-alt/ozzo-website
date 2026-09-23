@@ -63,6 +63,13 @@ import {
   Egg,
   Droplets,
   Waves,
+  Paintbrush,
+  LayoutGrid,
+  Cable,
+  FlaskConical,
+  SquareStack,
+  Hammer,
+  Blocks,
   type LucideIcon,
 } from "lucide-react";
 
@@ -131,6 +138,13 @@ const map: Record<string, LucideIcon> = {
   Egg,
   Droplets,
   Waves,
+  Paintbrush,
+  LayoutGrid,
+  Cable,
+  FlaskConical,
+  SquareStack,
+  Hammer,
+  Blocks,
 };
 
 export function Icon({

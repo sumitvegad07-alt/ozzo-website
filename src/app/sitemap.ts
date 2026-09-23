@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/site";
 import { getAllPosts } from "@/lib/blog";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
+import { sectors } from "@/lib/sectors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -51,10 +52,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  // Sector overview pages (parent-category hubs above the sub-industries).
+  const sectorEntries: MetadataRoute.Sitemap = sectors.map((s) => ({
+    url: `${SITE_URL}/industries/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     ...staticEntries,
     ...blogEntries,
     ...compareEntries,
+    ...sectorEntries,
     ...industryEntries,
   ];
 }

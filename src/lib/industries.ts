@@ -1222,6 +1222,426 @@ export const industries: Industry[] = [
       { q: "How is OZZO different from Bizom or FieldAssist?", a: "Those enterprise CPG platforms (with AI shelf-audit) are built and priced for national brands. OZZO is for regional and SME FMCG brands and distributors that want CRM, field sales and WhatsApp in one affordable system." },
     ],
   },
+
+  // ─────────────────────────────────────────── PAINTS
+  {
+    slug: "paint-companies",
+    sector: "Building Materials",
+    name: "Paint Companies",
+    icon: "Paintbrush",
+    metaTitle: "Field sales software for paint companies & distributors | OZZO",
+    metaDescription:
+      "OZZO is built for decorative & industrial paint brands: the painter/contractor who decides the brand, a huge base × shade × pack × finish catalogue, dealer credit & secondary-sales visibility, project sales and trade schemes — one field-sales system.",
+    keywords: ["paint company software", "paint distribution software", "field sales software for paint companies", "paint dealer management software", "decorative paint SFA India", "painter contractor engagement software", "paint distributor management software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for paint companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for decorative and industrial paint companies that combines counter order booking across a wide base × shade × pack-size × finish catalogue, dealer and secondary-sales visibility, trade schemes and outstanding in one field app. Reps book the exact base, pack and finish at the dealer counter — offline in low-signal markets — and quote the current price, so an accurate order reaches dispatch every time.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for paint field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer, painter and contractor visits. So \"SFA for paint companies\", \"dealer management software for paints\" and \"salesman tracking software\" are one system. Counter order booking, painter/contractor engagement, secondary sales, trade schemes and GPS field tracking make OZZO a practical paint distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for paint companies", "sales force automation software for paint distribution", "paint dealer management software", "salesman tracking software for paint distributors", "order booking app for paint distributors", "painter engagement software", "field sales software for paint brands"],
+    },
+    tagline: "The painter picks your brand, your catalogue runs to thousands of shades and packs, and dealers move stock on credit. OZZO is built for exactly that.",
+    intro:
+      "Selling paint isn't selling one product — it's a huge catalogue of bases, shades, pack sizes and finishes, a painter or contractor who actually decides which brand goes on the wall, a dealer beat that runs on credit, and long-cycle project sales all at once. OZZO handles the whole motion in one system.",
+    stats: [
+      { value: "Painter-led", label: "painters & contractors specify the brand at the point of use — not the shop", note: "Industry reality" },
+      { value: "1000s", label: "of SKUs — bases × shades × pack sizes × finishes (interior/exterior/enamel)" },
+      { value: "On credit", label: "dealers and retailers carry your stock and pay after they sell" },
+    ],
+    painPoints: [
+      { title: "The painter decides your brand — not the shop", body: "Painters and contractors specify which paint actually gets used, which is why leaders (Asian Paints' colour academies and contractor programmes, Berger, Nerolac) invest heavily in painter engagement and loyalty. A field team that only calls on dealers is invisible to the people who truly drive demand." },
+      { title: "A vast base × shade × pack × finish catalogue", body: "Interior, exterior, enamel, primer, putty, wood and metal finishes — each in multiple bases, pack sizes (1L, 4L, 10L, 20L) and price points. Capturing the exact SKU, pack and current price at the counter is genuinely hard, and every error costs margin." },
+      { title: "Dealer credit and secondary sales you can't see", body: "Product moves company → dealer → retailer on credit, but primary billing tells you nothing about whether it's actually reaching the counter and the painter. Slow secondary movement quietly becomes tomorrow's returns and destocking." },
+      { title: "Scheme-driven trade with festival & season spikes", body: "The paint trade runs on constant dealer schemes, festival offers and slabs — and demand swings with the festive and pre-monsoon painting season. Applying the right scheme at the counter and tracking who's enrolled is a full-time job on paper." },
+      { title: "Two motions at once — retail beat and projects", body: "Alongside the dealer and retail beat there's long-cycle project and institutional business (builders, contractors, developers) needing a pipeline, quotations and disciplined follow-up. Most field tools do one motion well, not both." },
+    ],
+    solutions: [
+      { pain: "Engage the painter & contractor network", how: "Model painters and contractors as their own customer type; log geo-stamped engagement visits, run trade schemes tied to what they specify, and keep their history on the same record as the dealer they buy from — so demand generation is finally visible." },
+      { pain: "Take complex counter orders right", how: "A full catalogue with categories, packs and finishes, plus customer-specific price lists — so a rep captures the exact base, pack, finish and current price at the counter, offline if there's no signal." },
+      { pain: "See secondary sales and control credit", how: "Distributor / dealer / retailer trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so you see real movement and recover on time." },
+      { pain: "Run schemes without the paperwork", how: "Central schemes and slabs apply at the counter automatically, with enrolment tracked per dealer/painter — so the right offer lands every time and you know exactly who's in which scheme." },
+      { pain: "Run projects and the retail beat in one system", how: "A CRM pipeline for project and institutional deals — leads, stages, branded PDF quotations and follow-ups — running alongside the dealer field beat, on one login and one customer record." },
+    ],
+    workflow: [
+      { title: "Engage the influencer", body: "The rep meets a painter or contractor, logs a geo-stamped visit and the products they specify, and enrols them in a scheme." },
+      { title: "Work the dealer beat", body: "A counter visit, a multi-pack order at current prices with the right scheme applied, captured offline and synced." },
+      { title: "Advance a project deal", body: "Update a project-pipeline stage, send a branded PDF quotation, and set the next follow-up so nothing goes cold." },
+      { title: "Collect & watch movement", body: "Record the collection against outstanding; primary/secondary and the Ageing report show what's actually reaching the counter." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker can tell you a rep visited a shop — but not manage a huge base/shade/pack catalogue, apply the right scheme at the counter, run a project pipeline, or engage painters. For a paint brand, that's most of the job." },
+      { label: "Not an enterprise CPG SFA", body: "Enterprise platforms are shaped around fast-moving packaged goods and heavy shelf-audit merchandising, and priced for national brands — not painter influence, project sales and a shade-and-pack catalogue for a regional paint company." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM handles the project pipeline but has no native field tracking, counter order capture, trade levels or dealer outstanding — you'd stitch three tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "The painter network becomes visible", body: "Who your reps engaged, what they specify, and which schemes they're in — on the record, not in someone's head." },
+      { title: "Accurate orders, right scheme, every counter", body: "The exact base, pack and finish at the current price, with the correct scheme applied — no rework, no margin leak." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you finally see what's reaching the counter." },
+      { title: "Projects stop slipping", body: "Every project deal has a stage, a quotation and a next step — no long-cycle opportunity quietly forgotten." },
+    ],
+    cockpit: {
+      header: "Today · Indore beat",
+      headerBadge: "Festive scheme live",
+      sectionTitle: "One field app, built for the counter",
+      sectionBody: "Current prices, the right pack, the painter who specifies your brand, the festive scheme and the dealer's outstanding — captured on one screen in the field, online or off.",
+      rows: [
+        { icon: "Paintbrush", title: "Interior Emulsion · 20L", subtitle: "Base + shade · captured offline", value: "₹6,400" },
+        { icon: "Percent", title: "Festive scheme · 10% slab", subtitle: "Applied at the counter", badge: "Dealer enrolled · slab active", badgeTone: "primary" },
+        { icon: "UserRound", title: "Suresh · Painter", subtitle: "Specifies your brand · in loyalty scheme", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹1.6L", sub: "/ ₹2L limit", fillPct: 80 },
+      chips: [
+        { label: "Project deal", sub: "Quotation sent · follow-up Mon", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Painter/contractor engagement (customer type)", "Full pack & finish catalogue", "Customer-specific price lists & schemes", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "CRM pipeline for project sales", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO can model and track your painter/contractor engagement — as a customer type, with geo-stamped visits, schemes and history — but it is not a consumer-style gamified painter-rewards app with points redemption, nor a colour-tinting-machine integration. It gives your field team the visibility and tools to run those relationships and orders.",
+    faqs: [
+      { q: "Is OZZO built for paint companies and distributors?", a: "Yes. OZZO handles what makes paint field sales hard — a huge base/shade/pack/finish catalogue, painter and contractor engagement, dealer credit and secondary-sales visibility, trade schemes and a CRM pipeline for project sales — in one system." },
+      { q: "Can OZZO handle our large catalogue of bases, packs and finishes?", a: "Yes. A full catalogue with categories, pack sizes and finishes plus customer-specific price lists means reps capture the exact SKU, pack and current price at the counter — offline if there's no signal." },
+      { q: "Does OZZO help engage painters and contractors?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealers they buy from. It isn't a gamified consumer rewards app, but it makes the influencer relationship visible and manageable." },
+      { q: "Can OZZO manage both dealer sales and project sales?", a: "Yes. The dealer/retail field beat and a CRM pipeline for long-cycle project deals (stages, branded quotations, follow-ups) run in one system on one customer record." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── TILES & SANITARYWARE
+  {
+    slug: "tiles-sanitaryware-companies",
+    sector: "Building Materials",
+    name: "Tiles & Sanitaryware Companies",
+    icon: "LayoutGrid",
+    metaTitle: "Field sales software for tiles & sanitaryware companies | OZZO",
+    metaDescription:
+      "OZZO is built for ceramic/vitrified tile and sanitaryware brands: architect & interior-designer influence, showroom + project dual sales, batch/shade-lot ordering, dealer credit and a CRM pipeline for builder projects — one field-sales system.",
+    keywords: ["tiles company software", "sanitaryware distribution software", "field sales software for tiles", "ceramic tile dealer management", "vitrified tiles SFA India", "sanitaryware dealer software", "architect interior designer engagement software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for tiles & sanitaryware companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for ceramic/vitrified tile and sanitaryware companies that combines dealer and showroom order booking, batch/shade-lot capture, dealer credit and outstanding, and a CRM pipeline for builder and project sales in one field app. Reps book the exact size, series and shade-lot at current prices — offline if needed — so a tile order dispatches with the matched batch and a sanitaryware order lands right.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for tile and sanitaryware field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer, architect and interior-designer visits. So \"SFA for tiles companies\", \"dealer management software for sanitaryware\" and \"salesman tracking software\" are one system. Order booking, architect/ID engagement, project pipeline, outstanding and GPS field tracking make OZZO a practical tiles and sanitaryware distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for tiles companies", "sales force automation software for sanitaryware", "tiles dealer management software", "salesman tracking software for tile distributors", "order booking app for tile distributors", "architect engagement software", "field sales software for ceramic tiles"],
+    },
+    tagline: "The architect specifies, the builder buys by the project, and tiles ship in shade-lots. OZZO runs the showroom beat and the project pipeline together.",
+    intro:
+      "Tiles and sanitaryware sell two ways at once — a dealer and showroom beat, and long-cycle project sales to builders and developers where the architect or interior designer specifies. Add slow-moving high-value SKUs, shade-lot matching and dealer credit, and you need one system that does all of it. That's OZZO.",
+    stats: [
+      { value: "Architect-led", label: "architects & interior designers specify the brand and series on projects", note: "Industry reality" },
+      { value: "Project-heavy", label: "builder & developer projects drive a large share of tile & sanitaryware volume" },
+      { value: "Shade-lots", label: "tiles must ship in matched batches/shade-lots — a mismatch is a rejection" },
+    ],
+    painPoints: [
+      { title: "Architects & interior designers specify the brand", body: "On projects, the architect, interior designer or contractor decides the series and finish long before the dealer sells it. A field team that only works dealers misses the people who actually specify — where demand is really created." },
+      { title: "Two sales motions — showroom beat and projects", body: "A dealer and showroom beat runs alongside long-cycle project sales to builders and developers, each with quotations, samples and follow-ups. Most field tools handle one motion, not both — so projects get chased on WhatsApp and forgotten." },
+      { title: "Shade-lot & batch matching", body: "Tiles from different production batches vary slightly in shade; a project needs a matched lot or the customer rejects it. Capturing the right series, size and batch at order time — not after dispatch — protects the sale." },
+      { title: "High-value, slow-moving SKUs and displays", body: "Big-ticket vitrified tiles and premium sanitaryware move slowly, tie up dealer capital, and depend on showroom displays and samples. Knowing what's displayed, what's moving and what's dead stock at each counter is hard to see from HQ." },
+      { title: "Dealer credit and outstanding", body: "Dealers carry high-value stock on credit; outstanding piles up and gets chased from memory. Without live outstanding and credit limits, recovery slips and the next order goes out to a dealer already over the line." },
+    ],
+    solutions: [
+      { pain: "Engage architects, designers & contractors", how: "Model architects, interior designers and contractors as their own customer type; log geo-stamped engagement visits, track what they specify, and keep their history alongside the dealers and projects they influence — so specification-led demand is visible." },
+      { pain: "Run the showroom beat and projects together", how: "A dealer/showroom field beat plus a CRM pipeline for builder and developer projects — leads, stages, branded PDF quotations and follow-ups — on one login and one customer record." },
+      { pain: "Capture the right series, size & batch", how: "A full catalogue by category, series and size with customer-specific price lists, so reps book the exact SKU and note the required shade-lot at current prices, offline if there's no signal." },
+      { pain: "See movement and control credit", how: "Trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so you see real movement and recover on high-value stock on time." },
+      { pain: "Keep displays and samples honest", how: "Geo-stamped visits with photos capture what's actually displayed at the showroom, so display compliance and dead stock are visible instead of assumed." },
+    ],
+    workflow: [
+      { title: "Specify with the influencer", body: "The rep meets an architect or interior designer, logs a geo-stamped visit and the series they specify for an upcoming project." },
+      { title: "Work the showroom beat", body: "A dealer/showroom visit with a display photo and an order for the right series, size and batch at current prices — captured offline." },
+      { title: "Advance the project", body: "Update the project-pipeline stage, send a branded PDF quotation to the builder, and set the next follow-up." },
+      { title: "Collect & recover", body: "Record collections against outstanding; credit limits and the Ageing report keep high-value dealer credit under control." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a showroom — but not architect/designer engagement, a builder-project pipeline, shade-lot ordering, display photos or dealer outstanding on high-value stock." },
+      { label: "Not an enterprise FMCG SFA", body: "Tiles and sanitaryware aren't fast-moving packaged goods — they're high-value, slow-moving, specification- and project-led. Enterprise CPG platforms are built and priced for the opposite." },
+      { label: "Not a plain CRM", body: "A CRM handles the project pipeline but has no field visits, showroom display photos, catalogue ordering, trade levels or dealer outstanding — you'd run two disconnected tools." },
+    ],
+    outcomes: [
+      { title: "Specification demand becomes visible", body: "Which architects and designers your reps engaged, and what they specify — on the record, feeding the project pipeline." },
+      { title: "Projects stop slipping", body: "Every builder deal has a stage, a quotation and a next step — no high-value project quietly lost to a competitor." },
+      { title: "The right batch ships", body: "The required series, size and shade-lot is captured at order time — fewer rejections and returns on matched tile." },
+      { title: "High-value credit under control", body: "Outstanding self-calculates and credit limits gate the next order, so recovery on big-ticket stock isn't a surprise." },
+    ],
+    cockpit: {
+      header: "Today · Morbi + Ahmedabad",
+      headerBadge: "Project pipeline",
+      sectionTitle: "One field app for showroom + project",
+      sectionBody: "The architect who specified, the showroom order with the right shade-lot, the builder project in the pipeline and the dealer's outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "LayoutGrid", title: "GVT 600×1200 · Series 12", subtitle: "40 boxes · shade-lot noted", value: "₹58,000" },
+        { icon: "Building2", title: "Skyline Towers · Project", subtitle: "Quotation sent · architect specified", badge: "Stage: Negotiation · follow-up Thu", badgeTone: "primary" },
+        { icon: "UserRound", title: "Ar. Mehta · Architect", subtitle: "Specifies your series · engagement logged", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹3.2L", sub: "/ ₹4L limit", fillPct: 80 },
+      chips: [
+        { label: "Display ✓ photo captured", sub: "showroom compliance", tone: "gradient" },
+        { label: "Secondary tracked", sub: "primary vs secondary", tone: "glass" },
+      ],
+    },
+    modules: ["Architect/designer engagement (customer type)", "CRM pipeline for builder projects", "Catalogue by series & size + shade-lot notes", "Geo-tagged visits with display photos", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO runs your dealer, showroom and project field sales — engagement, orders, pipeline, outstanding and display photos. It is not a 3D room-visualiser, tile-layout designer or BIM/specification-catalogue tool; it works alongside whatever design or visualiser tools your showrooms and architects already use.",
+    faqs: [
+      { q: "Is OZZO built for tiles and sanitaryware companies?", a: "Yes. OZZO runs both the dealer/showroom beat and long-cycle builder-project sales, with architect/designer engagement, catalogue ordering with shade-lot notes, display photos, and dealer credit/outstanding — in one system." },
+      { q: "Can OZZO handle project sales to builders and developers?", a: "Yes. A CRM pipeline tracks each project deal through stages with branded PDF quotations and follow-ups, running alongside the dealer field beat on one customer record — so high-value projects don't slip." },
+      { q: "Does OZZO help with architect and interior-designer relationships?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, track what they specify, and link it to the projects and dealers they influence, so specification-led demand becomes visible." },
+      { q: "Can reps capture the right shade-lot and control dealer credit?", a: "Reps book the exact series and size and note the required shade-lot at order time, while self-calculating outstanding, credit limits and an Ageing report keep high-value dealer credit under control." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── ELECTRICALS, WIRES & CABLES
+  {
+    slug: "electricals-wires-cables-companies",
+    sector: "Building Materials",
+    name: "Electricals, Wires & Cables Companies",
+    icon: "Cable",
+    metaTitle: "Field sales software for electrical, wires & cables companies | OZZO",
+    metaDescription:
+      "OZZO is built for wires, cables & electrical-goods brands: the electrician who decides the brand, copper-linked price volatility pushed to the field, multi-unit ordering (coil/metre/kg/piece), dealer credit and project sales — one field-sales system.",
+    keywords: ["wire and cable company software", "electrical goods distribution software", "field sales software for electricals", "cable dealer management software", "electrical SFA India", "electrician engagement software", "switchgear distributor software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for wires, cables & electrical companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for wire, cable and electrical-goods companies that combines multi-unit counter order booking (coil, metre, kg, piece), copper-linked price-list updates pushed to the field, dealer credit and secondary-sales visibility, and a project pipeline in one field app. When copper moves and rate cards change, every rep quotes the new price instantly and books the exact SKU and unit at the counter — offline if needed.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for electrical field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer, electrician and contractor visits. So \"SFA for wire and cable companies\", \"dealer management software for electricals\" and \"salesman tracking software\" are one system. Multi-unit order booking, copper-linked price control, electrician engagement, secondary sales and GPS field tracking make OZZO a practical electrical distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for wire and cable companies", "sales force automation software for electrical distribution", "cable dealer management software", "salesman tracking software for electrical distributors", "order booking app for electrical distributors", "electrician engagement software", "field sales software for wires and cables"],
+    },
+    tagline: "The electrician picks your brand, copper never sits still, and wire sells by the coil, metre and kilo. OZZO is built for exactly that.",
+    intro:
+      "Electricals is a hard field-sales trade: the electrician decides the brand, copper-linked prices move your rate card constantly, wire and cable sell in multiple units, and you run a retail beat and project sales at once. OZZO handles all of it — current prices in every rep's hand, multi-unit counter orders and a project pipeline — in one system.",
+    stats: [
+      { value: "Electrician-led", label: "electricians & contractors specify the wire and switchgear brand", note: "Industry reality" },
+      { value: "Copper-linked", label: "wire & cable prices swing with copper/LME, forcing constant rate revisions" },
+      { value: "Multi-unit", label: "wire sells by coil, metre and kilogram; goods by the piece" },
+    ],
+    painPoints: [
+      { title: "The electrician decides your brand", body: "Electricians and contractors specify which wire, cable and switchgear actually get installed — which is why leaders (Polycab, Havells, Finolex) run heavy electrician-loyalty programmes. A team that only calls on dealers is invisible to the people who create demand." },
+      { title: "Copper-price volatility whipsaws your rate card", body: "Wire and cable prices are copper/LME-linked and move sharply. When prices rise you must push new rates to the field fast; a stale rate card quietly bleeds margin on every order booked at the old price." },
+      { title: "Multi-unit ordering across a wide SKU range", body: "Wire and cable sell by coil, metre and kilogram; switches, MCBs, fans and fittings by the piece. Capturing the right SKU in the right unit at the current price — accurately, at the counter — is genuinely hard." },
+      { title: "Dealer credit and secondary sales you can't see", body: "Product moves company → distributor → dealer → retailer on credit, but primary billing tells you nothing about whether it's reaching the counter and the electrician. Slow secondary movement becomes tomorrow's destocking." },
+      { title: "Retail beat and project sales at once", body: "Alongside the dealer beat there's project and institutional business (builders, electrical contractors, infrastructure) needing a pipeline, quotations and follow-ups. Most field tools do one motion well, not both." },
+    ],
+    solutions: [
+      { pain: "Engage the electrician & contractor network", how: "Model electricians and contractors as their own customer type; log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealer they buy from — so demand generation is visible." },
+      { pain: "Push new prices the day copper moves", how: "Update the price-list engine centrally and every rep quotes the new price instantly — no stale rate cards when copper swings — with trade schemes to move stock when dealers hesitate." },
+      { pain: "Take multi-unit orders right, in the field", how: "A full catalogue with multi-unit ordering (coil / metre / kg / piece) and customer-specific price lists, so a rep captures the exact SKU, unit and current price at the counter, offline if there's no signal." },
+      { pain: "See secondary sales and control credit", how: "Trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so you see real movement and recover on time." },
+      { pain: "Run projects and the retail beat in one system", how: "A CRM pipeline for project and institutional deals — leads, stages, branded PDF quotations and follow-ups — running alongside the dealer field beat, on one customer record." },
+    ],
+    workflow: [
+      { title: "Engage the electrician", body: "The rep meets an electrician or contractor, logs a geo-stamped visit and the products they specify, and enrols them in a scheme." },
+      { title: "Work the dealer beat", body: "A counter visit, a multi-unit order at current copper-linked prices, captured offline and synced — no stale rate card." },
+      { title: "Advance a project deal", body: "Update a project-pipeline stage, send a branded PDF quotation, and set the next follow-up so nothing goes cold." },
+      { title: "Collect & watch movement", body: "Record the collection against outstanding; primary/secondary and the Ageing report show what's actually reaching the counter." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep visited a shop — but not multi-unit orders, copper-linked price pushes, a project pipeline, or electrician engagement. For an electrical brand, that's most of the job." },
+      { label: "Not an enterprise FMCG SFA", body: "Enterprise CPG platforms are shaped around fast-moving packaged goods and shelf-audit merchandising, and priced for national brands — not copper-linked pricing, multi-unit wire orders and electrician influence for a regional electrical company." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM handles the project pipeline but has no native field tracking, multi-unit counter orders, trade levels or dealer outstanding — you'd stitch three tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "Current prices in every rep's hand", body: "When copper moves, the new rate card is live in the field the same day — margin stops leaking on stale prices." },
+      { title: "The electrician network becomes visible", body: "Who your reps engaged, what they specify, and which schemes they're in — on the record, not in someone's head." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you finally see what's reaching the counter." },
+      { title: "Projects stop slipping", body: "Every project deal has a stage, a quotation and a next step — no long-cycle opportunity quietly forgotten." },
+    ],
+    cockpit: {
+      header: "Today · Delhi beat",
+      headerBadge: "Live price list",
+      sectionTitle: "One field app, built for the counter",
+      sectionBody: "Current copper-linked prices, multi-unit orders, the electrician who specifies your brand, and the dealer's outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "Cable", title: "FR Wire 2.5 sq mm · 90m coil", subtitle: "Price list · North", value: "₹1,240/coil", badge: "Copper ▲ 2% · new list pushed to field", badgeTone: "amber" },
+        { icon: "ShoppingCart", title: "Modular switches · 6A", subtitle: "120 pc · captured offline", value: "₹9,600" },
+        { icon: "UserRound", title: "Imran · Electrician", subtitle: "Specifies your brand · in loyalty scheme", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹2.1L", sub: "/ ₹2.5L limit", fillPct: 84 },
+      chips: [
+        { label: "Project deal", sub: "Quotation sent · follow-up Fri", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Multi-unit ordering (coil / metre / kg / piece)", "Copper-linked price lists & schemes", "Electrician/contractor engagement (customer type)", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "CRM pipeline for project sales", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO can model and track your electrician/contractor engagement — as a customer type, with geo-stamped visits, schemes and history — but it is not a consumer-style gamified electrician-rewards app with points redemption, nor a BIS/ISI quality-compliance system. It gives your field team the visibility, pricing control and tools to run the trade.",
+    faqs: [
+      { q: "Is OZZO built for wire, cable and electrical companies?", a: "Yes. OZZO handles what makes electrical field sales hard — multi-unit ordering (coil, metre, kg, piece), copper-linked price-list changes pushed to the field, electrician engagement, dealer credit and secondary-sales visibility, and a project pipeline — in one system." },
+      { q: "How does OZZO deal with copper price volatility?", a: "Update the price-list engine centrally and every rep quotes the new price instantly — so copper swings don't leave stale rate cards in the field. Trade schemes help move stock when dealers hesitate on price changes." },
+      { q: "Can OZZO handle wire sold by coil, metre and kilogram?", a: "Yes. Multi-unit ordering lets reps book the exact SKU in the right unit (coil, metre, kg or piece) at the current price, offline if there's no signal." },
+      { q: "Does OZZO help engage electricians and contractors?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealers they buy from. It isn't a gamified consumer rewards app, but it makes the influencer relationship visible and manageable." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── ADHESIVES & CONSTRUCTION CHEMICALS
+  {
+    slug: "adhesives-construction-chemicals-companies",
+    sector: "Building Materials",
+    name: "Adhesives & Construction Chemicals Companies",
+    icon: "FlaskConical",
+    metaTitle: "Field sales software for adhesives & construction chemicals | OZZO",
+    metaDescription:
+      "OZZO is built for tile-adhesive, waterproofing & construction-chemical brands: the applicator/contractor who specifies, technical & site-demo selling, batch and shelf-life aware ordering, project sales, dealer credit — one field-sales system.",
+    keywords: ["construction chemicals software", "tile adhesive distribution software", "field sales software for construction chemicals", "waterproofing dealer management", "adhesives SFA India", "applicator contractor engagement software", "admixture distributor software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for adhesives & construction chemicals",
+      body: [
+        "OZZO is a sales force automation (SFA) software for tile-adhesive, waterproofing, admixture and construction-chemical companies that combines counter and site order booking, applicator/contractor engagement, project sales and dealer credit in one field app. Reps book the exact product and pack at current prices — offline at the site or counter — and log the technical demos and site visits that this trade sells on.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for construction-chemical field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer, applicator, contractor and site visits. So \"SFA for construction chemicals\", \"dealer management software for waterproofing\" and \"salesman tracking software\" are one system. Order booking, applicator engagement, site-demo logging, project pipeline, outstanding and GPS field tracking make OZZO a practical construction-chemical distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for construction chemicals", "sales force automation software for adhesives", "tile adhesive dealer management software", "salesman tracking software for construction chemicals", "order booking app for waterproofing distributors", "applicator engagement software", "field sales software for admixtures"],
+    },
+    tagline: "The applicator specifies, the sale is won at a site demo, and product has a shelf life. OZZO runs that technical, project-led trade.",
+    intro:
+      "Construction chemicals sell on trust and technique: the applicator or contractor specifies the brand, the sale is often won at a site demo, product moves batch-by-batch with a shelf life, and big volume comes from projects. OZZO gives your field team the engagement, ordering, project pipeline and credit control this trade actually runs on — in one system.",
+    stats: [
+      { value: "Applicator-led", label: "applicators & contractors specify the adhesive/waterproofing brand", note: "Industry reality" },
+      { value: "Demo-driven", label: "sales are often won at a technical site demo, not a counter pitch" },
+      { value: "Shelf-life", label: "adhesives & chemicals have batch dates — old stock is a liability" },
+    ],
+    painPoints: [
+      { title: "The applicator & contractor specify the brand", body: "Waterproofing applicators, tile-fixing contractors and site engineers decide which product actually gets used. A field team that only calls on dealers is invisible to the people who drive specification and repeat demand." },
+      { title: "Technical, demo-led selling", body: "The sale is frequently won at a site demo or a technical conversation, not a counter pitch. Logging which sites were visited, which demos were run and what got specified is where the real pipeline lives — and it usually lives only in a rep's head." },
+      { title: "Batch and shelf-life matter", body: "Adhesives, admixtures and chemicals carry batch dates and a shelf life. Booking the right product and pack, and moving stock before it ages, protects both margin and the applicator's trust — hard to manage on paper." },
+      { title: "Project sales alongside the dealer beat", body: "Large volume comes from projects — builders, waterproofing contracts, infrastructure — needing a pipeline, quotations and follow-ups, run at the same time as the dealer and retail beat. Most tools handle only one." },
+      { title: "Dealer credit and secondary movement", body: "Product moves on credit through distributors and dealers, but primary billing doesn't show whether it's reaching sites and applicators. Slow secondary movement and rising outstanding creep up unseen." },
+    ],
+    solutions: [
+      { pain: "Engage applicators & contractors", how: "Model applicators, contractors and site engineers as their own customer type; log geo-stamped engagement visits, track what they specify, and keep their history alongside the dealers and projects they influence." },
+      { pain: "Capture site demos and specification", how: "Geo-stamped site visits with photos record which demos were run and what was specified, turning demo-led selling into a visible pipeline instead of memory." },
+      { pain: "Order the right product & pack", how: "A full catalogue by category and pack with customer-specific price lists, so reps book the exact product, pack and current price at the counter or site — offline if there's no signal." },
+      { pain: "Run projects and the dealer beat together", how: "A CRM pipeline for project and contract deals — leads, stages, branded PDF quotations and follow-ups — running alongside the dealer field beat, on one customer record." },
+      { pain: "See movement and control credit", how: "Trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so real movement and recovery stay visible." },
+    ],
+    workflow: [
+      { title: "Run a site demo", body: "The rep visits a site, logs a geo-stamped visit with photos, runs a demo and records what the applicator specifies." },
+      { title: "Work the dealer beat", body: "A counter visit and an order for the right product and pack at current prices, captured offline and synced." },
+      { title: "Advance the project", body: "Update the project-pipeline stage, send a branded PDF quotation, and set the next follow-up so the contract doesn't go cold." },
+      { title: "Collect & watch movement", body: "Record collections against outstanding; primary/secondary and the Ageing report show what's actually reaching sites." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a shop — but not applicator engagement, site-demo logging, a project pipeline, or catalogue ordering with credit control. For this trade, that's most of the job." },
+      { label: "Not an enterprise FMCG SFA", body: "Construction chemicals aren't fast-moving packaged goods — they're technical, demo-led and project-heavy. Enterprise CPG platforms are built and priced for the opposite." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM handles the project pipeline but has no native field visits, site-demo photos, catalogue ordering, trade levels or dealer outstanding — you'd stitch several tools together." },
+    ],
+    outcomes: [
+      { title: "Demo-led selling becomes a real pipeline", body: "Which sites were visited, which demos were run and what got specified — on the record, feeding the project pipeline." },
+      { title: "The applicator network becomes visible", body: "Who your reps engaged and what they specify — not lost in a rep's memory when they leave." },
+      { title: "Projects stop slipping", body: "Every project and contract has a stage, a quotation and a next step — no waterproofing tender quietly forgotten." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you see what's actually reaching sites." },
+    ],
+    cockpit: {
+      header: "Today · Pune sites",
+      headerBadge: "Site demo logged",
+      sectionTitle: "One field app for site + counter",
+      sectionBody: "The applicator who specified, the site demo with photos, the project in the pipeline and the dealer's outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "FlaskConical", title: "Tile Adhesive T3 · 20kg", subtitle: "80 bags · captured offline", value: "₹22,400" },
+        { icon: "Camera", title: "Waterproofing site demo", subtitle: "Photos + spec logged", badge: "Applicator specified your brand", badgeTone: "primary" },
+        { icon: "UserRound", title: "Kadam · Applicator", subtitle: "Specifies your brand · engagement logged", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹1.9L", sub: "/ ₹2.4L limit", fillPct: 79 },
+      chips: [
+        { label: "Project deal", sub: "Quotation sent · follow-up Wed", tone: "gradient" },
+        { label: "Secondary ✓ reaching site", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Applicator/contractor engagement (customer type)", "Geo-tagged site visits & demo photos", "Full catalogue & pack ordering", "CRM pipeline for project & contract sales", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO runs your field sales — applicator engagement, site demos, orders, project pipeline and credit. It can note product batches on orders, but it is not a batch-traceability/QC-lab or shelf-life compliance system; it works alongside whatever quality and batch-control process your plant already runs.",
+    faqs: [
+      { q: "Is OZZO built for construction chemicals and adhesive companies?", a: "Yes. OZZO handles what makes this trade hard — applicator/contractor engagement, technical site-demo logging with photos, catalogue and pack ordering, project sales and dealer credit — in one field-sales system." },
+      { q: "Can OZZO capture site demos and specification?", a: "Yes. Geo-stamped site visits with photos record which demos were run and what the applicator specified, turning demo-led selling into a visible pipeline instead of memory." },
+      { q: "Does OZZO handle project sales for waterproofing and contracts?", a: "Yes. A CRM pipeline tracks each project or contract through stages with branded PDF quotations and follow-ups, running alongside the dealer field beat on one customer record." },
+      { q: "Can OZZO help engage applicators and contractors?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, track what they specify, and link it to the dealers and projects they influence, so specification-led demand becomes visible." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── PLYWOOD & LAMINATES
+  {
+    slug: "plywood-laminates-companies",
+    sector: "Building Materials",
+    name: "Plywood & Laminates Companies",
+    icon: "SquareStack",
+    metaTitle: "Field sales software for plywood & laminates companies | OZZO",
+    metaDescription:
+      "OZZO is built for plywood, laminate & veneer brands: the carpenter who decides the brand, a design-led catalogue (grades, designs, thickness, sizes), dealer credit & secondary-sales visibility, project sales and trade schemes — one field-sales system.",
+    keywords: ["plywood company software", "laminate distribution software", "field sales software for plywood", "plywood dealer management software", "laminates SFA India", "carpenter engagement software", "veneer distributor software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for plywood & laminates companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for plywood, laminate and veneer companies that combines counter order booking across a design-led catalogue (grades, designs, thicknesses, sizes), carpenter engagement, dealer credit and secondary-sales visibility, and a project pipeline in one field app. Reps book the exact grade, design and size at current prices — offline if needed — so the right SKU reaches dispatch and the carpenter gets what they specified.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for plywood and laminate field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer and carpenter visits. So \"SFA for plywood companies\", \"dealer management software for laminates\" and \"salesman tracking software\" are one system. Order booking, carpenter engagement, secondary sales, trade schemes and GPS field tracking make OZZO a practical plywood and laminate distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for plywood companies", "sales force automation software for laminate distribution", "plywood dealer management software", "salesman tracking software for plywood distributors", "order booking app for laminate distributors", "carpenter engagement software", "field sales software for plywood and laminates"],
+    },
+    tagline: "The carpenter picks your brand, laminates sell on design, and dealers move stock on credit. OZZO is built for exactly that.",
+    intro:
+      "Plywood and laminates are a carpenter-led, design-driven trade: the carpenter decides the brand, laminates sell on a long tail of designs and finishes, grades get confused and counterfeited, and product moves through dealers on credit alongside project and furniture-maker sales. OZZO handles the whole motion in one system.",
+    stats: [
+      { value: "Carpenter-led", label: "carpenters & contractors specify the plywood/laminate brand", note: "Industry reality" },
+      { value: "Design-led", label: "laminates sell on 100s of designs, finishes and thicknesses" },
+      { value: "On credit", label: "dealers and retailers carry your stock and pay after they sell" },
+    ],
+    painPoints: [
+      { title: "The carpenter decides your brand", body: "Carpenters and contractors specify which plywood and laminate actually get used — which is why leaders (CenturyPly, Greenlam, Merino) run heavy carpenter-loyalty programmes. A field team that only calls on dealers is invisible to the people who create demand." },
+      { title: "A design-led catalogue with a long tail", body: "Laminates run to hundreds of designs, finishes, thicknesses and sizes; plywood spans grades (MR, BWR, BWP, marine) and sizes. Capturing the exact design/grade and size at the counter — accurately, at the current price — is genuinely hard." },
+      { title: "Grade confusion and counterfeiting", body: "Plywood grades are easy to misrepresent, and counterfeiting hurts trusted brands. A well-served, well-engaged channel and clear catalogue ordering protect brand integrity and repeat purchase." },
+      { title: "Dealer credit and secondary sales you can't see", body: "Product moves company → dealer → retailer on credit, but primary billing tells you nothing about whether it's reaching the counter and the carpenter. Slow secondary movement becomes tomorrow's destocking." },
+      { title: "Project and furniture-maker sales alongside retail", body: "Beyond the dealer beat there's project business (builders, interior contractors) and volume furniture-makers/OEMs needing a pipeline, quotations and follow-ups. Most field tools do one motion, not both." },
+    ],
+    solutions: [
+      { pain: "Engage the carpenter & contractor network", how: "Model carpenters and contractors as their own customer type; log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealer they buy from — so demand generation is visible." },
+      { pain: "Take design-led orders right", how: "A full catalogue by grade, design, thickness and size with customer-specific price lists, so a rep captures the exact SKU and current price at the counter, offline if there's no signal." },
+      { pain: "Protect the brand with an engaged channel", how: "Geo-stamped visits and a well-served, scheme-backed dealer and carpenter network keep the trusted channel strong — the practical defence against grade confusion and counterfeits." },
+      { pain: "See secondary sales and control credit", how: "Trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits enforced before the next order, and an Ageing report — so you see real movement and recover on time." },
+      { pain: "Run projects and the retail beat in one system", how: "A CRM pipeline for project, furniture-maker and institutional deals — leads, stages, branded PDF quotations and follow-ups — running alongside the dealer field beat, on one customer record." },
+    ],
+    workflow: [
+      { title: "Engage the carpenter", body: "The rep meets a carpenter or contractor, logs a geo-stamped visit and the products they specify, and enrols them in a scheme." },
+      { title: "Work the dealer beat", body: "A counter visit and an order for the right grade, design and size at current prices, with the scheme applied — captured offline." },
+      { title: "Advance a project deal", body: "Update a project-pipeline stage, send a branded PDF quotation, and set the next follow-up so nothing goes cold." },
+      { title: "Collect & watch movement", body: "Record the collection against outstanding; primary/secondary and the Ageing report show what's actually reaching the counter." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep visited a shop — but not a design/grade catalogue, carpenter engagement, a project pipeline, or dealer outstanding. For a plywood or laminate brand, that's most of the job." },
+      { label: "Not an enterprise FMCG SFA", body: "Plywood and laminates aren't fast-moving packaged goods — they're carpenter-led, design-driven and project-heavy. Enterprise CPG platforms are built and priced for the opposite." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM handles the project pipeline but has no native field tracking, catalogue ordering, trade levels or dealer outstanding — you'd stitch three tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "The carpenter network becomes visible", body: "Who your reps engaged, what they specify, and which schemes they're in — on the record, not in someone's head." },
+      { title: "Accurate design & grade orders", body: "The exact grade, design and size at the current price — fewer wrong dispatches and returns on a long-tail catalogue." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you finally see what's reaching the counter." },
+      { title: "Projects stop slipping", body: "Every project and furniture-maker deal has a stage, a quotation and a next step — no opportunity quietly forgotten." },
+    ],
+    cockpit: {
+      header: "Today · Yamunanagar + Delhi",
+      headerBadge: "Carpenter scheme live",
+      sectionTitle: "One field app, built for the counter",
+      sectionBody: "The right grade and design, current prices, the carpenter who specifies your brand, the scheme and the dealer's outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "SquareStack", title: "BWP Ply 18mm · 8×4", subtitle: "40 sheets · captured offline", value: "₹96,000" },
+        { icon: "Percent", title: "Carpenter loyalty scheme", subtitle: "Points on specified brand", badge: "Carpenter enrolled · scheme active", badgeTone: "primary" },
+        { icon: "UserRound", title: "Rakesh · Carpenter", subtitle: "Specifies your brand · engagement logged", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹4.1L", sub: "/ ₹5L limit", fillPct: 82 },
+      chips: [
+        { label: "Project deal", sub: "Quotation sent · follow-up Tue", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Carpenter/contractor engagement (customer type)", "Catalogue by grade, design, thickness & size", "Customer-specific price lists & schemes", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "CRM pipeline for project & OEM sales", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO can model and track your carpenter/contractor engagement — as a customer type, with geo-stamped visits, schemes and history — but it is not a consumer-style gamified carpenter-rewards app with points redemption, nor a design-visualiser/catalogue-display app. It gives your field team the visibility and tools to run those relationships and orders.",
+    faqs: [
+      { q: "Is OZZO built for plywood and laminate companies?", a: "Yes. OZZO handles what makes this trade hard — a design/grade-led catalogue, carpenter engagement, dealer credit and secondary-sales visibility, trade schemes and a CRM pipeline for project and furniture-maker sales — in one system." },
+      { q: "Can OZZO handle our long tail of laminate designs and plywood grades?", a: "Yes. A full catalogue by grade, design, thickness and size plus customer-specific price lists means reps capture the exact SKU and current price at the counter — offline if there's no signal." },
+      { q: "Does OZZO help engage carpenters and contractors?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they specify, and keep their history alongside the dealers they buy from. It isn't a gamified consumer rewards app, but it makes the influencer relationship visible and manageable." },
+      { q: "Can OZZO manage both dealer sales and project/OEM sales?", a: "Yes. The dealer/retail field beat and a CRM pipeline for project and furniture-maker deals (stages, branded quotations, follow-ups) run in one system on one customer record." },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

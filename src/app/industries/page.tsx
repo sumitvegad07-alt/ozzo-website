@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Icon } from "@/components/icon";
 import { pageMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import { industriesBySector } from "@/lib/industries";
+import { sectors } from "@/lib/sectors";
 
 export const metadata = pageMetadata({
   title: "Industries — field sales software built for your trade",
@@ -23,7 +24,8 @@ export const metadata = pageMetadata({
 
 export default function IndustriesHubPage() {
   const bySector = industriesBySector();
-  const sectors = Object.keys(bySector);
+  const sectorNames = Object.keys(bySector);
+  const sectorSlugByName = new Map(sectors.map((s) => [s.name, s.slug]));
 
   return (
     <>
@@ -60,10 +62,22 @@ export default function IndustriesHubPage() {
       {/* Sectors */}
       <section className="py-20 md:py-24">
         <Container>
-          {sectors.map((sector, si) => (
+          {sectorNames.map((sector, si) => {
+            const sectorSlug = sectorSlugByName.get(sector);
+            return (
             <div key={sector} className={si > 0 ? "mt-16" : ""}>
               <div className="mb-7 flex items-center gap-3">
-                <h2 className="text-2xl font-bold text-foreground">{sector}</h2>
+                {sectorSlug ? (
+                  <Link
+                    href={`/industries/${sectorSlug}`}
+                    className="group inline-flex items-center gap-2 text-2xl font-bold text-foreground transition-colors hover:text-primary"
+                  >
+                    {sector}
+                    <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+                  </Link>
+                ) : (
+                  <h2 className="text-2xl font-bold text-foreground">{sector}</h2>
+                )}
                 <span className="h-px flex-1 bg-border" />
               </div>
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -91,7 +105,8 @@ export default function IndustriesHubPage() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
 
           <div className="mt-14 text-center">
             <p className="text-muted-foreground">
