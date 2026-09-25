@@ -77,6 +77,40 @@ export const sectors: Sector[] = [
     ],
   },
 
+  // ─────────────────────────────────────────── AUTO, LUBRICANTS & ELECTRICALS
+  {
+    slug: "auto-lubricants-electricals",
+    name: "Auto, Lubricants & Electricals",
+    icon: "Car",
+    metaTitle: "Field sales software for auto, lubricants & electricals companies | OZZO",
+    metaDescription:
+      "OZZO is field-sales software for the automotive aftermarket and electricals trade — auto components & spares, lubricants & oils, tyres, batteries, and lighting & appliances. Engage the mechanic who recommends your brand, control dealer credit on high-value stock and see what's really reordering — in one system.",
+    keywords: ["automotive aftermarket field sales software", "auto parts distribution software", "lubricant dealer management software", "tyre distribution software", "battery distribution software", "consumer durables SFA India"],
+    tagline: "The mechanic recommends, the dealer carries the capital, and the counter decides. OZZO runs the whole aftermarket motion in one system.",
+    intro:
+      "Whether it's a spare part, a litre of oil, a tyre, a battery or an LED batten, this trade shares a pattern: a mechanic, electrician or retailer recommends the brand, a dealer channel carries high-value stock on credit, and what's really reordering at the counter is invisible from primary billing. OZZO is built for exactly that.",
+    themes: [
+      { title: "The trade recommends your brand", body: "Mechanics, garages, electricians and retailers decide what actually gets fitted or sold — the end customer usually accepts the recommendation. OZZO models them as their own customer type with geo-stamped engagement visits, schemes and history, so the recommendation is a managed relationship rather than a hope." },
+      { title: "High-value stock on dealer credit", body: "Tyres, batteries and parts tie up serious dealer capital, and outstanding builds fast. Trade levels, self-calculating outstanding, credit limits enforced before the next order and an Ageing report keep exposure visible early." },
+      { title: "Complex catalogues and moving prices", body: "Part numbers, grades and viscosities, sizes and patterns, packs from a litre to a barrel — plus base-oil and copper-linked costs that move rate cards. OZZO pushes new prices to the field instantly and captures the exact SKU, unit and price at the counter, offline if needed." },
+      { title: "Secondary movement and dead stock", body: "Primary billing says nothing about what's reordering. Automatic primary/secondary tagging shows genuine movement at the counter, so slow lines and dead stock surface before more capital-heavy stock is pushed out." },
+    ],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for the automotive aftermarket & electricals",
+      body: [
+        "OZZO is a sales force automation (SFA) and field-force tracking (WFA) software for the automotive aftermarket and electricals trade — auto components and spare parts, lubricants and oils, tyres, batteries, and lighting and electrical appliances. It combines counter order booking across complex catalogues, mechanic and electrician engagement, trade schemes, secondary-sales visibility, fleet and institutional pipelines and dealer credit control in one field app, with selfie + GPS attendance, live location and geo-tagged visits.",
+        "So \"SFA for auto parts\", \"lubricant dealer management software\", \"tyre distribution software\", \"battery distribution software\" and \"salesman tracking software\" are one system, not five. Pick your sub-industry below to see the specific field-sales pressures of that trade and exactly how OZZO handles them.",
+      ],
+      keywords: ["SFA for automotive aftermarket", "auto parts distribution software", "lubricant dealer management software", "tyre dealer management software", "battery dealer management software", "salesman tracking software for auto distributors"],
+    },
+    faqs: [
+      { q: "Is OZZO built for the automotive aftermarket and electricals trade?", a: "Yes. OZZO covers auto components and spare parts, lubricants and oils, tyres, batteries, and lighting and electrical appliances — with mechanic and electrician engagement, complex catalogue ordering, trade schemes, secondary visibility and dealer credit control in one system." },
+      { q: "Which industries does OZZO support in this sector?", a: "Dedicated pages exist for auto components & spare parts, lubricants & oils, tyres, batteries, and lighting & electrical appliances — each with the specific pain points and OZZO capabilities of that trade." },
+      { q: "Does OZZO help engage mechanics, garages and electricians?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they fit or recommend, and keep their history alongside the dealers they buy from, so influencer-driven demand becomes visible and manageable." },
+      { q: "Can OZZO control credit on high-value dealer stock?", a: "Yes. Self-calculating outstanding, credit limits enforced before the next order and an Ageing report are built for the fast-building exposure that tyres, batteries and parts create at a dealer." },
+    ],
+  },
+
   // ─────────────────────────────────────────── PHARMA & HEALTHCARE
   {
     slug: "pharma-healthcare",

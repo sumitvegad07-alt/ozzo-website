@@ -2062,6 +2062,426 @@ export const industries: Industry[] = [
       { q: "Does OZZO handle AYUSH or FSSAI compliance?", a: "No. OZZO is not a regulatory-compliance or lot-traceability system. It runs your field sales, coverage, ordering, returns, schemes and collections alongside whatever compliance process you already have." },
     ],
   },
+
+  // ─────────────────────────────────────────── AUTO COMPONENTS & SPARE PARTS
+  {
+    slug: "auto-components-spare-parts-companies",
+    sector: "Auto, Lubricants & Electricals",
+    name: "Auto Components & Spare Parts Companies",
+    icon: "Cog",
+    metaTitle: "Field sales software for auto components & spare parts companies | OZZO",
+    metaDescription:
+      "OZZO is built for auto-component and spare-parts brands: a huge part-number catalogue, the mechanic who decides the brand, deep retailer & distributor coverage on credit, secondary-sales visibility and dead-stock control — one field-sales system.",
+    keywords: ["auto parts distribution software", "spare parts field sales software", "auto component dealer management", "automotive aftermarket SFA India", "spare parts order booking app", "mechanic engagement software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for auto components & spare parts",
+      body: [
+        "OZZO is a sales force automation (SFA) software for auto-component and spare-parts companies that combines counter order booking across a huge part-number catalogue, mechanic and garage engagement, retailer and distributor coverage, secondary-sales visibility and outstanding in one field app. Reps book the exact part code and pack at current prices — offline at the counter — so the right part reaches dispatch and wrong-part returns fall.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for automotive aftermarket field teams: selfie + GPS attendance, live location, beat routes and geo-tagged retailer, distributor and garage visits. So \"SFA for auto parts\", \"spare parts dealer management software\" and \"salesman tracking software\" are one system. Part-code order booking, mechanic engagement, secondary sales and GPS field tracking make OZZO a practical automotive aftermarket distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for auto parts", "auto component dealer management software", "spare parts order booking app", "automotive aftermarket field sales software", "salesman tracking software for auto parts", "mechanic engagement software"],
+    },
+    tagline: "The mechanic picks your brand, the catalogue runs to tens of thousands of part numbers, and the wrong part comes straight back. OZZO is built for that.",
+    intro:
+      "The automotive aftermarket is a part-number business: tens of thousands of codes across models and variants, a mechanic who decides which brand goes into the vehicle, a deep retailer and distributor channel on credit, and a long tail that turns into dead stock. OZZO handles the whole motion in one system.",
+    stats: [
+      { value: "Mechanic-led", label: "the garage and mechanic decide which brand goes into the vehicle", note: "Industry reality" },
+      { value: "10,000s", label: "of part numbers across models, variants and model years" },
+      { value: "Wrong part = return", label: "a code captured wrong at the counter comes straight back as a return" },
+    ],
+    painPoints: [
+      { title: "The mechanic decides your brand", body: "Garages, mechanics and service advisors choose which brand of part actually gets fitted — the vehicle owner almost never does. A field team that only calls on retailers is invisible to the people who genuinely drive demand." },
+      { title: "A part-number catalogue that punishes mistakes", body: "Tens of thousands of codes across models, variants and model years. A part captured wrong at the counter isn't a small error — it comes back as a return, eats margin and costs the retailer's trust." },
+      { title: "Spurious parts erode a genuine brand", body: "Counterfeit and spurious parts are a persistent problem in the aftermarket. A well-served, well-engaged retailer and mechanic network is the practical defence for a genuine brand." },
+      { title: "A long tail that becomes dead stock", body: "Fast movers turn quickly while a long tail sits at the retailer tying up capital. Without visibility into what's actually reordering, dead stock builds quietly and the next order goes out anyway." },
+      { title: "Deep channel on credit, secondary invisible", body: "Product moves company → distributor → retailer on credit, but primary billing says nothing about whether it's reaching the counter and the garage. Slow secondary becomes tomorrow's destocking." },
+    ],
+    solutions: [
+      { pain: "Engage mechanics & garages", how: "Model mechanics, garages and service advisors as their own customer type; log geo-stamped engagement visits, run schemes tied to what they fit, and keep their history alongside the retailer they buy from — so demand generation is visible." },
+      { pain: "Capture the exact part code at the counter", how: "A full catalogue by category and part code, with customer-specific price lists and custom fields for vehicle applicability, so reps book the exact code and current price at the counter — offline if there's no signal." },
+      { pain: "See what's actually reordering", how: "Trade levels with automatic primary/secondary tagging show real movement at the counter, so fast movers and dead stock are visible instead of assumed." },
+      { pain: "Protect a genuine brand with an engaged channel", how: "Geo-stamped coverage and a scheme-backed retailer and mechanic network keep the genuine channel strong — the practical defence against spurious parts." },
+      { pain: "Control channel credit", how: "Self-calculating outstanding, credit limits enforced before the next order and an Ageing report — so recovery across a deep retailer network stays on time." },
+    ],
+    workflow: [
+      { title: "Engage the garage", body: "The rep visits a mechanic or garage, logs a geo-stamped visit and the parts they fit, and enrols them in a scheme." },
+      { title: "Work the retailer counter", body: "A counter visit and an order captured by exact part code at current prices — offline and synced." },
+      { title: "Watch movement & dead stock", body: "Primary vs secondary shows what's genuinely reordering and what's sitting, before the next order goes out." },
+      { title: "Collect & recover", body: "Record collections against outstanding; credit limits and the Ageing report keep channel credit under control." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep visited a shop — but not part-code order capture, mechanic engagement, secondary movement or dealer outstanding. For an aftermarket brand, that's most of the job." },
+      { label: "Not an enterprise FMCG SFA", body: "Auto parts are a part-number, low-frequency, long-tail business — nothing like fast-moving packaged goods that enterprise CPG platforms are built and priced for." },
+      { label: "Not a plain CRM", body: "A CRM records contacts but has no field visits, offline counter orders by part code, trade levels or self-calculating outstanding — you'd stitch several tools together." },
+    ],
+    outcomes: [
+      { title: "Fewer wrong-part returns", body: "The exact part code and current price captured at the counter — errors and the returns they cause drop." },
+      { title: "The garage network becomes visible", body: "Which mechanics your reps engaged and what they fit — on the record, not in someone's head." },
+      { title: "Dead stock stops hiding", body: "Primary vs secondary shows what's genuinely reordering, so slow lines are caught before the next order." },
+      { title: "Channel credit under control", body: "Outstanding self-calculates and credit limits gate the next order across a deep retailer network." },
+    ],
+    cockpit: {
+      header: "Today · Ludhiana beat",
+      headerBadge: "Part-code order",
+      sectionTitle: "One field app, built for the parts counter",
+      sectionBody: "The exact part code at the current price, the garage that fits your brand, what's actually reordering and the retailer's outstanding — on one screen, online or off.",
+      rows: [
+        { icon: "Cog", title: "Brake pad set · code BP-4412", subtitle: "24 sets · captured offline", value: "₹18,700" },
+        { icon: "Wrench", title: "Sharma Auto Garage", subtitle: "Fits your brand · in scheme", check: true, tone: "success" },
+        { icon: "FileWarning", title: "Slow-moving line flagged", subtitle: "No secondary movement 60 days", badge: "Dead stock risk · hold reorder", badgeTone: "amber" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹1.4L", sub: "/ ₹1.8L limit", fillPct: 78 },
+      chips: [
+        { label: "Genuine channel ✓", sub: "engaged + scheme-backed", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Catalogue by part code & category", "Mechanic/garage engagement (customer type)", "Customer-specific price lists & schemes", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Geo-tagged retailer & garage visits", "Offline order capture"],
+    honestNote:
+      "OZZO runs your field sales — part-code ordering, mechanic engagement, coverage, secondary and credit. It is NOT a parts-compatibility or vehicle-fitment lookup catalogue (no VIN/model-to-part mapping engine), NOT a counterfeit-authentication platform (hologram/QR verification), and NOT a warehouse or parts-inventory ERP. Vehicle applicability can be recorded as custom fields on products for your reps' reference.",
+    faqs: [
+      { q: "Is OZZO built for auto component and spare-parts companies?", a: "Yes. OZZO handles what makes aftermarket field sales hard — a huge part-number catalogue captured accurately at the counter, mechanic and garage engagement, deep retailer coverage on credit, and secondary-sales visibility — in one system." },
+      { q: "Can OZZO handle our tens of thousands of part numbers?", a: "Yes. A full catalogue by category and part code with customer-specific price lists means reps capture the exact code and current price at the counter, offline if there's no signal — which is what cuts wrong-part returns." },
+      { q: "Does OZZO do vehicle fitment or part-compatibility lookup?", a: "No. OZZO does not ship a VIN or model-to-part compatibility engine. You can record vehicle applicability as custom fields on products for your reps' reference, but a true fitment catalogue stays with your existing e-catalogue." },
+      { q: "Does OZZO help engage mechanics and garages?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to what they fit, and keep their history alongside the retailers they buy from, so influencer-driven demand becomes visible." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── LUBRICANTS & OILS
+  {
+    slug: "lubricants-oils-companies",
+    sector: "Auto, Lubricants & Electricals",
+    name: "Lubricants & Oils Companies",
+    icon: "Fuel",
+    metaTitle: "Field sales software for lubricants & oils companies | OZZO",
+    metaDescription:
+      "OZZO is built for lubricant and oil brands: the mechanic who recommends the grade, multi-unit packs (litre to barrel), base-oil-linked price changes pushed to the field, workshop & retailer coverage, industrial bulk sales and credit control — one system.",
+    keywords: ["lubricant distribution software", "engine oil field sales software", "lubricant dealer management software", "oil company SFA India", "workshop mechanic engagement software", "industrial lubricant sales software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for lubricants & oils companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for lubricant and oil companies that combines multi-unit order booking (litre packs to barrels), mechanic and workshop engagement, base-oil-linked price-list updates pushed to the field, retailer and distributor coverage and a CRM pipeline for industrial bulk sales in one field app. When base-oil costs move, every rep quotes the new price instantly and books the exact grade and pack at the counter — offline if needed.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for lubricant field teams: selfie + GPS attendance, live location, beat routes and geo-tagged workshop, retailer and distributor visits. So \"SFA for lubricants\", \"lubricant dealer management software\" and \"salesman tracking software\" are one system. Multi-unit order booking, price control, workshop engagement, secondary sales and GPS tracking make OZZO a practical lubricant distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for lubricants", "lubricant dealer management software", "engine oil distribution software", "salesman tracking software for lubricant distributors", "order booking app for lubricant distributors", "workshop mechanic engagement software"],
+    },
+    tagline: "The mechanic recommends the grade, oil sells from a one-litre pack to a barrel, and base-oil costs never sit still. OZZO is built for that.",
+    intro:
+      "Lubricants is a workshop-led trade: the mechanic recommends the grade, the range spans viscosities and pack sizes from a litre to a barrel, base-oil costs move your price list, and you sell to retail counters and industrial buyers at once. OZZO handles all of it in one system.",
+    stats: [
+      { value: "Mechanic-led", label: "the workshop recommends the grade the vehicle owner accepts", note: "Industry reality" },
+      { value: "Litre → barrel", label: "the same grade sells in 1L, 5L, 20L pails and 210L barrels" },
+      { value: "Base-oil linked", label: "input costs move with crude and base oil, forcing price-list revisions" },
+    ],
+    painPoints: [
+      { title: "The mechanic recommends the grade", body: "Vehicle owners rarely choose their own oil — the workshop or mechanic does. Brands that engage workshops win the recommendation; a field team that only calls on retail counters never reaches the decision." },
+      { title: "Grade × viscosity × pack-size complexity", body: "The same product line spans viscosities, specifications and pack sizes from a one-litre bottle to a 210-litre barrel. Booking the right grade in the right pack at the current price is genuinely error-prone at the counter." },
+      { title: "Base-oil costs move your price list", body: "Input costs track crude and base oil and move sharply. When they rise you must push new rates to the field fast; a stale rate card quietly bleeds margin on every order booked." },
+      { title: "Counterfeiting and container refilling", body: "Used containers refilled with spurious oil are a persistent trade problem. A well-served, engaged workshop and retailer network is the practical defence for a genuine brand." },
+      { title: "Two very different channels", body: "Retail counters, workshops and fuel stations run alongside industrial and bulk B2B buyers who need a pipeline, quotations and long follow-up. Most field tools do one motion well, not both." },
+    ],
+    solutions: [
+      { pain: "Engage workshops & mechanics", how: "Model workshops, mechanics and service advisors as their own customer type; log geo-stamped engagement visits, run schemes tied to what they recommend, and keep their history alongside the retailer they buy from." },
+      { pain: "Book the right grade and pack", how: "A full catalogue by grade and pack with multi-unit ordering (litre / pack / pail / barrel) and customer-specific price lists, so reps capture the exact grade, pack and current price — offline if there's no signal." },
+      { pain: "Push new prices the day base oil moves", how: "Update the price-list engine centrally and every rep quotes the new price instantly — no stale rate cards — with trade schemes to move stock when counters hesitate." },
+      { pain: "Run industrial bulk alongside retail", how: "A CRM pipeline for industrial and bulk B2B deals — stages, branded PDF quotations and follow-ups — running beside the retail and workshop beat on one customer record." },
+      { pain: "See secondary and control credit", how: "Trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits before the next order and an Ageing report." },
+    ],
+    workflow: [
+      { title: "Engage the workshop", body: "A geo-stamped visit to a workshop or mechanic, logging the grades they recommend and enrolling them in a scheme." },
+      { title: "Work the retail counter", body: "A counter visit and a multi-unit order (litre to barrel) at current prices, captured offline." },
+      { title: "Advance an industrial deal", body: "Move a bulk B2B deal a stage, send a branded PDF quotation and set the follow-up." },
+      { title: "Collect & watch movement", body: "Record collections against outstanding; primary vs secondary shows what's reaching the counter." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep visited a counter — but not multi-unit grade ordering, base-oil-linked price pushes, workshop engagement or an industrial pipeline." },
+      { label: "Not an enterprise FMCG SFA", body: "Lubricants are workshop-recommended, multi-unit and part industrial B2B — not fast-moving packaged goods that enterprise CPG platforms are shaped and priced for." },
+      { label: "Not a CRM with field bolted on", body: "A pure CRM runs the industrial pipeline but has no field tracking, multi-unit counter orders, trade levels or dealer outstanding. OZZO is one system." },
+    ],
+    outcomes: [
+      { title: "Current prices in every rep's hand", body: "When base-oil costs move, the new rate card is live in the field the same day — margin stops leaking." },
+      { title: "The workshop network becomes visible", body: "Which mechanics your reps engaged and what they recommend — on the record, not in memory." },
+      { title: "Both channels on one system", body: "The retail and workshop beat and the industrial bulk pipeline run together, on one login and one record." },
+      { title: "Credit & secondary under control", body: "Outstanding self-calculates, credit limits gate the next order, and you see what's reaching the counter." },
+    ],
+    cockpit: {
+      header: "Today · Kanpur beat",
+      headerBadge: "Live price list",
+      sectionTitle: "One field app, litre to barrel",
+      sectionBody: "The right grade and pack at the current price, the workshop that recommends your brand, the industrial deal and the retailer's outstanding — on one screen, online or off.",
+      rows: [
+        { icon: "Fuel", title: "15W-40 diesel engine oil", subtitle: "20L pail × 18 · captured offline", value: "₹52,200", badge: "Base oil ▲ · new list pushed to field", badgeTone: "amber" },
+        { icon: "Wrench", title: "Verma Motors · Workshop", subtitle: "Recommends your grade · in scheme", check: true, tone: "success" },
+        { icon: "Factory", title: "Industrial bulk deal", subtitle: "Barrels · quotation sent", badge: "Stage: Negotiation · follow-up Thu", badgeTone: "primary" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹96,000", sub: "/ ₹1.2L limit", fillPct: 80 },
+      chips: [
+        { label: "Multi-unit ✓", sub: "litre · pail · barrel", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Multi-unit ordering (litre / pack / pail / barrel)", "Base-oil-linked price lists & schemes", "Workshop/mechanic engagement (customer type)", "CRM pipeline for industrial bulk sales", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO can model and track your workshop/mechanic engagement — as a customer type, with geo-stamped visits, schemes and history — but it is not a consumer-style gamified mechanic-rewards app with points redemption, and not an anti-counterfeit authentication platform (hologram or QR pack verification). It also does not manage OEM approval/specification certification. It gives your field team the pricing control, ordering and visibility to run the trade.",
+    faqs: [
+      { q: "Is OZZO built for lubricant and oil companies?", a: "Yes. OZZO handles what makes lubricant field sales hard — multi-unit ordering from litre packs to barrels, base-oil-linked price changes pushed to the field, workshop and mechanic engagement, retail coverage and an industrial bulk pipeline — in one system." },
+      { q: "Can OZZO handle packs from one litre to a 210-litre barrel?", a: "Yes. Multi-unit ordering lets reps book the exact grade in the right pack (litre, pack, pail or barrel) at the current price, offline if there's no signal." },
+      { q: "How does OZZO deal with base-oil price volatility?", a: "Update the price-list engine centrally and every rep quotes the new price instantly, so cost swings don't leave stale rate cards in the field. Trade schemes help move stock when counters hesitate on price changes." },
+      { q: "Does OZZO help engage workshops and mechanics?", a: "Yes — model them as their own customer type, log geo-stamped engagement visits, run schemes tied to the grades they recommend, and keep their history alongside the retailers they buy from. It isn't a gamified consumer rewards app, but it makes the relationship visible and manageable." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── TYRES
+  {
+    slug: "tyre-companies",
+    sector: "Auto, Lubricants & Electricals",
+    name: "Tyre Companies",
+    icon: "CircleDot",
+    metaTitle: "Field sales software for tyre companies & distributors | OZZO",
+    metaDescription:
+      "OZZO is built for tyre brands and distributors: a size × pattern SKU matrix, high-value slow-moving dealer stock, fleet and institutional contracts alongside the dealer beat, and long dealer credit under control — one field-sales system.",
+    keywords: ["tyre distribution software", "tyre dealer management software", "tyre company field sales software", "fleet tyre sales CRM", "tyre SFA India", "tyre distributor order booking app"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for tyre companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for tyre companies and distributors that combines order booking across a size × pattern SKU matrix, dealer coverage with stock and display photos, a CRM pipeline for fleet and institutional contracts, and high-value dealer credit control in one field app. Reps book the exact size, pattern and load rating at current prices — offline at the counter — so slow-moving, capital-heavy stock is ordered right.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for tyre field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer and fleet visits. So \"SFA for tyre companies\", \"tyre dealer management software\" and \"salesman tracking software\" are one system. Size-and-pattern order booking, fleet pipeline, dealer credit and GPS field tracking make OZZO a practical tyre distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for tyre companies", "tyre dealer management software", "tyre distribution software India", "fleet tyre sales CRM", "order booking app for tyre distributors", "salesman tracking software for tyre distributors"],
+    },
+    tagline: "A size-and-pattern matrix, high-value stock that moves slowly, and fleets that buy on contract. OZZO runs the dealer beat and the fleet pipeline together.",
+    intro:
+      "Tyres tie up serious dealer capital: a wide size × pattern matrix, high unit values, slow movement, and a fleet and institutional business that buys on contract alongside the dealer beat. OZZO gives tyre brands accurate ordering, real coverage, a fleet pipeline and credit control in one system.",
+    stats: [
+      { value: "Size × pattern", label: "a wide matrix of sizes, patterns and load ratings — wrong size is dead stock", note: "Industry reality" },
+      { value: "High value, slow", label: "capital-heavy dealer inventory that turns slowly" },
+      { value: "Fleet contracts", label: "institutional and fleet buyers purchase in volume on negotiated terms" },
+    ],
+    painPoints: [
+      { title: "A size and pattern matrix that traps capital", body: "Sizes, patterns and load ratings multiply into a wide SKU set. Order the wrong size and it doesn't just delay a sale — it becomes high-value dead stock sitting on the dealer's floor for months." },
+      { title: "High-value, slow-moving dealer inventory", body: "Tyres tie up serious dealer capital and turn slowly. Without visibility into what's actually moving at each counter, replenishment becomes guesswork and dealers quietly overstock the wrong lines." },
+      { title: "Fleet and institutional business runs differently", body: "Fleets, transporters and institutional buyers purchase in volume on negotiated terms and long cycles — a pipeline, quotations and follow-up motion completely unlike the dealer beat." },
+      { title: "Long dealer credit on big-ticket stock", body: "High unit values mean outstanding builds fast. Without live outstanding, credit limits and an Ageing view, exposure at a dealer grows well past comfort before anyone notices." },
+      { title: "Coverage and display at the dealer", body: "Which patterns are actually displayed and stocked at each dealer is hard to know from HQ — and it decides what gets recommended when a customer walks in." },
+    ],
+    solutions: [
+      { pain: "Order the exact size and pattern", how: "A full catalogue by size, pattern and load rating with customer-specific price lists, so reps book the precise SKU at current prices at the counter — offline if there's no signal." },
+      { pain: "See what's really moving", how: "Trade levels with automatic primary/secondary tagging show genuine movement at each dealer, so replenishment reflects reality instead of guesswork on capital-heavy stock." },
+      { pain: "Run the fleet pipeline properly", how: "A CRM pipeline for fleet, transporter and institutional deals — stages, branded PDF quotations and follow-ups — running alongside the dealer beat on one customer record." },
+      { pain: "Control high-value dealer credit", how: "Self-calculating outstanding, credit limits enforced before the next order and an Ageing report — sized for big-ticket exposure that builds fast." },
+      { pain: "Verify coverage and display", how: "Geo-stamped dealer visits with photos capture what's actually displayed and stocked, so display and pattern presence are evidence rather than assumption." },
+    ],
+    workflow: [
+      { title: "Work the dealer beat", body: "A geo-stamped dealer visit with a display photo and an order for the exact size and pattern at current prices." },
+      { title: "Check real movement", body: "Primary vs secondary shows which patterns are genuinely selling before more capital-heavy stock goes out." },
+      { title: "Advance a fleet deal", body: "Move a fleet or transporter deal a stage, send a branded PDF quotation and set the follow-up." },
+      { title: "Collect & watch exposure", body: "Record collections against outstanding; credit limits and the Ageing report keep big-ticket exposure visible." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a dealer — but not size-and-pattern ordering, display photos, a fleet pipeline or high-value credit control." },
+      { label: "Not an enterprise FMCG SFA", body: "Tyres are high-value, slow-moving and part institutional-contract business — the opposite of the fast-moving packaged goods enterprise CPG platforms are built for." },
+      { label: "Not a plain CRM", body: "A CRM runs the fleet pipeline but has no field visits, display photos, offline dealer orders, trade levels or self-calculating outstanding." },
+    ],
+    outcomes: [
+      { title: "The right size reaches the right dealer", body: "Exact size, pattern and load rating captured at the counter — less high-value dead stock on the floor." },
+      { title: "Replenishment follows reality", body: "Primary vs secondary shows what's genuinely selling, so capital-heavy stock isn't pushed blindly." },
+      { title: "Fleet deals stop slipping", body: "Every fleet and institutional deal has a stage, a quotation and a next step." },
+      { title: "Big-ticket credit stays visible", body: "Outstanding self-calculates and credit limits gate the next order before exposure runs away." },
+    ],
+    cockpit: {
+      header: "Today · Nagpur dealers",
+      headerBadge: "Fleet pipeline",
+      sectionTitle: "One field app for dealer + fleet",
+      sectionBody: "The exact size and pattern, what's really moving, the fleet contract in the pipeline and the dealer's big-ticket outstanding — on one screen, online or off.",
+      rows: [
+        { icon: "CircleDot", title: "TBR 295/80 R22.5 · pattern LD", subtitle: "24 tyres · captured offline", value: "₹5,04,000" },
+        { icon: "Truck", title: "Shree Transport · Fleet", subtitle: "Quotation sent · 120 tyres", badge: "Stage: Negotiation · follow-up Tue", badgeTone: "primary" },
+        { icon: "Camera", title: "Display check", subtitle: "Pattern presence photographed", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹7.8L", sub: "/ ₹9L limit", fillPct: 87 },
+      chips: [
+        { label: "Movement ✓ tracked", sub: "primary vs secondary", tone: "gradient" },
+        { label: "Dead-stock watch", sub: "slow patterns flagged", tone: "glass" },
+      ],
+    },
+    modules: ["Catalogue by size, pattern & load rating", "CRM pipeline for fleet & institutional deals", "Geo-tagged dealer visits with display photos", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Customer-specific price lists & schemes", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO runs the field and commercial motion — dealer coverage, size-and-pattern ordering, display photos, fleet pipeline and credit. It is NOT a vehicle-fitment or tyre-size compatibility lookup tool, NOT a warranty-claim adjudication system (tyre warranty inspection and claims stay with your process), and NOT a retreading or warehouse-inventory ERP.",
+    faqs: [
+      { q: "Is OZZO built for tyre companies and distributors?", a: "Yes. OZZO handles what makes tyre field sales hard — a wide size × pattern SKU matrix ordered accurately, high-value slow-moving dealer stock, a fleet and institutional pipeline, display verification and long dealer credit — in one system." },
+      { q: "Can OZZO manage both dealer sales and fleet contracts?", a: "Yes. The dealer beat and a CRM pipeline for fleet, transporter and institutional deals (stages, branded quotations, follow-ups) run in one system on one customer record." },
+      { q: "How does OZZO help with dead stock and slow-moving patterns?", a: "Automatic primary/secondary tagging shows genuine movement at each dealer, so replenishment of capital-heavy stock reflects what's actually selling rather than guesswork." },
+      { q: "Does OZZO handle tyre warranty claims?", a: "No. Warranty inspection and claim adjudication stay with your existing process — OZZO runs the field sales, coverage, ordering, fleet pipeline and credit around it." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── BATTERIES
+  {
+    slug: "battery-companies",
+    sector: "Auto, Lubricants & Electricals",
+    name: "Battery Companies",
+    icon: "BatteryCharging",
+    metaTitle: "Field sales software for battery companies & distributors | OZZO",
+    metaDescription:
+      "OZZO is built for automotive and inverter battery brands: date-code and ageing stock caught in the field, the mechanic who recommends the brand, dealer credit on high-value stock, exchange returns recorded at the counter and institutional sales — one system.",
+    keywords: ["battery distribution software", "battery dealer management software", "automotive battery field sales", "inverter battery distribution", "battery company SFA India", "battery distributor order booking app"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for battery companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for automotive and inverter battery companies that combines counter order booking, date-code and ageing-stock capture as custom fields, mechanic and dealer engagement, exchange returns recorded at the outlet, and high-value dealer credit control in one field app. Because a battery that sits too long arrives weak, catching ageing stock on the visit is commercial protection — and OZZO puts that on the record.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for battery field teams: selfie + GPS attendance, live location, beat routes and geo-tagged dealer and mechanic visits. So \"SFA for battery companies\", \"battery dealer management software\" and \"salesman tracking software\" are one system. Order booking, ageing-stock visibility, dealer credit and GPS field tracking make OZZO a practical battery distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for battery companies", "battery dealer management software", "automotive battery distribution software", "inverter battery field sales software", "order booking app for battery distributors", "salesman tracking software for battery distributors"],
+    },
+    tagline: "A battery that sits too long arrives weak, the mechanic picks the brand, and every sale comes with an old battery going back. OZZO runs that trade.",
+    intro:
+      "Batteries are unusual: stock ages on the shelf and self-discharges, so old inventory becomes a weak battery and a warranty problem. Add a mechanic who recommends the brand, an exchange that comes back with every sale, high dealer credit and an inverter/institutional channel — and you need one system for all of it.",
+    stats: [
+      { value: "Stock ages", label: "batteries self-discharge on the shelf — old stock arrives weak", note: "Industry reality" },
+      { value: "Mechanic-led", label: "the garage or electrician usually recommends the brand fitted" },
+      { value: "Exchange trade", label: "an old battery comes back with nearly every replacement sale" },
+    ],
+    painPoints: [
+      { title: "Stock that ages into a warranty problem", body: "Batteries self-discharge on the shelf. A unit that sits too long at a dealer is sold weak, fails early and comes back as a warranty claim — so ageing stock isn't just slow inventory, it's a future cost and a trust problem." },
+      { title: "The mechanic or electrician recommends the brand", body: "Whether it's a garage fitting an automotive battery or an electrician specifying an inverter battery, the trade recommends and the customer accepts. A field team that only calls on dealers misses the recommendation entirely." },
+      { title: "Every sale has an exchange coming back", body: "Replacement sales come with an old battery returned against them. Reconciling exchange and scrap against the sale is a constant, manual reconciliation problem in the channel." },
+      { title: "High-value stock on dealer credit", body: "Batteries carry high unit values, so dealer outstanding builds quickly. Without live outstanding, credit limits and an Ageing view, exposure grows before anyone acts." },
+      { title: "Two channels — automotive and inverter/institutional", body: "Automotive replacement through garages and dealers runs alongside inverter, UPS and institutional business that needs a pipeline, quotations and follow-up." },
+    ],
+    solutions: [
+      { pain: "Catch ageing stock on the visit", how: "Capture date-code and batch as custom fields on orders and visits, so stock ageing at a dealer is recorded in the field and can be moved or rotated before it's sold weak." },
+      { pain: "Engage mechanics & electricians", how: "Model garages, mechanics and electricians as their own customer type; log geo-stamped engagement visits, run schemes tied to what they recommend, and keep that history beside the dealer they buy from." },
+      { pain: "Record exchanges at the counter", how: "Record exchange and damage returns against the outlet on the visit, so old-battery movement is captured where it happens rather than reconstructed later." },
+      { pain: "Control high-value dealer credit", how: "Self-calculating outstanding, credit limits enforced before the next order and an Ageing report — sized for high unit values that build exposure fast." },
+      { pain: "Run inverter & institutional sales", how: "A CRM pipeline for inverter, UPS and institutional deals — stages, branded PDF quotations and follow-ups — alongside the automotive dealer beat on one record." },
+    ],
+    workflow: [
+      { title: "Work the dealer counter", body: "A geo-stamped dealer visit with an order captured offline at current prices against the credit limit." },
+      { title: "Check stock age", body: "Record date-code observations so ageing units are rotated or moved before they're sold weak." },
+      { title: "Log the exchange", body: "Record the old-battery exchange or damage return against the outlet on the visit." },
+      { title: "Collect & advance deals", body: "Record collections against outstanding, and move an inverter or institutional deal a stage with a quotation." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a dealer — but not ageing-stock capture, exchange returns, mechanic engagement, an institutional pipeline or high-value credit control." },
+      { label: "Not an enterprise FMCG SFA", body: "Batteries are high-value, ageing-sensitive, exchange-driven and part institutional — not the fast-moving packaged goods enterprise CPG platforms are shaped for." },
+      { label: "Not a warranty-claim system", body: "Battery warranty registration, testing and claim adjudication are their own process. OZZO runs the field sales, coverage, ageing visibility, exchanges and credit around it." },
+    ],
+    outcomes: [
+      { title: "Ageing stock is caught, not sold weak", body: "Date-code observations from the field let you rotate or move stock before it becomes a warranty claim." },
+      { title: "The trade recommendation becomes visible", body: "Which garages and electricians your reps engaged and what they recommend — on the record." },
+      { title: "Exchanges are captured where they happen", body: "Old-battery returns are recorded at the outlet on the visit instead of reconciled from memory." },
+      { title: "High-value credit under control", body: "Outstanding self-calculates and credit limits gate the next order before exposure runs away." },
+    ],
+    cockpit: {
+      header: "Today · Coimbatore beat",
+      headerBadge: "Date-code check",
+      sectionTitle: "One field app for a trade that ages",
+      sectionBody: "The order, the ageing unit spotted on the shelf, the exchange coming back and the dealer's high-value outstanding — on one screen, online or off.",
+      rows: [
+        { icon: "BatteryCharging", title: "Automotive battery · 65Ah", subtitle: "20 units · captured offline", value: "₹96,000" },
+        { icon: "FileWarning", title: "Ageing stock flagged", subtitle: "Date-code noted on the visit", badge: "Rotate before it's sold weak", badgeTone: "amber" },
+        { icon: "Repeat", title: "Exchange recorded", subtitle: "Old battery back against the sale", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹2.9L", sub: "/ ₹3.4L limit", fillPct: 85 },
+      chips: [
+        { label: "Inverter deal", sub: "Quotation sent · follow-up Fri", tone: "gradient" },
+        { label: "Secondary ✓ reaching counter", sub: "primary vs secondary tracked", tone: "glass" },
+      ],
+    },
+    modules: ["Date-code/batch capture as custom fields", "Mechanic/electrician engagement (customer type)", "Exchange & damage returns at the outlet", "CRM pipeline for inverter & institutional deals", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Geo-tagged dealer visits", "Offline order capture"],
+    honestNote:
+      "OZZO runs the field motion — coverage, orders, ageing-stock observations, exchange returns, engagement and credit. It is NOT a warranty registration, battery-testing or claim-adjudication system, NOT a serial-number registry, and NOT a scrap/exchange inventory-reconciliation ERP. Date-code and batch are captured as custom fields for your own commercial reference.",
+    faqs: [
+      { q: "Is OZZO built for battery companies and distributors?", a: "Yes. OZZO handles what makes the battery trade hard — stock that ages on the shelf, mechanic and electrician recommendation, exchange returns with every replacement sale, high-value dealer credit and an inverter/institutional pipeline — in one system." },
+      { q: "Can OZZO help catch ageing stock before it's sold weak?", a: "Yes, commercially. Date-code and batch can be captured as custom fields on orders and visits, so units ageing at a dealer are recorded in the field early enough to rotate or move — though this is for your own reference, not a formal traceability system." },
+      { q: "Does OZZO manage battery warranty claims?", a: "No. Warranty registration, testing and claim adjudication stay with your existing process. OZZO runs the field sales, coverage, ageing visibility, exchange capture and credit control around it." },
+      { q: "Can OZZO handle both automotive and inverter/institutional business?", a: "Yes. The automotive dealer and garage beat runs alongside a CRM pipeline for inverter, UPS and institutional deals (stages, branded quotations, follow-ups) on one customer record." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── LIGHTING & ELECTRICAL APPLIANCES
+  {
+    slug: "lighting-electrical-appliances-companies",
+    sector: "Auto, Lubricants & Electricals",
+    name: "Lighting & Electrical Appliances Companies",
+    icon: "Lightbulb",
+    metaTitle: "Field sales software for lighting & electrical appliance companies | OZZO",
+    metaDescription:
+      "OZZO is built for LED lighting, fan and electrical-appliance brands: retail and modern-trade coverage, display and shelf-share checks with photos, festive scheme spikes, reorder and secondary visibility, and after-sales service visits — one field-sales system.",
+    keywords: ["lighting company field sales software", "LED distribution software", "electrical appliance distributor management", "consumer durables SFA India", "fan appliance retail execution software", "lighting dealer management software"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for lighting & electrical appliances",
+      body: [
+        "OZZO is a sales force automation (SFA) software for LED lighting, fan and electrical-appliance brands that combines retail and modern-trade coverage, display and shelf-share checks with photos, festive trade schemes, offline order booking, reorder and secondary visibility and after-sales service visits in one field app. These are consumer durables sold off a shelf — so display presence and scheme execution at the counter decide the season.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for appliance field teams: selfie + GPS attendance, live location, beat routes and geo-tagged retailer and electrician visits. So \"SFA for lighting companies\", \"electrical appliance distributor management\" and \"salesman tracking software\" are one system. Retail execution, display checks, schemes, secondary visibility and GPS tracking make OZZO a practical lighting and appliance distribution and sales-tracking system.",
+      ],
+      keywords: ["SFA for lighting companies", "LED distribution software India", "electrical appliance distributor management software", "consumer durables retail execution software", "order booking app for appliance distributors", "salesman tracking software for lighting brands"],
+    },
+    tagline: "Shelf share wins the sale, festive season makes the year, and the customer expects service after. OZZO runs all three.",
+    intro:
+      "Lighting and electrical appliances are consumer durables: they're chosen off a shelf, so display and assortment decide the sale; demand spikes hard at festive season; schemes drive the trade; and buyers expect after-sales service. OZZO gives these brands retail execution, scheme control, secondary visibility and service visits in one system.",
+    stats: [
+      { value: "Shelf-led", label: "display presence and shelf share decide what the walk-in customer buys", note: "Industry reality" },
+      { value: "Festive spike", label: "a large share of the year's demand lands in the festive season" },
+      { value: "Service expected", label: "consumer durables carry an after-sales expectation the brand must meet" },
+    ],
+    painPoints: [
+      { title: "Display and shelf share decide the sale", body: "A walk-in customer buys what they see well displayed and what the retailer pushes. Whether your range is actually on the shelf, and how much space it holds, is invisible from HQ — yet it decides the sale." },
+      { title: "The festive spike makes or breaks the year", body: "A large share of annual demand compresses into the festive season. Getting stock, assortment and schemes right at thousands of counters in those weeks is the whole game, and there's no second chance." },
+      { title: "Scheme-driven trade across a wide universe", body: "Constant retailer schemes, slabs and festive offers across a broad retail and modern-trade universe. Applying the right scheme at the counter and tracking enrolment is a full-time job on paper." },
+      { title: "The reorder blindspot", body: "Primary billing to the distributor says nothing about whether product is moving off the shelf. Slow secondary quietly becomes overstocked retailers and a stalled season." },
+      { title: "After-sales service shapes the brand", body: "Consumer durables carry a replacement and service expectation. Service handled slowly, or not tracked to closure, costs the retailer relationship as much as the customer's." },
+    ],
+    solutions: [
+      { pain: "Verify display and assortment", how: "Geo-stamped retailer visits with photos and must-stock assortment checks, so display presence and shelf share are captured as evidence instead of assumed from HQ." },
+      { pain: "Execute the festive season", how: "Beat routes for high-frequency coverage in the peak weeks, offline order capture and central schemes applying at the counter — so the season is executed, not hoped for." },
+      { pain: "Run schemes without paperwork", how: "Central trade schemes and slabs apply automatically at the counter with enrolment tracked per retailer, so the right festive offer lands every time." },
+      { pain: "See reorders and secondary", how: "Trade levels with automatic primary/secondary tagging show whether product is genuinely moving off the shelf rather than just billed to the distributor." },
+      { pain: "Track after-sales service", how: "Log service visits and tasks against the customer and track them to closure, so replacement and service requests don't quietly damage the retailer relationship." },
+    ],
+    workflow: [
+      { title: "Work the retail beat", body: "A geo-stamped retailer visit with a must-stock assortment and display check, photographed." },
+      { title: "Book the order with the scheme", body: "An offline order at current prices with the festive scheme applied automatically at the counter." },
+      { title: "Watch reorders", body: "Primary vs secondary shows what's genuinely moving off the shelf before more stock goes out." },
+      { title: "Close service requests", body: "Service visits and tasks logged and tracked to closure, protecting the retailer relationship." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a shop — but not display photos, assortment checks, scheme execution, secondary visibility or service closure." },
+      { label: "Not an enterprise CPG SFA", body: "Enterprise platforms with AI shelf-audit and planogram scoring are built and priced for national FMCG brands. OZZO gives lighting and appliance brands the execution that matters, affordably." },
+      { label: "Not a warranty / service-centre ERP", body: "OZZO logs service visits and tasks to closure, but it isn't an RMA, warranty-claim or service-centre management ERP — it runs the field motion alongside whatever you use." },
+    ],
+    outcomes: [
+      { title: "Display becomes evidence", body: "Photos and assortment checks show what's actually on the shelf at each counter — not what was assumed." },
+      { title: "The festive season gets executed", body: "High-frequency coverage, the right assortment and the right scheme at the counter in the weeks that decide the year." },
+      { title: "Reorders stop being a guess", body: "Primary vs secondary shows what's genuinely moving off the shelf before more stock is pushed." },
+      { title: "Service stops damaging relationships", body: "Service visits and tasks are tracked to closure instead of drifting." },
+    ],
+    cockpit: {
+      header: "Festive beat · Surat",
+      headerBadge: "Scheme live",
+      sectionTitle: "One field app for the shelf and the season",
+      sectionBody: "Display and assortment photographed, the festive scheme applied at the counter, what's really reordering and the service request closed — on one screen, online or off.",
+      rows: [
+        { icon: "Lightbulb", title: "LED batten 20W × 100", subtitle: "Must-stock · order offline", value: "₹21,500" },
+        { icon: "Camera", title: "Display & shelf-share check", subtitle: "Photographed at the counter", badge: "2 must-stock lines missing · flagged", badgeTone: "amber" },
+        { icon: "Wrench", title: "Service request · closed", subtitle: "Tracked to closure", check: true, tone: "success" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹58,000", sub: "/ ₹70k limit", fillPct: 83 },
+      chips: [
+        { label: "Festive scheme ✓", sub: "applied at the counter", tone: "gradient" },
+        { label: "Reorder ✓ tracked", sub: "primary vs secondary", tone: "glass" },
+      ],
+    },
+    modules: ["Beat routes & productive coverage", "Display & assortment checks with photos", "Trade schemes & price lists", "Trade levels & primary/secondary", "Service visits & tasks to closure", "Outstanding, credit limits & Ageing", "Offline order capture", "WhatsApp CRM & Daily Sales Report"],
+    honestNote:
+      "OZZO runs your retail execution and field service motion — coverage, display and assortment checks, orders, schemes, secondary and service visits. It does NOT ship AI image-recognition shelf audits or planogram-compliance scoring like enterprise CPG platforms, and it is NOT an RMA/warranty-claim or service-centre management ERP, nor a BIS/BEE star-rating compliance tool.",
+    faqs: [
+      { q: "Is OZZO built for lighting and electrical appliance companies?", a: "Yes. OZZO handles consumer-durable retail execution — display and assortment checks with photos, festive scheme execution, offline order booking, reorder and secondary visibility, and after-sales service visits — in one system." },
+      { q: "How is this different from your wires & cables page?", a: "Wires and cables are installation materials sold by coil, metre and kilo with copper-linked pricing and project sales. Lighting and appliances are finished consumer durables sold off a shelf by the piece, where display, festive schemes and after-sales service decide the outcome — so OZZO is applied quite differently." },
+      { q: "Can OZZO verify what's displayed at the retailer?", a: "Yes. Geo-stamped visits with photos and must-stock assortment checks capture display presence and missing lines at the counter as evidence rather than assumption." },
+      { q: "Does OZZO handle after-sales service and warranty claims?", a: "OZZO logs service visits and tasks against the customer and tracks them to closure. It is not an RMA, warranty-claim or service-centre management ERP — it runs the field service motion alongside whatever back-end you use." },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
