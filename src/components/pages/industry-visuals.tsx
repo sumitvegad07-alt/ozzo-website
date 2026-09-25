@@ -44,8 +44,11 @@ function Value({ value }: { value: string }) {
 
 export function IndustryCockpit({ cockpit }: { cockpit: Cockpit }) {
   return (
-    <div className="relative mx-auto w-full max-w-md">
-      <div className="pointer-events-none absolute inset-6 -z-10 rounded-[3rem] bg-gradient-to-br from-[#7c3aed]/40 to-[#2563eb]/10 blur-2xl" />
+    /* pt/pb are the gutters the floating chips live in, so they never cover
+       card content (header badge / meter). `animate-float` lifts them 10px,
+       which the gutters account for. */
+    <div className="relative mx-auto w-full max-w-md pt-12 pb-12">
+      <div className="pointer-events-none absolute inset-x-0 inset-y-12 -z-10 rounded-[3rem] bg-gradient-to-br from-[#7c3aed]/40 to-[#2563eb]/10 blur-2xl" />
 
       <div className="rounded-[1.75rem] border border-white/10 bg-card p-4 shadow-2xl shadow-black/40">
         <div className="mb-3 flex items-center justify-between px-1">
@@ -112,22 +115,30 @@ export function IndustryCockpit({ cockpit }: { cockpit: Cockpit }) {
 
       {cockpit.chips?.[0] && (
         <div
-          className="animate-float absolute -right-3 -top-4 rounded-2xl p-3 text-white shadow-[0_20px_50px_-16px_rgba(124,58,237,0.9)]"
+          className="animate-float absolute right-0 top-0 max-w-[68%] rounded-2xl p-3 text-white shadow-[0_20px_50px_-16px_rgba(124,58,237,0.9)]"
           style={{ backgroundImage: ACCENT }}
         >
-          <p className="text-[10px] font-bold uppercase tracking-wide text-white/85">
+          <p className="text-[10px] font-bold uppercase leading-tight tracking-wide text-white/85">
             {cockpit.chips[0].label}
           </p>
-          <p className="mt-0.5 text-xs font-semibold">{cockpit.chips[0].sub}</p>
+          <p className="mt-0.5 text-xs font-semibold leading-tight">
+            {cockpit.chips[0].sub}
+          </p>
         </div>
       )}
       {cockpit.chips?.[1] && (
+        /* Solid dark surface, not bg-white/10: this chip overlaps the LIGHT
+           card, where white-on-white text was unreadable. */
         <div
-          className="animate-float absolute -left-4 bottom-10 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white shadow-xl shadow-black/30 backdrop-blur-md"
+          className="animate-float absolute bottom-0 left-0 max-w-[68%] rounded-2xl border border-white/15 bg-ink/90 px-3 py-2 text-white shadow-xl shadow-black/40 backdrop-blur-md"
           style={{ animationDelay: "1.2s" }}
         >
-          <p className="text-[10px] font-semibold">{cockpit.chips[1].label}</p>
-          <p className="text-[10px] text-white/60">{cockpit.chips[1].sub}</p>
+          <p className="text-[10px] font-semibold leading-tight">
+            {cockpit.chips[1].label}
+          </p>
+          <p className="text-[10px] leading-tight text-white/70">
+            {cockpit.chips[1].sub}
+          </p>
         </div>
       )}
     </div>

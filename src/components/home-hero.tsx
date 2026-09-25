@@ -251,11 +251,13 @@ export function HomeHero() {
             {/* glass DSR chip */}
             <div
               data-depth="28"
-              className="absolute -left-3 bottom-14 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-white backdrop-blur-md shadow-xl shadow-black/30 [transition:transform_.35s_cubic-bezier(0.16,1,0.3,1)]"
+              /* Solid dark surface, not bg-white/10: this chip floats over the
+                 LIGHT mock card, where white-on-white text was unreadable. */
+              className="absolute -left-3 bottom-14 rounded-2xl border border-white/15 bg-ink/90 px-3 py-2 text-white backdrop-blur-md shadow-xl shadow-black/40 [transition:transform_.35s_cubic-bezier(0.16,1,0.3,1)]"
             >
               <div className="animate-float" style={{ animationDelay: "1.2s" }}>
                 <p className="text-[10px] font-semibold">DSR · auto-built</p>
-                <p className="text-[10px] text-white/60">visits · orders · km</p>
+                <p className="text-[10px] text-white/70">visits · orders · km</p>
               </div>
             </div>
           </div>
