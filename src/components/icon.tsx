@@ -70,6 +70,13 @@ import {
   SquareStack,
   Hammer,
   Blocks,
+  Pill,
+  Syringe,
+  Microscope,
+  Leaf,
+  Scissors,
+  HeartPulse,
+  BriefcaseMedical,
   type LucideIcon,
 } from "lucide-react";
 
@@ -145,6 +152,13 @@ const map: Record<string, LucideIcon> = {
   SquareStack,
   Hammer,
   Blocks,
+  Pill,
+  Syringe,
+  Microscope,
+  Leaf,
+  Scissors,
+  HeartPulse,
+  BriefcaseMedical,
 };
 
 export function Icon({

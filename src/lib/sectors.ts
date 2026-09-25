@@ -77,6 +77,40 @@ export const sectors: Sector[] = [
     ],
   },
 
+  // ─────────────────────────────────────────── PHARMA & HEALTHCARE
+  {
+    slug: "pharma-healthcare",
+    name: "Pharma & Healthcare",
+    icon: "Stethoscope",
+    metaTitle: "Field sales software for pharma & healthcare companies | OZZO",
+    metaDescription:
+      "OZZO is field-sales software for pharma & healthcare — pharmaceutical/MR teams, surgical & medical devices, injectables & critical care, medical equipment & diagnostics, ayurvedic & nutraceutical. Geo-stamped calls, institutional pipelines, stockist orders, expense claims and credit control in one system.",
+    keywords: ["pharma field sales software", "healthcare field sales software India", "MR reporting software", "medical device sales software", "pharma SFA India", "healthcare distributor management software"],
+    tagline: "In healthcare the person who decides is rarely the person who pays. OZZO makes that whole chain — clinician, institution, channel — visible.",
+    intro:
+      "Pharma and healthcare selling is indirect by nature: a doctor, surgeon or practitioner creates the demand, a hospital, stockist or chemist actually buys, and payment arrives on a long credit cycle. Whether you sell prescription brands, surgical devices, injectables, diagnostic machines or nutraceuticals, OZZO makes that chain visible in one system.",
+    themes: [
+      { title: "The clinician creates demand — someone else pays", body: "Doctors, surgeons and practitioners specify or prescribe, while hospitals, stockists and chemists buy. OZZO models each as its own customer type with geo-stamped visits and custom fields, so the most important conversation in healthcare selling is on the record rather than in a rep's memory." },
+      { title: "Field reporting has to be verifiable", body: "Large, dispersed field teams report calls HQ cannot independently check. Selfie + GPS attendance, live location, beat routes and geo-stamped visits make coverage evidence instead of a claim — and tour/DA expense claims get approved against a real day." },
+      { title: "Credit cycles run long", body: "Hospital and institutional payments arrive well after supply, and exposure concentrates in a few large balances. Self-calculating outstanding, credit limits enforced before the next order and an Ageing report keep it visible early." },
+      { title: "Compliance stays with your systems", body: "OZZO is deliberately not a regulatory platform: no CDSCO/UCPMP compliance, serialisation or track-and-trace, cold-chain temperature monitoring or e-detailing. Batch and expiry are captured as custom fields for commercial reference, and OZZO runs the field motion around whatever compliance process you already have." },
+    ],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for pharma & healthcare companies",
+      body: [
+        "OZZO is a sales force automation (SFA) and field-force tracking (WFA) software for pharma and healthcare companies — pharmaceutical and MR field forces, surgical and medical-device brands, injectable and critical-care suppliers, medical equipment and diagnostics, and ayurvedic and nutraceutical brands. It combines geo-stamped doctor, surgeon and practitioner visits, chemist and stockist order booking, CRM pipelines for hospital and institutional deals, tour/DA expense claims and long-cycle outstanding in one field app, with selfie + GPS attendance and live location.",
+        "So \"SFA for pharma\", \"MR reporting software\", \"medical representative tracking app\", \"hospital sales CRM\" and \"healthcare distributor management software\" are one system, not five. Pick your sub-industry below to see the specific field-sales pressures of that trade and exactly how OZZO handles them.",
+      ],
+      keywords: ["SFA for pharma", "pharma field force automation India", "MR reporting software", "medical representative tracking app", "healthcare distributor management software", "hospital sales CRM India"],
+    },
+    faqs: [
+      { q: "Is OZZO built for pharma and healthcare companies?", a: "Yes. OZZO covers pharmaceutical/MR field forces, surgical and medical devices, injectables and critical care, medical equipment and diagnostics, and ayurvedic and nutraceutical brands — with geo-stamped clinician visits, channel orders, institutional pipelines, expense claims and credit control in one system." },
+      { q: "Which pharma & healthcare industries does OZZO support?", a: "Dedicated pages exist for pharmaceutical companies (MR teams), surgical & medical device companies, injectables & critical care, medical equipment & diagnostics, and ayurvedic & nutraceutical companies — each with the specific pain points and OZZO capabilities of that trade." },
+      { q: "Can OZZO be used for MR reporting and doctor-call tracking?", a: "Yes. Doctors are modelled as their own customer type and calls are geo-stamped with custom fields, so a medical representative's call report is captured on the spot, with selfie + GPS attendance, beat routes and digital tour/DA expense claims." },
+      { q: "Does OZZO handle pharma regulatory compliance or cold chain?", a: "No. OZZO does not manage CDSCO/UCPMP compliance, drug-licence registers, serialisation/track-and-trace, auditable sample accountability, or cold-chain temperature monitoring (which needs data loggers and IoT sensors). Batch and expiry can be captured as custom fields for commercial reference only, and OZZO runs the field motion alongside your compliance systems." },
+    ],
+  },
+
   // ─────────────────────────────────────────── PIPES & FITTINGS
   {
     slug: "pipes-fittings",

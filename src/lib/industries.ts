@@ -1642,6 +1642,426 @@ export const industries: Industry[] = [
       { q: "Can OZZO manage both dealer sales and project/OEM sales?", a: "Yes. The dealer/retail field beat and a CRM pipeline for project and furniture-maker deals (stages, branded quotations, follow-ups) run in one system on one customer record." },
     ],
   },
+
+  // ─────────────────────────────────────────── PHARMACEUTICAL (MR)
+  {
+    slug: "pharmaceutical-companies",
+    sector: "Pharma & Healthcare",
+    name: "Pharmaceutical Companies",
+    icon: "Pill",
+    metaTitle: "Field sales software for pharmaceutical companies & MR teams | OZZO",
+    metaDescription:
+      "OZZO is built for pharma field teams: geo-stamped doctor calls, real MR attendance and territory coverage, chemist & stockist orders, secondary visibility, tour/DA expense claims and outstanding — one MR reporting and field-tracking system.",
+    keywords: ["pharma field sales software", "MR reporting software India", "medical representative tracking app", "pharma SFA India", "chemist stockist management software", "pharmaceutical CRM India", "MR expense claim software"],
+    seo: {
+      heading: "Sales force automation (SFA) & MR tracking for pharmaceutical companies",
+      body: [
+        "OZZO is a sales force automation (SFA) and MR reporting software for pharmaceutical companies that combines geo-stamped doctor calls, chemist and stockist order booking, territory and beat coverage, tour/DA expense claims and outstanding in one field app. Doctors, chemists and stockists are each modelled as their own customer type, so a medical representative's day — the calls made, the products detailed, the orders booked and the expenses claimed — is captured on the record instead of reconstructed from memory at month end.",
+        "It is also field-force tracking (WFA) and medical-representative location tracking software: selfie + GPS attendance, live location, beat routes and geo-tagged doctor, chemist and stockist visits. So \"SFA for pharma\", \"MR reporting software\", \"medical representative tracking app\" and \"chemist stockist management software\" are one system. Doctor-call capture, real coverage, secondary visibility, expense claims and GPS tracking make OZZO a practical pharmaceutical field-force and sales-tracking system.",
+      ],
+      keywords: ["SFA for pharma companies", "MR reporting software", "medical representative tracking app", "pharma field force automation India", "chemist stockist order booking app", "doctor visit tracking software", "MR tour expense claim software"],
+    },
+    tagline: "Demand is created in the doctor's chamber, billed to a stockist, and dispensed at a chemist. OZZO makes that whole chain visible.",
+    intro:
+      "Pharma field sales is uniquely indirect: an MR details a doctor, the prescription reaches a chemist, and the money flows through a stockist. Primary billing tells you almost nothing about what's really happening. OZZO captures the doctor call, the chemist and stockist coverage, the secondary movement, the tour claims and the outstanding — in one system.",
+    stats: [
+      { value: "Doctor-led", label: "prescriptions are created in the chamber — the chemist only dispenses them", note: "Industry reality" },
+      { value: "MR field force", label: "a large, dispersed team reporting calls that HQ cannot independently verify" },
+      { value: "C&F → stockist → chemist", label: "a multi-tier channel on credit where secondary movement is invisible from billing" },
+    ],
+    painPoints: [
+      { title: "Demand is created in the doctor's chamber", body: "The prescription — not the counter — drives your sales, but the doctor call is the least visible part of the business. Which doctors were actually met, what was detailed and what was committed usually lives only in an MR's memory until the monthly report." },
+      { title: "MR reporting that can't be verified", body: "'Met twelve doctors today' is easy to type and impossible to check. Without a geo-stamp and a timestamp, call reports drift towards fiction, and field discipline quietly erodes across a large dispersed team." },
+      { title: "Stockist billing hides chemist reality", body: "Primary billing to the C&F or stockist says nothing about whether product is reaching chemists and being dispensed. Slow secondary movement becomes tomorrow's expiry returns and destocking." },
+      { title: "Tour, travel and DA claims are a paper mountain", body: "Every MR submits monthly travel, daily-allowance and expense claims that managers must reconcile against where the rep actually was — a slow, disputed, entirely manual process in most companies." },
+      { title: "Territory, HQ and doctor-list discipline", body: "Overlapping territories, stale doctor lists and unclear HQ ownership cause duplicated effort and missed coverage, and roll-ups by geography stop being trustworthy." },
+    ],
+    solutions: [
+      { pain: "Make the doctor call visible", how: "Model doctors as their own customer type and log geo-stamped calls with custom fields — speciality, products detailed, commitment and the next call — so the most important visit in pharma is finally on the record, not in someone's head." },
+      { pain: "Real coverage, not reported coverage", how: "Selfie + GPS attendance, live location and beat routes mean 'met the doctor' means the phone was actually there, and the whole territory gets worked in order." },
+      { pain: "See chemist & stockist movement", how: "C&F, stockist and chemist as trade levels with automatic primary/secondary tagging, self-calculating outstanding, credit limits before the next order and an Ageing report — so you see real movement and recover on time." },
+      { pain: "Digitise tour & DA claims", how: "MRs submit expense claims from the phone against configurable expense types and rate tiers; managers approve on the web, with the Expense Report and the rep's own GPS-stamped visit history alongside." },
+      { pain: "Hold territory discipline", how: "Territory master and reporting hierarchy keep MRs to their HQ and areas and roll performance up by geography — so coverage and accountability are clear." },
+    ],
+    workflow: [
+      { title: "Punch in & start the beat", body: "Selfie + GPS attendance, then the day's doctor and chemist beat runs in order." },
+      { title: "Detail the doctor", body: "A geo-stamped call logged against the doctor, with products detailed and the next call set." },
+      { title: "Cover chemist & stockist", body: "Chemist and stockist visits with orders captured offline, and collections recorded against outstanding." },
+      { title: "Claim & close the day", body: "Submit the day's travel and DA claim from the phone; the manager approves it against a real, GPS-stamped day." },
+    ],
+    whyNotOthers: [
+      { label: "Not just an MR tracking app", body: "A pure tracker shows where a rep went — but not the doctor-call record, chemist and stockist orders, secondary movement, outstanding or expense claims that a pharma business actually runs on." },
+      { label: "Not an enterprise pharma suite", body: "Large pharma platforms bundle e-detailing, closed-loop marketing and deep compliance modules, priced for national field forces. OZZO gives growing pharma companies the field discipline, coverage, ordering and claims — affordably." },
+      { label: "Not a plain CRM", body: "A CRM records contacts but has no GPS attendance, geo-stamped doctor calls, beat routes, offline stockist orders, trade levels or expense claims — you'd stitch several tools together. OZZO is one." },
+    ],
+    outcomes: [
+      { title: "The doctor call is finally on the record", body: "Who was met, what was detailed and what's next — visible to the manager the same day, not at month end." },
+      { title: "Coverage becomes a fact", body: "GPS-stamped calls and beat routes turn 'covered my territory' from a claim into evidence." },
+      { title: "Secondary and credit under control", body: "Primary vs secondary shows what's reaching chemists, while outstanding self-calculates and credit limits gate the next order." },
+      { title: "Claims stop being a monthly argument", body: "Expense claims arrive digitally and are approved against a real, GPS-stamped day in the field." },
+    ],
+    cockpit: {
+      header: "Today · Jaipur HQ",
+      headerBadge: "MR beat live",
+      sectionTitle: "One field app for the whole MR day",
+      sectionBody: "The doctor call, the chemist order, the stockist's outstanding and the day's travel claim — captured on one screen in the field, online or off.",
+      rows: [
+        { icon: "Stethoscope", title: "Dr. Iyer · Physician", subtitle: "Call logged · 3 products detailed", check: true, tone: "success" },
+        { icon: "ShoppingCart", title: "Sharma Medicals · Chemist", subtitle: "Order captured offline", value: "₹14,200" },
+        { icon: "ReceiptText", title: "Travel + DA claim", subtitle: "Submitted from the phone", badge: "Approved against GPS-stamped day", badgeTone: "primary" },
+      ],
+      meter: { label: "Stockist outstanding", value: "₹2.7L", sub: "/ ₹3.2L limit", fillPct: 84 },
+      chips: [
+        { label: "Coverage ✓ GPS-stamped", sub: "beat worked in order", tone: "gradient" },
+        { label: "Secondary tracked", sub: "stockist vs chemist", tone: "glass" },
+      ],
+    },
+    modules: ["Doctors/chemists/stockists as customer types", "Geo-stamped calls with custom fields", "Selfie + GPS attendance & live location", "Beat routes & territory master", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Expense claims (types, rate tiers, approval)", "Offline order capture"],
+    honestNote:
+      "OZZO runs the pharma field motion — doctor calls, coverage, chemist and stockist orders, secondary, outstanding and expense claims. It is NOT an e-detailing / closed-loop-marketing tool with digital visual aids, and it is NOT a regulatory system: it does not manage CDSCO or UCPMP compliance, drug-licence registers, serialisation / track-and-trace, or auditable physician-sample accountability. Batch and expiry can be captured as custom fields for your own reference, but formal traceability stays with your existing compliance system.",
+    faqs: [
+      { q: "Is OZZO built for pharmaceutical companies and MR teams?", a: "Yes. OZZO captures the pharma field day end to end — geo-stamped doctor calls, chemist and stockist coverage and orders, secondary visibility, outstanding and tour/DA expense claims — with selfie + GPS attendance and beat routes, in one system." },
+      { q: "Can OZZO be used for MR reporting and doctor-call tracking?", a: "Yes. Doctors are modelled as their own customer type and calls are geo-stamped with custom fields (speciality, products detailed, next call), so a medical representative's call report is captured on the spot and visible to managers the same day." },
+      { q: "Does OZZO handle MR tour, travel and DA expense claims?", a: "Yes. MRs submit claims from the phone against configurable expense types and rate tiers, and managers approve them on the web — alongside the rep's own GPS-stamped visit history and the Expense Report." },
+      { q: "Does OZZO do e-detailing or pharma regulatory compliance?", a: "No. OZZO is not an e-detailing/closed-loop-marketing tool, and it does not manage CDSCO or UCPMP compliance, drug-licence registers, serialisation/track-and-trace or auditable sample accountability. It runs your field sales, coverage, ordering, collections and claims around whatever compliance process you already have." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── SURGICAL & MEDICAL DEVICES
+  {
+    slug: "surgical-medical-devices-companies",
+    sector: "Pharma & Healthcare",
+    name: "Surgical & Medical Device Companies",
+    icon: "Scissors",
+    metaTitle: "Field sales software for surgical & medical device companies | OZZO",
+    metaDescription:
+      "OZZO is built for surgical and medical-device brands: surgeon & clinician engagement, long-cycle hospital and institutional deals, distributor coverage, branded quotations, and long hospital credit cycles under control — one field-sales system.",
+    keywords: ["surgical products distribution software", "medical device field sales software", "hospital sales CRM India", "surgical distributor management software", "medical device SFA India", "institutional sales software healthcare"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for surgical & medical device companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for surgical and medical-device companies that combines surgeon and clinician engagement, a CRM pipeline for long-cycle hospital and institutional deals, distributor and dealer coverage, branded PDF quotations and long-credit outstanding control in one field app. Reps log geo-stamped hospital and surgeon visits, move each institutional deal through stages, and book distributor orders offline at current prices.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for medical-device field teams: selfie + GPS attendance, live location and geo-tagged hospital, surgeon and distributor visits. So \"SFA for medical devices\", \"hospital sales CRM\" and \"surgical distributor management software\" are one system. Clinician engagement, institutional pipeline, distributor coverage, quotations and outstanding make OZZO a practical surgical and medical-device sales-tracking system.",
+      ],
+      keywords: ["SFA for medical devices", "surgical distributor management software", "hospital sales CRM India", "medical device field sales software", "institutional sales pipeline healthcare", "salesman tracking software for medical devices"],
+    },
+    tagline: "The surgeon specifies, the hospital committee buys, and the payment arrives months later. OZZO runs that whole long-cycle motion.",
+    intro:
+      "Surgical and device selling is specification-led and institutional: a surgeon or clinician decides what they'll use, a hospital or purchase committee actually buys it, distributors carry the stock, and credit cycles run long. OZZO gives you clinician engagement, an institutional pipeline, distributor coverage and credit control in one system.",
+    stats: [
+      { value: "Surgeon-led", label: "the clinician specifies the device or consumable the hospital then buys", note: "Industry reality" },
+      { value: "Long-cycle", label: "institutional and tender deals run for months through committees and approvals" },
+      { value: "Long credit", label: "hospital and institutional payment cycles stretch outstanding well beyond retail trade" },
+    ],
+    painPoints: [
+      { title: "The surgeon specifies — the hospital buys", body: "A clinician's preference decides which device or consumable is used, but the purchase runs through procurement, committees and approvals. You have to win two very different audiences, and most field tools see neither clearly." },
+      { title: "Long-cycle institutional and tender deals", body: "Hospital and institutional business runs for months across documents, approvals and revisions. Without stages, quotations and disciplined follow-up, deals stall silently and get chased on WhatsApp." },
+      { title: "Two channels at once — hospitals and distributors", body: "Direct institutional business runs alongside a distributor and dealer network carrying stock in the market. Coverage, orders and credit for the channel need managing while the long deals grind on." },
+      { title: "Long hospital credit cycles", body: "Institutional payments arrive long after supply, so outstanding stretches and ages. Without live outstanding, credit limits and an Ageing view, recovery slips and exposure builds quietly." },
+      { title: "A technical, specification-heavy catalogue", body: "Sizes, specifications, variants and consumable ranges make accurate quoting and ordering hard, and an error on a specification-led product is expensive to unwind." },
+    ],
+    solutions: [
+      { pain: "Engage surgeons & clinicians", how: "Model surgeons, clinicians and departments as their own customer type; log geo-stamped engagement visits with custom fields for what they specify, and keep that history alongside the hospital and distributor it flows through." },
+      { pain: "Run the institutional pipeline properly", how: "A CRM pipeline for hospital, institutional and tender deals — leads, stages, branded PDF quotations and next-step follow-ups — so long-cycle business has structure instead of memory." },
+      { pain: "Cover the distributor channel too", how: "Geo-tagged distributor and dealer visits with offline order capture from a full specification catalogue at current prices — the channel motion running beside the institutional one, on one customer record." },
+      { pain: "Control long-cycle credit", how: "Trade levels, self-calculating outstanding, credit limits enforced before the next order and an Ageing report — built for credit that ages far longer than retail trade." },
+      { pain: "Quote accurately from a technical catalogue", how: "A catalogue by category, size and specification with customer-specific price lists feeds branded PDF quotations, so a specification-led quote goes out right the first time." },
+    ],
+    workflow: [
+      { title: "Engage the clinician", body: "A geo-stamped visit to the surgeon or department, logging what they specify and the next step." },
+      { title: "Advance the institutional deal", body: "Move the hospital or tender deal a stage, send a branded PDF quotation and set the follow-up." },
+      { title: "Cover the distributor", body: "A distributor visit with an offline order from the specification catalogue at current prices." },
+      { title: "Collect on long credit", body: "Record collections against outstanding; credit limits and the Ageing report keep long institutional exposure visible." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a hospital — but not clinician engagement, an institutional pipeline, specification quoting, distributor orders or long-cycle outstanding." },
+      { label: "Not an enterprise FMCG SFA", body: "Devices are specification-led, institutional and long-cycle — the opposite of fast-moving packaged goods that enterprise CPG platforms are built and priced for." },
+      { label: "Not a plain CRM", body: "A CRM runs the pipeline but has no field visits, GPS attendance, offline distributor orders, trade levels or self-calculating outstanding — you'd run two disconnected systems." },
+    ],
+    outcomes: [
+      { title: "Clinician influence becomes visible", body: "Which surgeons your reps engaged and what they specify — feeding the institutional pipeline instead of living in memory." },
+      { title: "Long deals stop stalling", body: "Every hospital and tender deal has a stage, a quotation and a next step, so months-long business keeps moving." },
+      { title: "Both channels on one record", body: "Institutional business and the distributor beat run in one system, on one customer record and one login." },
+      { title: "Long credit stays visible", body: "Outstanding self-calculates and the Ageing report keeps stretched institutional exposure in view, early enough to act." },
+    ],
+    cockpit: {
+      header: "Today · Chennai hospitals",
+      headerBadge: "Institutional pipeline",
+      sectionTitle: "One field app for clinician + institution",
+      sectionBody: "The surgeon who specified, the hospital deal in the pipeline, the distributor's order and long-cycle outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "Stethoscope", title: "Dr. Rao · Ortho surgeon", subtitle: "Engagement visit · specifies your range", check: true, tone: "success" },
+        { icon: "Building2", title: "City Hospital · Tender", subtitle: "Quotation sent · committee review", badge: "Stage: Negotiation · follow-up Mon", badgeTone: "primary" },
+        { icon: "ShoppingCart", title: "Surgical consumables", subtitle: "Distributor order · captured offline", value: "₹1,18,000" },
+      ],
+      meter: { label: "Institutional outstanding", value: "₹8.4L", sub: "/ ₹10L limit", fillPct: 84 },
+      chips: [
+        { label: "Ageing watch", sub: "long hospital credit cycle", tone: "gradient" },
+        { label: "Quotation ✓ branded PDF", sub: "specification-led quote", tone: "glass" },
+      ],
+    },
+    modules: ["Surgeon/clinician engagement (customer type)", "CRM pipeline for hospital & tender deals", "Branded PDF quotations", "Specification catalogue & price lists", "Geo-tagged hospital & distributor visits", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Offline order capture"],
+    honestNote:
+      "OZZO runs the field and commercial motion — clinician engagement, institutional pipeline, quotations, distributor orders and long-cycle outstanding. It does NOT integrate with government e-procurement/tender portals or hospital HIS/ERP systems, and it is NOT a UDI/serialisation, device-regulatory or consignment-stock-at-hospital inventory system. Batch or lot can be captured as custom fields for your own reference; formal traceability stays with your existing systems.",
+    faqs: [
+      { q: "Is OZZO built for surgical and medical device companies?", a: "Yes. OZZO handles specification-led, institutional selling — surgeon and clinician engagement, a CRM pipeline for hospital and tender deals with branded quotations, distributor coverage and orders, and long-cycle outstanding — in one system." },
+      { q: "Can OZZO manage long hospital and tender sales cycles?", a: "Yes. Each institutional deal moves through pipeline stages with branded PDF quotations and next-step follow-ups, so months-long business has structure rather than living on WhatsApp and in memory." },
+      { q: "Does OZZO handle the long credit cycles of hospital business?", a: "Yes. Self-calculating outstanding, credit limits enforced before the next order and an Ageing report keep institutional exposure visible early — credit that ages far longer than retail trade." },
+      { q: "Does OZZO connect to tender portals or hospital systems?", a: "No. OZZO does not integrate with government e-procurement/tender portals or hospital HIS/ERP systems, and it is not a UDI/serialisation or consignment-inventory system. It runs your field engagement, pipeline, quotations, channel orders and collections alongside those." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── INJECTABLES & CRITICAL CARE
+  {
+    slug: "injectables-critical-care-companies",
+    sector: "Pharma & Healthcare",
+    name: "Injectables & Critical Care Companies",
+    icon: "Syringe",
+    metaTitle: "Field sales software for injectables & critical care companies | OZZO",
+    metaDescription:
+      "OZZO is built for injectable and critical-care pharma: hospital and institutional supply, a narrow high-value stockist network, batch & expiry captured in the field, long credit cycles and real coverage — one field-sales system.",
+    keywords: ["injectable pharma distribution software", "critical care pharma field sales", "hospital supply pharma software", "institutional pharma sales software", "injectables stockist management", "pharma SFA hospital channel"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for injectables & critical care",
+      body: [
+        "OZZO is a sales force automation (SFA) software for injectable and critical-care pharmaceutical companies that combines hospital and institutional supply, a narrow high-value stockist network, offline order capture, batch and expiry capture as custom fields, and long-cycle outstanding in one field app. Reps cover hospitals, institutions and stockists with geo-stamped visits, book orders on the spot, and record collections against a self-calculating outstanding.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for injectable field teams: selfie + GPS attendance, live location and geo-tagged hospital and stockist visits. So \"SFA for injectables\", \"hospital supply pharma software\" and \"institutional pharma sales software\" are one system. Institutional coverage, stockist orders, near-expiry visibility and credit control make OZZO a practical injectables and critical-care sales-tracking system.",
+      ],
+      keywords: ["SFA for injectables", "injectable pharma distribution software", "critical care pharma field sales software", "hospital supply pharma software", "institutional pharma sales software", "stockist management software injectables"],
+    },
+    tagline: "High-value consignments, a narrow stockist network, short-dated stock and hospital credit that ages. OZZO keeps that chain visible.",
+    intro:
+      "Injectables and critical care is a high-stakes, low-margin-for-error trade: consignments are valuable, the stockist network is narrow, batch and expiry matter enormously, and hospital credit stretches. OZZO gives you institutional coverage, stockist ordering, near-expiry visibility and credit control in one field system.",
+    stats: [
+      { value: "Hospital-led", label: "demand sits with hospitals, ICUs and institutions rather than retail counters", note: "Industry reality" },
+      { value: "Short-dated risk", label: "batch and expiry decide whether high-value stock sells or becomes a return" },
+      { value: "Narrow, high-value", label: "a small stockist network carrying expensive consignments on long credit" },
+    ],
+    painPoints: [
+      { title: "The channel is institutional, not retail", body: "Demand sits with hospitals, ICUs, nursing homes and institutional buyers rather than a wide chemist counter. Coverage means a small number of high-value relationships, each of which matters disproportionately." },
+      { title: "Batch and expiry decide the margin", body: "High-value injectable stock that goes short-dated at a stockist becomes a return and a write-off. Spotting near-expiry stock in the field — while it can still be moved — is the difference between a sale and a loss." },
+      { title: "Narrow network, concentrated exposure", body: "With few stockists carrying expensive consignments, one slow-paying or over-stocked partner is a material problem. Credit exposure is concentrated in a way retail trade never is." },
+      { title: "Long institutional credit cycles", body: "Hospital and institutional payments arrive well after supply. Outstanding ages, and without live visibility and limits, exposure builds quietly across a small number of large balances." },
+      { title: "Cold-chain and handling discipline", body: "Many injectables require controlled storage and careful handling through the chain. Handling failures destroy product value, and field teams need the visit discipline to check and record what they find." },
+    ],
+    solutions: [
+      { pain: "Cover institutions and stockists properly", how: "Hospitals, institutions and stockists as their own customer types with geo-stamped visits and custom fields — so a narrow, high-value network is covered deliberately, not casually." },
+      { pain: "Spot near-expiry while it can still move", how: "Capture batch and expiry as custom fields on orders and visits, so short-dated stock at a stockist is recorded in the field and can be acted on before it becomes a return." },
+      { pain: "Control concentrated credit exposure", how: "Self-calculating outstanding, credit limits enforced before the next order and an Ageing report — so a small number of large, ageing balances stay visible early." },
+      { pain: "Run institutional deals with structure", how: "A CRM pipeline for hospital and institutional supply — stages, branded PDF quotations and follow-ups — alongside the stockist beat on one customer record." },
+      { pain: "Hold field discipline on handling checks", how: "Geo-stamped visits with photos and custom fields let reps record storage and handling observations at the stockist or hospital, so issues are logged when they're seen." },
+    ],
+    workflow: [
+      { title: "Cover the institution", body: "A geo-stamped hospital or institution visit, with the supply requirement and next step recorded." },
+      { title: "Check stock & expiry", body: "At the stockist, record batch/expiry observations and photograph anything short-dated, before it ages out." },
+      { title: "Book the order", body: "Capture the order offline at current prices against the stockist's credit limit." },
+      { title: "Collect & watch ageing", body: "Record collections against outstanding; the Ageing report keeps concentrated institutional exposure in view." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a hospital — but not institutional supply pipeline, stockist orders, near-expiry capture or concentrated credit exposure." },
+      { label: "Not an enterprise FMCG SFA", body: "Injectables are high-value, institutional and expiry-critical — nothing like fast-moving packaged goods that enterprise CPG platforms are built and priced for." },
+      { label: "Not a cold-chain monitoring platform", body: "Temperature monitoring needs data loggers and IoT sensors. OZZO runs the commercial field motion around your cold chain — it does not replace the monitoring hardware or its records." },
+    ],
+    outcomes: [
+      { title: "A narrow network covered deliberately", body: "Every high-value hospital, institution and stockist relationship is visited on a plan and on the record." },
+      { title: "Short-dated stock caught in time", body: "Near-expiry observations are captured in the field, while the stock can still be moved rather than written off." },
+      { title: "Concentrated credit stays visible", body: "Outstanding self-calculates and the Ageing report surfaces large ageing balances early, not at reconciliation." },
+      { title: "Institutional supply has structure", body: "Hospital and institutional deals move through stages with quotations and follow-ups instead of drifting." },
+    ],
+    cockpit: {
+      header: "Today · Hyderabad institutions",
+      headerBadge: "Near-expiry check",
+      sectionTitle: "One field app for a high-value chain",
+      sectionBody: "The hospital supply requirement, the stockist's short-dated stock, the order and the ageing balance — captured on one screen in the field, online or off.",
+      rows: [
+        { icon: "Syringe", title: "Critical-care injectable", subtitle: "Stockist order · captured offline", value: "₹2,40,000" },
+        { icon: "FileWarning", title: "Near-expiry flagged", subtitle: "Batch/expiry noted + photo", badge: "Short-dated · move before ageing out", badgeTone: "amber" },
+        { icon: "Building2", title: "Apex Hospital · Supply", subtitle: "Requirement logged · quotation sent", check: true, tone: "success" },
+      ],
+      meter: { label: "Institutional outstanding", value: "₹11.2L", sub: "/ ₹13L limit", fillPct: 86 },
+      chips: [
+        { label: "Ageing watch", sub: "concentrated exposure", tone: "gradient" },
+        { label: "Handling check ✓ logged", sub: "photo on the visit", tone: "glass" },
+      ],
+    },
+    modules: ["Hospitals/institutions/stockists as customer types", "Geo-tagged visits with photos & custom fields", "Batch/expiry capture as custom fields", "CRM pipeline for institutional supply", "Outstanding, credit limits & Ageing", "Branded PDF quotations", "Offline order capture"],
+    honestNote:
+      "OZZO runs the commercial field motion — institutional and stockist coverage, orders, near-expiry observations, quotations and credit. It is explicitly NOT a cold-chain temperature-monitoring system (that needs data loggers/IoT sensors and their own records), and NOT a regulatory system: no serialisation/track-and-trace, no CDSCO compliance, no auditable batch traceability. Batch and expiry are captured as custom fields for your own commercial reference only.",
+    faqs: [
+      { q: "Is OZZO built for injectable and critical-care pharma companies?", a: "Yes. OZZO covers the institutional channel — hospitals, institutions and a narrow high-value stockist network — with geo-stamped visits, offline orders, batch/expiry capture as custom fields, an institutional pipeline and long-cycle credit control, in one system." },
+      { q: "Does OZZO monitor cold chain and storage temperature?", a: "No. Temperature monitoring requires data loggers and IoT sensors, which OZZO does not provide or replace. Reps can record storage and handling observations with photos and custom fields on a visit, but the cold-chain monitoring record stays with your dedicated system." },
+      { q: "Can OZZO help with near-expiry and short-dated stock?", a: "Yes, commercially. Batch and expiry can be captured as custom fields on orders and visits, so short-dated stock at a stockist is recorded in the field early enough to be moved — but this is for your own reference, not regulatory traceability." },
+      { q: "How does OZZO handle long hospital credit cycles?", a: "Self-calculating outstanding, credit limits enforced before the next order and an Ageing report keep a small number of large, ageing institutional balances visible early rather than at reconciliation." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── MEDICAL EQUIPMENT & DIAGNOSTICS
+  {
+    slug: "medical-equipment-diagnostics-companies",
+    sector: "Pharma & Healthcare",
+    name: "Medical Equipment & Diagnostics Companies",
+    icon: "Microscope",
+    metaTitle: "Field sales software for medical equipment & diagnostics companies | OZZO",
+    metaDescription:
+      "OZZO is built for medical equipment and diagnostic-device brands: the long demo-and-finance capital sale, recurring consumable & reagent reorders, service visits tracked to closure, dealer coverage and outstanding — one sales and field-service system.",
+    keywords: ["medical equipment field sales software", "diagnostic device distribution software", "medical device dealer management", "glucometer distribution software", "lab equipment sales CRM India", "medical equipment service visit app"],
+    seo: {
+      heading: "Sales force automation (SFA) & field service tracking for medical equipment & diagnostics",
+      body: [
+        "OZZO is a sales force automation (SFA) and field-service software for medical equipment and diagnostic-device companies that combines a CRM pipeline for the long demo-and-finance capital sale, recurring consumable and reagent reorders, service visits tracked to closure, dealer coverage and outstanding in one app. The machine is sold once but the strips, reagents and consumables recur — so OZZO keeps both motions on the same customer record.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for equipment field teams: selfie + GPS attendance, live location and geo-tagged hospital, lab, clinic and dealer visits. So \"SFA for medical equipment\", \"diagnostic device distribution software\" and \"field service app\" are one system. Capital-sale pipeline, consumable reorders, service visits, dealer coverage and GPS tracking make OZZO a practical medical-equipment sales, service and tracking system.",
+      ],
+      keywords: ["SFA for medical equipment", "diagnostic device distribution software", "medical equipment dealer management software", "field service app for medical devices", "consumable reorder tracking software", "lab equipment sales CRM India"],
+    },
+    tagline: "The machine sells once; the strips, reagents and service sell forever. OZZO runs the capital sale and the recurring pull together.",
+    intro:
+      "Diagnostics and medical equipment is really two businesses on one customer: a long, demo-led, financed capital sale, and the recurring consumable, reagent and service revenue that follows it for years. OZZO runs both — the pipeline, the reorders, the service visits and the credit — on one record.",
+    stats: [
+      { value: "Demo-led", label: "capital equipment is a considered, financed sale won on demonstration and trust", note: "Industry reality" },
+      { value: "Recurring pull", label: "strips, reagents and consumables — not the machine — carry the long-run revenue" },
+      { value: "Uptime sells", label: "service responsiveness decides the reference and the next machine" },
+    ],
+    painPoints: [
+      { title: "The capital sale is long, demo-led and financed", body: "A hospital, lab or clinic buying a machine evaluates, demos, compares and arranges finance over months. Without stages, quotations and follow-up discipline, a considered buyer simply goes quiet." },
+      { title: "The recurring consumable pull is invisible", body: "The real revenue is strips, reagents and consumables reordering for years after installation — but most companies can't see which installed customer is reordering on cycle and which has quietly switched or stopped." },
+      { title: "Service uptime decides the next sale", body: "A machine down at a lab is a reference lost. Service calls handled slowly, or not tracked to closure, cost far more than the visit — they cost the next purchase and the word-of-mouth." },
+      { title: "You don't know your own installed base", body: "Who has which machine, installed when, on what consumable cycle — this is usually scattered across spreadsheets and individuals, so proactive reorder and service follow-up is impossible." },
+      { title: "Two channels — direct and dealer", body: "Direct hospital and lab business runs alongside a dealer and distributor network, each needing coverage, orders and credit control, while the long capital deals grind on." },
+    ],
+    solutions: [
+      { pain: "Run the demo-and-finance capital sale", how: "A CRM pipeline for high-value equipment deals — stages, demo scheduling, branded PDF quotations, finance follow-up and next-step reminders — so no considered buyer goes quiet." },
+      { pain: "Make the recurring reorder visible", how: "Consumable and reagent reorders booked as offline counter orders against the same customer record, so reorder behaviour after installation is finally on the system and slipping cycles are visible." },
+      { pain: "Track service visits to closure", how: "Log service visits and tasks against the customer and machine and track them to closure — the responsiveness that wins the next sale, captured instead of assumed." },
+      { pain: "Record the installed base", how: "Capture machine, installation and consumable-cycle details as custom fields on the customer, so your installed base lives in the system rather than a spreadsheet." },
+      { pain: "Run both channels and control credit", how: "Geo-tagged hospital, lab, clinic and dealer visits with trade levels, self-calculating outstanding, credit limits and an Ageing report — both motions on one login." },
+    ],
+    workflow: [
+      { title: "Demo the machine", body: "A geo-stamped visit to the lab or hospital, demo logged, deal moved a stage with a branded quotation." },
+      { title: "Install & record", body: "Capture the installed machine and its consumable cycle as custom fields on the customer record." },
+      { title: "Keep the reorder flowing", body: "Consumable and reagent reorders captured offline at current prices, so the recurring pull is visible." },
+      { title: "Service & retain", body: "Service visits and tasks logged against the machine and tracked to closure — uptime protects the next sale." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a lab — but not a demo-and-finance pipeline, consumable reorder visibility, service-visit closure or installed-base records." },
+      { label: "Not an enterprise FMCG SFA", body: "Equipment is a considered, financed, service-led sale with recurring consumables — nothing like fast-moving packaged goods, and priced for a very different business." },
+      { label: "Not a full service / warranty ERP", body: "OZZO isn't a workshop, AMC-contract, warranty-claim or parts-inventory ERP — it runs the pipeline, reorders, service visits, coverage and outstanding alongside whatever back end you use." },
+    ],
+    outcomes: [
+      { title: "No considered buyer goes quiet", body: "Every capital deal has a stage, a demo, a quotation and a next step — months-long sales keep moving." },
+      { title: "The recurring pull becomes visible", body: "You can finally see which installed customers are reordering consumables on cycle and which are slipping." },
+      { title: "Service closes, and uptime sells", body: "Service visits and tasks are tracked to closure, protecting the reference that wins the next machine." },
+      { title: "Your installed base is on the system", body: "Machine, installation and consumable-cycle details live on the customer record, not in a spreadsheet." },
+    ],
+    cockpit: {
+      header: "Today · Bengaluru labs",
+      headerBadge: "Installed base live",
+      sectionTitle: "One app for the machine and everything after it",
+      sectionBody: "The demo-and-finance deal, the reagent reorder, the service visit and the dealer's outstanding — on one screen in the field, online or off.",
+      rows: [
+        { icon: "Microscope", title: "Analyser · demo scheduled", subtitle: "Finance follow-up set", badge: "Stage: Demo → Quotation sent", badgeTone: "primary" },
+        { icon: "Repeat", title: "Reagent reorder · monthly", subtitle: "Captured offline · on cycle", value: "₹36,500" },
+        { icon: "Wrench", title: "Service visit · closed", subtitle: "Logged against the machine", check: true, tone: "success" },
+      ],
+      meter: { label: "Dealer outstanding", value: "₹3.6L", sub: "/ ₹4.5L limit", fillPct: 80 },
+      chips: [
+        { label: "Installed base ✓ recorded", sub: "machine + consumable cycle", tone: "gradient" },
+        { label: "Uptime protects the next sale", sub: "service tracked to closure", tone: "glass" },
+      ],
+    },
+    modules: ["CRM pipeline (demos, quotations, finance follow-up)", "Consumable & reagent reorder capture (offline)", "Service visits & tasks tracked to closure", "Installed-base details as custom fields", "Geo-tagged hospital, lab & dealer visits", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "Branded PDF quotations"],
+    honestNote:
+      "OZZO runs the field motion — capital-sale pipeline, consumable reorders, service visits and tasks, coverage and outstanding. It is NOT a workshop, AMC-contract-management, warranty-claim or spare-parts-inventory ERP, and NOT a device calibration/QC, UDI or regulatory system. Installed-base details are captured as custom fields on the customer, which is a practical record — not a full asset-management module.",
+    faqs: [
+      { q: "Is OZZO built for medical equipment and diagnostic device companies?", a: "Yes. OZZO runs both sides of the business — the long demo-and-finance capital sale through a CRM pipeline, and the recurring consumable/reagent reorders, service visits and dealer coverage that follow — on one customer record." },
+      { q: "Can OZZO track consumable and reagent reorders after installation?", a: "Yes. Reorders are booked as offline counter orders against the same customer record, so reorder behaviour after installation is visible and slipping cycles can be acted on — the recurring revenue that matters most." },
+      { q: "Does OZZO handle service visits and AMC?", a: "OZZO logs service visits and tasks against the customer and machine and tracks them to closure. It is not an AMC-contract-management, warranty-claim or parts-inventory ERP — it runs the field service motion alongside whatever back-end system you use." },
+      { q: "Can OZZO record our installed base?", a: "Yes, practically. Machine, installation and consumable-cycle details are captured as custom fields on the customer record, so your installed base lives in the system rather than a spreadsheet — though it is not a full asset-management module." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── AYURVEDIC & NUTRACEUTICAL
+  {
+    slug: "ayurvedic-nutraceutical-companies",
+    sector: "Pharma & Healthcare",
+    name: "Ayurvedic & Nutraceutical Companies",
+    icon: "Leaf",
+    metaTitle: "Field sales software for ayurvedic & nutraceutical companies | OZZO",
+    metaDescription:
+      "OZZO is built for ayurvedic, herbal and nutraceutical brands: a dual OTC-retail and practitioner-ethical motion, wide chemist & general-trade coverage, reorder and secondary visibility, trade schemes, expiry returns and outstanding — one field-sales system.",
+    keywords: ["ayurvedic company field sales software", "nutraceutical distribution software", "herbal products distributor management", "ayurvedic SFA India", "nutraceutical retail execution software", "wellness products field sales"],
+    seo: {
+      heading: "Sales force automation (SFA) & field tracking for ayurvedic & nutraceutical companies",
+      body: [
+        "OZZO is a sales force automation (SFA) software for ayurvedic, herbal and nutraceutical companies that combines wide chemist and general-trade coverage, offline order booking, practitioner engagement for the ethical range, trade schemes, near-expiry returns and outstanding in one field app. These brands sell two ways at once — OTC pull at the counter and practitioner-recommended ethical lines — and OZZO keeps both on one customer record.",
+        "It is also field-force tracking (WFA) and salesman location tracking software for wellness field teams: selfie + GPS attendance, live location, beat routes and geo-tagged retailer and practitioner visits. So \"SFA for ayurvedic companies\", \"nutraceutical distribution software\" and \"salesman tracking software\" are one system. Retail coverage, reorder and secondary visibility, schemes, expiry returns and GPS tracking make OZZO a practical ayurvedic and nutraceutical sales-tracking system.",
+      ],
+      keywords: ["SFA for ayurvedic companies", "nutraceutical distribution software", "herbal products distributor management software", "ayurvedic retail execution software", "order booking app for nutraceutical distributors", "salesman tracking software for wellness brands"],
+    },
+    tagline: "Half your range sells off the shelf, half on a practitioner's word — across a huge, fragmented counter universe. OZZO runs both.",
+    intro:
+      "Ayurvedic and nutraceutical brands run a genuinely dual motion: an OTC range that lives or dies on retail execution across a vast chemist and general-trade universe, and an ethical range recommended by practitioners. Add herbal shelf-life and scheme-driven trade, and you need one system for all of it. That's OZZO.",
+    stats: [
+      { value: "Dual motion", label: "OTC shelf pull plus a practitioner-recommended ethical range", note: "Industry reality" },
+      { value: "Wide & fragmented", label: "chemists, general trade, wellness stores and modern trade all at once" },
+      { value: "Shelf-life", label: "herbal and nutraceutical formulations date — slow movers become returns" },
+    ],
+    painPoints: [
+      { title: "Two motions, one field team", body: "The OTC range needs classic retail execution — coverage, assortment, schemes — while the ethical range depends on practitioners recommending it. Most tools handle one motion, so half the business runs on memory." },
+      { title: "A vast, fragmented counter universe", body: "Chemists, general trade, wellness stores and modern trade, spread thin. Covering it productively — an assortment check and an order, not just a face shown — is the whole game and very hard to verify." },
+      { title: "The reorder blindspot", body: "Primary billing to the distributor says nothing about whether product is moving off the shelf and reordering. Slow secondary quietly becomes near-expiry stock and returns." },
+      { title: "Shelf-life and near-expiry returns", body: "Herbal and nutraceutical formulations date. Slow-moving stock at a counter ages into a return and a write-off unless it's spotted on the visit while it can still be moved." },
+      { title: "Scheme-driven, seasonal trade", body: "Constant retailer schemes, slabs and seasonal or festive spikes. Applying the right scheme at the counter and knowing who's enrolled is a full-time job on paper." },
+    ],
+    solutions: [
+      { pain: "Run OTC retail execution properly", how: "Beat routes and productive coverage with must-stock assortment checks and offline order capture, so every call produces an order or a flagged gap — not just a visit." },
+      { pain: "Engage practitioners for the ethical range", how: "Model ayurvedic practitioners and wellness professionals as their own customer type, with geo-stamped engagement visits and custom fields for what they recommend — alongside the counters that stock it." },
+      { pain: "See reorders and secondary", how: "Trade levels with automatic primary/secondary tagging, so you see whether product is actually reordering at the counter rather than just billed to the distributor." },
+      { pain: "Catch near-expiry before it's a write-off", how: "Record near-expiry and damage returns against the outlet on the visit, and capture batch/expiry as custom fields — so ageing stock is caught early, not at reconciliation." },
+      { pain: "Apply schemes without paperwork", how: "Central schemes and slabs apply at the counter automatically with enrolment tracked per retailer, and outstanding self-calculates with credit limits and an Ageing report." },
+    ],
+    workflow: [
+      { title: "Work the counter beat", body: "Geo-stamped retailer visit with a must-stock assortment check and an offline order at current prices." },
+      { title: "Catch ageing stock", body: "Record near-expiry or damaged stock at the outlet so it can be moved or returned before it's a write-off." },
+      { title: "Engage the practitioner", body: "A geo-stamped visit to an ayurvedic practitioner, logging what they recommend for the ethical range." },
+      { title: "Collect & see reorders", body: "Record collections against outstanding; primary vs secondary shows what's genuinely reordering." },
+    ],
+    whyNotOthers: [
+      { label: "Not just a field-tracking app", body: "A tracker shows a rep reached a shop — but not assortment, reorder and secondary visibility, practitioner engagement, expiry returns or outstanding." },
+      { label: "Not an enterprise CPG SFA", body: "Enterprise platforms with AI shelf-audit are built and priced for national brands. OZZO gives growing ayurvedic and nutraceutical brands the execution and visibility that matter, affordably." },
+      { label: "Not a plain CRM", body: "A CRM records contacts but has no beat routes, GPS attendance, offline counter orders, assortment checks, trade levels or self-calculating outstanding." },
+    ],
+    outcomes: [
+      { title: "Both motions on one record", body: "OTC retail execution and practitioner engagement run in one system, so no half of the business is invisible." },
+      { title: "Coverage becomes productive", body: "Every call carries an assortment check and an order or a flagged gap — not just a visit marked done." },
+      { title: "Reorders and ageing stock are visible", body: "Primary vs secondary shows real movement, and near-expiry is caught on the visit while it can still be moved." },
+      { title: "Schemes land and credit holds", body: "The right scheme applies at the counter, outstanding self-calculates and credit limits gate the next order." },
+    ],
+    cockpit: {
+      header: "Today · Lucknow beat",
+      headerBadge: "Assortment check",
+      sectionTitle: "One field app for shelf and practitioner",
+      sectionBody: "The counter order and assortment gap, the near-expiry catch, the practitioner who recommends your ethical range and the retailer's outstanding — on one screen, online or off.",
+      rows: [
+        { icon: "Leaf", title: "Herbal immunity range", subtitle: "Must-stock · order offline", value: "₹8,900" },
+        { icon: "FileWarning", title: "Near-expiry spotted", subtitle: "Recorded at the outlet", badge: "Move now or it's a return", badgeTone: "amber" },
+        { icon: "UserRound", title: "Vaidya Sharma · Practitioner", subtitle: "Recommends ethical range", check: true, tone: "success" },
+      ],
+      meter: { label: "Retailer outstanding", value: "₹42,000", sub: "/ ₹50k limit", fillPct: 84 },
+      chips: [
+        { label: "Productive call ✓", sub: "assortment + order", tone: "gradient" },
+        { label: "Reorder ✓ tracked", sub: "primary vs secondary", tone: "glass" },
+      ],
+    },
+    modules: ["Beat routes & productive coverage", "Must-stock assortment & offline orders", "Practitioner engagement (customer type)", "Near-expiry & damage returns at the outlet", "Trade schemes & price lists", "Trade levels & primary/secondary", "Outstanding, credit limits & Ageing", "WhatsApp CRM & Daily Sales Report"],
+    honestNote:
+      "OZZO runs your field execution — coverage, assortment, orders, practitioner engagement, returns, schemes, secondary and outstanding. It is NOT an AYUSH or FSSAI regulatory-compliance system, and not a lot-traceability or licensing-register tool. Batch and expiry can be captured as custom fields for your own commercial reference; formal traceability and compliance stay with your existing process.",
+    faqs: [
+      { q: "Is OZZO built for ayurvedic and nutraceutical companies?", a: "Yes. OZZO runs the dual motion these brands have — OTC retail execution across a wide chemist and general-trade universe, and practitioner engagement for the ethical range — with orders, schemes, near-expiry returns, secondary visibility and outstanding in one system." },
+      { q: "Can OZZO handle both our OTC range and our practitioner-recommended range?", a: "Yes. Retailers and practitioners are modelled as separate customer types, so counter coverage and practitioner engagement are tracked distinctly but live on one system and one customer record." },
+      { q: "Does OZZO help with near-expiry stock and returns?", a: "Yes. Reps record near-expiry and damage returns against the outlet on the visit and can capture batch/expiry as custom fields, so ageing herbal stock is caught while it can still be moved rather than written off at reconciliation." },
+      { q: "Does OZZO handle AYUSH or FSSAI compliance?", a: "No. OZZO is not a regulatory-compliance or lot-traceability system. It runs your field sales, coverage, ordering, returns, schemes and collections alongside whatever compliance process you already have." },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
