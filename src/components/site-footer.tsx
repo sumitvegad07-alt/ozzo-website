@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MessageCircle, Play } from "lucide-react";
 import { brand, contact, productLines } from "@/lib/site";
@@ -38,8 +39,13 @@ export function SiteFooter() {
           <div className="col-span-2 md:col-span-4">
             <span className="flex items-center">
               {/* Footer sits on the dark ink background — use the neon dark variant. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/logo-dark.png" alt={brand.name} className="h-9 w-auto" />
+              <Image
+                src="/brand/logo-dark.webp"
+                alt={brand.name}
+                width={440}
+                height={107}
+                className="h-9 w-auto"
+              />
             </span>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
               Close every loop. CRM, field workforce and sales &amp; distribution

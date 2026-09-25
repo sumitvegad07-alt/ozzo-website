@@ -1,6 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import { brand } from "@/lib/site";
 import { cn } from "@/lib/utils";
+
+// Intrinsic size of the WebP wordmark. It is authored at 440px wide — 3x the
+// largest on-screen render (h-9 / 36px) — so it stays crisp on retina while
+// costing ~10KB instead of the 268KB PNG it replaced.
+const LOGO_W = 440;
+const LOGO_H = 107;
 
 export function Logo({
   className,
@@ -18,10 +25,12 @@ export function Logo({
       className={cn("group flex items-center", className)}
       aria-label={`${brand.name} home`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/brand/logo-light.png"
+      <Image
+        src="/brand/logo-light.webp"
         alt={brand.name}
+        width={LOGO_W}
+        height={LOGO_H}
+        priority
         className={cn(
           "w-auto transition-transform group-hover:scale-105",
           height,

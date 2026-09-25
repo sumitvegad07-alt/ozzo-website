@@ -6,7 +6,11 @@ import { industries } from "@/lib/industries";
 import { sectors } from "@/lib/sectors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // NOTE: deliberately no `lastModified` on entries whose real edit date we do
+  // not track. Stamping every URL with the build time told Google that all 60
+  // pages changed on every deploy, which is inaccurate — Google's guidance is
+  // to omit lastmod rather than supply one it will learn to distrust. Blog
+  // posts carry a genuine per-post date and keep theirs.
   const routes: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "/", priority: 1, freq: "weekly" },
     { path: "/products", priority: 0.9, freq: "weekly" },
@@ -26,7 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries = routes.map((r) => ({
     url: `${SITE_URL}${r.path}`,
-    lastModified: now,
     changeFrequency: r.freq,
     priority: r.priority,
   }));
@@ -40,14 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const compareEntries: MetadataRoute.Sitemap = comparisons.map((c) => ({
     url: `${SITE_URL}/compare/${c.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.75,
   }));
 
   const industryEntries: MetadataRoute.Sitemap = industries.map((i) => ({
     url: `${SITE_URL}/industries/${i.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.75,
   }));
@@ -55,7 +56,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Sector overview pages (parent-category hubs above the sub-industries).
   const sectorEntries: MetadataRoute.Sitemap = sectors.map((s) => ({
     url: `${SITE_URL}/industries/${s.slug}`,
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
