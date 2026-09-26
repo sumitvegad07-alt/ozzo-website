@@ -69,10 +69,10 @@ export const plans: Plan[] = [
     ringClass: "ring-cyan-500/20",
     inherits: null,
     blurb:
-      "Workforce Automation. Selfie-and-GPS attendance, live location, geo-tagged visits and beat routes your reps actually work in order.",
+      "Workforce Automation. Selfie-and-GPS attendance, live location, geo-tagged visits and territory your reps actually work in order.",
     highlights: [
       "Selfie + GPS attendance & live location",
-      "Geo-tagged visits & beat routes",
+      "Geo-tagged visits & territory",
       "Territory management",
       "Expense claims with auto distance",
     ],
@@ -232,8 +232,8 @@ export const featureGroups: FeatureGroup[] = [
     icon: "Route",
     rows: [
       { feature: "Geo-tagged customer & lead visits", line: "wfa" },
-      { feature: "Beat / route planning & calendar", line: "wfa" },
-      { feature: "Route compliance — skip needs a reason", line: "wfa" },
+      { feature: "Beat / route planning & calendar", line: "sfa" },
+      { feature: "Route compliance — skip needs a reason", line: "sfa" },
       { feature: "Territory master (country → state → city → area)", line: "wfa" },
       { feature: "Area-wise assignment of reps & customers", line: "wfa" },
       { feature: "Productive-visit reporting", note: "A visit that produced an order", line: "wfa" },
@@ -356,7 +356,7 @@ export const planFaqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the difference between WFA and SFA?",
-    a: "WFA is field visibility: attendance, GPS, live location, geo-tagged visits, routes, territory and expenses. SFA is the full field-sales line and always includes WFA, adding order capture, payment collection, outstanding, stock, schemes and distributor/dealer management on top. You move up a line, not across to another product.",
+    a: "WFA is field visibility: attendance, GPS, live location, geo-tagged visits, territory and expenses. SFA is the full field-sales line and always includes WFA, adding beat/route management, order capture, payment collection, outstanding, stock, schemes and distributor/dealer management on top. You move up a line, not across to another product.",
   },
   {
     q: "Can I combine plans or upgrade later?",
