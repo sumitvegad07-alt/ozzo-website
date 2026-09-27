@@ -42,13 +42,16 @@ export const STATUTORY_RECORD_YEARS = 6;
  *
  * MUST be kept true. Publishing an intended location as a current one is a
  * false statement on a public page, and hosting location is exactly what an
- * enterprise buyer's security review checks first. Update `current` only when
- * the migration has actually completed.
+ * enterprise buyer's security review checks first.
+ *
+ * Moved from Singapore (ap-southeast-1) to Mumbai on 27 September 2026 and
+ * verified before this line changed: the database, all 37 logins and all 322
+ * stored files are in Mumbai, and app.ozzo.co.in serves from it.
  */
 export const HOSTING = {
-  current: "Singapore (AWS ap-southeast-1)",
-  planned: "Mumbai, India (AWS ap-south-1)",
-  migrationInProgress: true,
+  current: "Mumbai, India (AWS ap-south-1)",
+  planned: null,
+  migrationInProgress: false,
 } as const;
 
 /**
