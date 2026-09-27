@@ -24,6 +24,18 @@ const nextConfig: NextConfig = {
       // tier ("WFA Starter") of Sales Force Automation. Preserve any inbound
       // links / SEO with a permanent redirect.
       { source: "/products/wfa", destination: "/products/sfa", permanent: true },
+
+      // Legal pages consolidated to three: Privacy Policy, Terms of Service and
+      // Cookie Policy. Retention and security moved into the Privacy Policy;
+      // refunds and delivery into the Terms. The old URLs are redirected rather
+      // than removed — /privacy-policy in particular is the link registered in
+      // the Google Play Console for the OZZO SALES app, and a 404 there is a
+      // store-listing problem, not just a broken link.
+      { source: "/privacy-policy", destination: "/privacy", permanent: true },
+      { source: "/data-retention", destination: "/privacy#retention", permanent: true },
+      { source: "/data-security", destination: "/privacy#security", permanent: true },
+      { source: "/refund-policy", destination: "/terms#refunds", permanent: true },
+      { source: "/shipping-policy", destination: "/terms#delivery", permanent: true },
     ];
   },
   async headers() {
