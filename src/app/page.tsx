@@ -22,7 +22,7 @@ import { OrderGuards } from "@/components/motion/order-guards";
 import { WhatsAppThread } from "@/components/motion/whatsapp-thread";
 import { JsonLd, faqSchema, softwareApplicationSchema } from "@/lib/seo";
 import { productLines } from "@/lib/site";
-import { plans, featureGroups } from "@/lib/plans";
+import { plans, featureGroups, STARTING_FROM } from "@/lib/plans";
 import {
   removed,
   dayTimeline,
@@ -450,8 +450,8 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="Plans & packages"
-            title="Start with the line that fits your team"
-            description="Buy the front office, field visibility, or full field sales — and grow into the rest on the same data. No public price tags; a package built around your team, quoted on a quick call."
+            title="Plans starting from ₹5,000 only"
+            description="Buy the front office, field visibility, or full field sales — and grow into the rest on the same data. Tell us your team size and we'll put an exact figure in front of you on a quick call."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (

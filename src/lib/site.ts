@@ -15,8 +15,11 @@ export const brand = {
   // Registered legal entity name (confirmed) — feeds Organization schema.
   legalName: "OZZO Technologies",
   tagline: "CRM, Workforce & Field Sales — in one platform",
+  // Feeds the root metadata description AND the SoftwareApplication schema, so
+  // the entry price stated here is what search engines and AI assistants read
+  // first. Keep it to that one number — per-user rates stay off the site.
   description:
-    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI.",
+    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI. Plans starting from ₹5,000 only.",
   // Where prospects sign in / sign up. Kept OFF the marketing pages
   // on purpose — this is the separate app URL only.
   appUrl: "https://app.ozzo.co.in",

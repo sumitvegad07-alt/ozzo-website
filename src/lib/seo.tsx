@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE_URL, brand, contact, productLines } from "./site";
+import { STARTING_PRICE_INR } from "./plans";
 
 /** Build per-page metadata with sensible OG/Twitter/canonical defaults. */
 export function pageMetadata(opts: {
@@ -90,14 +91,26 @@ export function softwareApplicationSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android",
     description: brand.description,
-    offers: productLines.map((p) => ({
-      "@type": "Offer",
-      name: `${brand.name} ${p.name}`,
-      description: p.summary,
+    // An AggregateOffer with a real lowPrice is what lets Google and the AI
+    // engines answer "how much is OZZO" with a number instead of "pricing is not
+    // published". An Offer with priceCurrency and no price is ignored by both.
+    offers: {
+      "@type": "AggregateOffer",
       priceCurrency: "INR",
+      lowPrice: String(STARTING_PRICE_INR),
+      offerCount: productLines.length,
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/plans`,
-    })),
+      offers: productLines.map((p) => ({
+        "@type": "Offer",
+        name: `${brand.name} ${p.name}`,
+        description: p.summary,
+        priceCurrency: "INR",
+        price: String(STARTING_PRICE_INR),
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/plans`,
+      })),
+    },
   };
 }
 
@@ -123,6 +136,7 @@ export function productSchema(slug: string) {
     publisher: { "@type": "Organization", name: brand.legalName },
     offers: {
       "@type": "Offer",
+      price: String(STARTING_PRICE_INR),
       priceCurrency: "INR",
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/plans`,

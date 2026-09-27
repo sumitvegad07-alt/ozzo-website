@@ -17,6 +17,7 @@ import { Container } from "@/components/ui";
 import { CountUp } from "@/components/count-up";
 import { brand } from "@/lib/site";
 import { productStats } from "@/lib/content";
+import { STARTING_FROM } from "@/lib/plans";
 
 /**
  * Home hero — dark, glowing, "command-centre" treatment (the bold direction
@@ -159,6 +160,17 @@ export function HomeHero() {
                 See how the day flows
               </Link>
             </div>
+
+            {/* The one price the public site states, in the first screenful.
+                Single source: STARTING_FROM in lib/plans.ts. */}
+            <Link
+              href="/plans"
+              className="animate-fade-up mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.07] px-4 py-2 text-base font-extrabold text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/40"
+              style={{ animationDelay: "320ms" }}
+            >
+              {STARTING_FROM}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
 
             <div
               className="animate-fade-up mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-white/60"

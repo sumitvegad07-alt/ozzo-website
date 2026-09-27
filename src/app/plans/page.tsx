@@ -20,13 +20,13 @@ import {
   faqSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
-import { plans, setsApart, includedEverywhere, planFaqs } from "@/lib/plans";
+import { plans, setsApart, includedEverywhere, planFaqs, STARTING_FROM } from "@/lib/plans";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
-  title: "Plans & Packages — CRM, WFA & SFA",
+  title: "Plans & Packages — starting from ₹5,000",
   description:
-    "Compare OZZO plans module by module — CRM, WFA, CRM + WFA, SFA and CRM + SFA. Attendance, GPS, visits, orders, collections, auto-outstanding, stock, schemes and WhatsApp CRM, laid out plan by plan. Book a demo for a package built for your team.",
+    "Plans starting from ₹5,000 only. Compare OZZO plans module by module — CRM, WFA, CRM + WFA, SFA and CRM + SFA. Attendance, GPS, visits, orders, collections, auto-outstanding, stock, schemes and WhatsApp CRM, laid out plan by plan. Book a demo for a package built for your team.",
   path: "/plans",
   keywords: [
     "field sales software plans",
@@ -36,6 +36,9 @@ export const metadata = pageMetadata({
     "attendance and order management app",
     "distributor management plans",
     "compare field sales features",
+    "field sales software price India",
+    "affordable sales force automation",
+    "SFA software starting price",
   ],
 });
 
@@ -65,7 +68,10 @@ export default function PlansPage() {
             Plans that grow with your{" "}
             <span className="ozzo-gradient-bright">field team</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
+          <p className="ozzo-display mx-auto mt-5 text-2xl text-white md:text-3xl">
+            <span className="ozzo-gradient-bright">{STARTING_FROM}</span>
+          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
             Five plans built from three product lines — CRM, WFA and SFA. Buy the
             combination that fits how your team works, and add the rest on the same data
             whenever you&apos;re ready. Every module below is live in production.

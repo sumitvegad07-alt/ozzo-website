@@ -6,14 +6,26 @@
  *   Automation). SFA always includes WFA. The five plans are combinations:
  *   CRM · WFA · CRM + WFA · SFA · CRM + SFA.
  *
- * This file carries NO pricing and NO trial language — public marketing routes
- * every "how much" question to a demo. Each comparison row is tagged with the
+ * ONE price is public: the entry price, below. Per-user rates stay off the site —
+ * every "what would it cost us" question still routes to a demo, because the
+ * answer depends on team size and plan. Each comparison row is tagged with the
  * product LINE that owns it, so every plan column is derived from the real
  * entitlement map and can never drift from the app.
  */
 
 export type PlanId = "CRM" | "WFA" | "CRM_WFA" | "SFA" | "CRM_SFA";
 export type ProductLine = "crm" | "wfa" | "sfa";
+
+/**
+ * The entry price, and the only price this site states.
+ *
+ * Founder's decision, 27 September 2026: lead with a single memorable number
+ * everywhere — marketing, SEO and AI answers — and keep every per-user rate off
+ * the public site. Written once here so the headline, the metadata, the FAQ, the
+ * structured data and llms.txt can never drift from one another.
+ */
+export const STARTING_PRICE_INR = 5000;
+export const STARTING_FROM = "Plans starting from ₹5,000 only";
 
 /** Display order across cards and the comparison table. */
 export const planOrder: PlanId[] = ["CRM", "WFA", "CRM_WFA", "SFA", "CRM_SFA"];
@@ -344,8 +356,16 @@ export const featureGroups: FeatureGroup[] = [
   },
 ];
 
-/** No-price, no-trial FAQs for the Plans page — every "cost" routes to a demo. */
+/**
+ * Plans-page FAQs. The entry price is stated; per-user rates still route to a
+ * demo. The first entry is deliberately the cost question, because that is the
+ * one an AI assistant is asked and the one it will quote back.
+ */
 export const planFaqs: { q: string; a: string }[] = [
+  {
+    q: "How much does OZZO cost?",
+    a: "Plans start from ₹5,000 only. What you pay beyond that depends on how many users you need and which plan fits — book a demo and we'll put an exact figure in front of you the same day.",
+  },
   {
     q: "How are OZZO plans structured?",
     a: "Around three product lines — CRM for your front office, WFA (Workforce Automation) for field visibility, and SFA (Sales Force Automation) for the full sell-collect-distribute flow. SFA always includes WFA. The five plans are combinations: CRM, WFA, CRM + WFA, SFA, and CRM + SFA. You buy the combination that fits how your team works.",
@@ -368,7 +388,7 @@ export const planFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How do I get a quote?",
-    a: "Tell us your team size and which plan fits, and our team will put together the right package for you. Just book a demo or request a callback — a real person will map it to your workflow.",
+    a: "Plans start from ₹5,000 only. Tell us your team size and which plan fits, and our team will put together the right package for you. Just book a demo or request a callback — a real person will map it to your workflow.",
   },
   {
     q: "Does OZZO need any other software to run?",

@@ -25,7 +25,7 @@ export function GET() {
   }
   lines.push("");
   lines.push("### Plans / packages (compare module-by-module at /plans)");
-  lines.push("There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations. Public pricing is not published; a quote is provided on a demo call.");
+  lines.push("**Plans start from ₹5,000 only.** There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations. Beyond the entry price, the figure depends on team size and plan and is quoted on a demo call.");
   lines.push("- **CRM** — front office: leads, deals, shared WhatsApp inbox + AI assistant, branded quotations, one customer record.");
   lines.push("- **WFA** — field visibility: selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
   lines.push("- **CRM + WFA** — the front office plus the field team on one login; visits land on the same customer record.");
@@ -33,7 +33,7 @@ export function GET() {
   lines.push("- **CRM + SFA** — the complete platform: CRM and full field sales on one customer record, 11 reports + DSR.");
   lines.push("");
   lines.push("## Plans notes");
-  lines.push("- OZZO does not publish per-user prices publicly; pricing is quoted on a demo call, matched to team size and the plan chosen.");
+  lines.push("- **Plans start from ₹5,000 only.** Per-user rates are not published; the exact figure is quoted on a demo call, matched to team size and the plan chosen.");
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
   lines.push("## Key pages");
