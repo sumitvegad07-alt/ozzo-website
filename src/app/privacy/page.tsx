@@ -1,6 +1,8 @@
 import { Container } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 import { brand, contact } from "@/lib/site";
+import Link from "next/link";
+import { GRIEVANCE_OFFICER } from "@/lib/policies";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy",
@@ -56,6 +58,43 @@ export default function PrivacyPage() {
           <p>
             You can ask us to access, correct or delete the information you have shared at any time by
             contacting us.
+          </p>
+
+          <h2>How long we keep it</h2>
+          <p>
+            Enquiry details are kept only as long as needed to respond to you and to keep a record
+            of the conversation. How long we keep data inside the OZZO product is set out
+            separately in our{" "}
+            <Link href="/data-retention" className="font-semibold text-primary hover:underline">
+              Data Retention Policy
+            </Link>
+            , and the measures protecting it are described in our{" "}
+            <Link href="/data-security" className="font-semibold text-primary hover:underline">
+              Data Security Policy
+            </Link>
+            .
+          </p>
+
+          <h2>Grievance Officer</h2>
+          <p>
+            In accordance with the Digital Personal Data Protection Act, 2023, the following person
+            may be contacted about any complaint or request concerning your personal data:
+          </p>
+          <p>
+            <strong className="text-foreground">{GRIEVANCE_OFFICER.name}</strong>
+            <br />
+            {GRIEVANCE_OFFICER.title}, {brand.legalName}
+            <br />
+            <a
+              href={`mailto:${GRIEVANCE_OFFICER.email}`}
+              className="font-semibold text-primary hover:underline"
+            >
+              {GRIEVANCE_OFFICER.email}
+            </a>
+          </p>
+          <p>
+            We will acknowledge your request and respond within{" "}
+            {GRIEVANCE_OFFICER.responseDays} days.
           </p>
 
           <h2>Contact</h2>

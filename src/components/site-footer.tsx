@@ -16,6 +16,10 @@ const policies = [
   { label: "Blog", href: "/blog" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
+  { label: "Refund & Cancellation", href: "/refund-policy" },
+  { label: "Data Retention", href: "/data-retention" },
+  { label: "Data Security", href: "/data-security" },
+  { label: "Delivery & Activation", href: "/shipping-policy" },
 ];
 
 const products = [
