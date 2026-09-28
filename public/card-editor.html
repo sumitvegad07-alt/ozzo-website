@@ -94,7 +94,7 @@
         <h2>Links & socials</h2>
         <div id="links"></div>
         <button class="btn ghost" id="add-link">＋ Add a link</button>
-        <div class="hint" style="margin-top:8px">Toggle any row off to hide it. Add Instagram, YouTube, Facebook, LinkedIn, X, Telegram, a maps pin, or a custom link — paste the full URL.</div>
+        <div class="hint" style="margin-top:8px">Toggle any row off to hide it. Add an alternate number, Instagram, YouTube, Facebook, LinkedIn, X, Telegram, a maps pin, or a custom link — paste the full URL.</div>
       </div>
     </div>
 
@@ -121,6 +121,7 @@
 const TYPE_DEFAULTS = {
   email:     {label:"Email me",            sub:"Work email",           ph:"you@company.com"},
   phone:     {label:"Call me",             sub:"Mobile · tap to call", ph:"+919876543210"},
+  altphone:  {label:"",                    sub:"Alternate · tap to call", ph:"+919876543210"},
   whatsapp:  {label:"Chat on WhatsApp",    sub:"",                     ph:"919876543210 (number only)"},
   website:   {label:"Visit our website",   sub:"",                     ph:"https://ozzo.co.in"},
   instagram: {label:"Follow on Instagram", sub:"",                     ph:"https://instagram.com/yourhandle"},
@@ -132,8 +133,8 @@ const TYPE_DEFAULTS = {
   maps:      {label:"Find us on the map",  sub:"",                     ph:"https://maps.app.goo.gl/..."},
   custom:    {label:"Custom link",         sub:"",                     ph:"https://..."}
 };
-const TYPE_ORDER = ["email","phone","whatsapp","website","instagram","youtube","facebook","linkedin","twitter","telegram","maps","custom"];
-const TYPE_NAMES = {email:"Email",phone:"Phone",whatsapp:"WhatsApp",website:"Website",instagram:"Instagram",youtube:"YouTube",facebook:"Facebook",linkedin:"LinkedIn",twitter:"X (Twitter)",telegram:"Telegram",maps:"Map / location",custom:"Custom"};
+const TYPE_ORDER = ["email","phone","altphone","whatsapp","website","instagram","youtube","facebook","linkedin","twitter","telegram","maps","custom"];
+const TYPE_NAMES = {email:"Email",phone:"Phone",altphone:"Alternate",whatsapp:"WhatsApp",website:"Website",instagram:"Instagram",youtube:"YouTube",facebook:"Facebook",linkedin:"LinkedIn",twitter:"X (Twitter)",telegram:"Telegram",maps:"Map / location",custom:"Custom"};
 
 let TEMPLATE = "", C = null;
 
@@ -250,7 +251,7 @@ const PDF_LIBS = [
 ];
 /* Flat equivalents of the gradients the web card uses for each row icon. */
 const PDF_COLOR = {
-  email:"#7834E8", phone:"#7834E8", website:"#7834E8", maps:"#7834E8", custom:"#7834E8",
+  email:"#7834E8", phone:"#7834E8", altphone:"#7834E8", website:"#7834E8", maps:"#7834E8", custom:"#7834E8",
   whatsapp:"#25D366", instagram:"#DD2A7B", youtube:"#FF0000", facebook:"#1877F2",
   linkedin:"#0A66C2", twitter:"#111111", telegram:"#229ED9"
 };
@@ -334,7 +335,7 @@ function pdfRows(C){
     if(!l.on||!l.value) return;
     let text=l.value, href=l.value;
     if(l.type==="email"){ href="mailto:"+l.value; }
-    else if(l.type==="phone"){ text=l.label||l.value; href="tel:"+l.value; }
+    else if(l.type==="phone"||l.type==="altphone"){ text=l.label||l.value; href="tel:"+l.value; }
     else if(l.type==="whatsapp"){ const d=String(l.value).replace(/\D/g,""); text=l.sub||("+"+d); href="https://wa.me/"+d; }
     else { text=String(l.value).replace(/^https?:\/\//,"").replace(/\/+$/,""); }
     out.push({ name:TYPE_NAMES[l.type]||"Link", text:text, href:href, color:PDF_COLOR[l.type]||"#7834E8" });
