@@ -102,6 +102,7 @@
       <div class="frame"><iframe id="frame" title="Live preview"></iframe></div>
       <div class="actions">
         <button class="btn primary block" id="download">⬇ Download updated card.html</button>
+        <button class="btn block" id="download-pdf">⬇ Download PDF visiting card</button>
         <button class="btn block" id="copy">Copy configuration (JSON)</button>
         <div class="msg" id="msg"></div>
         <div class="note">
@@ -237,6 +238,219 @@ document.getElementById("copy").addEventListener("click",async()=>{
   try{ await navigator.clipboard.writeText(JSON.stringify(C,null,2)); msg("Configuration copied to clipboard."); }
   catch{ msg("Copy failed — select the JSON manually."); }
 });
+/* ---------- PDF visiting card (A4) -----------------------------------
+ * Drawn shape-by-shape rather than screenshotted, so the text stays
+ * selectable, the contact links stay tappable inside the PDF and the
+ * file lands around 80KB instead of a megabyte. The two libraries are
+ * fetched on the first click only, leaving the editor load untouched.
+ * -------------------------------------------------------------------- */
+const PDF_LIBS = [
+  "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"
+];
+/* Flat equivalents of the gradients the web card uses for each row icon. */
+const PDF_COLOR = {
+  email:"#7834E8", phone:"#7834E8", website:"#7834E8", maps:"#7834E8", custom:"#7834E8",
+  whatsapp:"#25D366", instagram:"#DD2A7B", youtube:"#FF0000", facebook:"#1877F2",
+  linkedin:"#0A66C2", twitter:"#111111", telegram:"#229ED9"
+};
+const CARD_URL = "https://ozzo.co.in/card";
+
+function loadScript(src){
+  return new Promise((res,rej)=>{
+    const s=document.createElement("script");
+    s.src=src; s.onload=()=>res(); s.onerror=()=>rej(new Error("offline"));
+    document.head.appendChild(s);
+  });
+}
+let pdfLibs=null;
+function ensurePdfLibs(){
+  if(!pdfLibs) pdfLibs = Promise.all(PDF_LIBS.map(loadScript)).catch(e=>{ pdfLibs=null; throw e; });
+  return pdfLibs;
+}
+
+/* Same-origin asset to data URL, so jsPDF can embed it without tainting. */
+function fetchDataURL(url){
+  return fetch(url).then(r=>{ if(!r.ok) throw new Error(r.status); return r.blob(); })
+    .then(b=>new Promise((res,rej)=>{
+      const fr=new FileReader(); fr.onload=()=>res(fr.result); fr.onerror=()=>rej(new Error("read")); fr.readAsDataURL(b);
+    }));
+}
+
+/* jsPDF stores PNG data raw, which alone turns the 1024x500 cover into
+   ~2MB of PDF. Re-encoding as JPEG first keeps the whole file near 150KB. */
+function toJpeg(dataUrl,maxW,q){
+  return new Promise((res,rej)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const sc=Math.min(1,maxW/img.width);
+      const cv=document.createElement("canvas");
+      cv.width=Math.round(img.width*sc); cv.height=Math.round(img.height*sc);
+      cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height);
+      res(cv.toDataURL("image/jpeg",q));
+    };
+    img.onerror=()=>rej(new Error("image"));
+    img.src=dataUrl;
+  });
+}
+
+/* jsPDF has no circular clip, so the crop happens on a canvas first. */
+function circleCrop(dataUrl,size){
+  return new Promise((res,rej)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const cv=document.createElement("canvas"); cv.width=cv.height=size;
+      const cx=cv.getContext("2d");
+      cx.beginPath(); cx.arc(size/2,size/2,size/2,0,Math.PI*2); cx.closePath(); cx.clip();
+      const s=Math.min(img.width,img.height);
+      cx.drawImage(img,(img.width-s)/2,(img.height-s)/2,s,s,0,0,size,size);
+      res(cv.toDataURL("image/png"));
+    };
+    img.onerror=()=>rej(new Error("photo"));
+    img.src=dataUrl;
+  });
+}
+
+/* Painted module by module rather than via createDataURL, whose GIF
+   output jsPDF will not embed without an extra plugin. */
+function qrDataURL(text,px){
+  const qr=qrcode(0,"M"); qr.addData(text); qr.make();
+  const n=qr.getModuleCount(), quiet=2, total=n+quiet*2;
+  const scale=Math.max(1,Math.floor(px/total));
+  const cv=document.createElement("canvas"); cv.width=cv.height=total*scale;
+  const cx=cv.getContext("2d");
+  cx.fillStyle="#ffffff"; cx.fillRect(0,0,cv.width,cv.height);
+  cx.fillStyle="#0B0C16";
+  for(let r=0;r<n;r++) for(let c=0;c<n;c++) if(qr.isDark(r,c))
+    cx.fillRect((c+quiet)*scale,(r+quiet)*scale,scale,scale);
+  return cv.toDataURL("image/png");
+}
+
+/* The web card shows "Chat on WhatsApp"; a printed sheet needs the number.
+   So each row carries the reachable VALUE, labelled by its channel. */
+function pdfRows(C){
+  const out=[];
+  (C.links||[]).forEach(l=>{
+    if(!l.on||!l.value) return;
+    let text=l.value, href=l.value;
+    if(l.type==="email"){ href="mailto:"+l.value; }
+    else if(l.type==="phone"){ text=l.label||l.value; href="tel:"+l.value; }
+    else if(l.type==="whatsapp"){ const d=String(l.value).replace(/\D/g,""); text=l.sub||("+"+d); href="https://wa.me/"+d; }
+    else { text=String(l.value).replace(/^https?:\/\//,"").replace(/\/+$/,""); }
+    out.push({ name:TYPE_NAMES[l.type]||"Link", text:text, href:href, color:PDF_COLOR[l.type]||"#7834E8" });
+  });
+  return out;
+}
+
+async function buildCardPDF(C){
+  await ensurePdfLibs();
+  const doc = new window.jspdf.jsPDF({unit:"mm", format:"a4", compress:true});
+  const W=210, M=18;
+
+  /* Hero: the card cover, full bleed at its own 1024x500 aspect. */
+  const heroH = W*500/1024;
+  try{
+    doc.addImage(await toJpeg(await fetchDataURL("/card-cover.png"),1200,0.82), "JPEG", 0, 0, W, heroH);
+  }catch(e){
+    doc.setFillColor("#0B0C16"); doc.rect(0,0,W,heroH,"F");
+    doc.setFont("helvetica","bold"); doc.setFontSize(26); doc.setTextColor("#FFFFFF");
+    doc.text("OZZO", W/2, heroH/2, {align:"center"});
+  }
+
+  /* Avatar, straddling the bottom edge of the hero. */
+  const aR=16, aX=M+aR, aY=heroH;
+  let photo = C.photo;
+  doc.setFillColor("#FFFFFF"); doc.circle(aX,aY,aR+2.2,"F");
+  if(photo){
+    try{ doc.addImage(await circleCrop(photo,320), "PNG", aX-aR, aY-aR, aR*2, aR*2); }
+    catch(e){ photo=""; }
+  }
+  if(!photo){
+    doc.setFillColor("#7834E8"); doc.circle(aX,aY,aR,"F");
+    const ini = C.initials || (C.name||"").split(/\s+/).map(w=>w[0]||"").join("").slice(0,2).toUpperCase();
+    doc.setFont("helvetica","bold"); doc.setFontSize(22); doc.setTextColor("#FFFFFF");
+    doc.text(ini, aX, aY+2.6, {align:"center"});
+  }
+
+  /* QR back to the live card, tucked into the empty space beside the
+     identity block so the page has no dead middle when links are few. */
+  const qs=26, qx=W-M-qs, qy=heroH+9;
+  doc.addImage(qrDataURL(CARD_URL,420), "PNG", qx, qy, qs, qs);
+  doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor("#7834E8");
+  const qt="ozzo.co.in/card";
+  doc.textWithLink(qt, qx+qs/2-doc.getTextWidth(qt)/2, qy+qs+4.5, {url:CARD_URL});
+
+  /* Identity block. */
+  let y = heroH + aR + 16;
+  doc.setFont("helvetica","bold"); doc.setFontSize(25); doc.setTextColor("#171923");
+  doc.text(C.name||"", M, y);
+  const sub = [C.role,C.org].filter(Boolean).join("  ·  ");
+  if(sub){
+    y += 8.5;
+    doc.setFont("helvetica","normal"); doc.setFontSize(12.5); doc.setTextColor("#5B5B67");
+    doc.text(sub, M, y);
+  }
+  if(C.tagline){
+    y += 8;
+    doc.setFont("helvetica","italic"); doc.setFontSize(10.5); doc.setTextColor("#5B5B67");
+    const lines = doc.splitTextToSize(C.tagline, W-M*2);
+    doc.text(lines, M, y); y += (lines.length-1)*5.2;
+  }
+
+  /* Contact rows in two columns, so eight links still fit on one page. */
+  y += 12;
+  doc.setDrawColor("#E9E8E3"); doc.setLineWidth(0.4); doc.line(M,y,W-M,y);
+  y += 9;
+  doc.setFont("helvetica","bold"); doc.setFontSize(8.5); doc.setTextColor("#5B5B67");
+  doc.setCharSpace(0.7); doc.text("GET IN TOUCH", M, y); doc.setCharSpace(0);
+
+  const rows = pdfRows(C);
+  const colW = (W-M*2)/2, rowH = 14, perCol = Math.ceil(rows.length/2) || 1;
+  const top = y + 10;
+  rows.forEach((r,i)=>{
+    const cx = M + (i<perCol ? 0 : colW);
+    const cy = top + (i%perCol)*rowH;
+    doc.setFillColor(r.color); doc.circle(cx+1.8, cy-1.2, 1.8, "F");
+    doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor("#5B5B67");
+    doc.text(r.name.toUpperCase(), cx+7, cy-2.4);
+    doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor("#171923");
+    doc.textWithLink(r.text, cx+7, cy+3.4, {url:r.href});
+  });
+
+  doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor("#5B5B67");
+  doc.text("Digital card  ·  powered by OZZO", W/2, 288, {align:"center"});
+
+  doc.setProperties({
+    title: (C.name||"Visiting card") + (C.org?" - "+C.org:""),
+    subject: "Digital visiting card",
+    author: C.name || "OZZO",
+    creator: "OZZO Card Editor"
+  });
+  return doc;
+}
+
+function pdfFileName(C){
+  const base = [C.name,C.org].filter(Boolean).join("-") || "visiting-card";
+  return base.replace(/[^A-Za-z0-9]+/g,"-").replace(/^-|-$/g,"") + ".pdf";
+}
+
+document.getElementById("download-pdf").addEventListener("click", async function(e){
+  const btn = e.currentTarget, was = btn.textContent;
+  btn.disabled = true; btn.textContent = "Building PDF…";
+  try{
+    const doc = await buildCardPDF(C);
+    doc.save(pdfFileName(C));
+    msg("PDF downloaded - ready to email, print or attach.");
+  }catch(err){
+    msg(err && err.message==="offline"
+      ? "Could not load the PDF library - check your internet connection and try again."
+      : "Sorry, the PDF could not be generated.");
+    console.error(err);
+  }finally{
+    btn.disabled = false; btn.textContent = was;
+  }
+});
+
 function msg(t){ document.getElementById("msg").textContent=t; setTimeout(()=>{document.getElementById("msg").textContent="";},4000); }
 
 boot();
