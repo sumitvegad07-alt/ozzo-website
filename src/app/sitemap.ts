@@ -4,6 +4,7 @@ import { getAllPosts } from "@/lib/blog";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
 import { sectors } from "@/lib/sectors";
+import { alternativesPages } from "@/lib/alternatives";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // NOTE: deliberately no `lastModified` on entries whose real edit date we do
@@ -43,6 +44,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // "<Competitor> alternatives" — same buyer intent as /compare, without our
+  // brand name in the query, which is the version people actually search.
+  const alternativesEntries: MetadataRoute.Sitemap = alternativesPages.map((p) => ({
+    url: `${SITE_URL}/alternatives/${p.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const compareEntries: MetadataRoute.Sitemap = comparisons.map((c) => ({
     url: `${SITE_URL}/compare/${c.slug}`,
     changeFrequency: "monthly",
@@ -65,6 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticEntries,
     ...blogEntries,
+    ...alternativesEntries,
     ...compareEntries,
     ...sectorEntries,
     ...industryEntries,
