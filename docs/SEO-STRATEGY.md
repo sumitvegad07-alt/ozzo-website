@@ -280,8 +280,11 @@ Then report monthly:
 - [ ] Pull the GSC **Performance** report — impressions and queries, not just indexing
 
 ### Days 15–30 — Capture demand
-- [ ] Publish 3 "alternatives" pages
-- [ ] Publish `/whatsapp-crm`
+- [x] Publish per-user pricing in INR + USD, location-aware — `8a23020`, `41c980a`
+- [x] Internal linking: 36 industry pages → specific comparisons — `29f57c9`
+- [x] `/fmcg-software` category pillar — `46d77c5`
+- [x] Five `/alternatives/*` pages — `b490df7`
+- [ ] Publish `/whatsapp-crm` — the one differentiator no large competitor has
 - [ ] Add "Switching from X" to the top 5 comparison pages
 - [ ] Add landing-page capture to the demo form
 - [ ] 2 blog posts
