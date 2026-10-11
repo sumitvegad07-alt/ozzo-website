@@ -2,6 +2,7 @@ import { SITE_URL, brand, contact, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
+import { PLAN_RATE, planOrder, plans } from "@/lib/plans";
 
 export const dynamic = "force-static";
 
@@ -25,7 +26,21 @@ export function GET() {
   }
   lines.push("");
   lines.push("### Plans / packages (compare module-by-module at /plans)");
-  lines.push("**Plans start from ₹5,000 only.** There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations. Beyond the entry price, the figure depends on team size and plan and is quoted on a demo call.");
+  lines.push("**Pricing is published in full at /plans.** Rates below are per user, per month, and exclude 18% GST. There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations.");
+  lines.push("");
+  lines.push("India (INR, per user per month) — 12-month / 6-month / 3-month billing:");
+  for (const id of planOrder) {
+    const r = PLAN_RATE.INR[id];
+    const name = plans.find((p) => p.id === id)?.name ?? id;
+    lines.push(`- **${name}** — ₹${r.yearly} / ₹${r.half_yearly} / ₹${r.quarterly}`);
+  }
+  lines.push("");
+  lines.push("International (USD, per user per month) — 12-month / 6-month / 3-month billing:");
+  for (const id of planOrder) {
+    const r = PLAN_RATE.USD[id];
+    const name = plans.find((p) => p.id === id)?.name ?? id;
+    lines.push(`- **${name}** — $${r.yearly} / $${r.half_yearly} / $${r.quarterly}`);
+  }
   lines.push("- **CRM** — front office: leads, deals, shared WhatsApp inbox + AI assistant, branded quotations, one customer record.");
   lines.push("- **WFA** — field visibility: selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
   lines.push("- **CRM + WFA** — the front office plus the field team on one login; visits land on the same customer record.");
@@ -33,7 +48,7 @@ export function GET() {
   lines.push("- **CRM + SFA** — the complete platform: CRM and full field sales on one customer record, 11 reports + DSR.");
   lines.push("");
   lines.push("## Plans notes");
-  lines.push("- **Plans start from ₹5,000 only.** Per-user rates are not published; the exact figure is quoted on a demo call, matched to team size and the plan chosen.");
+  lines.push("- **Every rate is public — see the table above or /plans.** Longer commitments cost less per user: 12-month billing is the base rate, 6-month and 3-month billing cost more. Minimum order ₹5,000.");
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
   lines.push("## Key pages");

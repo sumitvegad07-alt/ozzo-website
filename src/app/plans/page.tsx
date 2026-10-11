@@ -11,6 +11,8 @@ import { Reveal } from "@/components/reveal";
 import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { PlansMatrix } from "@/components/plans-matrix";
+import { PricingShell } from "@/components/pricing-shell";
+import { PlanPrice } from "@/components/plan-price";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
 import {
@@ -69,7 +71,12 @@ export default function PlansPage() {
             <span className="ozzo-gradient-bright">field team</span>
           </h1>
           <p className="ozzo-display mx-auto mt-5 text-2xl text-white md:text-3xl">
-            <span className="ozzo-gradient-bright">{STARTING_FROM}</span>
+            <span className="ozzo-gradient-bright">
+              From ₹100 per user / month
+            </span>
+          </p>
+          <p className="mt-2 text-sm font-medium text-white/60">
+            {STARTING_FROM} · international pricing in USD
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
             Five plans built from three product lines — CRM, WFA and SFA. Buy the
@@ -89,6 +96,7 @@ export default function PlansPage() {
       {/* ─────────────── Plan cards ─────────────── */}
       <section className="py-16 md:py-20">
         <Container>
+          <PricingShell>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {plans.map((plan, i) => (
               <Reveal key={plan.id} delay={i * 60}>
@@ -118,6 +126,8 @@ export default function PlansPage() {
                     {plan.name}
                   </h2>
                   <p className="text-xs text-muted-foreground">{plan.tagline}</p>
+
+                  <PlanPrice id={plan.id} />
 
                   <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                     {plan.blurb}
@@ -161,6 +171,7 @@ export default function PlansPage() {
               </Reveal>
             ))}
           </div>
+          </PricingShell>
 
           {/* Included in every plan */}
           <div className="mt-8 rounded-3xl border border-border bg-card-2 p-6 md:p-7">

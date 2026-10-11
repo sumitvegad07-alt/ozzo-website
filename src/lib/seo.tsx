@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SITE_URL, brand, contact, productLines } from "./site";
-import { STARTING_PRICE_INR } from "./plans";
+import { PLAN_RATE, planOrder, plans, fromRate, type Currency } from "./plans";
+
+const SCHEMA_CURRENCIES: Currency[] = ["INR", "USD"];
 
 /** Build per-page metadata with sensible OG/Twitter/canonical defaults. */
 export function pageMetadata(opts: {
@@ -94,23 +96,40 @@ export function softwareApplicationSchema() {
     // An AggregateOffer with a real lowPrice is what lets Google and the AI
     // engines answer "how much is OZZO" with a number instead of "pricing is not
     // published". An Offer with priceCurrency and no price is ignored by both.
-    offers: {
+    // One AggregateOffer per currency, each carrying the real per-user rate for
+    // every plan. A UnitPriceSpecification states the unit explicitly, so an
+    // engine reads "100 INR per user per month" rather than a bare "100".
+    offers: SCHEMA_CURRENCIES.map((currency) => ({
       "@type": "AggregateOffer",
-      priceCurrency: "INR",
-      lowPrice: String(STARTING_PRICE_INR),
-      offerCount: productLines.length,
+      priceCurrency: currency,
+      lowPrice: String(fromRate(currency)),
+      highPrice: String(
+        Math.max(...planOrder.map((id) => PLAN_RATE[currency][id].quarterly)),
+      ),
+      offerCount: planOrder.length,
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/plans`,
-      offers: productLines.map((p) => ({
-        "@type": "Offer",
-        name: `${brand.name} ${p.name}`,
-        description: p.summary,
-        priceCurrency: "INR",
-        price: String(STARTING_PRICE_INR),
-        availability: "https://schema.org/InStock",
-        url: `${SITE_URL}/plans`,
-      })),
-    },
+      offers: planOrder.map((id) => {
+        const plan = plans.find((p) => p.id === id);
+        const price = String(PLAN_RATE[currency][id].yearly);
+        return {
+          "@type": "Offer",
+          name: `${brand.name} ${plan?.name ?? id}`,
+          description: plan?.blurb,
+          priceCurrency: currency,
+          price,
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price,
+            priceCurrency: currency,
+            unitText: "user per month",
+            billingDuration: 12,
+          },
+          availability: "https://schema.org/InStock",
+          url: `${SITE_URL}/plans`,
+        };
+      }),
+    })),
   };
 }
 
@@ -136,8 +155,15 @@ export function productSchema(slug: string) {
     publisher: { "@type": "Organization", name: brand.legalName },
     offers: {
       "@type": "Offer",
-      price: String(STARTING_PRICE_INR),
+      price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"].yearly),
       priceCurrency: "INR",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"].yearly),
+        priceCurrency: "INR",
+        unitText: "user per month",
+        billingDuration: 12,
+      },
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/plans`,
     },

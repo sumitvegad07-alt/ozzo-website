@@ -281,3 +281,25 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ─────────────── Plans page: currency + term switching ───────────────
+   Every price for every currency/term pair is in the HTML so that crawlers
+   (which reach us from US IPs) index the whole matrix. These rules reveal the
+   one pair the visitor selected. Hiding with CSS rather than geo-gating on the
+   server is what keeps "how much does OZZO cost" answerable in AI results. */
+.pricing-scope [data-price],
+.pricing-scope [data-price-note] {
+  display: none;
+}
+.pricing-scope[data-currency="INR"] [data-price-note][data-c="INR"],
+.pricing-scope[data-currency="USD"] [data-price-note][data-c="USD"] {
+  display: inline;
+}
+.pricing-scope[data-currency="INR"][data-term="quarterly"] [data-price][data-c="INR"][data-t="quarterly"],
+.pricing-scope[data-currency="INR"][data-term="half_yearly"] [data-price][data-c="INR"][data-t="half_yearly"],
+.pricing-scope[data-currency="INR"][data-term="yearly"] [data-price][data-c="INR"][data-t="yearly"],
+.pricing-scope[data-currency="USD"][data-term="quarterly"] [data-price][data-c="USD"][data-t="quarterly"],
+.pricing-scope[data-currency="USD"][data-term="half_yearly"] [data-price][data-c="USD"][data-t="half_yearly"],
+.pricing-scope[data-currency="USD"][data-term="yearly"] [data-price][data-c="USD"][data-t="yearly"] {
+  display: block;
+}
