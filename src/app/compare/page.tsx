@@ -10,6 +10,7 @@ import { Reveal } from "@/components/reveal";
 import { FaqSection } from "@/components/faq-section";
 import { pageMetadata, JsonLd, breadcrumbSchema } from "@/lib/seo";
 import { comparisons } from "@/lib/comparisons";
+import { alternativesPages } from "@/lib/alternatives";
 
 export const metadata = pageMetadata({
   title: "OZZO vs the alternatives — honest comparisons",
@@ -87,6 +88,61 @@ export default function CompareHubPage() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────── Alternatives round-ups ───────────
+          These pages were orphaned on launch: nothing linked to them, so
+          neither a visitor browsing the site nor Google crawling it could
+          reach them. Internal links are also how Google judges which pages
+          matter, so an unlinked page is a page that will not rank. */}
+      <section className="border-t border-border py-16 md:py-20">
+        <Container>
+          <div className="text-center">
+            <Eyebrow center>Round-ups</Eyebrow>
+            <h2 className="ozzo-display mt-3 text-3xl text-foreground md:text-4xl">
+              Shopping around? Start here
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Each round-up lists several tools — not just OZZO — with who they
+              suit and where each one falls short.
+            </p>
+          </div>
+          <div className="mx-auto mt-8 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {alternativesPages.map((a) => (
+              <Link
+                key={a.slug}
+                href={`/alternatives/${a.slug}`}
+                className="group flex flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+              >
+                <span className="text-sm font-bold text-foreground">
+                  {a.target} alternatives
+                </span>
+                <span className="mt-1 text-xs text-muted-foreground">
+                  {a.targetCategory}
+                </span>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                  {a.picks.length} options compared
+                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+            <Link
+              href="/fmcg-software"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+            >
+              <span className="text-sm font-bold text-foreground">
+                FMCG software explained
+              </span>
+              <span className="mt-1 text-xs text-muted-foreground">
+                Category guide — modules and how to choose
+              </span>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                Read the guide
+                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
           </div>
         </Container>
       </section>

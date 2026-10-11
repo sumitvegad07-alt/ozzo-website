@@ -25,6 +25,9 @@ const products = [
   { label: "Plans & packages", href: "/plans" },
   { label: "Industries", href: "/industries" },
   { label: "Compare alternatives", href: "/compare" },
+  { label: "FMCG software", href: "/fmcg-software" },
+  { label: "FieldAssist alternatives", href: "/alternatives/fieldassist-alternatives" },
+  { label: "Unolo alternatives", href: "/alternatives/unolo-alternatives" },
   { label: "All features", href: "/products" },
 ];
 
