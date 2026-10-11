@@ -17,6 +17,8 @@ import {
   Eyebrow,
 } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { comparisonsForSector } from "@/lib/industry-links";
+import { comparisons } from "@/lib/comparisons";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/seo";
@@ -466,6 +468,58 @@ export function IndustryPage({
       )}
 
       <FaqSection items={data.faqs} />
+
+      {/* ─────────── Compare against the alternatives in this trade ─────────── */}
+      <section className="border-t border-border py-16">
+        <Container>
+          <p className="ozzo-eyebrow mb-2 text-center text-muted-foreground">
+            Weighing up options
+          </p>
+          <h2 className="ozzo-display mb-7 text-center text-2xl text-foreground md:text-3xl">
+            OZZO vs the tools {data.sector.toLowerCase()} teams shortlist
+          </h2>
+          <div className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-3">
+            {comparisonsForSector(data.sector).map((slug) => {
+              const c = comparisons.find((x) => x.slug === slug);
+              if (!c) return null;
+              return (
+                <Link
+                  key={slug}
+                  href={`/compare/${slug}`}
+                  className="group flex flex-col rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+                >
+                  <span className="text-sm font-bold text-foreground">
+                    OZZO vs {c.competitor}
+                  </span>
+                  <span className="mt-1 text-xs leading-snug text-muted-foreground">
+                    {c.competitorCategory}
+                  </span>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                    Read the comparison
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/products/sfa"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+            >
+              Sales Force Automation
+              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+            </Link>
+            <Link
+              href="/plans"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+            >
+              Plans from ₹100 / user / month
+              <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+            </Link>
+          </div>
+        </Container>
+      </section>
 
       {/* ─────────── Related industries ─────────── */}
       {siblings.length > 0 && (
