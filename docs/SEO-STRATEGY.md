@@ -31,7 +31,7 @@ This is a better technical foundation than most Indian B2B SaaS sites. The build
 
 | Problem | Evidence |
 |---|---|
-| **Zero search visibility** | Searched for OZZO + field sales software India. Zero results. Not one page. |
+| **Indexed but not ranking** | GSC: **59 pages indexed**, 1 excluded (a redirect). Indexing is solved. But a search for "field sales software for tyre companies and distributors India" — nearly the exact title of our own tyre page — returns Capterra, SourceForge, BeatRoute, Skynamo and SalesOn. Not OZZO. |
 | **Zero third-party presence** | Not on Capterra India, SourceForge, G2, or any "best field sales software" listicle |
 | **Blog has stalled** | Only 2 posts, both September 2026 |
 | **No "alternatives" pages** | All 13 compare pages are "OZZO vs X". None are "X alternatives". |
@@ -44,23 +44,33 @@ This is a better technical foundation than most Indian B2B SaaS sites. The build
 
 ## 1. The one thing blocking everything else
 
-**Google has not discovered the site, because nothing on the internet links to it.**
+**Correction (2026-10-11):** an earlier draft of this file said Google had not discovered the site. That was wrong. Search Console shows **59 of 60 pages indexed**, and indexing completed around 17–28 September 2026. Discovery and crawling are solved. The diagnosis below replaces it.
 
-Google finds pages by following links. OZZO has effectively no inbound links and no brand mentions. So:
+**Google has indexed every page and ranks none of them, because the domain has no authority signals.**
 
-- The 36 industry pages cannot rank — Google barely knows they exist
-- The 13 comparison pages cannot rank — same reason
-- More content will not fix this. Writing page 62 changes nothing.
+The proof: the query *"field sales software for tyre companies and distributors India"* is almost the exact `<title>` of our own tyre page. That page is indexed. It still does not appear. Capterra, SourceForge, BeatRoute, Skynamo and SalesOn do.
 
-**This means content is not the bottleneck. Discovery and trust are.**
+When an indexed page cannot rank for its own near-exact title, the cause is not the page. It is that Google trusts the domain too little to put it above established sites.
+
+Two contributing causes, in order of size:
+
+1. **No authority signals.** No inbound links, no brand mentions, no reviews, no directory listings. Nothing tells Google this is a real company.
+2. **The domain is young in the index.** Roughly one month old as of this writing. New domains routinely take 3–6 months to rank, regardless of content quality. Part of this is simply time, and no action removes it.
+
+**This means content is still not the bottleneck. Authority is.** Writing page 62 changes nothing.
 
 ### Why this changes the order of work
 
 The plan was: do SEO now, directories at the end of the month.
 
-That order is backwards. Directory listings are not a marketing nice-to-have — they are the crawl path and the trust signal that makes all 61 existing pages start working. They are also, separately, the single biggest AI-SEO lever (see §4).
+That order is backwards, and the search result above shows why in a way nothing else does: **the pages outranking us are mostly the directories themselves.** Capterra, SourceForge and GetApp occupy the results for our own target queries. Getting listed on them is not a side task — it is how we appear on the pages that already win, while our own pages mature.
 
-**Directories move to Week 1.** They take a few hours, not weeks, and everything else depends on them.
+Directories deliver three things at once:
+- An authority signal that lifts the whole domain
+- Presence inside the listicles that currently outrank us
+- The brand mentions that drive AI citations (see §4)
+
+**Directory profiles move to Week 1.** Creating a profile takes minutes and does **not** require customers — only *reviews* do. Those can follow later.
 
 ---
 
@@ -260,12 +270,14 @@ Then report monthly:
 
 ## 9. 90-day calendar
 
-### Days 1–14 — Unblock discovery
-- [ ] Claim 10 directory profiles with identical wording
-- [ ] Set up Google Business Profile
-- [ ] Ship the technical fix batch (titles, meta descriptions, internal links)
-- [ ] Submit sitemap in Google Search Console and request indexing on 10 key pages
-- [ ] Ask 10 customers for reviews — one direct link each
+### Days 1–14 — Build authority
+- [x] Google Search Console verified, sitemap submitted — **59/60 pages indexed**
+- [x] Fix duplicate `| OZZO` title suffix on 36 pages — commit `e0bfbb7`
+- [ ] Claim 5 India directory profiles with identical wording
+- [ ] Bing Webmaster Tools (feeds ChatGPT search + Copilot)
+- [ ] Set up Google Business Profile + LinkedIn company page
+- [ ] Ship remaining technical batch (meta descriptions, internal links, pricing)
+- [ ] Pull the GSC **Performance** report — impressions and queries, not just indexing
 
 ### Days 15–30 — Capture demand
 - [ ] Publish 3 "alternatives" pages
@@ -303,13 +315,14 @@ Then report monthly:
 
 Not "we rank #1". Realistic targets:
 
-| Measure | Day 0 | Day 90 target |
+| Measure | Now (2026-10-11) | Day 90 target |
 |---|---|---|
-| Pages indexed in Google | ~0 | 50+ |
+| Pages indexed in Google | 59 ✅ | hold at 59+ |
 | Third-party directory listings | 0 | 10 |
 | Verified reviews | 0 | 10–15 |
 | Blog posts | 2 | 12 |
 | Qualified demo requests from organic | 0 | 5–10 / month |
 | Appears in an AI answer for a category query | No | Yes, for at least one query |
+| Ranks top-20 for its own industry page titles | No | Yes, for 10+ industry pages |
 
 Rankings and leads follow discovery and trust. Those come first.
