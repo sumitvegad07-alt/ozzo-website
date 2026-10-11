@@ -58,7 +58,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    // suppressHydrationWarning: <CurrencyScript/> sets data-ozzo-currency on
+    // <html> before paint, so the pricing pages never flash the wrong currency.
+    // React otherwise reports that attribute as a server/client mismatch on
+    // every load. It only suppresses the warning for this element's own
+    // attributes, not for any child content.
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a

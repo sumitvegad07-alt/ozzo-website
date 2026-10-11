@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/products/sfa", priority: 0.9, freq: "weekly" },
     { path: "/plans", priority: 0.9, freq: "weekly" },
     { path: "/compare", priority: 0.8, freq: "weekly" },
+    // Category pillar for the site's strongest non-brand search theme.
+    { path: "/fmcg-software", priority: 0.9, freq: "monthly" },
     { path: "/industries", priority: 0.8, freq: "weekly" },
     { path: "/blog", priority: 0.7, freq: "weekly" },
     { path: "/book-demo", priority: 0.8, freq: "monthly" },
