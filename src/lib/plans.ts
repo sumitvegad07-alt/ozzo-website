@@ -39,6 +39,76 @@ export const PLAN_LINES: Record<PlanId, Record<ProductLine, boolean>> = {
   CRM_SFA: { crm: true, wfa: true, sfa: true },
 };
 
+/**
+ * Public per-user, per-month rates.
+ *
+ * INR mirrors the app's source of truth — PLAN_PRICE in
+ * wacrm-web/src/lib/plans/catalog.ts (the yearly base) with TERM_UPLIFT from
+ * pricing.ts already applied (half-yearly +20%, quarterly +40%). Change a base
+ * rate there and this table must be re-derived.
+ *
+ * USD is NOT a conversion of the INR table. It is a separate international
+ * price list set by the founder on 11 October 2026 in flat whole dollars. Its
+ * term uplifts are steeper and intentionally uneven, so neither currency can be
+ * derived from the other — they are two independent lists.
+ *
+ * Recommended user counts are deliberately NOT published. pricing.ts documents
+ * them as a sales guideline that must never block a deal; printing them would
+ * turn an internal guideline into a public barrier and turn away the small
+ * buyer the entry plans exist for.
+ */
+export type BillingTerm = "quarterly" | "half_yearly" | "yearly";
+export type Currency = "INR" | "USD";
+
+/** Display order of the term toggle — shortest commitment first. */
+export const billingTerms: BillingTerm[] = ["quarterly", "half_yearly", "yearly"];
+
+export const TERM_LABEL: Record<BillingTerm, string> = {
+  quarterly: "3 months",
+  half_yearly: "6 months",
+  yearly: "12 months",
+};
+
+export const TERM_MONTHS: Record<BillingTerm, number> = {
+  quarterly: 3,
+  half_yearly: 6,
+  yearly: 12,
+};
+
+export const CURRENCY_SYMBOL: Record<Currency, string> = { INR: "₹", USD: "$" };
+
+/** GST is charged on top of every INR rate below, and must be stated on the page. */
+export const GST_RATE_PCT = 18;
+
+/** Per user, per month. INR rates exclude GST. */
+export const PLAN_RATE: Record<Currency, Record<PlanId, Record<BillingTerm, number>>> = {
+  INR: {
+    CRM: { yearly: 100, half_yearly: 120, quarterly: 140 },
+    WFA: { yearly: 150, half_yearly: 180, quarterly: 210 },
+    CRM_WFA: { yearly: 200, half_yearly: 240, quarterly: 280 },
+    SFA: { yearly: 300, half_yearly: 360, quarterly: 420 },
+    CRM_SFA: { yearly: 400, half_yearly: 480, quarterly: 560 },
+  },
+  USD: {
+    CRM: { yearly: 3, half_yearly: 5, quarterly: 7 },
+    WFA: { yearly: 4, half_yearly: 6, quarterly: 8 },
+    CRM_WFA: { yearly: 7, half_yearly: 8, quarterly: 10 },
+    SFA: { yearly: 10, half_yearly: 12, quarterly: 15 },
+    CRM_SFA: { yearly: 12, half_yearly: 15, quarterly: 20 },
+  },
+};
+
+/**
+ * The lowest public rate in a currency — drives the "from" headline and the
+ * `lowPrice` in structured data, so an AI asked "what does OZZO cost" has a
+ * real number to quote.
+ */
+export const fromRate = (currency: Currency): number =>
+  Math.min(...planOrder.map((id) => PLAN_RATE[currency][id].yearly));
+
+export const formatRate = (currency: Currency, amount: number): string =>
+  `${CURRENCY_SYMBOL[currency]}${amount.toLocaleString("en-IN")}`;
+
 export type Plan = {
   id: PlanId;
   /** Short header name (also the comparison column label). */
