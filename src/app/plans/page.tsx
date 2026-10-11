@@ -11,7 +11,7 @@ import { Reveal } from "@/components/reveal";
 import { TiltCard } from "@/components/motion/tilt-card";
 import { Icon } from "@/components/icon";
 import { PlansMatrix } from "@/components/plans-matrix";
-import { PricingShell } from "@/components/pricing-shell";
+import { PricingShell, CurrencyScript } from "@/components/pricing-shell";
 import { PlanPrice } from "@/components/plan-price";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
@@ -22,13 +22,21 @@ import {
   faqSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
-import { plans, setsApart, includedEverywhere, planFaqs, STARTING_FROM } from "@/lib/plans";
+import {
+  plans,
+  setsApart,
+  includedEverywhere,
+  planFaqs,
+  STARTING_FROM,
+  fromRate,
+  formatRate,
+} from "@/lib/plans";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   title: "Plans & Packages — starting from ₹5,000",
   description:
-    "Plans starting from ₹5,000 only. Compare OZZO plans module by module — CRM, WFA, CRM + WFA, SFA and CRM + SFA. Attendance, GPS, visits, orders, collections, auto-outstanding, stock, schemes and WhatsApp CRM, laid out plan by plan. Book a demo for a package built for your team.",
+    "OZZO pricing, published in full: CRM from ₹100, WFA ₹150, CRM + WFA ₹200, SFA ₹300 and CRM + SFA ₹400 per user per month on yearly billing, plus GST. Compare all five plans module by module.",
   path: "/plans",
   keywords: [
     "field sales software plans",
@@ -47,6 +55,7 @@ export const metadata = pageMetadata({
 export default function PlansPage() {
   return (
     <>
+      <CurrencyScript />
       <JsonLd
         data={[
           softwareApplicationSchema(),
@@ -71,12 +80,16 @@ export default function PlansPage() {
             <span className="ozzo-gradient-bright">field team</span>
           </h1>
           <p className="ozzo-display mx-auto mt-5 text-2xl text-white md:text-3xl">
-            <span className="ozzo-gradient-bright">
-              From ₹100 per user / month
+            <span className="ozzo-gradient-bright" data-cur-only data-c="INR">
+              From {formatRate("INR", fromRate("INR"))} per user / month
+            </span>
+            <span className="ozzo-gradient-bright" data-cur-only data-c="USD">
+              From {formatRate("USD", fromRate("USD"))} per user / month
             </span>
           </p>
           <p className="mt-2 text-sm font-medium text-white/60">
-            {STARTING_FROM} · international pricing in USD
+            <span data-cur-only data-c="INR">{STARTING_FROM}</span>
+            <span data-cur-only data-c="USD">Every plan rate is published below</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
             Five plans built from three product lines — CRM, WFA and SFA. Buy the
