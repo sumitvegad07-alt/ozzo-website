@@ -19,6 +19,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { comparisonsForSector } from "@/lib/industry-links";
 import { comparisons } from "@/lib/comparisons";
+import { sectorForIndustry } from "@/lib/sectors";
 import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/seo";
@@ -76,6 +77,10 @@ export function IndustryPage({
   siblings: Industry[];
 }) {
   const cockpit = data.cockpit;
+  // The parent sector hub. These pages had 1–2 inbound links each while their
+  // own children had 6–8, so the category pages were weaker than the pages
+  // beneath them. Every sub-industry now links up to its parent.
+  const sector = sectorForIndustry(data);
 
   // Link the tracking term to its hub page, once, on the first paragraph
   // that contains it.
@@ -94,6 +99,11 @@ export function IndustryPage({
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Industries", path: "/industries" },
+            // The sector sits between the hub and the sub-industry, so the
+            // breadcrumb now matches the real shape of the section.
+            ...(sector
+              ? [{ name: sector.name, path: `/industries/${sector.slug}` }]
+              : []),
             { name: data.name, path: `/industries/${data.slug}` },
           ]),
         ]}
@@ -578,6 +588,16 @@ export function IndustryPage({
               More {data.sector.toLowerCase()} industries
             </p>
             <div className="flex flex-wrap justify-center gap-3">
+              {sector && (
+                <Link
+                  href={`/industries/${sector.slug}`}
+                  className="group inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card px-4 py-2.5 text-sm font-bold text-primary shadow-sm transition-all hover:-translate-y-0.5"
+                >
+                  <Icon name={sector.icon} className="h-4 w-4" />
+                  All {sector.name}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              )}
               {siblings.map((s) => (
                 <Link
                   key={s.slug}

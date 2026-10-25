@@ -27,8 +27,10 @@ const products = [
   { label: "Compare alternatives", href: "/compare" },
   { label: "FMCG software", href: "/fmcg-software" },
   { label: "Salesman location tracking", href: "/salesman-location-tracking-software" },
-  { label: "FieldAssist alternatives", href: "/alternatives/fieldassist-alternatives" },
-  { label: "Unolo alternatives", href: "/alternatives/unolo-alternatives" },
+  // The hub, not two of the five round-ups. Two were in the footer and three
+  // were not, which gave the same kind of page 70 inbound links or 5 purely
+  // by accident of which shipped first.
+  { label: "Alternatives", href: "/alternatives" },
   { label: "All features", href: "/products" },
 ];
 

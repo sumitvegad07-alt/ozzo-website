@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, brand } from "@/lib/site";
-import { JsonLd, organizationSchema, websiteSchema } from "@/lib/seo";
+import { JsonLd, OG_IMAGE, organizationSchema, websiteSchema } from "@/lib/seo";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { ExitIntentPopup } from "@/components/exit-intent-popup";
@@ -43,6 +43,24 @@ export const metadata: Metadata = {
     "distributor management software",
     "sales team tracking India",
   ],
+  // The home page has no metadata of its own, so it inherits this block.
+  // Without it, the one page that DID carry an og:image was also the only
+  // page missing og:url and og:type — the file-convention image supplies
+  // neither. Sub-pages override this through pageMetadata().
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: brand.name,
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.description,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.description,
+    images: [OG_IMAGE.url],
+  },
   // Favicon + apple-touch icon come from the file-based convention
   // (src/app/icon.png and src/app/apple-icon.png) — the OZZO brand mark.
   formatDetection: { email: false, address: false, telephone: false },

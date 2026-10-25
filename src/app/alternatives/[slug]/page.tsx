@@ -54,7 +54,7 @@ export default async function AlternativesPage({
           faqSchema(page.faqs),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Alternatives", path: "/compare" },
+            { name: "Alternatives", path: "/alternatives" },
             { name: `${page.target} alternatives`, path: `/alternatives/${page.slug}` },
           ]),
         ]}
@@ -222,6 +222,13 @@ export default async function AlternativesPage({
                     <ArrowRight className="h-3 w-3 text-muted-foreground" />
                   </Link>
                 ))}
+              <Link
+                href="/alternatives"
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-card px-3.5 py-2 text-[13px] font-bold text-primary shadow-sm transition-all hover:-translate-y-0.5"
+              >
+                All round-ups
+                <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
         </Container>

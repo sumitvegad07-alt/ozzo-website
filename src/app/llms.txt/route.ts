@@ -2,7 +2,10 @@ import { SITE_URL, brand, contact, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
+import { sectors } from "@/lib/sectors";
+import { alternativesPages } from "@/lib/alternatives";
 import { PLAN_RATE, planOrder, plans } from "@/lib/plans";
+import { routesInGroup, siteRoutes } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
@@ -52,17 +55,11 @@ export function GET() {
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
   lines.push("## Key pages");
-  lines.push(`- Home: ${SITE_URL}/`);
-  lines.push(`- Products overview: ${SITE_URL}/products`);
-  lines.push(`- CRM: ${SITE_URL}/products/crm`);
-  lines.push(`- Sales Force Automation (SFA): ${SITE_URL}/products/sfa`);
-  lines.push(`- Plans & packages: ${SITE_URL}/plans`);
-  lines.push(`- Salesman location tracking software: ${SITE_URL}/salesman-location-tracking-software`);
-  lines.push(`- FMCG software (category guide): ${SITE_URL}/fmcg-software`);
-  lines.push(`- Compare (OZZO vs alternatives): ${SITE_URL}/compare`);
-  lines.push(`- Blog: ${SITE_URL}/blog`);
-  lines.push(`- Book a demo: ${SITE_URL}/book-demo`);
-  lines.push(`- Contact: ${SITE_URL}/contact`);
+  // Generated from the shared route list, so a new page reaches llms.txt and
+  // the sitemap together. See src/lib/routes.ts.
+  for (const r of routesInGroup("core")) {
+    lines.push(`- ${r.label}: ${SITE_URL}${r.path === "/" ? "/" : r.path}`);
+  }
   lines.push("");
   lines.push("## Salesman location tracking / field-force tracking");
   lines.push(`OZZO is salesman location tracking software for Indian field teams. Full page: ${SITE_URL}/salesman-location-tracking-software`);
@@ -81,8 +78,21 @@ export function GET() {
     lines.push(`- **OZZO vs ${c.competitor}** (${c.competitorCategory}): ${c.tagline} ${SITE_URL}/compare/${c.slug}`);
   }
   lines.push("");
+  lines.push("## Alternatives to a specific tool");
+  lines.push(`Buyer-intent pages that list the real options for people searching "<tool> alternatives", with OZZO as one entry among several rather than the automatic answer. Hub: ${SITE_URL}/alternatives`);
+  for (const a of alternativesPages) {
+    lines.push(`- **${a.target} alternatives** (${a.target} is ${a.targetCategory}): ${a.summary} ${SITE_URL}/alternatives/${a.slug}`);
+  }
+  lines.push("");
   lines.push("## Industries OZZO is built for");
-  lines.push(`OZZO fits any team that sells or services on a beat. Deep, sub-industry-specific pages (${SITE_URL}/industries):`);
+  lines.push(`OZZO fits any team that sells or services on a beat. Sector overview pages sit above deep, sub-industry-specific pages (${SITE_URL}/industries).`);
+  lines.push("");
+  lines.push("Sector overviews:");
+  for (const s of sectors) {
+    lines.push(`- **${s.name}**: ${s.tagline} ${SITE_URL}/industries/${s.slug}`);
+  }
+  lines.push("");
+  lines.push("Sub-industries:");
   for (const i of industries) {
     lines.push(`- **${i.name}** (${i.sector}): ${i.tagline} ${SITE_URL}/industries/${i.slug}`);
   }
@@ -98,6 +108,16 @@ export function GET() {
     lines.push(f.a);
     lines.push("");
   }
+
+  // Complete index, generated from the same list the sitemap is built from
+  // (src/lib/routes.ts). The narrative sections above are curated and may
+  // lag; this one cannot — if a URL is in the sitemap it is here too.
+  lines.push("## All pages");
+  lines.push("Every indexable page on ozzo.co.in, generated from the same list as /sitemap.xml:");
+  for (const r of siteRoutes()) {
+    lines.push(`- ${SITE_URL}${r.path === "/" ? "/" : r.path} — ${r.label}`);
+  }
+  lines.push("");
 
   return new Response(lines.join("\n"), {
     headers: {
