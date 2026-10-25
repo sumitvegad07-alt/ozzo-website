@@ -23,6 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/compare", priority: 0.8, freq: "weekly" },
     // Category pillar for the site's strongest non-brand search theme.
     { path: "/fmcg-software", priority: 0.9, freq: "monthly" },
+    // Hub for the site's primary target term. The 27 industry pages that
+    // mention "salesman location tracking" all link up to this page.
+    { path: "/salesman-location-tracking-software", priority: 0.9, freq: "monthly" },
     { path: "/industries", priority: 0.8, freq: "weekly" },
     { path: "/blog", priority: 0.7, freq: "weekly" },
     { path: "/book-demo", priority: 0.8, freq: "monthly" },

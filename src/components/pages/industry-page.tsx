@@ -28,6 +28,46 @@ import type { Industry } from "@/lib/industries";
 
 const ACCENT = "linear-gradient(100deg,#5ea1ff 0%,#a855f7 48%,#ec5fe6 100%)";
 
+/**
+ * Auto-link the site's primary target term to its hub page.
+ *
+ * 27 industry pages already say "salesman location tracking software" inside
+ * their `seo` paragraph — which, before this, was 27 unlinked mentions of the
+ * exact term the site most wants to be found for. Linking it here at render
+ * time (rather than editing 27 data entries, and re-editing them whenever the
+ * wording changes) gives the hub page 27 contextual internal links with
+ * exact-match anchor text, from the pages that already discuss it.
+ *
+ * Linked once per page: a second link with the same anchor text adds nothing
+ * and reads like keyword stuffing.
+ */
+const TRACKING_HUB = "/salesman-location-tracking-software";
+const TRACKING_PHRASE = /salesman location tracking software/i;
+
+function linkTrackingPhrase(
+  text: string,
+  alreadyLinked: boolean,
+): { node: React.ReactNode; linked: boolean } {
+  if (alreadyLinked) return { node: text, linked: false };
+  const m = TRACKING_PHRASE.exec(text);
+  if (!m) return { node: text, linked: false };
+  return {
+    node: (
+      <>
+        {text.slice(0, m.index)}
+        <Link
+          href={TRACKING_HUB}
+          className="font-semibold text-primary underline decoration-primary/30 underline-offset-2"
+        >
+          {m[0]}
+        </Link>
+        {text.slice(m.index + m[0].length)}
+      </>
+    ),
+    linked: true,
+  };
+}
+
 export function IndustryPage({
   data,
   siblings,
@@ -36,6 +76,15 @@ export function IndustryPage({
   siblings: Industry[];
 }) {
   const cockpit = data.cockpit;
+
+  // Link the tracking term to its hub page, once, on the first paragraph
+  // that contains it.
+  let trackingLinked = false;
+  const seoParagraphs = (data.seo?.body ?? []).map((p) => {
+    const r = linkTrackingPhrase(p, trackingLinked);
+    trackingLinked = trackingLinked || r.linked;
+    return r.node;
+  });
 
   return (
     <>
@@ -457,9 +506,9 @@ export function IndustryPage({
               {data.seo.heading}
             </h2>
             <div className="mt-5 space-y-4">
-              {data.seo.body.map((p, i) => (
+              {seoParagraphs.map((node, i) => (
                 <p key={i} className="text-base leading-relaxed text-muted-foreground">
-                  {p}
+                  {node}
                 </p>
               ))}
             </div>

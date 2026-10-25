@@ -482,6 +482,18 @@ export function SfaProductPage() {
               </Reveal>
             ))}
           </div>
+
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            Only after the tracking half?{" "}
+            <Link
+              href="/salesman-location-tracking-software"
+              className="font-bold text-primary"
+            >
+              Salesman location tracking software
+            </Link>{" "}
+            covers attendance, live location, visits and beat routes on their
+            own.
+          </p>
         </Container>
       </section>
 

@@ -26,6 +26,7 @@ const products = [
   { label: "Industries", href: "/industries" },
   { label: "Compare alternatives", href: "/compare" },
   { label: "FMCG software", href: "/fmcg-software" },
+  { label: "Salesman location tracking", href: "/salesman-location-tracking-software" },
   { label: "FieldAssist alternatives", href: "/alternatives/fieldassist-alternatives" },
   { label: "Unolo alternatives", href: "/alternatives/unolo-alternatives" },
   { label: "All features", href: "/products" },
