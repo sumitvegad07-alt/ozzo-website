@@ -25,7 +25,7 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return pageMetadata({ title: "Article not found", description: "", path: `/blog/${slug}` });
   return pageMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
     keywords: post.tags,

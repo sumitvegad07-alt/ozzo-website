@@ -12,7 +12,7 @@ import { getAllPosts, formatBlogDate } from "@/lib/blog";
 export const metadata = pageMetadata({
   title: "Blog — field sales, CRM & distribution insights",
   description:
-    "Practical guides and playbooks for field-sales teams — attendance and GPS tracking, beat routes, order and payment collection, outstanding, stock, schemes, distribution and WhatsApp CRM.",
+    "Practical guides for field-sales teams: attendance and GPS tracking, beat routes, order and payment collection, outstanding, stock and WhatsApp CRM.",
   path: "/blog",
   keywords: [
     "field sales blog",

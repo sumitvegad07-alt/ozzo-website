@@ -36,7 +36,7 @@ import { cn } from "@/lib/utils";
 export const metadata = pageMetadata({
   title: "Plans & Packages — starting from ₹5,000",
   description:
-    "OZZO pricing, published in full: CRM from ₹100, WFA ₹150, CRM + WFA ₹200, SFA ₹300 and CRM + SFA ₹400 per user per month on yearly billing, plus GST. Compare all five plans module by module.",
+    "OZZO pricing in full: CRM from ₹100, WFA ₹150, CRM + WFA ₹200, SFA ₹300 and CRM + SFA ₹400 per user per month on yearly billing, plus 18% GST.",
   path: "/plans",
   keywords: [
     "field sales software plans",

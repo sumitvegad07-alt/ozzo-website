@@ -15,7 +15,7 @@ import { alternativesPages } from "@/lib/alternatives";
 export const metadata = pageMetadata({
   title: "OZZO vs the alternatives — honest comparisons",
   description:
-    "How OZZO compares to Bizom, BeatRoute, FieldAssist, Zoho CRM and Salesforce. Honest, side-by-side comparisons to help you pick the right CRM + field-sales platform for your team.",
+    "How OZZO compares to Bizom, BeatRoute, FieldAssist, Zoho and Salesforce. Honest, side-by-side comparisons to help you pick the right platform.",
   path: "/compare",
   keywords: [
     "OZZO vs",

@@ -32,7 +32,7 @@ import { suiteLines } from "@/lib/content";
 export const metadata = pageMetadata({
   title: "Products — CRM & Sales Force Automation",
   description:
-    "Explore OZZO's two products: CRM for winning and keeping customers, and Sales Force Automation for running your field team — field tracking, attendance, orders, payments and distribution — with WhatsApp CRM, GPS and 11 built-in reports.",
+    "OZZO's two products: CRM for winning and keeping customers, and Sales Force Automation for running your field team — tracking, orders and payments.",
   path: "/products",
   keywords: [
     "CRM features",

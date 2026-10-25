@@ -15,9 +15,9 @@ import { CurrencyScript } from "@/components/pricing-shell";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
-  title: "FMCG software: what Indian brands and distributors actually need",
+  title: "FMCG software in India, explained",
   description:
-    "A plain guide to FMCG software in India — SFA, order booking, distributor management, secondary sales, schemes and collections. What each module does, and which ones you actually need.",
+    "A plain guide to FMCG software: SFA, order booking, distributor management, secondary sales, schemes and collections — and which you actually need.",
   path: "/fmcg-software",
   keywords: [
     "FMCG software",

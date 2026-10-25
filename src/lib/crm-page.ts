@@ -12,7 +12,7 @@
 export const crmMeta = {
   metaTitle: "OZZO CRM — WhatsApp inbox, pipelines & quotations",
   metaDescription:
-    "OZZO CRM turns every enquiry into a structured sales process: capture leads, work them across visual Kanban pipelines, reply from one shared WhatsApp inbox with an AI assistant, and send branded PDF quotations — with field visits on the same customer timeline. Web + Android, works offline.",
+    "Capture leads, work visual pipelines, reply from one shared WhatsApp inbox with an AI assistant, and send branded PDF quotations. Web + Android.",
   keywords: [
     "CRM software India",
     "WhatsApp CRM",

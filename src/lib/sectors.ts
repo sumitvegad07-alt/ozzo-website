@@ -48,9 +48,9 @@ export const sectors: Sector[] = [
     slug: "building-materials",
     name: "Building Materials",
     icon: "Hammer",
-    metaTitle: "Field sales software for building materials companies",
+    metaTitle: "Building materials field sales software",
     metaDescription:
-      "OZZO is field-sales software for building-materials brands — paints, tiles & sanitaryware, wires & cables, adhesives & construction chemicals, plywood & laminates. Engage the influencer who specifies your brand, run the dealer beat and project pipeline together, and control credit — in one system.",
+      "For paints, tiles, wires, adhesives and plywood brands: engage the influencer who specifies you, run the dealer beat and project pipeline, control credit.",
     keywords: ["building materials field sales software", "building materials SFA India", "building materials dealer management software", "field sales software for construction materials", "building materials distribution software", "SFA for building materials"],
     tagline: "Building materials sell on the tradesperson's word, through a dealer channel on credit, and by long-cycle projects. OZZO runs all three in one system.",
     intro:
@@ -82,9 +82,9 @@ export const sectors: Sector[] = [
     slug: "auto-lubricants-electricals",
     name: "Auto, Lubricants & Electricals",
     icon: "Car",
-    metaTitle: "Field sales software for auto, lubricants & electricals companies",
+    metaTitle: "Auto & electricals field sales software",
     metaDescription:
-      "OZZO is field-sales software for the automotive aftermarket and electricals trade — auto components & spares, lubricants & oils, tyres, batteries, and lighting & appliances. Engage the mechanic who recommends your brand, control dealer credit on high-value stock and see what's really reordering — in one system.",
+      "For auto parts, lubricants, tyres, batteries and lighting brands: engage the mechanic who recommends you, control dealer credit, see what really reorders.",
     keywords: ["automotive aftermarket field sales software", "auto parts distribution software", "lubricant dealer management software", "tyre distribution software", "battery distribution software", "consumer durables SFA India"],
     tagline: "The mechanic recommends, the dealer carries the capital, and the counter decides. OZZO runs the whole aftermarket motion in one system.",
     intro:
@@ -116,9 +116,9 @@ export const sectors: Sector[] = [
     slug: "pharma-healthcare",
     name: "Pharma & Healthcare",
     icon: "Stethoscope",
-    metaTitle: "Field sales software for pharma & healthcare companies",
+    metaTitle: "Pharma & healthcare field sales software",
     metaDescription:
-      "OZZO is field-sales software for pharma & healthcare — pharmaceutical/MR teams, surgical & medical devices, injectables & critical care, medical equipment & diagnostics, ayurvedic & nutraceutical. Geo-stamped calls, institutional pipelines, stockist orders, expense claims and credit control in one system.",
+      "For pharma, medical devices, injectables, diagnostics and ayurvedic brands: geo-stamped calls, institutional pipelines, stockist orders and credit control.",
     keywords: ["pharma field sales software", "healthcare field sales software India", "MR reporting software", "medical device sales software", "pharma SFA India", "healthcare distributor management software"],
     tagline: "In healthcare the person who decides is rarely the person who pays. OZZO makes that whole chain — clinician, institution, channel — visible.",
     intro:
@@ -150,9 +150,9 @@ export const sectors: Sector[] = [
     slug: "pipes-fittings",
     name: "Pipes & Fittings",
     icon: "Layers",
-    metaTitle: "Field sales software for pipe & fittings companies",
+    metaTitle: "Pipes & fittings field sales software",
     metaDescription:
-      "OZZO is field-sales software for pipe & fittings brands — CPVC/PVC/uPVC, HDPE, stainless-steel and cast-iron. Manage huge multi-unit SKU catalogues, push resin-linked price changes to the field, engage plumbers, control dealer credit and run project sales — in one system.",
+      "For CPVC, PVC, HDPE, stainless and cast iron pipe brands: huge multi-unit catalogues, resin-linked price updates, plumber influence and dealer credit.",
     keywords: ["pipe company field sales software", "pipe fittings SFA India", "pipe dealer management software", "PVC CPVC pipe distribution software", "field sales software for pipe manufacturers", "SFA for pipe companies"],
     tagline: "Pipes sell on the plumber's word, a 15,000-SKU catalogue and a resin price that never sits still. OZZO is built for that.",
     intro:
@@ -183,9 +183,9 @@ export const sectors: Sector[] = [
     slug: "agriculture",
     name: "Agriculture",
     icon: "Sprout",
-    metaTitle: "Field sales software for agriculture & agri-input companies",
+    metaTitle: "Agriculture field sales software",
     metaDescription:
-      "OZZO is field-sales software for agri-input brands — seed, fertilizer, agrochemical/pesticide, animal feed, poultry, aquaculture and agri-equipment. Season-timed order capture, dealer outstanding and credit control, offline rural coverage and secondary-sales visibility — in one system.",
+      "For seed, fertilizer, agrochemical, feed and farm-equipment brands: season-timed orders, dealer credit control and offline rural coverage.",
     keywords: ["agriculture field sales software", "agri-input SFA India", "agri dealer management software", "seed fertilizer pesticide distribution software", "field sales software for agriculture", "SFA for agri-input companies"],
     tagline: "Agri-input demand lives in a short season, moves through a deep dealer network on credit, and depends on reps reaching rural belts. OZZO is built for that.",
     intro:
@@ -216,9 +216,9 @@ export const sectors: Sector[] = [
     slug: "fmcg-consumer-goods",
     name: "FMCG & Consumer Goods",
     icon: "ShoppingBag",
-    metaTitle: "Field sales software for FMCG & consumer goods companies",
+    metaTitle: "FMCG & consumer goods sales software",
     metaDescription:
-      "OZZO is affordable field-sales software for regional & SME FMCG and consumer-goods brands — retail execution, must-stock assortment, reorder/secondary visibility, trade schemes, outstanding, CRM and WhatsApp in one system.",
+      "Affordable field sales for regional and SME FMCG brands: retail execution, must-stock assortment, reorder visibility, schemes, CRM and WhatsApp in one.",
     keywords: ["FMCG field sales software", "FMCG SFA India", "FMCG distributor management software", "retail execution software", "field sales software for consumer goods", "SFA for regional FMCG brands"],
     tagline: "FMCG lives or dies on retail execution across a wide outlet universe. OZZO gives regional and SME brands that execution — affordably.",
     intro:

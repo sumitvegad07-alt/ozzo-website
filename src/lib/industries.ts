@@ -128,9 +128,9 @@ export const industries: Industry[] = [
     sector: "Pipes & Fittings",
     name: "CPVC & PVC Pipe Companies",
     icon: "Factory",
-    metaTitle: "Field sales software for CPVC, PVC & uPVC pipe companies",
+    metaTitle: "CPVC & PVC pipe field sales software",
     metaDescription:
-      "OZZO is built for PVC, CPVC & uPVC pipe brands: 15,000+ SKUs at multiple units, resin-linked price changes pushed to the field, dealer credit & secondary-sales visibility, plumber/contractor engagement, and a CRM pipeline for project sales — one system.",
+      "Built for PVC and CPVC pipe brands: multi-unit ordering across thousands of SKUs, resin-linked price updates, dealer credit and plumber visits.",
     keywords: ["PVC pipe company software", "CPVC pipe distribution software", "uPVC pipe distribution", "pipe manufacturer field sales", "plumbing pipe SFA India", "pipe dealer management software", "field sales software for pipe brands"],
     image: "/industries/pvc-cpvc-pipes-hero.jpg",
     imageAlt: "CPVC and PVC pipes and fittings installed along a wall",
@@ -215,9 +215,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Seed Companies",
     icon: "Sprout",
-    metaTitle: "Field sales software for seed companies",
+    metaTitle: "Seed company field sales software",
     metaDescription:
-      "OZZO helps seed companies run their dealer network in the field — season-timed order capture, dealer outstanding and credit control, territory coverage and secondary-sales visibility. Built for India's seasonal agri-input trade.",
+      "Built for seed companies: season-timed order capture, dealer outstanding and credit control, territory coverage and secondary-sales visibility.",
     keywords: ["seed company software", "seed distribution software", "field sales software for seed companies", "seed dealer management", "agri-input SFA", "seed company CRM India"],
     tagline: "Run your seed dealer network in the field — season-timed orders, dealer outstanding under control, and every territory actually covered.",
     intro:
@@ -300,9 +300,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Fertilizer Distributors",
     icon: "Truck",
-    metaTitle: "Field sales software for fertilizer distributors",
+    metaTitle: "Fertilizer distribution software",
     metaDescription:
-      "OZZO helps fertilizer distributors and companies run the field — dealer coverage, seasonal order capture, outstanding and credit control across the dealer chain, and secondary-sales visibility. Built for India's agri-input trade.",
+      "For fertilizer distributors: dealer coverage, seasonal order capture, credit and outstanding control down the dealer chain, and secondary sales.",
     keywords: ["fertilizer distribution software", "fertilizer dealer management software", "field sales software for fertilizer", "fertilizer company SFA India", "agri-input distribution software"],
     tagline: "Run your fertilizer dealer chain in the field — seasonal orders, credit under control, and coverage you can actually verify.",
     intro:
@@ -383,9 +383,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Agrochemical & Pesticide Companies",
     icon: "SprayCan",
-    metaTitle: "Field sales software for agrochemical & pesticide companies",
+    metaTitle: "Agrochemical field sales software",
     metaDescription:
-      "OZZO helps agrochemical and pesticide companies run the field — retailer coverage, demand-spike order capture, dealer outstanding and credit control, schemes and secondary-sales visibility across India's agri-input channel.",
+      "Built for agrochemical and pesticide brands: retailer coverage, demand-spike order capture, dealer credit control, schemes and secondary sales.",
     keywords: ["agrochemical distribution software", "pesticide company SFA", "crop protection field sales software", "agrochemical dealer management India", "pesticide distribution software"],
     tagline: "Cover the retail channel, catch the demand spike, and keep dealer credit under control — for crop-protection field teams.",
     intro:
@@ -466,9 +466,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Animal Feed Manufacturers",
     icon: "Wheat",
-    metaTitle: "Field sales software for animal & poultry feed companies",
+    metaTitle: "Animal feed field sales software",
     metaDescription:
-      "OZZO helps cattle, poultry and animal feed companies run the field — dealer and sub-dealer coverage, order capture, the all-important credit and outstanding control, and demand that swings with the dairy calendar.",
+      "For cattle and animal feed companies: dealer and sub-dealer coverage, order capture, and the credit and outstanding control the trade runs on.",
     keywords: ["animal feed distribution software", "cattle feed dealer management", "poultry feed field sales software", "feed company SFA India", "animal feed CRM"],
     tagline: "Run the feed dealer chain where credit is the whole game — coverage, order capture, and outstanding you can finally control.",
     intro:
@@ -549,9 +549,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Poultry Feed & Integrators",
     icon: "Bird",
-    metaTitle: "Field sales software for poultry feed & integrators",
+    metaTitle: "Poultry feed field sales software",
     metaDescription:
-      "OZZO helps poultry feed companies and integrators run the field — coverage of thousands of contract and independent farms, feed-price changes pushed to the field, dealer and farmer credit control, and offtake/secondary visibility.",
+      "Built for poultry feed companies and integrators: coverage of contract and independent farms, feed-price updates, farmer credit and offtake.",
     keywords: ["poultry feed software", "poultry integrator field sales", "broiler layer feed distribution", "poultry feed dealer management India", "contract farming field app"],
     image: "/industries/poultry-feed-integrators-hero.jpg",
     imageAlt: "Commercial broiler poultry farm interior",
@@ -634,9 +634,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Aquaculture & Fish Feed",
     icon: "Fish",
-    metaTitle: "Field sales software for aquaculture & fish feed companies",
+    metaTitle: "Aqua & fish feed field sales software",
     metaDescription:
-      "OZZO helps shrimp and fish feed companies run the field — reach dispersed pond farmers through the distributor–sub-dealer chain, log technical advisory, push prices, and control 30–60 day credit and secondary movement.",
+      "For shrimp and fish feed brands: reach dispersed pond farmers through the sub-dealer chain, log technical advisory, control 30-60 day credit.",
     keywords: ["aquaculture feed software", "shrimp feed distribution India", "fish feed dealer management", "aqua feed field sales", "pond farmer field app"],
     image: "/industries/aquaculture-fish-feed-hero.jpg",
     imageAlt: "Coastal aquaculture farm with floating rafts",
@@ -719,9 +719,9 @@ export const industries: Industry[] = [
     sector: "Agriculture",
     name: "Agriculture Equipment",
     icon: "Tractor",
-    metaTitle: "Field sales software for agriculture equipment companies",
+    metaTitle: "Farm equipment field sales software",
     metaDescription:
-      "OZZO helps farm-equipment and implement companies run the field — dealer coverage, a CRM pipeline for high-value demo-and-finance sales, spare-parts orders, after-sales service visits, and dealer outstanding.",
+      "Built for farm equipment brands: dealer coverage, a CRM pipeline for demo-and-finance sales, spare-parts orders and service visits to closure.",
     keywords: ["farm equipment dealer software", "agriculture implement field sales", "tractor dealer management India", "farm machinery CRM", "after-sales service field app agriculture"],
     image: "/industries/agriculture-equipment-hero.jpg",
     imageAlt: "Tractor with an implement working a field",
@@ -804,9 +804,9 @@ export const industries: Industry[] = [
     sector: "Pipes & Fittings",
     name: "HDPE Pipe Companies",
     icon: "Droplets",
-    metaTitle: "Field sales software for HDPE pipe companies",
+    metaTitle: "HDPE pipe field sales software",
     metaDescription:
-      "OZZO is built for HDPE pipe brands: government water & irrigation project pipelines (Jal Jeevan, AMRUT), an agri dealer network, resin-linked price changes, fusion-jointing support, and dealer credit — one system.",
+      "Built for HDPE pipe brands: Jal Jeevan and AMRUT project pipelines, an agri dealer network, resin-linked price updates and dealer credit.",
     keywords: ["HDPE pipe company software", "HDPE pipe distribution India", "Jal Jeevan Mission dealer", "irrigation pipe field sales", "HDPE dealer management", "PE100 pipe project sales"],
     image: "/industries/hdpe-pipe-companies-hero.jpg",
     imageAlt: "Black HDPE drip-irrigation lines running through a field",
@@ -889,9 +889,9 @@ export const industries: Industry[] = [
     sector: "Pipes & Fittings",
     name: "Stainless Steel Pipe Companies",
     icon: "Factory",
-    metaTitle: "Field sales software for stainless steel pipe companies",
+    metaTitle: "Stainless steel pipe sales software",
     metaDescription:
-      "OZZO is built for SS pipe & tube brands: grade/spec technical selling (304/316, seamless/welded, schedules), industrial project quotations, fabricator & stockist dealers, mill-certificate references, and dealer credit — one system.",
+      "For SS pipe and tube brands: grade and spec selling (304/316, seamless or welded), project quotations, fabricator dealers and credit control.",
     keywords: ["stainless steel pipe software", "SS pipe distribution India", "304 316 pipe field sales", "fabricator dealer management", "industrial pipe project sales", "SS tube stockist software"],
     image: "/industries/stainless-steel-pipe-companies-hero.jpg",
     imageAlt: "Stacked stainless steel pipes and tubes",
@@ -974,9 +974,9 @@ export const industries: Industry[] = [
     sector: "Pipes & Fittings",
     name: "Cast Iron Pipe Companies",
     icon: "Building2",
-    metaTitle: "Field sales software for cast iron pipe companies",
+    metaTitle: "Cast iron pipe field sales software",
     metaDescription:
-      "OZZO is built for cast iron (CI / SG iron) drainage pipe brands: getting specified in high-rise soil stacks, builder/plumber influence, municipal & project tenders, dealer coverage and outstanding — one system.",
+      "For cast iron and SG iron pipe brands: getting specified in high-rise soil stacks, plumber influence, municipal tenders and dealer outstanding.",
     keywords: ["cast iron pipe software", "CI drainage pipe distribution", "SG iron pipe field sales", "soil pipe project sales India", "builder specification field app", "municipal pipe tender"],
     image: "/industries/cast-iron-pipe-companies-hero.jpg",
     imageAlt: "Heavy flanged iron drainage pipes",
@@ -1059,9 +1059,9 @@ export const industries: Industry[] = [
     sector: "FMCG & Consumer Goods",
     name: "Food & Beverage Companies",
     icon: "ShoppingBag",
-    metaTitle: "Field sales software for food & beverage companies",
+    metaTitle: "Food & beverage field sales software",
     metaDescription:
-      "OZZO is built for food & beverage brands and distributors: high-frequency retail coverage, near-expiry & damage returns from the field, batch/expiry capture, trade schemes, secondary sales and outstanding — one affordable system.",
+      "Built for food and beverage brands: high-frequency retail coverage, near-expiry and damage returns from the field, schemes and secondary sales.",
     keywords: ["food beverage distribution software", "FMCG food SFA India", "snacks distribution field sales", "beverage distributor management", "expiry returns field app", "food distributor secondary sales"],
     image: "/industries/food-beverage-companies-hero.jpg",
     imageAlt: "Vibrant snack aisle in a retail store",
@@ -1144,9 +1144,9 @@ export const industries: Industry[] = [
     sector: "FMCG & Consumer Goods",
     name: "FMCG Companies",
     icon: "ShoppingCart",
-    metaTitle: "Field sales software for FMCG companies",
+    metaTitle: "FMCG field sales software",
     metaDescription:
-      "OZZO is built for FMCG brands and distributors: wide retail coverage, must-stock assortment and reorder discipline, retail-execution visibility, trade schemes, secondary sales and outstanding — one affordable system for regional & SME brands.",
+      "For FMCG brands and distributors: wide retail coverage, must-stock assortment, reorder discipline, trade schemes, secondary sales and outstanding.",
     keywords: ["FMCG distribution software India", "FMCG field sales app", "retail execution software SME", "distributor management FMCG", "secondary sales FMCG", "FMCG SFA affordable"],
     image: "/industries/fmcg-companies-hero.jpg",
     imageAlt: "Well-stocked retail shelf of FMCG products",
@@ -1229,9 +1229,9 @@ export const industries: Industry[] = [
     sector: "Building Materials",
     name: "Paint Companies",
     icon: "Paintbrush",
-    metaTitle: "Field sales software for paint companies & distributors",
+    metaTitle: "Paint company field sales software",
     metaDescription:
-      "OZZO is built for decorative & industrial paint brands: the painter/contractor who decides the brand, a huge base × shade × pack × finish catalogue, dealer credit & secondary-sales visibility, project sales and trade schemes — one field-sales system.",
+      "For decorative and industrial paint brands: the contractor who picks the brand, a huge shade and pack catalogue, dealer credit and project sales.",
     keywords: ["paint company software", "paint distribution software", "field sales software for paint companies", "paint dealer management software", "decorative paint SFA India", "painter contractor engagement software", "paint distributor management software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for paint companies",
@@ -1313,9 +1313,9 @@ export const industries: Industry[] = [
     sector: "Building Materials",
     name: "Tiles & Sanitaryware Companies",
     icon: "LayoutGrid",
-    metaTitle: "Field sales software for tiles & sanitaryware companies",
+    metaTitle: "Tiles & sanitaryware sales software",
     metaDescription:
-      "OZZO is built for ceramic/vitrified tile and sanitaryware brands: architect & interior-designer influence, showroom + project dual sales, batch/shade-lot ordering, dealer credit and a CRM pipeline for builder projects — one field-sales system.",
+      "For tile and sanitaryware brands: architect influence, showroom and project sales, shade-lot ordering and a CRM pipeline for builder projects.",
     keywords: ["tiles company software", "sanitaryware distribution software", "field sales software for tiles", "ceramic tile dealer management", "vitrified tiles SFA India", "sanitaryware dealer software", "architect interior designer engagement software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for tiles & sanitaryware companies",
@@ -1397,9 +1397,9 @@ export const industries: Industry[] = [
     sector: "Building Materials",
     name: "Electricals, Wires & Cables Companies",
     icon: "Cable",
-    metaTitle: "Field sales software for electrical, wires & cables companies",
+    metaTitle: "Wires & cables field sales software",
     metaDescription:
-      "OZZO is built for wires, cables & electrical-goods brands: the electrician who decides the brand, copper-linked price volatility pushed to the field, multi-unit ordering (coil/metre/kg/piece), dealer credit and project sales — one field-sales system.",
+      "For wires, cables and electrical-goods brands: the electrician who picks the brand, copper-linked price updates and multi-unit ordering.",
     keywords: ["wire and cable company software", "electrical goods distribution software", "field sales software for electricals", "cable dealer management software", "electrical SFA India", "electrician engagement software", "switchgear distributor software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for wires, cables & electrical companies",
@@ -1481,9 +1481,9 @@ export const industries: Industry[] = [
     sector: "Building Materials",
     name: "Adhesives & Construction Chemicals Companies",
     icon: "FlaskConical",
-    metaTitle: "Field sales software for adhesives & construction chemicals",
+    metaTitle: "Construction chemicals sales software",
     metaDescription:
-      "OZZO is built for tile-adhesive, waterproofing & construction-chemical brands: the applicator/contractor who specifies, technical & site-demo selling, batch and shelf-life aware ordering, project sales, dealer credit — one field-sales system.",
+      "For tile-adhesive and waterproofing brands: the applicator who specifies, site-demo selling, shelf-life aware ordering and project sales.",
     keywords: ["construction chemicals software", "tile adhesive distribution software", "field sales software for construction chemicals", "waterproofing dealer management", "adhesives SFA India", "applicator contractor engagement software", "admixture distributor software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for adhesives & construction chemicals",
@@ -1565,9 +1565,9 @@ export const industries: Industry[] = [
     sector: "Building Materials",
     name: "Plywood & Laminates Companies",
     icon: "SquareStack",
-    metaTitle: "Field sales software for plywood & laminates companies",
+    metaTitle: "Plywood & laminates sales software",
     metaDescription:
-      "OZZO is built for plywood, laminate & veneer brands: the carpenter who decides the brand, a design-led catalogue (grades, designs, thickness, sizes), dealer credit & secondary-sales visibility, project sales and trade schemes — one field-sales system.",
+      "For plywood, laminate and veneer brands: the carpenter who picks the brand, a design-led catalogue, dealer credit and project sales.",
     keywords: ["plywood company software", "laminate distribution software", "field sales software for plywood", "plywood dealer management software", "laminates SFA India", "carpenter engagement software", "veneer distributor software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for plywood & laminates companies",
@@ -1649,9 +1649,9 @@ export const industries: Industry[] = [
     sector: "Pharma & Healthcare",
     name: "Pharmaceutical Companies",
     icon: "Pill",
-    metaTitle: "Field sales software for pharmaceutical companies & MR teams",
+    metaTitle: "Pharma field sales & MR reporting software",
     metaDescription:
-      "OZZO is built for pharma field teams: geo-stamped doctor calls, real MR attendance and territory coverage, chemist & stockist orders, secondary visibility, tour/DA expense claims and outstanding — one MR reporting and field-tracking system.",
+      "For pharma field teams: geo-stamped doctor calls, real MR attendance and coverage, chemist and stockist orders, and tour and DA expense claims.",
     keywords: ["pharma field sales software", "MR reporting software India", "medical representative tracking app", "pharma SFA India", "chemist stockist management software", "pharmaceutical CRM India", "MR expense claim software"],
     seo: {
       heading: "Sales force automation (SFA) & MR tracking for pharmaceutical companies",
@@ -1733,9 +1733,9 @@ export const industries: Industry[] = [
     sector: "Pharma & Healthcare",
     name: "Surgical & Medical Device Companies",
     icon: "Scissors",
-    metaTitle: "Field sales software for surgical & medical device companies",
+    metaTitle: "Surgical & medical device sales software",
     metaDescription:
-      "OZZO is built for surgical and medical-device brands: surgeon & clinician engagement, long-cycle hospital and institutional deals, distributor coverage, branded quotations, and long hospital credit cycles under control — one field-sales system.",
+      "For surgical and medical-device brands: surgeon engagement, long-cycle hospital deals, distributor coverage and long credit cycles controlled.",
     keywords: ["surgical products distribution software", "medical device field sales software", "hospital sales CRM India", "surgical distributor management software", "medical device SFA India", "institutional sales software healthcare"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for surgical & medical device companies",
@@ -1817,9 +1817,9 @@ export const industries: Industry[] = [
     sector: "Pharma & Healthcare",
     name: "Injectables & Critical Care Companies",
     icon: "Syringe",
-    metaTitle: "Field sales software for injectables & critical care companies",
+    metaTitle: "Injectables field sales software",
     metaDescription:
-      "OZZO is built for injectable and critical-care pharma: hospital and institutional supply, a narrow high-value stockist network, batch & expiry captured in the field, long credit cycles and real coverage — one field-sales system.",
+      "For injectable and critical-care pharma: hospital and institutional supply, a narrow stockist network, and batch and expiry captured in the field.",
     keywords: ["injectable pharma distribution software", "critical care pharma field sales", "hospital supply pharma software", "institutional pharma sales software", "injectables stockist management", "pharma SFA hospital channel"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for injectables & critical care",
@@ -1901,9 +1901,9 @@ export const industries: Industry[] = [
     sector: "Pharma & Healthcare",
     name: "Medical Equipment & Diagnostics Companies",
     icon: "Microscope",
-    metaTitle: "Field sales software for medical equipment & diagnostics companies",
+    metaTitle: "Medical equipment sales software",
     metaDescription:
-      "OZZO is built for medical equipment and diagnostic-device brands: the long demo-and-finance capital sale, recurring consumable & reagent reorders, service visits tracked to closure, dealer coverage and outstanding — one sales and field-service system.",
+      "For medical equipment and diagnostic brands: the demo-and-finance capital sale, recurring reagent reorders and service visits tracked to closure.",
     keywords: ["medical equipment field sales software", "diagnostic device distribution software", "medical device dealer management", "glucometer distribution software", "lab equipment sales CRM India", "medical equipment service visit app"],
     seo: {
       heading: "Sales force automation (SFA) & field service tracking for medical equipment & diagnostics",
@@ -1985,9 +1985,9 @@ export const industries: Industry[] = [
     sector: "Pharma & Healthcare",
     name: "Ayurvedic & Nutraceutical Companies",
     icon: "Leaf",
-    metaTitle: "Field sales software for ayurvedic & nutraceutical companies",
+    metaTitle: "Ayurvedic & nutraceutical sales software",
     metaDescription:
-      "OZZO is built for ayurvedic, herbal and nutraceutical brands: a dual OTC-retail and practitioner-ethical motion, wide chemist & general-trade coverage, reorder and secondary visibility, trade schemes, expiry returns and outstanding — one field-sales system.",
+      "For ayurvedic and nutraceutical brands: a dual OTC-retail and practitioner motion, wide chemist coverage, trade schemes and expiry returns.",
     keywords: ["ayurvedic company field sales software", "nutraceutical distribution software", "herbal products distributor management", "ayurvedic SFA India", "nutraceutical retail execution software", "wellness products field sales"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for ayurvedic & nutraceutical companies",
@@ -2069,9 +2069,9 @@ export const industries: Industry[] = [
     sector: "Auto, Lubricants & Electricals",
     name: "Auto Components & Spare Parts Companies",
     icon: "Cog",
-    metaTitle: "Field sales software for auto components & spare parts companies",
+    metaTitle: "Auto parts field sales software",
     metaDescription:
-      "OZZO is built for auto-component and spare-parts brands: a huge part-number catalogue, the mechanic who decides the brand, deep retailer & distributor coverage on credit, secondary-sales visibility and dead-stock control — one field-sales system.",
+      "For auto-component and spare-parts brands: a huge part-number catalogue, the mechanic who picks the brand, retailer credit and dead-stock control.",
     keywords: ["auto parts distribution software", "spare parts field sales software", "auto component dealer management", "automotive aftermarket SFA India", "spare parts order booking app", "mechanic engagement software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for auto components & spare parts",
@@ -2153,9 +2153,9 @@ export const industries: Industry[] = [
     sector: "Auto, Lubricants & Electricals",
     name: "Lubricants & Oils Companies",
     icon: "Fuel",
-    metaTitle: "Field sales software for lubricants & oils companies",
+    metaTitle: "Lubricants & oils field sales software",
     metaDescription:
-      "OZZO is built for lubricant and oil brands: the mechanic who recommends the grade, multi-unit packs (litre to barrel), base-oil-linked price changes pushed to the field, workshop & retailer coverage, industrial bulk sales and credit control — one system.",
+      "For lubricant and oil brands: multi-unit packs from litre to barrel, base-oil-linked price updates, workshop coverage and credit control.",
     keywords: ["lubricant distribution software", "engine oil field sales software", "lubricant dealer management software", "oil company SFA India", "workshop mechanic engagement software", "industrial lubricant sales software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for lubricants & oils companies",
@@ -2237,9 +2237,9 @@ export const industries: Industry[] = [
     sector: "Auto, Lubricants & Electricals",
     name: "Tyre Companies",
     icon: "CircleDot",
-    metaTitle: "Field sales software for tyre companies & distributors",
+    metaTitle: "Tyre company field sales software",
     metaDescription:
-      "OZZO is built for tyre brands and distributors: a size × pattern SKU matrix, high-value slow-moving dealer stock, fleet and institutional contracts alongside the dealer beat, and long dealer credit under control — one field-sales system.",
+      "For tyre brands and distributors: a size and pattern SKU matrix, high-value dealer stock, fleet contracts and long dealer credit under control.",
     keywords: ["tyre distribution software", "tyre dealer management software", "tyre company field sales software", "fleet tyre sales CRM", "tyre SFA India", "tyre distributor order booking app"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for tyre companies",
@@ -2321,9 +2321,9 @@ export const industries: Industry[] = [
     sector: "Auto, Lubricants & Electricals",
     name: "Battery Companies",
     icon: "BatteryCharging",
-    metaTitle: "Field sales software for battery companies & distributors",
+    metaTitle: "Battery company field sales software",
     metaDescription:
-      "OZZO is built for automotive and inverter battery brands: date-code and ageing stock caught in the field, the mechanic who recommends the brand, dealer credit on high-value stock, exchange returns recorded at the counter and institutional sales — one system.",
+      "For automotive and inverter battery brands: date-code ageing stock caught in the field, dealer credit and exchange returns taken at the counter.",
     keywords: ["battery distribution software", "battery dealer management software", "automotive battery field sales", "inverter battery distribution", "battery company SFA India", "battery distributor order booking app"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for battery companies",
@@ -2405,9 +2405,9 @@ export const industries: Industry[] = [
     sector: "Auto, Lubricants & Electricals",
     name: "Lighting & Electrical Appliances Companies",
     icon: "Lightbulb",
-    metaTitle: "Field sales software for lighting & electrical appliance companies",
+    metaTitle: "Lighting & appliance sales software",
     metaDescription:
-      "OZZO is built for LED lighting, fan and electrical-appliance brands: retail and modern-trade coverage, display and shelf-share checks with photos, festive scheme spikes, reorder and secondary visibility, and after-sales service visits — one field-sales system.",
+      "For LED lighting, fan and appliance brands: retail and modern-trade coverage, display checks with photos, festive schemes and service visits.",
     keywords: ["lighting company field sales software", "LED distribution software", "electrical appliance distributor management", "consumer durables SFA India", "fan appliance retail execution software", "lighting dealer management software"],
     seo: {
       heading: "Sales force automation (SFA) & field tracking for lighting & electrical appliances",

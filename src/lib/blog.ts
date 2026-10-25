@@ -26,6 +26,13 @@ export type BlogBlock =
 export type BlogPost = {
   slug: string;
   title: string;
+  /**
+   * Shorter <title> for search results, when the headline is too long to
+   * survive Google's ~60-character cut (the " — OZZO" suffix costs 7 of
+   * them). The headline on the page itself stays `title` — a good headline
+   * should not be shortened just to fit a SERP.
+   */
+  metaTitle?: string;
   /** One-sentence summary — used on the card, meta description and OG. */
   description: string;
   /** ISO date, e.g. "2026-09-14". */
@@ -43,7 +50,7 @@ export const posts: BlogPost[] = [
     slug: "crm-or-sfa-which-does-your-field-team-need",
     title: "CRM or SFA: which does your field team actually need?",
     description:
-      "OZZO comes in two products — CRM and SFA. Here's the plain-English difference, who each one is for, and how to choose without paying for more than you'll use.",
+      "OZZO comes in two products — CRM and SFA. The plain-English difference, who each one is for, and how to choose without paying for more than you need.",
     date: "2026-09-19",
     author: "Team OZZO",
     tags: ["CRM", "Sales force automation", "Field sales"],
@@ -165,8 +172,9 @@ export const posts: BlogPost[] = [
   {
     slug: "signs-field-sales-team-outgrown-spreadsheets-whatsapp",
     title: "5 signs your field sales team has outgrown spreadsheets and WhatsApp",
+    metaTitle: "5 signs you have outgrown spreadsheets",
     description:
-      "Spreadsheets and WhatsApp groups get a small field team off the ground — then quietly start costing you orders, coverage and cash. Here are five signs it's time for a real system.",
+      "Spreadsheets and WhatsApp groups get a small field team going, then quietly start costing you orders, coverage and cash. Five signs it is time to move on.",
     date: "2026-09-14",
     author: "Team OZZO",
     tags: ["Field sales", "Sales force automation", "Distribution"],

@@ -71,9 +71,9 @@ export const alternativesPages: AlternativesPage[] = [
     target: "FieldAssist",
     targetCategory: "Enterprise SFA & DMS for FMCG/CPG",
     compareSlug: "ozzo-vs-fieldassist",
-    metaTitle: "FieldAssist alternatives for Indian field sales teams",
+    metaTitle: "FieldAssist alternatives for Indian teams",
     metaDescription:
-      "Six FieldAssist alternatives compared for Indian brands — who each one suits, what it does well, and where it falls short. Enterprise SFA, SME platforms and tracking-only apps.",
+      "Six FieldAssist alternatives compared: who each suits, what it does well and where it falls short. Enterprise SFA, SME platforms and tracking-only apps.",
     keywords: [
       "FieldAssist alternatives",
       "FieldAssist competitors",
@@ -173,9 +173,9 @@ export const alternativesPages: AlternativesPage[] = [
     target: "Unolo",
     targetCategory: "Field-force tracking & attendance",
     compareSlug: "ozzo-vs-unolo",
-    metaTitle: "Unolo alternatives: field tracking apps that also take orders",
+    metaTitle: "Unolo alternatives for Indian field teams",
     metaDescription:
-      "Five Unolo alternatives for Indian field teams. Unolo tracks attendance and GPS well — here is what to use when you also need order capture, collections or a CRM.",
+      "Five Unolo alternatives compared. Unolo tracks attendance and GPS well - here is what to use when you also need order capture, collections or a CRM.",
     keywords: [
       "Unolo alternatives",
       "Unolo competitors",
@@ -259,9 +259,9 @@ export const alternativesPages: AlternativesPage[] = [
     target: "Delta Sales App",
     targetCategory: "Field sales automation for distributors",
     compareSlug: "ozzo-vs-delta-sales-app",
-    metaTitle: "Delta Sales App alternatives for distributors and manufacturers",
+    metaTitle: "Delta Sales App alternatives compared",
     metaDescription:
-      "Five Delta Sales App alternatives compared for Indian distributors and manufacturers — field sales apps, all-in-one platforms and enterprise SFA, with who each one suits.",
+      "Five Delta Sales App alternatives for Indian distributors and manufacturers: field sales apps, all-in-one platforms and enterprise SFA, and who each suits.",
     keywords: [
       "Delta Sales App alternatives",
       "Delta Sales App competitors",
@@ -344,9 +344,9 @@ export const alternativesPages: AlternativesPage[] = [
     target: "Bizom",
     targetCategory: "Enterprise SFA for FMCG & CPG",
     compareSlug: "ozzo-vs-bizom",
-    metaTitle: "Bizom alternatives: enterprise and SME options compared",
+    metaTitle: "Bizom alternatives, honestly compared",
     metaDescription:
-      "Five Bizom alternatives for Indian FMCG and consumer brands — enterprise SFA peers and lighter SME platforms, with an honest view of who each one actually suits.",
+      "Five Bizom alternatives for Indian FMCG and consumer brands: enterprise SFA peers and lighter SME platforms, with an honest view of who each one suits.",
     keywords: [
       "Bizom alternatives",
       "Bizom competitors",
@@ -427,9 +427,9 @@ export const alternativesPages: AlternativesPage[] = [
     target: "TrackOlap",
     targetCategory: "Employee monitoring, HR & sales suite",
     compareSlug: "ozzo-vs-trackolap",
-    metaTitle: "TrackOlap alternatives for field sales and team tracking",
+    metaTitle: "TrackOlap alternatives for field sales",
     metaDescription:
-      "Four TrackOlap alternatives for Indian teams — from lighter field-tracking apps to full field-sales platforms with order capture, collections and CRM.",
+      "Four TrackOlap alternatives for Indian teams, from lighter field-tracking apps to full field-sales platforms with order capture, collections and CRM.",
     keywords: [
       "TrackOlap alternatives",
       "TrackOlap competitors",

@@ -20,6 +20,14 @@ export const brand = {
   // first. Keep it to that one number — per-user rates stay off the site.
   description:
     "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI. Plans starting from ₹5,000 only.",
+  /**
+   * The home page's <meta description>, kept separate because `description`
+   * above runs to 211 characters — right for Organization schema and the
+   * llms.txt summary, where length is no constraint, but Google rewrites
+   * anything past ~155 and we lose control of the snippet.
+   */
+  metaDescription:
+    "CRM, field workforce and sales & distribution in one system — a web dashboard for managers, a mobile app for reps, powered by WhatsApp and AI.",
   // Where prospects sign in / sign up. Kept OFF the marketing pages
   // on purpose — this is the separate app URL only.
   appUrl: "https://app.ozzo.co.in",

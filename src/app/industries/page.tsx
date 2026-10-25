@@ -8,9 +8,9 @@ import { industriesBySector } from "@/lib/industries";
 import { sectors } from "@/lib/sectors";
 
 export const metadata = pageMetadata({
-  title: "Industries — field sales software built for your trade",
+  title: "Field sales software, by industry",
   description:
-    "OZZO is built for the way each industry sells and collects in the field — from seed, fertilizer and agrochemical companies to animal feed and beyond. Explore field-sales software tailored to your sub-industry.",
+    "OZZO is built for how each trade sells and collects in the field. Explore 28 sub-industries, from seed and fertilizer to pipes, pharma, paints and tyres.",
   path: "/industries",
   keywords: [
     "field sales software by industry",

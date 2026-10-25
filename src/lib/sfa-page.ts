@@ -11,9 +11,9 @@
  */
 
 export const sfaMeta = {
-  metaTitle: "Sales Force Automation — field tracking, orders & collections",
+  metaTitle: "Sales Force Automation — orders & tracking",
   metaDescription:
-    "OZZO Sales Force Automation shows you exactly what your field team is doing — selfie + GPS attendance, live location and geo-tagged visits — then captures orders offline, collects payments in the field, and keeps outstanding and stock calculated automatically. No Tally, no ERP. Web dashboard + Android app.",
+    "Selfie and GPS attendance, live location and geo-tagged visits — then offline orders, field payment collection, and outstanding kept automatically.",
   keywords: [
     "sales force automation software",
     "field force tracking app",

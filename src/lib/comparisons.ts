@@ -91,9 +91,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-bizom",
     competitor: "Bizom",
     competitorCategory: "Enterprise SFA for FMCG & CPG",
-    metaTitle: "OZZO vs Bizom — affordable SFA alternative for Indian SMEs",
+    metaTitle: "OZZO vs Bizom — affordable SFA for SMEs",
     metaDescription:
-      "An honest OZZO vs Bizom comparison. Bizom is a heavyweight enterprise SFA for large FMCG brands; OZZO is the affordable, all-in-one CRM + field sales + WhatsApp platform built for Indian SMEs and MSMEs. See where each one fits.",
+      "Bizom is a heavyweight enterprise SFA for large FMCG brands. OZZO is the all-in-one CRM, field sales and WhatsApp platform for Indian SMEs.",
     keywords: ["OZZO vs Bizom", "Bizom alternative", "Bizom alternative India", "affordable SFA software", "SME sales force automation", "Bizom competitor"],
     tagline: "Bizom is enterprise-grade FMCG software. OZZO is the all-in-one CRM + field sales platform SMEs can actually run — without an enterprise rollout.",
     verdict:
@@ -137,9 +137,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-beatroute",
     competitor: "BeatRoute",
     competitorCategory: "AI retail-execution SFA",
-    metaTitle: "OZZO vs BeatRoute — all-in-one alternative for SME field sales",
+    metaTitle: "OZZO vs BeatRoute — the SME alternative",
     metaDescription:
-      "An honest OZZO vs BeatRoute comparison. BeatRoute is a goal-driven AI retail-execution platform for larger brands; OZZO is the all-in-one CRM + field sales + WhatsApp platform for Indian SMEs. See where each fits.",
+      "BeatRoute is a goal-driven AI retail-execution platform for larger brands. OZZO is the all-in-one CRM, field sales and WhatsApp platform for SMEs.",
     keywords: ["OZZO vs BeatRoute", "BeatRoute alternative", "BeatRoute alternative India", "retail execution software SME", "affordable SFA", "BeatRoute competitor"],
     tagline: "BeatRoute is a goal-driven AI platform for retail execution. OZZO is the affordable all-in-one CRM + field sales system for SMEs.",
     verdict:
@@ -183,9 +183,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-fieldassist",
     competitor: "FieldAssist",
     competitorCategory: "Enterprise SFA & DMS for FMCG/CPG",
-    metaTitle: "OZZO vs FieldAssist — affordable all-in-one SFA for SMEs",
+    metaTitle: "OZZO vs FieldAssist — all-in-one for SMEs",
     metaDescription:
-      "An honest OZZO vs FieldAssist comparison. FieldAssist is an enterprise FMCG/CPG sales-automation and distribution platform; OZZO is the affordable, all-in-one CRM + field sales + WhatsApp platform for Indian SMEs. See where each fits.",
+      "FieldAssist is an enterprise FMCG sales-automation and distribution platform. OZZO is the affordable all-in-one CRM and field sales platform for SMEs.",
     keywords: ["OZZO vs FieldAssist", "FieldAssist alternative", "FieldAssist alternative India", "SME SFA software", "affordable field sales app", "FieldAssist competitor"],
     tagline: "FieldAssist is enterprise FMCG software. OZZO gives SMEs field sales, CRM and WhatsApp in one affordable login.",
     verdict:
@@ -229,9 +229,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-zoho",
     competitor: "Zoho CRM",
     competitorCategory: "General-purpose CRM",
-    metaTitle: "OZZO vs Zoho CRM — CRM with native field-force tracking",
+    metaTitle: "OZZO vs Zoho CRM — native field tracking",
     metaDescription:
-      "An honest OZZO vs Zoho CRM comparison. Zoho is a strong, affordable general CRM but needs third-party add-ons for GPS field tracking; OZZO ships CRM, native field-force tracking, orders, collections and WhatsApp in one system. See where each fits.",
+      "Zoho is a strong, affordable general CRM but needs add-ons for GPS field tracking. OZZO ships CRM, tracking, orders, collections and WhatsApp in one.",
     keywords: ["OZZO vs Zoho", "OZZO vs Zoho CRM", "Zoho CRM field sales", "Zoho CRM GPS tracking alternative", "CRM with field force tracking India", "Zoho alternative for field sales"],
     tagline: "Zoho is a great general CRM. OZZO is a CRM with native field-force tracking, orders and collections built in — no add-ons to stitch.",
     verdict:
@@ -286,9 +286,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-salesforce",
     competitor: "Salesforce",
     competitorCategory: "Enterprise CRM platform",
-    metaTitle: "OZZO vs Salesforce — affordable field-sales CRM for Indian SMEs",
+    metaTitle: "OZZO vs Salesforce — the SME alternative",
     metaDescription:
-      "An honest OZZO vs Salesforce comparison. Salesforce is the most powerful enterprise CRM but is costly and complex for Indian SMEs; OZZO is an affordable, India-built CRM + field sales + WhatsApp platform that goes live in days. See where each fits.",
+      "Salesforce is the most powerful enterprise CRM, but costly and complex for an Indian SME. OZZO is an India-built CRM and field sales platform.",
     keywords: ["OZZO vs Salesforce", "Salesforce alternative India", "Salesforce alternative for SME", "affordable CRM India", "field sales CRM India", "Salesforce for small business India"],
     tagline: "Salesforce is the most powerful enterprise CRM. OZZO is the affordable, India-built field-sales platform an SME can run without an admin.",
     verdict:
@@ -342,9 +342,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-unolo",
     competitor: "Unolo",
     competitorCategory: "Field-force tracking & attendance",
-    metaTitle: "OZZO vs Unolo — field tracking plus CRM, orders & WhatsApp",
+    metaTitle: "OZZO vs Unolo — tracking plus orders",
     metaDescription:
-      "An honest OZZO vs Unolo comparison. Unolo is a strong, fast field-force tracking and attendance app; OZZO adds a full CRM, offline orders, field collections and a WhatsApp inbox on top of tracking. See where each fits.",
+      "Unolo is a strong, fast field-force tracking and attendance app. OZZO adds a full CRM, offline orders, field collections and WhatsApp on top.",
     keywords: ["OZZO vs Unolo", "Unolo alternative", "Unolo alternative India", "field force tracking with CRM", "field sales app with orders", "Unolo competitor"],
     tagline: "Unolo is excellent at tracking and attendance. OZZO does that too — and adds a full CRM, orders, collections and WhatsApp on one login.",
     verdict:
@@ -388,9 +388,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-fieldsense",
     competitor: "FieldSense",
     competitorCategory: "Field-force management app",
-    metaTitle: "OZZO vs FieldSense — field tracking plus CRM, orders & WhatsApp",
+    metaTitle: "OZZO vs FieldSense — tracking plus orders",
     metaDescription:
-      "An honest OZZO vs FieldSense comparison. FieldSense is an easy, mobile-first field-force tracking app with a free tier; OZZO adds a full CRM, offline orders, field collections and a WhatsApp inbox on top. See where each fits.",
+      "FieldSense is an easy, mobile-first tracking app with a free tier. OZZO adds a full CRM, offline orders, field collections and WhatsApp on top.",
     keywords: ["OZZO vs FieldSense", "FieldSense alternative", "FieldSense alternative India", "field force management with CRM", "field sales app with orders", "FieldSense competitor"],
     tagline: "FieldSense is a simple, mobile-first tracking app. OZZO adds a full CRM, orders, collections and WhatsApp to the same field visibility.",
     verdict:
@@ -434,9 +434,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-trackolap",
     competitor: "TrackOlap",
     competitorCategory: "Employee monitoring, HR & sales suite",
-    metaTitle: "OZZO vs TrackOlap — purpose-built field sales vs broad suite",
+    metaTitle: "OZZO vs TrackOlap — focused vs broad suite",
     metaDescription:
-      "An honest OZZO vs TrackOlap comparison. TrackOlap bundles sales CRM, HR/payroll, remote monitoring and IT helpdesk; OZZO is a purpose-built CRM + field sales + WhatsApp platform with deeper orders, collections and distribution. See where each fits.",
+      "TrackOlap bundles sales CRM, HR, monitoring and helpdesk. OZZO is a purpose-built field sales platform with deeper orders, collections and distribution.",
     keywords: ["OZZO vs TrackOlap", "TrackOlap alternative", "TrackOlap alternative India", "field sales vs employee monitoring", "CRM with field sales", "TrackOlap competitor"],
     tagline: "TrackOlap spans HR, monitoring and sales. OZZO goes deep on field sales — CRM, orders, collections, distribution and WhatsApp.",
     verdict:
@@ -491,9 +491,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-delta-sales-app",
     competitor: "Delta Sales App",
     competitorCategory: "Field sales automation for distributors",
-    metaTitle: "OZZO vs Delta Sales App — all-in-one CRM + field sales",
+    metaTitle: "OZZO vs Delta Sales App — CRM included",
     metaDescription:
-      "An honest OZZO vs Delta Sales App comparison. Delta Sales App is a well-adopted field-sales app for distributors and manufacturers; OZZO adds a full CRM and WhatsApp inbox to the same order, tracking and collection flow. See where each fits.",
+      "Delta Sales App is a well-adopted field-sales app for distributors. OZZO adds a full CRM and WhatsApp inbox to the same order and collection flow.",
     keywords: ["OZZO vs Delta Sales App", "Delta Sales App alternative", "Delta Sales App alternative India", "field sales app for distributors", "CRM with field sales", "Delta Sales competitor"],
     tagline: "Delta Sales App is a solid field-sales app for distributors. OZZO covers the same ground and adds a full CRM and WhatsApp inbox.",
     verdict:
@@ -537,9 +537,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-massist",
     competitor: "mAssist",
     competitorCategory: "Enterprise SFA for FMCG & CPG",
-    metaTitle: "OZZO vs mAssist — affordable all-in-one SFA for SMEs",
+    metaTitle: "OZZO vs mAssist — all-in-one for SMEs",
     metaDescription:
-      "An honest OZZO vs mAssist comparison. mAssist is an enterprise sales-force-automation platform for large FMCG/CPG distribution; OZZO is the affordable, all-in-one CRM + field sales + WhatsApp platform for Indian SMEs. See where each fits.",
+      "mAssist is enterprise sales-force automation for large FMCG distribution. OZZO is the affordable all-in-one CRM and field sales platform for SMEs.",
     keywords: ["OZZO vs mAssist", "mAssist alternative", "mAssist CRM alternative", "affordable SFA for SME", "all-in-one field sales platform", "mAssist competitor"],
     tagline: "mAssist is enterprise SFA for large distribution networks. OZZO is the affordable all-in-one CRM + field sales platform for SMEs.",
     verdict:
@@ -583,9 +583,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-koops",
     competitor: "Koops",
     competitorCategory: "All-in-one sales & distribution (SFA + CRM + DMS)",
-    metaTitle: "OZZO vs Koops — all-in-one sales platforms compared",
+    metaTitle: "OZZO vs Koops — all-in-one platforms",
     metaDescription:
-      "An honest OZZO vs Koops comparison. Both are all-in-one sales & distribution platforms for Indian SMEs. Koops leans on DMS and native Tally; OZZO leans on WhatsApp CRM, an AI assistant and workforce depth. See where each fits.",
+      "Both are all-in-one platforms for Indian SMEs. Koops leans on DMS and native Tally; OZZO leans on WhatsApp CRM, an AI assistant and workforce depth.",
     keywords: ["OZZO vs Koops", "Koops alternative", "Koops alternative India", "all-in-one SFA CRM DMS", "sales distribution software SME", "Koops competitor"],
     tagline: "Koops and OZZO are both all-in-one for Indian SMEs. Koops leans on DMS + native Tally; OZZO leans on WhatsApp CRM, AI and workforce depth.",
     verdict:
@@ -640,9 +640,9 @@ export const comparisons: Comparison[] = [
     slug: "ozzo-vs-creatio",
     competitor: "Creatio",
     competitorCategory: "Enterprise no-code CRM & BPM platform",
-    metaTitle: "OZZO vs Creatio — affordable field-sales CRM for Indian SMEs",
+    metaTitle: "OZZO vs Creatio — the SME alternative",
     metaDescription:
-      "An honest OZZO vs Creatio comparison. Creatio is a powerful enterprise no-code CRM/BPM platform with a high minimum contract; OZZO is an affordable, India-built CRM + field sales + WhatsApp platform that goes live in days. See where each fits.",
+      "Creatio is a powerful enterprise no-code CRM and BPM platform with a high minimum contract. OZZO is an India-built CRM and field sales platform.",
     keywords: ["OZZO vs Creatio", "Creatio alternative", "Creatio alternative India", "affordable CRM for SME", "field sales CRM India", "Creatio competitor"],
     tagline: "Creatio is a powerful enterprise no-code CRM platform. OZZO is the affordable, India-built field-sales platform an SME can run without a big rollout.",
     verdict:

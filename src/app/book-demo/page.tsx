@@ -7,7 +7,7 @@ import { brand } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Book a free demo",
   description:
-    "Book a free, no-pressure OZZO demo. Share a few details and our team will call you, map OZZO to how your field team works, and show you exactly how it fits.",
+    "Book a free, no-pressure OZZO demo. Share a few details, our team will call you and show you exactly how OZZO fits the way your field team works.",
   path: "/book-demo",
   keywords: ["OZZO demo", "book a CRM demo", "field sales software demo", "sales force automation demo"],
 });
