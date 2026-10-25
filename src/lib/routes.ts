@@ -74,6 +74,7 @@ const staticRoutes: SiteRoute[] = [
   { path: "/industries", priority: 0.8, freq: "weekly", group: "core", label: "Industries" },
   { path: "/blog", priority: 0.7, freq: "weekly", group: "core", label: "Blog" },
   { path: "/book-demo", priority: 0.8, freq: "monthly", group: "core", label: "Book a demo" },
+  { path: "/about", priority: 0.7, freq: "monthly", group: "core", label: "About OZZO and its founder" },
   { path: "/contact", priority: 0.7, freq: "monthly", group: "core", label: "Contact" },
   { path: "/privacy", priority: 0.3, freq: "yearly", group: "legal", label: "Privacy Policy" },
   { path: "/terms", priority: 0.3, freq: "yearly", group: "legal", label: "Terms of Service" },

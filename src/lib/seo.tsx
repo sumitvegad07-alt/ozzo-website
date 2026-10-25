@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL, brand, contact, productLines } from "./site";
+import { SITE_URL, brand, contact, founder, productLines } from "./site";
 import { PLAN_RATE, planOrder, plans, fromRate, type Currency } from "./plans";
 
 const SCHEMA_CURRENCIES: Currency[] = ["INR", "USD"];
@@ -86,7 +86,52 @@ export function organizationSchema() {
       areaServed: "IN",
       availableLanguage: ["en", "hi"],
     },
+    // A named human attached to the company is one of the strongest entity
+    // signals there is — it is the difference between "a website" and "a
+    // company someone runs".
+    founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle },
     sameAs: Object.values(contact.social).filter(Boolean),
+  };
+}
+
+/** Person schema for the founder — used on /about. */
+export function founderSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: founder.name,
+    jobTitle: founder.jobTitle,
+    description: founder.bio,
+    url: `${SITE_URL}/about`,
+    worksFor: {
+      "@type": "Organization",
+      name: brand.legalName,
+      url: SITE_URL,
+    },
+    knowsAbout: [
+      "Sales force automation",
+      "Customer relationship management",
+      "Field sales",
+      "Sales and distribution",
+      "SaaS sales",
+    ],
+  };
+}
+
+/** AboutPage schema. */
+export function aboutPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: `About ${brand.legalName}`,
+    url: `${SITE_URL}/about`,
+    description: brand.metaDescription,
+    mainEntity: {
+      "@type": "Organization",
+      name: brand.legalName,
+      url: SITE_URL,
+      founder: { "@type": "Person", name: founder.name },
+    },
   };
 }
 

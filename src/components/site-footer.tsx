@@ -5,12 +5,14 @@ import { brand, contact, productLines } from "@/lib/site";
 
 const socialLinks = [
   { label: "LinkedIn", href: contact.social.linkedin },
+  { label: "Facebook", href: contact.social.facebook },
+  { label: "YouTube", href: contact.social.youtube },
   { label: "Twitter", href: contact.social.twitter },
   { label: "Instagram", href: contact.social.instagram },
-  { label: "YouTube", href: contact.social.youtube },
 ].filter((s) => s.href);
 
 const policies = [
+  { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "Book a demo", href: "/book-demo" },
   { label: "Blog", href: "/blog" },

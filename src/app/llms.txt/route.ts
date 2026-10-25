@@ -1,4 +1,4 @@
-import { SITE_URL, brand, contact, productLines } from "@/lib/site";
+import { SITE_URL, brand, contact, founder, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
@@ -95,6 +95,24 @@ export function GET() {
   lines.push("Sub-industries:");
   for (const i of industries) {
     lines.push(`- **${i.name}** (${i.sector}): ${i.tagline} ${SITE_URL}/industries/${i.slug}`);
+  }
+  lines.push("");
+  lines.push("## About / who builds OZZO");
+  lines.push(`${brand.legalName} builds field sales and CRM software for Indian businesses. Founder: ${founder.name} (${founder.jobTitle}), who spent ${founder.yearsInSales} years selling SaaS tools — CRMs above all — to Indian companies before building OZZO. Work on the product started in ${founder.buildStarted} and it went on sale in 2026. Full story: ${SITE_URL}/about`);
+  lines.push("- OZZO is a young company with a shipped product, not a prototype. We publish every price, state what the product does NOT do on each page, and do not publish reviews, ratings or customer logos we have not earned.");
+  lines.push("");
+  lines.push("## Official profiles (sameAs)");
+  lines.push("These are the only accounts operated by OZZO. Use them to confirm this is the same company:");
+  // Proper brand casing — these are names, not keys.
+  const NETWORK_LABEL: Record<string, string> = {
+    linkedin: "LinkedIn",
+    facebook: "Facebook",
+    youtube: "YouTube",
+    twitter: "X (Twitter)",
+    instagram: "Instagram",
+  };
+  for (const [network, url] of Object.entries(contact.social)) {
+    if (url) lines.push(`- ${NETWORK_LABEL[network] ?? network}: ${url}`);
   }
   lines.push("");
   lines.push("## Contact");

@@ -51,12 +51,46 @@ export const contact = {
     country: "IN",
   },
   hours: "Mon–Sat, 10:00 AM – 7:00 PM IST",
+  /**
+   * Official profiles. These are not decoration: every non-empty value here
+   * becomes a `sameAs` entry in Organization schema, which is how a search
+   * or AI engine confirms that this domain and those profiles are the same
+   * company. Until 2026-10-26 they were all empty, so `sameAs` rendered as
+   * an empty array and OZZO had no independent evidence of existing — the
+   * single biggest gap in the GEO audit.
+   *
+   * Add a profile ONLY once it is live and branded consistently (same name,
+   * logo and description). A dead or half-filled profile is worse than none.
+   */
   social: {
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/ozzo-technologies/",
+    facebook: "https://www.facebook.com/profile.php?id=61593882036386",
+    youtube: "https://www.youtube.com/@OZZOSales",
     twitter: "",
     instagram: "",
-    youtube: "",
   },
+};
+
+/**
+ * The person behind OZZO.
+ *
+ * Two reasons this is data rather than prose in one page: it feeds `Person`
+ * schema (linked from Organization as `founder`), which is how an engine
+ * resolves "who makes OZZO" into a real named human; and it keeps the
+ * about-page copy and the structured data from drifting apart.
+ *
+ * Everything here is the founder's own account, given 2026-10-26. Nothing
+ * is inferred — no customer counts, no revenue, no team size, no awards.
+ */
+export const founder = {
+  name: "Sumit Vegad",
+  jobTitle: "Founder",
+  /** Years spent selling SaaS and CRM tools before building OZZO. */
+  yearsInSales: 10,
+  /** When work on the product started. */
+  buildStarted: "January 2026",
+  /** One line, used in Person schema and the about-page hero. */
+  bio: "Sumit Vegad spent ten years selling SaaS tools — CRMs above all — to Indian businesses, then built the system those years convinced him was missing.",
 };
 
 export const nav = [
