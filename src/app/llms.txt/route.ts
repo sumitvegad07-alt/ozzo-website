@@ -1,4 +1,4 @@
-import { SITE_URL, brand, contact, founder, productLines } from "@/lib/site";
+import { ANDROID_PACKAGE, SITE_URL, brand, contact, founder, productLines } from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
@@ -21,6 +21,9 @@ export function GET() {
   lines.push(`> ${brand.description}`);
   lines.push("");
   lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps (Android today, with iOS on the way), and works offline.`);
+  lines.push("");
+  lines.push("## Mobile app (Android)");
+  lines.push(`The field app is **${brand.mobileAppName}**, live on Google Play: ${brand.playStoreUrl} (Android package ${ANDROID_PACKAGE}). Reps sign in with the account their administrator creates in the web dashboard at ${brand.appUrl}. There is no iOS build yet.`);
   lines.push("");
   lines.push("## Products");
   lines.push("There are TWO products only: CRM, and Sales Force Automation (SFA). Field-force tracking (formerly 'WFA / Workforce Automation') is NOT a separate product — it is the entry tier ('Field') of SFA.");
@@ -114,6 +117,7 @@ export function GET() {
   for (const [network, url] of Object.entries(contact.social)) {
     if (url) lines.push(`- ${NETWORK_LABEL[network] ?? network}: ${url}`);
   }
+  lines.push(`- Google Play (${brand.mobileAppName} Android app): ${brand.playStoreUrl}`);
   lines.push("");
   lines.push("## Contact");
   lines.push(`- Email: ${contact.email}`);

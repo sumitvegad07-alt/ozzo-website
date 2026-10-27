@@ -10,6 +10,13 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://ozzo.co.in"
 ).replace(/\/$/, "");
 
+/**
+ * The Android package of the rep app (OZZO SALES). Its Google Play listing went
+ * public on 2026-10-27, and this id is what builds `brand.playStoreUrl` below,
+ * so the store link can never drift from the package that is actually shipped.
+ */
+export const ANDROID_PACKAGE = "com.wacrm.fieldforce";
+
 export const brand = {
   name: "OZZO",
   // Registered legal entity name (confirmed) — feeds Organization schema.
@@ -31,6 +38,14 @@ export const brand = {
   // Where prospects sign in / sign up. Kept OFF the marketing pages
   // on purpose — this is the separate app URL only.
   appUrl: "https://app.ozzo.co.in",
+  /**
+   * The live Google Play listing for the rep app. Every "Get it on Google Play"
+   * link, the `downloadUrl` in SoftwareApplication schema, the Organization
+   * `sameAs` list and the llms.txt mobile-app section all read from here.
+   */
+  playStoreUrl: `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`,
+  /** The rep app's name on the store listing — keep the two identical. */
+  mobileAppName: "OZZO SALES",
 };
 
 export const contact = {

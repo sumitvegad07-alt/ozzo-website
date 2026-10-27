@@ -90,7 +90,13 @@ export function organizationSchema() {
     // signals there is — it is the difference between "a website" and "a
     // company someone runs".
     founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle },
-    sameAs: Object.values(contact.social).filter(Boolean),
+    // The Google Play listing belongs here too: a store page carrying the same
+    // name, logo and developer is independent evidence that this company ships a
+    // real product, and it is the one profile an engine can verify in a click.
+    sameAs: [
+      ...Object.values(contact.social).filter(Boolean),
+      brand.playStoreUrl,
+    ],
   };
 }
 
@@ -156,6 +162,11 @@ export function softwareApplicationSchema() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android",
     description: brand.description,
+    // With a real store link an engine can answer "where do I get the app" with
+    // the listing instead of pointing back at the marketing page.
+    downloadUrl: brand.playStoreUrl,
+    installUrl: brand.playStoreUrl,
+    sameAs: brand.playStoreUrl,
     // An AggregateOffer with a real lowPrice is what lets Google and the AI
     // engines answer "how much is OZZO" with a number instead of "pricing is not
     // published". An Offer with priceCurrency and no price is ignored by both.
@@ -213,6 +224,10 @@ export function productSchema(slug: string) {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web, Android",
     description: line.summary,
+    // One Android app (OZZO SALES) serves both product lines, so both point at
+    // the same listing.
+    downloadUrl: brand.playStoreUrl,
+    installUrl: brand.playStoreUrl,
     url: `${SITE_URL}/products/${line.slug}`,
     featureList: line.features,
     publisher: { "@type": "Organization", name: brand.legalName },

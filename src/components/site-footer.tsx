@@ -122,7 +122,7 @@ export function SiteFooter() {
           <div className="col-span-2 md:col-span-2">
             <h2 className="ozzo-eyebrow mb-5 text-white/40">Mobile App</h2>
             <a
-              href="https://play.google.com/store"
+              href={brand.playStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 transition-colors hover:border-[#a855f7]/50"
