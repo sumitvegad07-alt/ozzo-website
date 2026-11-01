@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
   keywords: ["cookie policy", "OZZO cookies", "website cookies India"],
 });
 
-const EFFECTIVE_DATE = "27 September 2026";
+const EFFECTIVE_DATE = "1 November 2026";
 
 export default function CookiePolicyPage() {
   return (
@@ -57,9 +57,10 @@ export default function CookiePolicyPage() {
         </li>
       </ul>
       <p>
-        <strong>OZZO uses the first two only.</strong> We do not use advertising cookies, we do not
-        allow advertising networks to place cookies through our site, and we do not sell or share
-        information about your visit for anyone else&rsquo;s advertising.
+        <strong>OZZO uses the first three only.</strong>{" "}
+        We do not use advertising cookies, we do not allow advertising networks to place cookies
+        through our site, and we do not sell or share information about your visit for anyone
+        else&rsquo;s advertising.
       </p>
 
       <h2>3. What we use</h2>
@@ -100,12 +101,41 @@ export default function CookiePolicyPage() {
             <td>{brand.name}</td>
             <td>Until you clear your browser storage</td>
           </tr>
+          <tr>
+            <td>
+              <strong>Website analytics.</strong> On this public website only, Google Analytics
+              counts visits and tells us which pages people arrive on and which they read. We see
+              totals and trends, not individuals: we use it to learn that a page is useful, never to
+              identify you.
+            </td>
+            <td>Analytics</td>
+            <td>Google Analytics (<code>_ga</code>, <code>_ga_*</code>)</td>
+            <td>Up to 2 years</td>
+          </tr>
         </tbody>
       </table>
       <p>
-        This public website (ozzo.co.in) sets no cookies of its own for marketing purposes. If that
-        changes — for example if we add website analytics — we will update this page and, where the
-        law requires it, ask for your consent first.
+        The analytics cookies above are set on this public website (ozzo.co.in) only.{" "}
+        <strong>
+          The OZZO dashboard your team signs in to (app.ozzo.co.in) carries no analytics and no
+          Google tag at all
+        </strong>{" "}
+        — nothing about your customers, orders or staff is sent to Google. The only cookies there
+        are the strictly necessary and preference ones listed above.
+      </p>
+      <p>
+        We run the analytics tag only — no Google advertising or remarketing tag is placed on this
+        site, and we do not share the analytics data with advertising networks. Google processes it
+        as our service provider, which can include storage outside India. You can opt out of Google
+        Analytics on every website by installing Google&rsquo;s{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          browser add-on
+        </a>
+        , or by blocking cookies as described in section 6.
       </p>
 
       <h2>4. Third-party content</h2>

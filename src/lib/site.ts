@@ -196,3 +196,17 @@ export const teamSizeOptions = [
   "51–200",
   "200+",
 ];
+
+/**
+ * Google Analytics 4 measurement id for the public marketing site.
+ *
+ * Deliberately hardcoded rather than read from an env var: a measurement id is
+ * public by design (it ships in the page source of every site that uses GA),
+ * so there is nothing to protect, and keeping it here means the tag cannot go
+ * silently missing on a deploy because a Vercel variable was never set.
+ *
+ * This is the MARKETING site only. It is NOT added to the CRM app at
+ * app.ozzo.co.in, where page URLs carry customer and order ids that must not
+ * be sent to Google.
+ */
+export const GA_MEASUREMENT_ID = "G-W9D6KC0QHY";

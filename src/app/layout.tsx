@@ -6,6 +6,7 @@ import { JsonLd, OG_IMAGE, organizationSchema, websiteSchema } from "@/lib/seo";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { ExitIntentPopup } from "@/components/exit-intent-popup";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -94,6 +95,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <ExitIntentPopup />
+        <GoogleAnalytics />
       </body>
     </html>
   );
