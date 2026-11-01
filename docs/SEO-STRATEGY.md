@@ -218,6 +218,31 @@ This is a real trade-off, and it costs us:
 
 This is your call, not mine. Flagging the cost so the decision is made with eyes open.
 
+### RESOLVED — 1 November 2026 (commit `8fe8792`)
+
+The founder went further than the recommendation: **publish exact per-user
+rates, one number per plan.** ₹100 / ₹150 / ₹200 / ₹300 / ₹400 per user per
+month, yearly billing, plus 18% GST.
+
+Removed at the same time: the "₹5,000 only" headline, the half-yearly and
+quarterly rates, and the billing-period toggle. The ₹5,000 was never a plan
+price — it is `MIN_TICKET`, the advisory minimum order per quarter in
+`wacrm-web/src/lib/plans/pricing.ts` — and sitting beside a ₹100 rate it read
+as a contradiction.
+
+That contradiction was not theoretical. Asked what OZZO costs, Perplexity
+replied that the pricing was *"incomplete and inconsistent across OZZO's own
+pages"* and told readers to treat it as quote-based — exactly the failure this
+section predicted. The plans page previously put all 30 prices in the markup
+(2 currencies × 3 terms × 5 plans) and hid 25 of them with CSS; crawlers read
+markup, not CSS. It now carries 10 and shows 5.
+
+**Open item:** the USD rates ($3/$4/$7/$10/$12) exist only on the marketing
+site. They are not in `catalog.ts`, not in the proposal builder, and not in
+PUBLIC-PRICING-SPEC.md — whose own header names `catalog.ts` as the source of
+truth. The site is quoting numbers the billing system cannot honour. Either
+add them to the app or remove them from the site.
+
 ---
 
 ## 7. Engine C — Demand Creation (Week 4 onward)
@@ -287,7 +312,7 @@ Then report monthly:
 - [x] Publish `/whatsapp-crm` — the one differentiator no large competitor has
 - [ ] Add "Switching from X" to the top 5 comparison pages
 - [ ] Add landing-page capture to the demo form
-- [ ] 2 blog posts
+- [x] Blog on autopilot — one post every Sunday, `3246b98`
 
 ### Days 31–60 — Build authority
 - [ ] 2 more alternatives pages + 2 category pages
