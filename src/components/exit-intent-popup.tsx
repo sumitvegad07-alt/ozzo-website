@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { X, Check } from "lucide-react";
 import { InquiryForm } from "./inquiry-form";
+import {
+  COOKIE_NOTICE_DISMISSED_EVENT,
+  COOKIE_NOTICE_OPEN_ATTR,
+} from "./cookie-notice";
 
 const SESSION_KEY = "ozzo_exit_intent_shown";
 
@@ -42,9 +46,25 @@ export function ExitIntentPopup() {
     if (shown) return;
 
     let armed = false;
-    const armTimer = window.setTimeout(() => {
-      armed = true;
-    }, 4000);
+    let armTimer = 0;
+    function arm() {
+      armTimer = window.setTimeout(() => {
+        armed = true;
+      }, 4000);
+    }
+
+    // Never open on top of the cookie notice — a first-time visitor would get
+    // this modal thrown over a bar they have not dealt with yet. Wait for the
+    // notice to be dismissed, then start the usual arming delay. The `<html>`
+    // attribute is the live signal (see cookie-notice.tsx); storage is not,
+    // because the notice also shows when storage is blocked.
+    const noticeOpen =
+      document.documentElement.dataset[COOKIE_NOTICE_OPEN_ATTR] === "open";
+    if (noticeOpen) {
+      window.addEventListener(COOKIE_NOTICE_DISMISSED_EVENT, arm, { once: true });
+    } else {
+      arm();
+    }
 
     function trigger() {
       if (shown || !armed) return;
@@ -75,6 +95,7 @@ export function ExitIntentPopup() {
     function cleanup() {
       window.clearTimeout(armTimer);
       window.clearTimeout(dwellTimer);
+      window.removeEventListener(COOKIE_NOTICE_DISMISSED_EVENT, arm);
       document.removeEventListener("mouseout", onMouseOut);
       window.removeEventListener("scroll", onScroll);
     }
@@ -108,7 +129,14 @@ export function ExitIntentPopup() {
         if (e.target === e.currentTarget) setOpen(false);
       }}
     >
-      <div className="relative my-auto w-full max-w-3xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-black/20">
+      {/*
+        max-h + flex-col is what stops the dialog running off the screen. Width
+        was capped here but height never was, so on a 1366x768 laptop the card
+        grew to 827px and the submit button sat below the fold, inside an
+        overflow-hidden box — unreachable. 100dvh (not vh) because a phone's
+        address bar eats real height that vh ignores.
+      */}
+      <div className="relative my-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-black/20">
         <button
           type="button"
           onClick={() => setOpen(false)}
@@ -118,7 +146,9 @@ export function ExitIntentPopup() {
           <X className="h-5 w-5" />
         </button>
 
-        <div className="grid md:grid-cols-2">
+        {/* min-h-0 lets the form column below actually scroll instead of
+            forcing this grid to grow to its content's full height. */}
+        <div className="grid min-h-0 flex-1 md:grid-cols-2">
           {/* Left — value props */}
           <div className="relative hidden overflow-hidden bg-ink p-8 text-white md:block">
             <div className="ozzo-grid pointer-events-none absolute inset-0 text-white/[0.06]" />
@@ -145,15 +175,19 @@ export function ExitIntentPopup() {
             </div>
           </div>
 
-          {/* Right — form */}
-          <div className="p-6 sm:p-7">
-            <div className="mb-4 md:hidden">
+          {/* Right — form. Scrolls inside the card on short screens, so the
+              card itself never grows past the viewport. */}
+          <div className="min-h-0 overflow-y-auto p-6 sm:p-7">
+            {/* pr-12 on both headings reserves the top-right corner for the
+                close button. Without it the button is drawn straight over the
+                last words of the heading at every width. */}
+            <div className="mb-4 pr-12 md:hidden">
               <p className="ozzo-eyebrow text-primary">Before you go</p>
               <h2 id="exit-intent-title" className="ozzo-display mt-2 text-2xl text-foreground">
                 Let&apos;s have a quick talk.
               </h2>
             </div>
-            <p id="exit-intent-title-desktop" className="mb-3 hidden text-sm font-semibold text-foreground md:block">
+            <p id="exit-intent-title-desktop" className="mb-3 hidden pr-12 text-sm font-semibold text-foreground md:block">
               Request a callback — we&apos;ll show you OZZO on your workflow.
             </p>
             <InquiryForm compact stack />

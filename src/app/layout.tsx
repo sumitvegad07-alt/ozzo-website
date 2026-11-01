@@ -7,6 +7,7 @@ import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { ExitIntentPopup } from "@/components/exit-intent-popup";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { CookieNotice } from "@/components/cookie-notice";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -95,6 +96,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <ExitIntentPopup />
+        <CookieNotice />
         <GoogleAnalytics />
       </body>
     </html>

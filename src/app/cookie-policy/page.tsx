@@ -135,7 +135,7 @@ export default function CookiePolicyPage() {
         >
           browser add-on
         </a>
-        , or by blocking cookies as described in section 6.
+        , or by blocking cookies as described in section 7.
       </p>
 
       <h2>4. Third-party content</h2>
@@ -153,7 +153,21 @@ export default function CookiePolicyPage() {
         <Link href="/privacy">Privacy Policy</Link> for details.
       </p>
 
-      <h2>6. How to control cookies</h2>
+      <h2>6. The notice at the bottom of the page</h2>
+      <p>
+        On your first visit this website shows a short notice telling you that cookies are used,
+        with a link to this page. <strong>Dismissing it does not switch anything on or off.</strong>{" "}
+        It is there to tell you, not to ask you — which is why the button reads &ldquo;Got it&rdquo;
+        and not &ldquo;Accept&rdquo;. The analytics described in section 3 run either way. To stop
+        them, use the Google opt-out linked above or block cookies in your browser as described
+        below.
+      </p>
+      <p>
+        Once dismissed, the notice does not come back on that device unless you clear your browser
+        storage.
+      </p>
+
+      <h2>7. How to control cookies</h2>
       <p>
         You can see, block and delete cookies through your browser settings — usually under
         &ldquo;Privacy&rdquo; or &ldquo;Site settings&rdquo;. Browsers also offer a private or
@@ -165,13 +179,13 @@ export default function CookiePolicyPage() {
         around.
       </p>
 
-      <h2>7. Changes to this policy</h2>
+      <h2>8. Changes to this policy</h2>
       <p>
         If the cookies we use change, we will update this page and the effective date at the top of
         it.
       </p>
 
-      <h2>8. Contact</h2>
+      <h2>9. Contact</h2>
       <p>
         Questions about this policy: <a href={`mailto:${contact.email}`}>{contact.email}</a>.
       </p>
