@@ -116,7 +116,7 @@ export const fmcgFaqs = [
   },
   {
     q: "How much does FMCG software cost in India?",
-    a: "OZZO publishes its rates: SFA is ₹300 per user per month and CRM + SFA is ₹400 per user per month on yearly billing, plus 18% GST, with a minimum order of ₹5,000. Enterprise FMCG platforms are usually quote-based and priced for large distribution networks.",
+    a: "OZZO publishes its rates: SFA is ₹300 per user per month and CRM + SFA is ₹400 per user per month on yearly billing, plus 18% GST. Enterprise FMCG platforms are usually quote-based and priced for large distribution networks.",
   },
   {
     q: "Can OZZO do shelf audits and planogram compliance?",

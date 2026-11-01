@@ -367,7 +367,7 @@ export default function SalesmanLocationTrackingPage() {
 
           <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
             <span data-cur-only data-c="INR">
-              Yearly billing, plus 18% GST. Minimum order ₹5,000. Every rate is
+              Yearly billing, plus 18% GST. Every rate is
               published — no &ldquo;contact us for pricing&rdquo;.
             </span>
             <span data-cur-only data-c="USD">

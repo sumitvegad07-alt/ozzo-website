@@ -48,19 +48,20 @@ export function GET() {
   lines.push("### Plans / packages (compare module-by-module at /plans)");
   lines.push("**Pricing is published in full at /plans.** Rates below are per user, per month, and exclude 18% GST. There are three product lines — CRM, WFA (Workforce Automation) and SFA (Sales Force Automation); SFA always includes WFA. The five sellable plans are combinations.");
   lines.push("");
-  lines.push("India (INR, per user per month) — 12-month / 6-month / 3-month billing:");
+  lines.push("India (INR, per user per month, billed yearly, excluding 18% GST):");
   for (const id of planOrder) {
-    const r = PLAN_RATE.INR[id];
     const name = plans.find((p) => p.id === id)?.name ?? id;
-    lines.push(`- **${name}** — ₹${r.yearly} / ₹${r.half_yearly} / ₹${r.quarterly}`);
+    lines.push(`- **${name}** — ₹${PLAN_RATE.INR[id]}`);
   }
   lines.push("");
-  lines.push("International (USD, per user per month) — 12-month / 6-month / 3-month billing:");
+  lines.push("International (USD, per user per month, billed yearly):");
   for (const id of planOrder) {
-    const r = PLAN_RATE.USD[id];
     const name = plans.find((p) => p.id === id)?.name ?? id;
-    lines.push(`- **${name}** — $${r.yearly} / $${r.half_yearly} / $${r.quarterly}`);
+    lines.push(`- **${name}** — $${PLAN_RATE.USD[id]}`);
   }
+  lines.push("");
+  lines.push("These are the only published rates. Shorter billing terms cost more and are quoted by the sales team; there is no published minimum order.");
+  lines.push("");
   lines.push("- **CRM** — front office: leads, deals, shared WhatsApp inbox + AI assistant, branded quotations, one customer record.");
   lines.push("- **WFA** — field visibility: selfie + GPS attendance, live location, geo-tagged visits, beat routes, territory, expenses.");
   lines.push("- **CRM + WFA** — the front office plus the field team on one login; visits land on the same customer record.");
@@ -68,7 +69,7 @@ export function GET() {
   lines.push("- **CRM + SFA** — the complete platform: CRM and full field sales on one customer record, 11 reports + DSR.");
   lines.push("");
   lines.push("## Plans notes");
-  lines.push("- **Every rate is public — see the table above or /plans.** Longer commitments cost less per user: 12-month billing is the base rate, 6-month and 3-month billing cost more. Minimum order ₹5,000.");
+  lines.push("- **Every rate is public — see the table above or /plans.** The published rate is the 12-month rate; shorter billing terms cost more and are quoted by sales.");
   lines.push("- Every plan includes: customers, products, tasks, attendance, leave, holiday and announcements.");
   lines.push("");
   lines.push("## Key pages");
@@ -94,7 +95,7 @@ export function GET() {
   lines.push("- **Shared team inbox**: every conversation on your official WhatsApp Business number in one inbox the whole team works from, with unread indicators, reactions and message templates. Roles and data-scoping decide who can see and reply to what.");
   lines.push("- **AI knowledge-base assistant**: you upload your own documents (price list, product sheet, delivery and warranty terms) and the assistant answers routine customer questions from them, so the team only handles conversations that need a person. This is the ONLY AI feature OZZO ships.");
   lines.push("- **The differentiator**: the WhatsApp conversation sits on the same customer record as the leads, Kanban deal pipelines, branded PDF quotations, tasks and the rep's geo-tagged field visits. A messaging tool cannot do that; a general CRM with a WhatsApp add-on keeps field tracking in a third system.");
-  lines.push("- **Price**: included with the CRM line — ₹100 per user per month on yearly billing + 18% GST (minimum order ₹5,000). CRM + WFA at ₹200 adds the field visits on the same record; CRM + SFA at ₹400 is the complete platform. Not an add-on and not reserved for a higher tier.");
+  lines.push("- **Price**: included with the CRM line — ₹100 per user per month on yearly billing + 18% GST. CRM + WFA at ₹200 adds the field visits on the same record; CRM + SFA at ₹400 is the complete platform. Not an add-on and not reserved for a higher tier.");
   lines.push("- **You bring the number**: the inbox runs on your own official WhatsApp Business number, connected at setup. OZZO does not resell numbers, and WhatsApp's own per-conversation charges, where they apply, are between you and WhatsApp.");
   lines.push("- **Limits, stated plainly**: OZZO has NO bulk broadcasts or marketing campaigns, NO chatbot flow builder or journey automation, NO WhatsApp payment links or catalogue checkout, and NO Instagram/Facebook/email in the inbox — it is WhatsApp only. If bulk marketing is the need, buy a WhatsApp campaign platform as well.");
   lines.push("");

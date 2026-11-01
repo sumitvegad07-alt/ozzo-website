@@ -26,7 +26,7 @@ export const brand = {
   // the entry price stated here is what search engines and AI assistants read
   // first. Keep it to that one number — per-user rates stay off the site.
   description:
-    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI. Plans starting from ₹5,000 only.",
+    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI. Plans from ₹100 per user per month.",
   /**
    * The home page's <meta description>, kept separate because `description`
    * above runs to 211 characters — right for Organization schema and the

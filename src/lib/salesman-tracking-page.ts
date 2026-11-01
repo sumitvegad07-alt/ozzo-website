@@ -130,7 +130,7 @@ export const trackingFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does salesman location tracking cost?",
-    a: "The WFA plan — attendance, live location, geo-tagged visits, beat routes, territory and expenses — is ₹150 per user per month on yearly billing, plus 18% GST. Minimum order ₹5,000. Every rate is published on the plans page; there is no “contact us for pricing”.",
+    a: "The WFA plan — attendance, live location, geo-tagged visits, beat routes, territory and expenses — is ₹150 per user per month on yearly billing, plus 18% GST. Every rate is published on the plans page; there is no “contact us for pricing”.",
   },
   {
     q: "Do I need the full sales system, or can I buy tracking only?",

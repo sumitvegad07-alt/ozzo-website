@@ -282,7 +282,7 @@ export const whatsappFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How much does a WhatsApp CRM cost in India?",
-    a: "OZZO's CRM plan — the shared WhatsApp inbox, the AI assistant, leads, deals, Kanban pipelines and branded quotations — is ₹100 per user per month on yearly billing, plus 18% GST, with a minimum order of ₹5,000. CRM + field tracking is ₹200 and the complete platform with full field sales is ₹400. Every rate is published on the plans page; there is no \"contact us for pricing\".",
+    a: "OZZO's CRM plan — the shared WhatsApp inbox, the AI assistant, leads, deals, Kanban pipelines and branded quotations — is ₹100 per user per month on yearly billing, plus 18% GST. CRM + field tracking is ₹200 and the complete platform with full field sales is ₹400. Every rate is published on the plans page; there is no \"contact us for pricing\".",
   },
   {
     q: "Does the WhatsApp inbox work offline?",

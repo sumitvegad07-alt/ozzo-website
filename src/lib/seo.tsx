@@ -185,14 +185,14 @@ export function softwareApplicationSchema() {
       priceCurrency: currency,
       lowPrice: String(fromRate(currency)),
       highPrice: String(
-        Math.max(...planOrder.map((id) => PLAN_RATE[currency][id].quarterly)),
+        Math.max(...planOrder.map((id) => PLAN_RATE[currency][id])),
       ),
       offerCount: planOrder.length,
       availability: "https://schema.org/InStock",
       url: `${SITE_URL}/plans`,
       offers: planOrder.map((id) => {
         const plan = plans.find((p) => p.id === id);
-        const price = String(PLAN_RATE[currency][id].yearly);
+        const price = String(PLAN_RATE[currency][id]);
         return {
           "@type": "Offer",
           name: `${brand.name} ${plan?.name ?? id}`,
@@ -240,11 +240,11 @@ export function productSchema(slug: string) {
     publisher: { "@type": "Organization", name: brand.legalName },
     offers: {
       "@type": "Offer",
-      price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"].yearly),
+      price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"]),
       priceCurrency: "INR",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"].yearly),
+        price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"]),
         priceCurrency: "INR",
         unitText: "user per month",
         billingDuration: 12,

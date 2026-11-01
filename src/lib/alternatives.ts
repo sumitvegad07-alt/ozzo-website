@@ -335,7 +335,7 @@ export const alternativesPages: AlternativesPage[] = [
       },
       {
         q: "How much do these alternatives cost?",
-        a: "Most Indian field-sales vendors quote rather than publish. OZZO publishes: ₹300 per user per month for SFA and ₹400 for CRM + SFA on yearly billing, plus 18% GST, with a minimum order of ₹5,000. Always confirm current pricing with each vendor directly.",
+        a: "Most Indian field-sales vendors quote rather than publish. OZZO publishes: ₹300 per user per month for SFA and ₹400 for CRM + SFA on yearly billing, plus 18% GST. Always confirm current pricing with each vendor directly.",
       },
     ],
   },

@@ -27,14 +27,14 @@ import {
   setsApart,
   includedEverywhere,
   planFaqs,
-  STARTING_FROM,
+  startingFrom,
   fromRate,
   formatRate,
 } from "@/lib/plans";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
-  title: "Plans & Packages — starting from ₹5,000",
+  title: "Plans & Packages — from ₹100 per user",
   description:
     "OZZO pricing in full: CRM from ₹100, WFA ₹150, CRM + WFA ₹200, SFA ₹300 and CRM + SFA ₹400 per user per month on yearly billing, plus 18% GST.",
   path: "/plans",
@@ -88,8 +88,8 @@ export default function PlansPage() {
             </span>
           </p>
           <p className="mt-2 text-sm font-medium text-white/60">
-            <span data-cur-only data-c="INR">{STARTING_FROM}</span>
-            <span data-cur-only data-c="USD">Every plan rate is published below</span>
+            <span data-cur-only data-c="INR">{startingFrom("INR")}</span>
+            <span data-cur-only data-c="USD">{startingFrom("USD")}</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
             Five plans built from three product lines — CRM, WFA and SFA. Buy the

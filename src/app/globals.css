@@ -282,14 +282,18 @@
   }
 }
 
-/* ─────────────── Plans page: currency + billing-period display ───────────────
-   Every rate for both currencies and all three terms is in the HTML so that
-   crawlers - which all reach us from US IPs - index the whole matrix, including
-   the rupee prices. These rules reveal only the pair a given visitor should
-   see. Currency is NOT a toggle: <html data-ozzo-currency> is set from the
-   visitor's timezone before paint, so India sees INR and nowhere else does.
-   With no attribute (JS off, or a crawler that does not run it) this falls back
-   to INR - the primary market, and the price we most want read. */
+/* ─────────────── Plans page: currency display ───────────────
+   Each plan's rate is in the HTML in both currencies so that crawlers - which
+   all reach us from US IPs - index the rupee price too. These rules reveal the
+   one a given visitor should see. Currency is NOT a toggle: <html
+   data-ozzo-currency> is set from the visitor's timezone before paint, so India
+   sees INR and nowhere else does. With no attribute (JS off, or a crawler that
+   does not run it) this falls back to INR - the primary market, and the price we
+   most want read.
+
+   The billing-period dimension was removed on 1 Nov 2026. Three terms x two
+   currencies put thirty prices in the markup, and a crawler reads markup, not
+   CSS - Perplexity duly called the pricing "incomplete and inconsistent". */
 [data-price],
 [data-cur-only] {
   display: none;
@@ -301,12 +305,8 @@ html[data-ozzo-currency="USD"] [data-cur-only][data-c="USD"] {
   display: inline;
 }
 
-/* Plan rates: currency from <html>, billing period from the toggled wrapper. */
-html:not([data-ozzo-currency="USD"]) .pricing-scope[data-term="quarterly"] [data-price][data-c="INR"][data-t="quarterly"],
-html:not([data-ozzo-currency="USD"]) .pricing-scope[data-term="half_yearly"] [data-price][data-c="INR"][data-t="half_yearly"],
-html:not([data-ozzo-currency="USD"]) .pricing-scope[data-term="yearly"] [data-price][data-c="INR"][data-t="yearly"],
-html[data-ozzo-currency="USD"] .pricing-scope[data-term="quarterly"] [data-price][data-c="USD"][data-t="quarterly"],
-html[data-ozzo-currency="USD"] .pricing-scope[data-term="half_yearly"] [data-price][data-c="USD"][data-t="half_yearly"],
-html[data-ozzo-currency="USD"] .pricing-scope[data-term="yearly"] [data-price][data-c="USD"][data-t="yearly"] {
+/* Plan rates: currency comes from <html>. */
+html:not([data-ozzo-currency="USD"]) [data-price][data-c="INR"],
+html[data-ozzo-currency="USD"] [data-price][data-c="USD"] {
   display: block;
 }

@@ -1,57 +1,34 @@
-"use client";
-
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { billingTerms, TERM_LABEL, type BillingTerm } from "@/lib/plans";
-
 /**
- * Billing-period switcher for the plans page.
+ * Wrapper for the plans page.
  *
  * CURRENCY IS NOT A CHOICE. India sees INR, everywhere else sees USD, decided
  * by the visitor's location — see <CurrencyScript/> below. There is deliberately
  * no currency toggle: an Indian buyer should never be shown a dollar price.
  *
- * WHY THE PRICES ARE STILL ALL IN THE HTML: every rate for both currencies and
- * all three terms is server-rendered, and CSS reveals the one pair a visitor
- * should see. Googlebot, GPTBot, ClaudeBot and PerplexityBot all crawl from US
- * IP addresses, so geo-gating the markup would hide the rupee price from every
- * client we need to read it, and "how much does OZZO cost" would stay
- * unanswerable in AI results. Everyone — crawler and human — is served byte-for
- * byte the same HTML, so this is presentation, not cloaking, and the JSON-LD
- * states both currencies outright.
+ * WHY BOTH PRICES ARE STILL IN THE HTML: each plan's rate is server-rendered in
+ * both currencies and CSS reveals the right one. Googlebot, GPTBot, ClaudeBot
+ * and PerplexityBot all crawl from US IP addresses, so geo-gating the markup
+ * would hide the rupee price from every client we need to read it, and "how
+ * much does OZZO cost" would stay unanswerable in AI results. Everyone —
+ * crawler and human — is served byte-for-byte the same HTML, so this is
+ * presentation, not cloaking, and the JSON-LD states both currencies outright.
+ *
+ * The billing-period switcher that used to live here is gone (1 Nov 2026).
+ * It multiplied every plan's price by three in the markup, and a crawler reads
+ * markup rather than CSS: Perplexity consequently reported OZZO's pricing as
+ * "incomplete and inconsistent across OZZO's own pages" and told readers to
+ * treat it as quote-based. One rate per plan now. Half-yearly and quarterly
+ * are still real in the quoting engine; sales states them.
+ *
+ * No hooks remain, so this is a server component and the prices ship in the
+ * first HTML response rather than after hydration.
  */
 export function PricingShell({ children }: { children: React.ReactNode }) {
-  const [term, setTerm] = useState<BillingTerm>("yearly");
-
   return (
-    <div data-term={term} className="pricing-scope">
-      <div className="mb-8 flex justify-center">
-        <div
-          role="group"
-          aria-label="Billing period"
-          className="inline-flex rounded-full border border-border bg-card p-1 shadow-sm"
-        >
-          {billingTerms.map((t) => (
-            <button
-              key={t}
-              type="button"
-              aria-pressed={term === t}
-              onClick={() => setTerm(t)}
-              className={cn(
-                "rounded-full px-4 py-1.5 text-[13px] font-semibold transition-colors",
-                term === t
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {TERM_LABEL[t]}
-            </button>
-          ))}
-        </div>
-      </div>
+    <div className="pricing-scope">
       {children}
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Prices are per user, per month, billed for the period shown.{" "}
+        Prices are per user, per month, billed yearly.{" "}
         <span data-cur-only data-c="INR">
           Excludes 18% GST.
         </span>

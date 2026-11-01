@@ -16,17 +16,6 @@
 export type PlanId = "CRM" | "WFA" | "CRM_WFA" | "SFA" | "CRM_SFA";
 export type ProductLine = "crm" | "wfa" | "sfa";
 
-/**
- * The entry price, and the only price this site states.
- *
- * Founder's decision, 27 September 2026: lead with a single memorable number
- * everywhere — marketing, SEO and AI answers — and keep every per-user rate off
- * the public site. Written once here so the headline, the metadata, the FAQ, the
- * structured data and llms.txt can never drift from one another.
- */
-export const STARTING_PRICE_INR = 5000;
-export const STARTING_FROM = "Plans starting from ₹5,000 only";
-
 /** Display order across cards and the comparison table. */
 export const planOrder: PlanId[] = ["CRM", "WFA", "CRM_WFA", "SFA", "CRM_SFA"];
 
@@ -57,23 +46,7 @@ export const PLAN_LINES: Record<PlanId, Record<ProductLine, boolean>> = {
  * turn an internal guideline into a public barrier and turn away the small
  * buyer the entry plans exist for.
  */
-export type BillingTerm = "quarterly" | "half_yearly" | "yearly";
 export type Currency = "INR" | "USD";
-
-/** Display order of the term toggle — shortest commitment first. */
-export const billingTerms: BillingTerm[] = ["quarterly", "half_yearly", "yearly"];
-
-export const TERM_LABEL: Record<BillingTerm, string> = {
-  quarterly: "3 months",
-  half_yearly: "6 months",
-  yearly: "12 months",
-};
-
-export const TERM_MONTHS: Record<BillingTerm, number> = {
-  quarterly: 3,
-  half_yearly: 6,
-  yearly: 12,
-};
 
 export const CURRENCY_SYMBOL: Record<Currency, string> = { INR: "₹", USD: "$" };
 
@@ -81,21 +54,34 @@ export const CURRENCY_SYMBOL: Record<Currency, string> = { INR: "₹", USD: "$" 
 export const GST_RATE_PCT = 18;
 
 /** Per user, per month. INR rates exclude GST. */
-export const PLAN_RATE: Record<Currency, Record<PlanId, Record<BillingTerm, number>>> = {
-  INR: {
-    CRM: { yearly: 100, half_yearly: 120, quarterly: 140 },
-    WFA: { yearly: 150, half_yearly: 180, quarterly: 210 },
-    CRM_WFA: { yearly: 200, half_yearly: 240, quarterly: 280 },
-    SFA: { yearly: 300, half_yearly: 360, quarterly: 420 },
-    CRM_SFA: { yearly: 400, half_yearly: 480, quarterly: 560 },
-  },
-  USD: {
-    CRM: { yearly: 3, half_yearly: 5, quarterly: 7 },
-    WFA: { yearly: 4, half_yearly: 6, quarterly: 8 },
-    CRM_WFA: { yearly: 7, half_yearly: 8, quarterly: 10 },
-    SFA: { yearly: 10, half_yearly: 12, quarterly: 15 },
-    CRM_SFA: { yearly: 12, half_yearly: 15, quarterly: 20 },
-  },
+/**
+ * The published rate per user per month — one number per plan, per currency.
+ *
+ * Founder's decision, 1 November 2026: publish these five INR rates and
+ * nothing else. The half-yearly and quarterly rates (+20% and +40%) are real
+ * and still live in the app's quoting engine, but they are no longer stated
+ * on this site. Sales quotes the term.
+ *
+ * Why this changed. <PlanPrice/> rendered every currency and every term into
+ * the HTML and revealed one with CSS, so a crawler read all thirty numbers at
+ * once. Asked what OZZO costs, Perplexity answered that the pricing was
+ * "incomplete and inconsistent across OZZO's own pages" and advised readers
+ * to treat it as quote-based — which is the single most common reason an AI
+ * drops a vendor from an answer. Fewer, firmer numbers beat more of them.
+ *
+ * INR is the canonical set and matches wacrm-web/src/lib/plans/catalog.ts
+ * (PLAN_PRICE) exactly. Change it there first, then mirror it here.
+ *
+ * USD CAVEAT: these dollar rates exist only on this website. They are not in
+ * the app's catalog, not in the proposal builder, and not in the pricing spec
+ * — they were introduced with the public pricing page and have never had a
+ * source of truth behind them. They are kept because the founder asked for
+ * international pricing to stay, and they are flagged here because the site
+ * is quoting a number the billing system cannot honour.
+ */
+export const PLAN_RATE: Record<Currency, Record<PlanId, number>> = {
+  INR: { CRM: 100, WFA: 150, CRM_WFA: 200, SFA: 300, CRM_SFA: 400 },
+  USD: { CRM: 3, WFA: 4, CRM_WFA: 7, SFA: 10, CRM_SFA: 12 },
 };
 
 /**
@@ -104,10 +90,24 @@ export const PLAN_RATE: Record<Currency, Record<PlanId, Record<BillingTerm, numb
  * real number to quote.
  */
 export const fromRate = (currency: Currency): number =>
-  Math.min(...planOrder.map((id) => PLAN_RATE[currency][id].yearly));
+  Math.min(...planOrder.map((id) => PLAN_RATE[currency][id]));
 
 export const formatRate = (currency: Currency, amount: number): string =>
   `${CURRENCY_SYMBOL[currency]}${amount.toLocaleString("en-IN")}`;
+
+/**
+ * The headline price line, derived from the rates rather than written out.
+ *
+ * It replaces the fixed string "Plans starting from ₹5,000 only" (removed
+ * 1 November 2026). That number was the advisory minimum order per quarter —
+ * MIN_TICKET in wacrm-web/src/lib/plans/pricing.ts — not the price of a plan,
+ * and reading it beside a ₹100 per-user rate is what led Perplexity to call
+ * the pricing inconsistent and tell buyers to treat OZZO as quote-based.
+ *
+ * Deriving it means the headline can never drift from PLAN_RATE again.
+ */
+export const startingFrom = (currency: Currency): string =>
+  `Plans from ${formatRate(currency, fromRate(currency))} per user / month`;
 
 export type Plan = {
   id: PlanId;
@@ -434,7 +434,7 @@ export const featureGroups: FeatureGroup[] = [
 export const planFaqs: { q: string; a: string }[] = [
   {
     q: "How much does OZZO cost?",
-    a: "Plans start from ₹5,000 only. What you pay beyond that depends on how many users you need and which plan fits — book a demo and we'll put an exact figure in front of you the same day.",
+    a: "Every rate is published: ₹100 per user per month for CRM, ₹150 for WFA, ₹200 for CRM + WFA, ₹300 for SFA and ₹400 for CRM + SFA — all on yearly billing, plus 18% GST. Multiply by your team size and you have the figure. Shorter billing terms cost more; ask us and we will quote them.",
   },
   {
     q: "How are OZZO plans structured?",
@@ -458,7 +458,7 @@ export const planFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How do I get a quote?",
-    a: "Plans start from ₹5,000 only. Tell us your team size and which plan fits, and our team will put together the right package for you. Just book a demo or request a callback — a real person will map it to your workflow.",
+    a: "Pick the plan that matches how your team works and multiply its published rate by your team size. If you are unsure which plan fits, book a demo or request a callback and a real person will map it to your workflow.",
   },
   {
     q: "Does OZZO need any other software to run?",
