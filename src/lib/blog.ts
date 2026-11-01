@@ -23,6 +23,24 @@ export type BlogBlock =
    * before a generated post is accepted.
    */
   | { type: "link"; href: string; label: string }
+  /**
+   * An illustration, as a real file under public/blog/<slug>/ drawn by
+   * scripts/build-blog-images.mjs.
+   *
+   * It is a FILE and not inline SVG on purpose: Google Images only indexes an
+   * image it can fetch at its own URL, so inline markup is invisible to image
+   * search and the alt text below never gets to do its job.
+   *
+   * `alt` is required, not optional. An image with no alt text is useless to
+   * image search and to anyone using a screen reader, and the one way to stop
+   * it being forgotten is to make it impossible to leave out. Describe what
+   * the picture SHOWS, in a sentence — not "chart" or the post's title again.
+   *
+   * Width and height are deliberately absent: they come from
+   * src/content/blog-image-sizes.json, which the generator writes, so they
+   * cannot drift away from the file they describe.
+   */
+  | { type: "image"; src: string; alt: string; caption?: string }
   /** Side-by-side comparison graphic — renders as branded cards, no image files. */
   | {
       type: "compare";
@@ -110,8 +128,22 @@ export const posts: BlogPost[] = [
         ],
       },
       {
+        type: "image",
+        src: "/blog/crm-or-sfa-which-does-your-field-team-need/01-where-each-product-works.svg",
+        alt:
+          "Six-step journey from enquiry to payment, showing CRM covering enquiry, deal and quotation, and SFA covering the visit, the order and the collection.",
+        caption: "CRM owns the first half of the journey. SFA owns the second.",
+      },
+      {
         type: "p",
         text: "If your team mostly chases enquiries, quotes and follow-ups — and the pain is leads slipping through the cracks or customer history walking out when a rep leaves — CRM is where you start.",
+      },
+      {
+        type: "image",
+        src: "/blog/crm-or-sfa-which-does-your-field-team-need/02-start-here-by-symptom.svg",
+        alt:
+          "Five common symptoms of a sales business, each matched to whether to start with CRM, the SFA Field line, or full SFA.",
+        caption: "Start from the symptom that sounds most like this month.",
       },
       {
         type: "h2",
@@ -133,6 +165,13 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "One thing that trips people up: the light \"field tracking\" tier — attendance, location and visits — is not a separate product. In OZZO it's simply the entry level of SFA (the Field line). You grow from starter tracking up to full sales-and-distribution on the same system, rather than switching apps later.",
+      },
+      {
+        type: "image",
+        src: "/blog/crm-or-sfa-which-does-your-field-team-need/03-sfa-is-one-ladder.svg",
+        alt:
+          "Three rungs showing field tracking growing into full sales and distribution: attendance and visits, then beat routes and orders, then collection, outstanding and stock.",
+        caption: "Field tracking is the first rung of SFA, not a different product.",
       },
       {
         type: "h2",
@@ -168,8 +207,22 @@ export const posts: BlogPost[] = [
         text: "The two products aren't a fork in the road. They sit on one customer record, so a WhatsApp conversation your office had and a visit your rep made in the field land on the same customer. Many businesses begin with the one problem that's costing them most and add the other line when they're ready — no migration, no second database.",
       },
       {
+        type: "image",
+        src: "/blog/crm-or-sfa-which-does-your-field-team-need/05-one-customer-record.svg",
+        alt:
+          "Three panels showing office activity from CRM and field activity from SFA landing on one shared customer record with a single timeline.",
+        caption: "One customer record underneath both products — so there is nothing to migrate later.",
+      },
+      {
         type: "quote",
         text: "Pick by where the pain is today, not by the longest feature list. You can always grow into the rest on the same data.",
+      },
+      {
+        type: "image",
+        src: "/blog/crm-or-sfa-which-does-your-field-team-need/04-what-every-plan-includes.svg",
+        alt:
+          "Eight features included in every OZZO plan whichever line you choose: customers, products, tasks, attendance, leave, holiday, announcements and custom fields.",
+        caption: "These eight come with every plan, so the choice is about the specialist half only.",
       },
       {
         type: "p",
@@ -198,6 +251,13 @@ export const posts: BlogPost[] = [
         text: "Here are five signs your field team has outgrown the spreadsheet-and-WhatsApp stack — and what a purpose-built system does about each.",
       },
       {
+        type: "image",
+        src: "/blog/signs-field-sales-team-outgrown-spreadsheets-whatsapp/01-five-signs.svg",
+        alt:
+          "Six cards summarising the five signs a field sales team has outgrown spreadsheets and WhatsApp, plus what the combination actually costs the business.",
+        caption: "None of these fail loudly. They leak quietly, and you feel it a month later.",
+      },
+      {
         type: "h2",
         text: "1. The day gets reported at night, from memory",
       },
@@ -210,6 +270,13 @@ export const posts: BlogPost[] = [
         text: "A real system makes the day report itself as it happens: selfie-and-GPS attendance, geo-tagged visits, and a live feed you watch instead of reconstruct. \"Reached\" means the phone was actually there.",
       },
       {
+        type: "image",
+        src: "/blog/signs-field-sales-team-outgrown-spreadsheets-whatsapp/02-night-report-vs-live-day.svg",
+        alt:
+          "Two columns comparing an 8pm WhatsApp round-up written from memory with a field day that records itself through GPS attendance and geo-tagged visits.",
+        caption: "Sign one, side by side: a story you assemble, or a day that reports itself.",
+      },
+      {
         type: "h2",
         text: "2. The same outlets keep getting skipped",
       },
@@ -220,6 +287,13 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "Route planning that the rep works in order — where a skip needs a reason, not silence — turns coverage from a hope into something you can measure. The outlet that kept getting missed stops getting missed.",
+      },
+      {
+        type: "image",
+        src: "/blog/signs-field-sales-team-outgrown-spreadsheets-whatsapp/03-coverage-leak.svg",
+        alt:
+          "Bar chart of five beats showing 22, 21, 19, 13 and 20 outlets visited out of 24 planned, with the Thursday beat falling well behind the rest.",
+        caption: "Worked example. In a spreadsheet, the Thursday beat shows as done like every other.",
       },
       {
         type: "h2",
@@ -236,6 +310,13 @@ export const posts: BlogPost[] = [
           "Credit limits that sit on the counter and block an over-limit order before it's booked",
           "Closing stock derived from actual movement — no separate inventory tool, no stock-take from memory",
         ],
+      },
+      {
+        type: "image",
+        src: "/blog/signs-field-sales-team-outgrown-spreadsheets-whatsapp/04-outstanding-and-stock.svg",
+        alt:
+          "Four steps showing what should happen when a field rep books an order: the balance updates, the credit limit is checked, and closing stock follows actual movement.",
+        caption: "In a spreadsheet, none of this happens until somebody re-keys it at month-end.",
       },
       {
         type: "h2",
@@ -264,6 +345,13 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "Reports that build themselves as the day happens — visits, orders, collections and a per-rep daily summary — turn management from detective work into a glance.",
+      },
+      {
+        type: "image",
+        src: "/blog/signs-field-sales-team-outgrown-spreadsheets-whatsapp/05-week-at-a-glance.svg",
+        alt:
+          "Six figures answering what happened this week in field sales: 95 visits, 23 productive, Rs 2.4 lakh collected, 79% coverage and two reps behind plan.",
+        caption: "The questions that should take seconds, not an afternoon of copy-pasting.",
       },
       {
         type: "h2",

@@ -268,20 +268,32 @@ export function faqSchema(items: { q: string; a: string }[]) {
   };
 }
 
-/** BlogPosting schema for an individual article. */
-export function blogPostingSchema(post: {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-}) {
+/**
+ * BlogPosting schema for an individual article.
+ *
+ * `images` are the article's own illustrations, site-relative. Google asks for
+ * them on an Article and uses them to decide what to show in search and in
+ * Discover; an article with none is far less likely to be shown with a
+ * picture at all. They are passed in rather than derived here so the schema
+ * can never claim an image the page does not actually render.
+ */
+export function blogPostingSchema(
+  post: {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    author: string;
+  },
+  images: string[] = [],
+) {
   const url = `${SITE_URL}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
+    ...(images.length ? { image: images.map((src) => `${SITE_URL}${src}`) } : {}),
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Organization", name: post.author },

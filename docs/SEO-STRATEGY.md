@@ -313,6 +313,36 @@ Then report monthly:
 - [ ] Add "Switching from X" to the top 5 comparison pages
 - [ ] Add landing-page capture to the demo form
 - [x] Blog on autopilot — one post every Sunday, `3246b98`
+- [x] Every post carries its own illustrations, with alt text for image search
+
+#### RESOLVED — 1 November 2026: the Sunday schedule is off, images are in
+
+**The weekly job no longer runs on a cron.** Writing a post calls the Anthropic
+API, which is paid: about ₹2.50 a post, ~₹12 a month, with no free tier and a
+$5 minimum top-up. The founder chose not to run a paid key for it. The cron is
+commented out in `.github/workflows/weekly-blog.yml`; everything else — the
+12-topic queue, the validation, the typecheck-and-build gate — is untouched and
+one uncommented line away from working again. Until then posts are written by
+hand, one at a time, from the same queue.
+
+**Every post must now carry at least 4 illustrations.** This is enforced by
+`scripts/check-blog-images.mjs` in `postbuild`, so the deploy fails rather than
+shipping a wall of text — a decision that is only remembered is a decision that
+gets dropped on a busy day.
+
+They are charts and diagrams drawn in code by
+`scripts/build-blog-images.mjs`, not generated photographs: they cost nothing,
+weigh ~4KB, stay sharp at any size, carry the article's own numbers, and cannot
+invent a statistic that is not in the text. Each is written to
+`public/blog/<slug>/` as a real `.svg` **file** — Google Images only indexes an
+image it can fetch at its own URL, so inline SVG would be invisible to image
+search — and referenced with an `image` block whose `alt` is required, not
+optional. The article's images are also listed in its `BlogPosting` schema,
+which is what Google reads when deciding whether to show the post with a
+picture at all.
+
+To add images to a new post: append specs to `build-blog-images.mjs`, run
+`npm run blog:images`, then reference each file from the body.
 
 ### Days 31–60 — Build authority
 - [ ] 2 more alternatives pages + 2 category pages

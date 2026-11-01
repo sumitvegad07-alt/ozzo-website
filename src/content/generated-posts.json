@@ -6,13 +6,23 @@
     "description": "Measure coverage, productive visits and collections instead of dots on a map — and introduce tracking so your field team accepts it.",
     "date": "2026-11-01",
     "author": "Sumit Vegad",
-    "tags": ["Field sales", "Team management", "GPS tracking"],
+    "tags": [
+      "Field sales",
+      "Team management",
+      "GPS tracking"
+    ],
     "emoji": "📍",
     "readingMinutes": 7,
     "body": [
       {
         "type": "p",
         "text": "Track outcomes, not footsteps. The measures worth a manager's time are coverage, productive visits, collections and first visit time — what the rep did, and what it produced. A live dot crawling across a map is not one of them. Location data has exactly one honest job: to confirm that a visit happened where and when the rep says it did. Everything past that is surveillance, and a field team will read it as surveillance."
+      },
+      {
+        "type": "image",
+        "src": "/blog/how-to-track-field-sales-reps-without-micromanaging/01-dots-vs-outcomes.svg",
+        "alt": "Two columns comparing what most teams track for field sales reps — dots on a map, distance, minutes per outlet — against five outcome measures that work better.",
+        "caption": "The left column creates arguments. The right column creates decisions."
       },
       {
         "type": "h2",
@@ -53,6 +63,12 @@
         "text": "None of these require anyone to fill in a form at the end of the day. They fall out of the work itself: the visit is stamped when the rep arrives, the order is taken on the phone at the counter, the payment is recorded when it is collected. Numbers a rep has to type in at 9 pm are numbers you cannot trust."
       },
       {
+        "type": "image",
+        "src": "/blog/how-to-track-field-sales-reps-without-micromanaging/02-five-measures.svg",
+        "alt": "Six stat tiles for one rep's week: 79% coverage, 20% productive visit rate, 10:05 first visit, ₹18,400 collected and ₹3,100 average order value.",
+        "caption": "Worked example. Every figure falls out of the work itself."
+      },
+      {
         "type": "link",
         "href": "/products/sfa",
         "label": "See what OZZO's field sales product records on a visit"
@@ -76,6 +92,12 @@
         "text": "The rule behind that list: any number you put in a review becomes a target, and a target gets gamed. So measure only the things where the one way to improve the number is to do the job better. A productive visit cannot be faked — it needs a real order from a real outlet."
       },
       {
+        "type": "image",
+        "src": "/blog/how-to-track-field-sales-reps-without-micromanaging/03-measure-stop-measuring.svg",
+        "alt": "Checklist of five field sales measures worth reviewing each Friday beside five to stop measuring, including live location and total distance travelled.",
+        "caption": "If a number can be gamed, it will be. These five cannot."
+      },
+      {
         "type": "h2",
         "text": "A two-week plan for introducing it"
       },
@@ -97,6 +119,12 @@
         ]
       },
       {
+        "type": "image",
+        "src": "/blog/how-to-track-field-sales-reps-without-micromanaging/04-two-week-rollout.svg",
+        "alt": "Six-step timeline for introducing field sales tracking over two weeks, from telling the team first through to reviewing coverage together as a team.",
+        "caption": "How you start matters more than which software you buy."
+      },
+      {
         "type": "h2",
         "text": "Where location data does earn its place"
       },
@@ -111,6 +139,12 @@
           "Settling a disputed expense or attendance claim, once, with a record instead of an argument.",
           "Planning shorter beats — if the recorded route shows a rep crossing the same road four times, the beat is badly built, and that is a manager's fault rather than his."
         ]
+      },
+      {
+        "type": "image",
+        "src": "/blog/how-to-track-field-sales-reps-without-micromanaging/05-location-three-uses.svg",
+        "alt": "Three cards showing the only useful jobs for GPS location data in field sales: confirming a visit, settling one dispute, and shortening a badly built beat.",
+        "caption": "Each one is a question answered once — not a screen somebody stares at."
       },
       {
         "type": "p",

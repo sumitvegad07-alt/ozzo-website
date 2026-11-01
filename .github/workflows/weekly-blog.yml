@@ -1,17 +1,27 @@
 name: Weekly blog post
 
-# Writes one post every Sunday morning IST and pushes it to main, which Vercel
-# deploys. Runs on GitHub's servers, so it does not matter whether anyone's
-# computer is switched on.
+# Writes one post from the approved queue in src/lib/blog-topics.ts, then
+# typechecks, builds and pushes it to main, which Vercel deploys.
 #
-# One post a week, from the approved queue in src/lib/blog-topics.ts. The job
-# cannot invent a topic, and it refuses to push anything that fails the build.
+# THE SUNDAY SCHEDULE IS OFF (1 Nov 2026, the founder's decision).
+#
+# Writing a post calls the Anthropic API, which is paid — roughly ₹2.50 a post,
+# so about ₹12 a month. There is no free tier, and the smallest credit top-up
+# Anthropic sells is $5. Rather than leave a job that fails every Sunday for
+# want of a key, the cron is commented out and posts are written by hand.
+#
+# To switch it back on: add ANTHROPIC_API_KEY as a repository secret
+# (Settings → Secrets and variables → Actions), then uncomment the two lines
+# below. Nothing else needs to change — the queue, the validation and the
+# build gate are all still here and still work.
+#
+#  schedule:
+#    # 03:30 UTC = 09:00 IST, every Sunday.
+#    - cron: "30 3 * * 0"
 
 on:
-  schedule:
-    # 03:30 UTC = 09:00 IST, every Sunday.
-    - cron: "30 3 * * 0"
-  # Lets you run it by hand from the Actions tab without waiting for Sunday.
+  # Run by hand from the Actions tab. Still needs ANTHROPIC_API_KEY to be set,
+  # and still refuses to push anything that fails typecheck or build.
   workflow_dispatch:
 
 # Least privilege: commit the post, and open an issue when the queue runs dry.

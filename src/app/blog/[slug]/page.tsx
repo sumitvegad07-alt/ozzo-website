@@ -9,6 +9,7 @@ import {
   blogPostingSchema,
 } from "@/lib/seo";
 import { getPost, getAllPosts, formatBlogDate, type BlogBlock } from "@/lib/blog";
+import imageSizes from "@/content/blog-image-sizes.json";
 
 type Params = { slug: string };
 
@@ -68,6 +69,35 @@ function Block({ block }: { block: BlogBlock }) {
           </Link>
         </p>
       );
+    case "image": {
+      // Dimensions come from the generator's manifest rather than the post, so
+      // the browser reserves the right space before the file loads and the
+      // article never jumps as you read it.
+      const size = (imageSizes as Record<string, { w: number; h: number }>)[
+        block.src
+      ];
+      return (
+        <figure className="mt-9">
+          {/* eslint-disable-next-line @next/next/no-img-element -- these are
+              hand-drawn SVGs; next/image cannot optimise SVG and would only
+              add a proxy hop in front of a 4KB file. */}
+          <img
+            src={block.src}
+            alt={block.alt}
+            width={size?.w}
+            height={size?.h}
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-2xl border border-border bg-card shadow-sm"
+          />
+          {block.caption ? (
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              {block.caption}
+            </figcaption>
+          ) : null}
+        </figure>
+      );
+    }
     case "compare":
       return (
         <div className="mt-9 grid gap-4 sm:grid-cols-2">
@@ -146,7 +176,7 @@ export default async function BlogPostPage({
     <>
       <JsonLd
         data={[
-          blogPostingSchema(post),
+          blogPostingSchema(post, post.body.flatMap((b) => (b.type === "image" ? [b.src] : []))),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Blog", path: "/blog" },

@@ -2,19 +2,21 @@
   "name": "ozzo-site",
   "version": "1.0.0",
   "private": true,
-  "description": "OZZO marketing website — CRM, Workforce & Field Sales in one platform.",
+  "description": "OZZO marketing website \u2014 CRM, Workforce & Field Sales in one platform.",
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "next dev -p 3100",
     "build": "next build",
-    "postbuild": "node scripts/check-meta.mjs",
+    "postbuild": "node scripts/check-meta.mjs && node scripts/check-blog-images.mjs",
     "start": "next start -p 3100",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "blog:write": "tsx scripts/write-weekly-post.ts",
-    "blog:preview": "tsx scripts/write-weekly-post.ts --dry-run"
+    "blog:preview": "tsx scripts/write-weekly-post.ts --dry-run",
+    "blog:images": "node scripts/build-blog-images.mjs",
+    "blog:check-images": "node scripts/check-blog-images.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.107.0",
