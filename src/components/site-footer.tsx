@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MessageCircle, Play } from "lucide-react";
+import { Mail, Phone, MessageCircle, Play, MapPin } from "lucide-react";
 import { brand, contact, productLines } from "@/lib/site";
 
 const socialLinks = [
@@ -27,6 +27,7 @@ const products = [
   { label: "Plans & packages", href: "/plans" },
   { label: "Industries", href: "/industries" },
   { label: "Compare alternatives", href: "/compare" },
+  { label: "WhatsApp CRM", href: "/whatsapp-crm" },
   { label: "FMCG software", href: "/fmcg-software" },
   { label: "Salesman location tracking", href: "/salesman-location-tracking-software" },
   // The hub, not two of the five round-ups. Two were in the footer and three
@@ -71,6 +72,16 @@ export function SiteFooter() {
               <a href={`https://wa.me/${contact.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 transition-colors hover:text-[#c4b5fd]">
                 <MessageCircle className="h-4 w-4" /> WhatsApp us
               </a>
+              {/* Location in plain text, on every page. The same fact is in
+                  Organization schema, but an AI engine asked "who makes this"
+                  reads the rendered page — Perplexity had the schema available
+                  and still reported the company as unverified. */}
+              {contact.address.city && (
+                <p className="flex items-center gap-2 text-white/60">
+                  <MapPin className="h-4 w-4" />
+                  {[contact.address.city, contact.address.state, "India"].filter(Boolean).join(", ")}
+                </p>
+              )}
             </div>
             {socialLinks.length > 0 && (
               <div className="mt-6 flex items-center gap-3">

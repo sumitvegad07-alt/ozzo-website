@@ -52,7 +52,11 @@ export function pageMetadata(opts: {
   };
 }
 
-const hasAddress = Boolean(contact.address.street && contact.address.city);
+// City is the test, not street. We publish Rajkot, Gujarat without a street
+// line, and keying this on `street` would silently drop the whole address
+// from Organization schema — the exact gap that made Perplexity report the
+// company as unverified.
+const hasAddress = Boolean(contact.address.city);
 
 /** Organization schema — identifies the business to search + AI engines. */
 export function organizationSchema() {
@@ -68,12 +72,15 @@ export function organizationSchema() {
     telephone: contact.phoneE164,
     ...(hasAddress
       ? {
+          // Empty fields are omitted rather than emitted as "". A blank
+          // streetAddress is not a neutral placeholder to a validator — it is
+          // a declared-but-empty property, which reads worse than its absence.
           address: {
             "@type": "PostalAddress",
-            streetAddress: contact.address.street,
+            ...(contact.address.street ? { streetAddress: contact.address.street } : {}),
             addressLocality: contact.address.city,
             addressRegion: contact.address.state,
-            postalCode: contact.address.postalCode,
+            ...(contact.address.postalCode ? { postalCode: contact.address.postalCode } : {}),
             addressCountry: contact.address.country,
           },
         }

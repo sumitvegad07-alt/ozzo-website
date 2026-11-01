@@ -57,11 +57,24 @@ export const contact = {
   whatsappDisplay: "+91 92271 26301",
   // Digits only, country code first, no + or spaces (for wa.me links).
   whatsappNumber: "919227126301",
-  // Optional street address — improves local SEO. Leave blank to omit.
+  /**
+   * Business location. Feeds PostalAddress inside Organization schema.
+   *
+   * Filled 2026-11-01. It was blank, and that had a measurable cost: asked
+   * who makes OZZO, Perplexity answered that the site "does not identify a
+   * registered company name, founders, registered address" and concluded the
+   * "underlying legal manufacturer/operator remains unverified". An address
+   * is one of the few signals that separates a real company from a web page.
+   *
+   * `street` and `postalCode` stay blank on purpose — city and state are what
+   * the founder gave, and inventing the rest would be worse than omitting it.
+   * `hasAddress` in seo.tsx was keyed on street, which would still drop the
+   * whole block, so it now keys on city.
+   */
   address: {
     street: "",
-    city: "",
-    state: "",
+    city: "Rajkot",
+    state: "Gujarat",
     postalCode: "",
     country: "IN",
   },
