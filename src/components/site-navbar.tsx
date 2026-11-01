@@ -127,6 +127,22 @@ export function SiteNavbar() {
                     </Link>
                   ))}
                   <Link
+                    href="/whatsapp-crm"
+                    className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted"
+                  >
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+                      <Icon name="MessageCircle" className="h-4 w-4" />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-foreground">
+                        WhatsApp CRM
+                      </span>
+                      <span className="block text-xs text-muted-foreground">
+                        Shared team inbox + AI assistant
+                      </span>
+                    </span>
+                  </Link>
+                  <Link
                     href="/products"
                     className="mt-1 flex items-center justify-between rounded-xl border-t border-border px-3 py-2.5 text-sm font-semibold text-primary hover:bg-muted"
                   >
@@ -238,6 +254,15 @@ export function SiteNavbar() {
               <span className="text-sm text-muted-foreground">— {line.sub}</span>
             </Link>
           ))}
+          <Link
+            href="/whatsapp-crm"
+            className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            <span className="font-semibold text-foreground">WhatsApp CRM</span>
+            <span className="text-sm text-muted-foreground">
+              &mdash; shared inbox + AI
+            </span>
+          </Link>
           <Link
             href="/products"
             className="rounded-xl px-3 py-2.5 text-sm font-semibold text-primary hover:bg-muted"

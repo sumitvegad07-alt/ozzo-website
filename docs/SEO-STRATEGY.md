@@ -284,7 +284,7 @@ Then report monthly:
 - [x] Internal linking: 36 industry pages → specific comparisons — `29f57c9`
 - [x] `/fmcg-software` category pillar — `46d77c5`
 - [x] Five `/alternatives/*` pages — `b490df7`
-- [ ] Publish `/whatsapp-crm` — the one differentiator no large competitor has
+- [x] Publish `/whatsapp-crm` — the one differentiator no large competitor has
 - [ ] Add "Switching from X" to the top 5 comparison pages
 - [ ] Add landing-page capture to the demo form
 - [ ] 2 blog posts

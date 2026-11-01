@@ -69,6 +69,10 @@ const staticRoutes: SiteRoute[] = [
   },
   // Category pillar for the site's strongest non-brand search theme.
   { path: "/fmcg-software", priority: 0.9, freq: "monthly", group: "core", label: "FMCG software (category guide)" },
+  // The one category no large Indian SFA vendor can claim — a shared WhatsApp
+  // inbox and an AI knowledge-base assistant on the same customer record as
+  // the leads, deals and quotations. See docs/SEO-STRATEGY.md section B4.
+  { path: "/whatsapp-crm", priority: 0.9, freq: "monthly", group: "core", label: "WhatsApp CRM (category guide)" },
   { path: "/compare", priority: 0.8, freq: "weekly", group: "core", label: "Compare (OZZO vs alternatives)" },
   { path: "/alternatives", priority: 0.8, freq: "weekly", group: "core", label: "Alternatives to the tools you are shortlisting" },
   { path: "/industries", priority: 0.8, freq: "weekly", group: "core", label: "Industries" },

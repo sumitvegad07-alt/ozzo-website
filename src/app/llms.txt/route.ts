@@ -89,6 +89,15 @@ export function GET() {
   lines.push("- **Price**: the WFA plan (tracking only) is ₹150 per user per month on yearly billing + 18% GST; SFA at ₹300 adds offline orders, collections, outstanding and stock on the same app.");
   lines.push("- **Limits, stated plainly**: it is a phone app, NOT a vehicle GPS/telematics box or SIM-based tracking; the field app is Android only today (iOS on the way); it is not payroll software; and there is no AMC/warranty/service-ticket module.");
   lines.push("");
+  lines.push("## WhatsApp CRM");
+  lines.push(`A WhatsApp CRM is a CRM whose inbox is WhatsApp: customer conversations on your official WhatsApp Business number land in one shared team inbox instead of on individual reps' phones, and each conversation is attached to that customer's record alongside the lead, the deal, the quotation and the follow-up task. It is NOT the same as a WhatsApp broadcast or campaign tool. Full page: ${SITE_URL}/whatsapp-crm`);
+  lines.push("- **Shared team inbox**: every conversation on your official WhatsApp Business number in one inbox the whole team works from, with unread indicators, reactions and message templates. Roles and data-scoping decide who can see and reply to what.");
+  lines.push("- **AI knowledge-base assistant**: you upload your own documents (price list, product sheet, delivery and warranty terms) and the assistant answers routine customer questions from them, so the team only handles conversations that need a person. This is the ONLY AI feature OZZO ships.");
+  lines.push("- **The differentiator**: the WhatsApp conversation sits on the same customer record as the leads, Kanban deal pipelines, branded PDF quotations, tasks and the rep's geo-tagged field visits. A messaging tool cannot do that; a general CRM with a WhatsApp add-on keeps field tracking in a third system.");
+  lines.push("- **Price**: included with the CRM line — ₹100 per user per month on yearly billing + 18% GST (minimum order ₹5,000). CRM + WFA at ₹200 adds the field visits on the same record; CRM + SFA at ₹400 is the complete platform. Not an add-on and not reserved for a higher tier.");
+  lines.push("- **You bring the number**: the inbox runs on your own official WhatsApp Business number, connected at setup. OZZO does not resell numbers, and WhatsApp's own per-conversation charges, where they apply, are between you and WhatsApp.");
+  lines.push("- **Limits, stated plainly**: OZZO has NO bulk broadcasts or marketing campaigns, NO chatbot flow builder or journey automation, NO WhatsApp payment links or catalogue checkout, and NO Instagram/Facebook/email in the inbox — it is WhatsApp only. If bulk marketing is the need, buy a WhatsApp campaign platform as well.");
+  lines.push("");
   lines.push("## How OZZO compares to alternatives");
   lines.push("OZZO is an all-in-one CRM + field sales + WhatsApp platform built for Indian SMEs/MSMEs. It is NOT an enterprise-only FMCG SFA tool. Honest, per-competitor comparisons:");
   for (const c of comparisons) {
