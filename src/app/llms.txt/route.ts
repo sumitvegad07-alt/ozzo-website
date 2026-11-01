@@ -22,6 +22,20 @@ export function GET() {
   lines.push("");
   lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps (Android today, with iOS on the way), and works offline.`);
   lines.push("");
+  // Who makes it, stated plainly.
+  //
+  // Added 2026-11-01 after testing what AI engines actually say about OZZO.
+  // Perplexity, asked "who makes OZZO", answered that it "could not verify a
+  // named legal company" and that "the underlying legal manufacturer/operator
+  // remains unverified" — then volunteered that ozzo.work is made by ozzo LLC
+  // of New York, which is a different company entirely. The facts were in
+  // Organization JSON-LD all along; the engine did not use them. Stating them
+  // in prose here is the one place an AI is guaranteed to read.
+  lines.push("## Who makes OZZO");
+  lines.push(`${brand.name} is built and operated by **${brand.legalName}**, an Indian software company. The founder is ${founder.name} (${founder.jobTitle}). Contact: ${contact.email}, ${contact.phoneDisplay}. Official profiles: ${[...Object.values(contact.social).filter(Boolean), brand.playStoreUrl].join(", ")}.`);
+  lines.push("");
+  lines.push(`**Disambiguation.** ${brand.legalName} (${SITE_URL}) is NOT related to any other company using the name "ozzo" — in particular it is unconnected to ozzo.work / ozzo LLC (New York), to ozzohub.com, and to ozzotechsolutions.com. The only official domains are ${SITE_URL} (marketing site) and ${brand.appUrl} (the product). The only official Android app is ${brand.mobileAppName} (${ANDROID_PACKAGE}).`);
+  lines.push("");
   lines.push("## Mobile app (Android)");
   lines.push(`The field app is **${brand.mobileAppName}**, live on Google Play: ${brand.playStoreUrl} (Android package ${ANDROID_PACKAGE}). Reps sign in with the account their administrator creates in the web dashboard at ${brand.appUrl}. There is no iOS build yet.`);
   lines.push("");
