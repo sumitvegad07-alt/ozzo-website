@@ -15,6 +15,14 @@ export type BlogBlock =
   | { type: "h2"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "quote"; text: string }
+  /**
+   * An internal link on its own line. Added for the weekly generated posts,
+   * which are required to link to specific product and comparison pages —
+   * section 5 of docs/SEO-STRATEGY.md calls weak internal linking out by name.
+   * `href` is always site-relative and is checked against the real route list
+   * before a generated post is accepted.
+   */
+  | { type: "link"; href: string; label: string }
   /** Side-by-side comparison graphic — renders as branded cards, no image files. */
   | {
       type: "compare";
@@ -269,13 +277,62 @@ export const posts: BlogPost[] = [
   },
 ];
 
+/**
+ * Posts written by the weekly job (see scripts/write-weekly-post.mjs).
+ *
+ * They live in their own JSON file rather than in the array above for one
+ * reason: a script that edits a hand-maintained TypeScript file by pattern
+ * matching will eventually corrupt it. The script only ever rewrites this
+ * JSON, whole, and never touches blog.ts.
+ *
+ * The cast is checked, not assumed — assertBlogPost below validates every
+ * record at module load, so a malformed entry fails the build loudly instead
+ * of rendering a broken page.
+ */
+import generated from "../content/generated-posts.json";
+
+function assertBlogPost(value: unknown, index: number): BlogPost {
+  const p = value as Partial<BlogPost>;
+  const missing = (["slug", "title", "description", "date", "author", "emoji"] as const).filter(
+    (k) => typeof p[k] !== "string" || !p[k],
+  );
+  if (missing.length) {
+    throw new Error(
+      `generated-posts.json[${index}] is missing: ${missing.join(", ")}. ` +
+        `Fix or remove the entry — a half-written post must not reach the site.`,
+    );
+  }
+  if (!Array.isArray(p.body) || p.body.length === 0) {
+    throw new Error(`generated-posts.json[${index}] (${p.slug}) has no body blocks.`);
+  }
+  return p as BlogPost;
+}
+
+export const generatedPosts: BlogPost[] = (generated as unknown[]).map(assertBlogPost);
+
+/** Hand-written and generated posts together, with slug collisions rejected. */
+function allPosts(): BlogPost[] {
+  const merged = [...posts, ...generatedPosts];
+  const seen = new Set<string>();
+  for (const p of merged) {
+    if (seen.has(p.slug)) {
+      throw new Error(
+        `Duplicate blog slug "${p.slug}". Two posts cannot share a URL — ` +
+          `rename one, or drop it from content/generated-posts.json.`,
+      );
+    }
+    seen.add(p.slug);
+  }
+  return merged;
+}
+
 /** All posts, newest first. */
 export function getAllPosts(): BlogPost[] {
-  return [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPosts().sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPost(slug: string): BlogPost | undefined {
-  return posts.find((p) => p.slug === slug);
+  return allPosts().find((p) => p.slug === slug);
 }
 
 /** Human date, e.g. "14 Sep 2026". */

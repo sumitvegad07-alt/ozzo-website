@@ -1,0 +1,111 @@
+name: Weekly blog post
+
+# Writes one post every Sunday morning IST and pushes it to main, which Vercel
+# deploys. Runs on GitHub's servers, so it does not matter whether anyone's
+# computer is switched on.
+#
+# One post a week, from the approved queue in src/lib/blog-topics.ts. The job
+# cannot invent a topic, and it refuses to push anything that fails the build.
+
+on:
+  schedule:
+    # 03:30 UTC = 09:00 IST, every Sunday.
+    - cron: "30 3 * * 0"
+  # Lets you run it by hand from the Actions tab without waiting for Sunday.
+  workflow_dispatch:
+
+# Least privilege: commit the post, and open an issue when the queue runs dry.
+permissions:
+  contents: write
+  issues: write
+
+# If a run is somehow still going when the next fires, let it finish rather
+# than racing it — two jobs writing the same JSON file would lose a post.
+concurrency:
+  group: weekly-blog
+  cancel-in-progress: false
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      # Catches a topic pointing at a page that no longer exists before we
+      # spend an API call discovering it.
+      - name: Check the topic queue
+        run: npx tsx scripts/write-weekly-post.ts --check
+
+      - name: Write the post
+        id: write
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set +e
+          npm run blog:write
+          code=$?
+          set -e
+          # 2 means the queue is empty: nothing to do, not a failure.
+          if [ "$code" -eq 2 ]; then
+            echo "queue_empty=true" >> "$GITHUB_OUTPUT"
+          elif [ "$code" -ne 0 ]; then
+            exit "$code"
+          fi
+
+      - name: Ask for more topics
+        if: steps.write.outputs.queue_empty == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Blog topic queue is empty";
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: "open",
+            });
+            // Don't pile up a new issue every Sunday.
+            if (open.some((i) => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body:
+                "Every approved topic in `src/lib/blog-topics.ts` has been published, " +
+                "so this Sunday's post was skipped.\n\n" +
+                "Add topics to that file to start the weekly post again. Each one needs " +
+                "a slug, a headline, the question it must answer, a target search phrase " +
+                "and the internal links it should use.\n\n" +
+                "Nothing is broken — the job stops rather than inventing subjects.",
+            });
+
+      # The post is only worth pushing if the site still builds with it in.
+      # postbuild runs check-meta.mjs, which enforces the title and description
+      # limits, so a post that would break those is caught here and never ships.
+      - name: Typecheck and build
+        if: steps.write.outputs.queue_empty != 'true'
+        run: |
+          npm run typecheck
+          npm run build
+
+      - name: Commit and push
+        if: steps.write.outputs.queue_empty != 'true'
+        run: |
+          if git diff --quiet -- src/content/generated-posts.json; then
+            echo "Nothing changed — not committing."
+            exit 0
+          fi
+          git config user.name "ozzo-blog-bot"
+          git config user.email "hello@ozzo.co.in"
+          # Only this file. Nothing else in the tree is ours to commit.
+          git add src/content/generated-posts.json
+          git commit -m "blog: weekly post
+
+          Written by .github/workflows/weekly-blog.yml from the next unpublished
+          topic in src/lib/blog-topics.ts. Typecheck and build passed before
+          this was pushed."
+          git push origin HEAD:main

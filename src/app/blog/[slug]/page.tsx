@@ -57,6 +57,17 @@ function Block({ block }: { block: BlogBlock }) {
           {block.text}
         </blockquote>
       );
+    case "link":
+      return (
+        <p className="mt-5 text-[17px] leading-relaxed">
+          <Link
+            href={block.href}
+            className="font-semibold text-primary underline underline-offset-4 hover:text-primary-hover"
+          >
+            {block.label}
+          </Link>
+        </p>
+      );
     case "compare":
       return (
         <div className="mt-9 grid gap-4 sm:grid-cols-2">
