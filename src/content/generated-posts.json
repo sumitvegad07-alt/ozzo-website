@@ -1,1 +1,147 @@
-[]
+[
+  {
+    "slug": "how-to-track-field-sales-reps-without-micromanaging",
+    "title": "How to track field sales reps without micromanaging them",
+    "metaTitle": "Track field sales reps without micromanaging",
+    "description": "Measure coverage, productive visits and collections instead of dots on a map — and introduce tracking so your field team accepts it.",
+    "date": "2026-11-01",
+    "author": "Sumit Vegad",
+    "tags": ["Field sales", "Team management", "GPS tracking"],
+    "emoji": "📍",
+    "readingMinutes": 7,
+    "body": [
+      {
+        "type": "p",
+        "text": "Track outcomes, not footsteps. The measures worth a manager's time are coverage, productive visits, collections and first visit time — what the rep did, and what it produced. A live dot crawling across a map is not one of them. Location data has exactly one honest job: to confirm that a visit happened where and when the rep says it did. Everything past that is surveillance, and a field team will read it as surveillance."
+      },
+      {
+        "type": "h2",
+        "text": "Why the word 'tracking' starts a fight"
+      },
+      {
+        "type": "p",
+        "text": "A manager asks for tracking because they cannot see the day. Ten people leave in the morning, a WhatsApp group fills up with photographs, and by evening nobody can say which outlets were actually covered. That is a real problem, and it gets worse with every rep you add."
+      },
+      {
+        "type": "p",
+        "text": "A rep hears tracking and pictures someone watching a screen at three in the afternoon, wondering why the dot has not moved. That is also reasonable. A dot does not show the forty minutes spent waiting for a shop owner to finish with a customer, or the two outlets that were shut."
+      },
+      {
+        "type": "p",
+        "text": "The gap is in the question being asked. The manager wants to know whether the territory is being worked. The rep is being asked to prove his innocence minute by minute. Change the question and the fight goes away: stop asking where he is right now, and start asking which outlets were covered this week, how many of those visits produced an order, and how much cash came back."
+      },
+      {
+        "type": "h2",
+        "text": "The five measures that actually tell you something"
+      },
+      {
+        "type": "p",
+        "text": "Five numbers will tell you more about a field day than a map ever will. Coverage is the share of the outlets a rep was supposed to visit that he actually reached — if a beat has 24 outlets and he reached 19, coverage is 79%. A beat is simply the fixed list of outlets a rep is meant to cover on a given day."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Coverage — outlets visited out of outlets planned, per rep, per week. This is the single most useful number in field sales.",
+          "Productive visit rate — the share of visits that produced an order. Ten visits and two orders is a 20% productive rate. A rep with lower coverage but a much higher productive rate is not lazy; he is selling.",
+          "First visit time — the clock time of the day's first visit. It replaces the punch-in argument entirely, because it measures the start of work rather than the start of a phone being switched on.",
+          "Collection per beat — how much outstanding money came back from that day's route. Outstanding is simply what a customer owes you and has not paid yet.",
+          "Average order value per productive visit — this tells you whether a rep is selling the full range or only the one fast-moving item."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "None of these require anyone to fill in a form at the end of the day. They fall out of the work itself: the visit is stamped when the rep arrives, the order is taken on the phone at the counter, the payment is recorded when it is collected. Numbers a rep has to type in at 9 pm are numbers you cannot trust."
+      },
+      {
+        "type": "link",
+        "href": "/products/sfa",
+        "label": "See what OZZO's field sales product records on a visit"
+      },
+      {
+        "type": "h2",
+        "text": "What to stop measuring"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Continuous live location all day. It produces anxiety and almost no decisions. Nobody ever reviews a whole day of dots.",
+          "Total distance travelled. Measure it and you will get long routes. A rep covering a tight market well will look worse than one driving across the district.",
+          "Time spent inside each outlet, as a target. Set one and reps will stand in doorways waiting for the timer.",
+          "App opens or screen time. It measures fiddling with a phone, not selling.",
+          "Photographs as proof of work. They are easy to produce, hard to verify, and they say nothing about whether an order was placed."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The rule behind that list: any number you put in a review becomes a target, and a target gets gamed. So measure only the things where the one way to improve the number is to do the job better. A productive visit cannot be faked — it needs a real order from a real outlet."
+      },
+      {
+        "type": "h2",
+        "text": "A two-week plan for introducing it"
+      },
+      {
+        "type": "p",
+        "text": "How you start matters more than which software you buy. Work through this in order."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Week 1, day 1 — Tell the team before you install anything. Say what is being recorded, what is not, and who can see it. Finding out afterwards is what destroys trust, not the tracking itself.",
+          "Day 1 — Name the problem in their terms: no more sending the day's report on WhatsApp at night, no more arguing about which outlets were covered, expenses settled from a recorded distance instead of a claim form.",
+          "Day 2 — Switch on attendance and visits only. Nothing else. Let the team get used to marking a visit before you add order capture.",
+          "Day 3 to 7 — Do not review anyone's numbers. The first week's data is always wrong, because half the beat lists are out of date and people are still learning the buttons.",
+          "Week 2, day 1 — Fix the beat lists with the reps, not for them. Coverage means nothing if the plan still has outlets that shut down last year.",
+          "Week 2 — Add order capture and payment collection. Now the measures mean something, because a visit can be tied to what it produced.",
+          "End of week 2 — Review as a team, not one by one. Show coverage and productive visits for everybody. Ask the rep with the best productive rate what he is doing differently. That one meeting decides whether the team sees this as a tool or a stick.",
+          "Month 2 — Only now put the numbers into individual targets."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Where location data does earn its place"
+      },
+      {
+        "type": "p",
+        "text": "Location is not the enemy. Used narrowly, it is the thing that makes every other number believable. A geo-tagged visit means the arrival is stamped with the place and the time, so the visit record is evidence rather than a claim. There are three honest uses for it."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Confirming a visit happened — so coverage is a fact and not a self-report.",
+          "Settling a disputed expense or attendance claim, once, with a record instead of an argument.",
+          "Planning shorter beats — if the recorded route shows a rep crossing the same road four times, the beat is badly built, and that is a manager's fault rather than his."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "All three have something in common: each is a specific question answered once, not a screen somebody stares at. If nobody is going to act on live location, do not switch it on."
+      },
+      {
+        "type": "link",
+        "href": "/salesman-location-tracking-software",
+        "label": "How salesman location tracking works, in plain terms"
+      },
+      {
+        "type": "h2",
+        "text": "What to say on day one"
+      },
+      {
+        "type": "quote",
+        "text": "From Monday your visits and attendance will be recorded on the app. It marks where and when you reach an outlet. It does not record your location after you punch out, and I will not be watching your dot during the day. What I will look at every Friday is how many of your planned outlets you covered, and how many visits produced an order. If your beat list is wrong, tell me and we will fix it together."
+      },
+      {
+        "type": "p",
+        "text": "Say that, mean it, and hold to it for a month. Most tracking rollouts fail because a manager promises the first half and then starts asking about the dot in week two."
+      },
+      {
+        "type": "p",
+        "text": "If you would like to see what this looks like with your own beats and your own outlets, book a demo with OZZO and we will walk through it using your team's real territory. Every plan rate is published, so you can work out the cost before you speak to anybody."
+      },
+      {
+        "type": "link",
+        "href": "/plans",
+        "label": "See all five plans and what each one includes"
+      }
+    ]
+  }
+]
