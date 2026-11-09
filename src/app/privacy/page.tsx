@@ -14,7 +14,7 @@ import {
 export const metadata = pageMetadata({
   title: "Privacy Policy",
   description:
-    "How OZZO collects, uses, shares, retains and protects personal data across the OZZO web dashboard, the OZZO SALES mobile application for Android and iOS, and this website.",
+    "How OZZO collects, uses, shares, retains and protects personal data across the OZZO web dashboard, the OZZO SALES app for Android and iOS, and this site.",
   path: "/privacy",
   keywords: [
     "OZZO privacy policy",
