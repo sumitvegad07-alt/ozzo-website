@@ -14,7 +14,7 @@ import {
 export const metadata = pageMetadata({
   title: "Privacy Policy",
   description:
-    "How OZZO collects, uses, shares, retains and protects personal data across the OZZO web dashboard, the OZZO SALES Android application and this website.",
+    "How OZZO collects, uses, shares, retains and protects personal data across the OZZO web dashboard, the OZZO SALES mobile application for Android and iOS, and this website.",
   path: "/privacy",
   keywords: [
     "OZZO privacy policy",
@@ -31,14 +31,15 @@ export default function PrivacyPolicyPage() {
   return (
     <PolicyPage
       title="Privacy Policy"
-      subtitle={`${brand.legalName} — OZZO web dashboard, OZZO SALES Android application and ozzo.co.in`}
+      subtitle={`${brand.legalName} — OZZO web dashboard, OZZO SALES mobile application for Android and iOS, and ozzo.co.in`}
       effectiveDate={EFFECTIVE_DATE}
     >
       <p>
         This Privacy Policy explains how {brand.legalName} (&ldquo;{brand.name}&rdquo;,
         &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) collects, uses, discloses, retains
         and protects information in connection with the OZZO web dashboard, the{" "}
-        <strong>OZZO SALES — Field Sales CRM</strong> Android application, and this website
+        <strong>OZZO SALES — Field Sales CRM</strong> mobile application for Android and iOS, and
+        this website
         (together, the &ldquo;Service&rdquo;). It applies to every product and page that links to
         it.
       </p>
@@ -249,10 +250,14 @@ export default function PrivacyPolicyPage() {
           in to or out of a customer visit.
         </li>
         <li>
-          The application requests location permission through the standard Android prompt, and may
-          collect location in the background so that the day&rsquo;s route is continuous. A User can
-          withdraw that permission at any time in device settings, although the
-          Organisation&rsquo;s attendance and visit features may then not work.
+          The application requests location permission through the standard Android or iOS
+          permission prompt, and may collect location in the background so that the day&rsquo;s
+          route is continuous. <strong>Background collection begins only when the User marks
+          attendance to start a shift, and ends when they mark attendance to finish it.</strong> It
+          does not run outside a shift the User has started. On iOS the system location indicator
+          stays visible for as long as it is running. A User can withdraw that permission at any
+          time in device settings, although the Organisation&rsquo;s attendance and visit features
+          may then not work.
         </li>
         <li>
           Location is used to show attendance, the route travelled and distance covered, and to
@@ -528,7 +533,8 @@ export default function PrivacyPolicyPage() {
 
       <h3>22. Third-party links</h3>
       <p>
-        This website and the Service may link to sites we do not operate, including Google Play. We
+        This website and the Service may link to sites we do not operate, including Google Play and the
+        Apple App Store. We
         are not responsible for their content or their privacy practices, and we encourage you to
         read their policies.
       </p>
