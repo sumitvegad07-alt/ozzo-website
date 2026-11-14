@@ -17,6 +17,26 @@ export const SITE_URL = (
  */
 export const ANDROID_PACKAGE = "com.wacrm.fieldforce";
 
+/**
+ * The Apple App Store id of the SAME rep app (OZZO SALES), live since
+ * 2026-11-10. The iOS build shares the `com.wacrm.fieldforce` bundle id with
+ * Android — one app, one codebase, two stores — and this numeric id is what
+ * builds `brand.appStoreUrl` below.
+ *
+ * It is a constant and not a hand-written URL for the same reason as Android:
+ * a store link typed out in twenty places drifts, and a dead store link on a
+ * marketing site is worse than no link at all.
+ */
+export const IOS_APP_ID = "6832184323";
+
+/**
+ * The minimum iPhone/iPad OS the app installs on, taken from the live App
+ * Store listing. Stated on the site because "do you have an iOS app" is
+ * nearly always followed by "will it run on my phone", and a number answers
+ * that better than a paragraph.
+ */
+export const IOS_MIN_VERSION = "16.4";
+
 export const brand = {
   name: "OZZO",
   // Registered legal entity name (confirmed) — feeds Organization schema.
@@ -26,7 +46,7 @@ export const brand = {
   // the entry price stated here is what search engines and AI assistants read
   // first. Keep it to that one number — per-user rates stay off the site.
   description:
-    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, powered by WhatsApp and AI. Plans from ₹100 per user per month.",
+    "OZZO unifies your CRM, field workforce and sales & distribution into one system — a web dashboard for managers and a mobile app for reps in the field, on both Android and iPhone, powered by WhatsApp and AI. Plans from ₹100 per user per month.",
   /**
    * The home page's <meta description>, kept separate because `description`
    * above runs to 211 characters — right for Organization schema and the
@@ -34,7 +54,7 @@ export const brand = {
    * anything past ~155 and we lose control of the snippet.
    */
   metaDescription:
-    "CRM, field workforce and sales & distribution in one system — a web dashboard for managers, a mobile app for reps, powered by WhatsApp and AI.",
+    "CRM, field workforce and sales & distribution in one system — a web dashboard for managers, an Android & iPhone app for reps, powered by WhatsApp and AI.",
   // Where prospects sign in / sign up. Kept OFF the marketing pages
   // on purpose — this is the separate app URL only.
   appUrl: "https://app.ozzo.co.in",
@@ -44,9 +64,53 @@ export const brand = {
    * `sameAs` list and the llms.txt mobile-app section all read from here.
    */
   playStoreUrl: `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`,
-  /** The rep app's name on the store listing — keep the two identical. */
+  /**
+   * The live Apple App Store listing for the same rep app, public since
+   * 2026-11-10. Everywhere `playStoreUrl` appears as a download link, store
+   * badge, schema `downloadUrl` or `sameAs` entry, this one appears beside it —
+   * the app is on both stores now and the site must never imply otherwise.
+   */
+  appStoreUrl: `https://apps.apple.com/in/app/ozzo-sales/id${IOS_APP_ID}`,
+  /** The rep app's name on both store listings — keep all three identical. */
   mobileAppName: "OZZO SALES",
+  /**
+   * The platforms the rep app actually ships on, as one phrase to reuse in
+   * copy, and as a list for schema `operatingSystem`.
+   *
+   * This exists because the old site said "Android only today" and "iOS on the
+   * way" in more than a dozen separate hand-written places. When iOS shipped,
+   * every one of them became a lie that had to be hunted down. Next time a
+   * platform changes, this is the line that changes.
+   */
+  mobilePlatforms: "Android and iPhone",
+  /** Same thing for `operatingSystem` in structured data. */
+  schemaOperatingSystem: "Web, Android, iOS",
+  /** When the iOS build went public on the App Store. */
+  iosLaunchDate: "2026-11-10",
 };
+
+/**
+ * The two store listings, in the order they are shown everywhere on the site
+ * (footer badges, download blocks, llms.txt). Android first because it is the
+ * larger share of Indian field teams by a wide margin — not because iOS is an
+ * afterthought.
+ */
+export const appStores = [
+  {
+    id: "android",
+    label: "Google Play",
+    prefix: "Get it on",
+    url: brand.playStoreUrl,
+    platform: "Android",
+  },
+  {
+    id: "ios",
+    label: "App Store",
+    prefix: "Download on the",
+    url: brand.appStoreUrl,
+    platform: "iPhone & iPad",
+  },
+] as const;
 
 export const contact = {
   email: "hello@ozzo.co.in",

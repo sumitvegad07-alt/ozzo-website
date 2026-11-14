@@ -17,13 +17,19 @@ export const metadata = pageMetadata({
   ],
 });
 
-const EFFECTIVE_DATE = "27 September 2026";
+/**
+ * Last substantive change: 14 November 2026 — the Terms described an
+ * Android-only application, which stopped being true when the iOS build went
+ * live on the App Store on 10 November 2026. A terms document that misstates
+ * what the Service IS is the worst place on the site to leave stale.
+ */
+const EFFECTIVE_DATE = "14 November 2026";
 
 export default function TermsPage() {
   return (
     <PolicyPage
       title="Terms of Service"
-      subtitle={`${brand.legalName} — OZZO web dashboard, OZZO SALES Android application and ozzo.co.in`}
+      subtitle={`${brand.legalName} — OZZO web dashboard, OZZO SALES mobile application for Android and iOS, and ozzo.co.in`}
       effectiveDate={EFFECTIVE_DATE}
     >
       <p>
@@ -36,8 +42,8 @@ export default function TermsPage() {
         <strong>{brand.legalName}</strong> (&ldquo;{brand.name}&rdquo;, &ldquo;we&rdquo;,
         &ldquo;us&rdquo;) and you, or the organisation you represent (&ldquo;you&rdquo;,
         &ldquo;your&rdquo;, the &ldquo;Customer&rdquo;), governing your use of the OZZO web
-        dashboard, the OZZO SALES Android application, and this website (together, the
-        &ldquo;Service&rdquo;).
+        dashboard, the OZZO SALES mobile application for Android and iOS, and this website
+        (together, the &ldquo;Service&rdquo;).
       </p>
       <p>
         By creating an account, starting a trial, paying for a subscription, or using the Service,
@@ -53,8 +59,9 @@ export default function TermsPage() {
       <h2>2. What the Service is</h2>
       <p>
         OZZO is a subscription software service for customer relationship management, workforce
-        management and sales force automation, delivered through a web dashboard and an Android
-        application. It is provided for business use by you and by the users you authorise.
+        management and sales force automation, delivered through a web dashboard and a mobile
+        application for Android and iOS. It is provided for business use by you and by the users
+        you authorise.
       </p>
       <p>
         You are responsible for obtaining the internet access, devices and mobile data required to
@@ -302,9 +309,12 @@ export default function TermsPage() {
 
       <h2>12. Third-party services</h2>
       <p>
-        The Service works with third-party platforms, including Google Play and messaging providers.
-        Your use of those platforms is governed by their own terms, and we are not responsible for
-        their availability or their acts.
+        The Service works with third-party platforms, including Google Play, the Apple App Store
+        and messaging providers. Your use of those platforms is governed by their own terms, and we
+        are not responsible for their availability or their acts. The mobile application is
+        distributed through Google Play and the Apple App Store; where you obtain it from the Apple
+        App Store, Apple is not a party to these Terms and has no obligation to provide support for
+        the application.
       </p>
 
       <h2>13. Warranties</h2>

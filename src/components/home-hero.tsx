@@ -134,7 +134,9 @@ export function HomeHero() {
             >
               {brand.name}{" "}unifies your CRM, your on-ground workforce and your
               sales &amp; distribution into a single system — a web dashboard for
-              managers and a mobile app for reps. Outstanding, stock and reports
+              managers and a mobile app for reps on{" "}
+              <span className="font-semibold text-white">Android and iPhone</span>.
+              Outstanding, stock and reports
               keep themselves, with{" "}
               <span className="font-semibold text-white">
                 no accounting software to bolt on.
@@ -186,8 +188,14 @@ export function HomeHero() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Smartphone className="h-4 w-4 text-[#a855f7]" /> Mobile app
-                <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white/80">
-                  iOS soon
+                {/*
+                  Was "iOS soon" until the iPhone build went live on the App
+                  Store (2026-11-10). The hero is the first thing a visitor
+                  reads, so it was also the first place the old promise had to
+                  go.
+                */}
+                <span className="rounded-full bg-[#37e0a0]/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#37e0a0]">
+                  Android + iOS
                 </span>
               </span>
             </div>

@@ -61,7 +61,7 @@ const OZZO_PICK: AltPick = {
   strength:
     "Attendance, GPS, visits, beat routes, offline orders, collections and auto-outstanding, plus a CRM and a shared WhatsApp inbox on the same customer record. Rates are published: from ₹100 per user per month.",
   watchOut:
-    "No AI shelf-image recognition, no planogram scoring and no demand forecasting. Android only today — iOS is not shipped.",
+    "No AI shelf-image recognition, no planogram scoring and no demand forecasting. (Platform is no longer a watch-out: the app ships on both Android and iPhone.)",
   isOzzo: true,
 };
 

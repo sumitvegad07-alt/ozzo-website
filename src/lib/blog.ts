@@ -73,6 +73,146 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
+    slug: "ozzo-sales-iphone-app-live-ios",
+    title: "OZZO SALES is now on iPhone — and why that changes your shortlist",
+    metaTitle: "OZZO SALES is now on iPhone",
+    description:
+      "The OZZO field app is live on the Apple App Store as well as Google Play. What it means for mixed Android and iPhone field teams, and what it costs.",
+    date: "2026-11-14",
+    author: "Team OZZO",
+    tags: ["Mobile app", "iOS", "Field sales", "Sales force automation"],
+    emoji: "📱",
+    readingMinutes: 5,
+    body: [
+      {
+        type: "p",
+        text: "OZZO SALES, the field app your reps use, is now live on the Apple App Store as well as on Google Play. It went public on the App Store on 10 November 2026. It is free to download, it needs iOS 16.4 or later, it runs on iPhone and iPad, and it is the same app as the Android one — same features, same login, same data. If you had put OZZO aside because part of your team carries an iPhone, that reason is gone.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-sales-iphone-app-live-ios/01-both-stores.svg",
+        alt: "A side-by-side comparison of the two OZZO SALES store listings: Google Play for Android, live since 27 October 2026, and the Apple App Store for iPhone and iPad, live since 10 November 2026, both free and both carrying attendance, visits, offline orders and collections",
+        caption:
+          "Both listings are the same product, built from one codebase and signing in to the same account.",
+      },
+      {
+        type: "h2",
+        text: "Why platform decides so many software shortlists",
+      },
+      {
+        type: "p",
+        text: "In Indian field sales, Android is the overwhelming majority of handsets, and most field-sales apps are built for it alone. That works until you look at who else needs the app. The area sales manager who reviews the beat. The owner's son who runs two territories. The senior rep who has carried an iPhone for six years. Field software that only runs on Android quietly excludes exactly the people whose numbers matter most.",
+      },
+      {
+        type: "p",
+        text: "So teams work around it, and every workaround costs something. A second handset bought for one rep. A manager left off the system because nobody wants to tell them to change phones. Visits typed into the web dashboard the next morning, which defeats the point of a geo-tagged visit entirely — a visit logged from the office proves nothing about where anyone was.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-sales-iphone-app-live-ios/02-mixed-team-cost.svg",
+        alt: "Two columns comparing the old workarounds for a mixed-phone field team — buying a second Android handset, leaving senior staff off the system, managers logging visits afterwards — against what applies now, where every rep installs on the phone they already carry",
+      },
+      {
+        type: "h2",
+        text: "What is actually in the iPhone app",
+      },
+      {
+        type: "p",
+        text: "Everything that is in the Android app. It is worth being specific, because \"now on iOS\" sometimes means a cut-down viewer:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Punch in and out with a selfie and GPS, with an optional odometer reading",
+          "Today's beat route, worked outlet by outlet",
+          "Geo-tagged check-in and check-out at customers and leads, with visit photo and feedback",
+          "Order capture with your catalogue, schemes and price lists — fully offline",
+          "Payment collection against outstanding, with photo proof",
+          "Expenses with proof, leave requests and attendance history",
+          "Leads, deals and quotations for teams on the CRM line",
+        ],
+      },
+      {
+        type: "p",
+        text: "All of it captures with no signal and syncs itself when a bar returns — the same offline engine, because it is the same code. One codebase means a feature does not land on one platform months before the other.",
+      },
+      {
+        type: "h2",
+        text: "What it costs: nothing extra",
+      },
+      {
+        type: "p",
+        text: "OZZO is priced per user per month, not per platform. A rep on an iPhone costs exactly what a rep on Android costs. Both downloads are free; the subscription sits on your account, and the rates are published in full rather than quoted on a call.",
+      },
+      {
+        type: "link",
+        href: "/plans",
+        label: "Compare every plan, module by module",
+      },
+      {
+        type: "h2",
+        text: "Moving one rep across, start to finish",
+      },
+      {
+        type: "p",
+        text: "There is no migration and nothing for an administrator to switch on. The user record you already created works on both platforms, because the data lives on the account rather than on the handset.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-sales-iphone-app-live-ios/03-rollout.svg",
+        alt: "A four-step flow for putting an iPhone rep on the app: the administrator does nothing, the rep installs OZZO SALES from the App Store, signs in with the same credentials as the web dashboard, and allows location and camera permissions",
+      },
+      {
+        type: "ul",
+        items: [
+          "The rep opens the App Store, searches OZZO SALES, and installs it — about 54 MB.",
+          "They sign in with the same email and password they would use on the web dashboard.",
+          "Their customers, routes and past visits are already there.",
+          "iOS asks for location and camera permission once each. Location drives punch-in and geo-tagged visits; the camera takes the attendance selfie and payment proof.",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Pick field software for what it does, not for which handsets your team happens to own. Platform should never be the thing that decides it.",
+      },
+      {
+        type: "h2",
+        text: "One honest limit",
+      },
+      {
+        type: "p",
+        text: "Every rep needs a smartphone. The app cannot run on a feature phone, and an iPhone needs iOS 16.4 or later — which covers every iPhone 8 and newer. A very old Android handset will also struggle with continuous GPS and camera capture, whatever the software. Managers are fine on any modern browser; the web dashboard needs no app at all.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-sales-iphone-app-live-ios/04-questions-before-switching.svg",
+        alt: "Two answer panels: does it cost extra — no, pricing is per user and not per platform; and is the iPhone version cut down — no, one codebase ships attendance, visits, routes, orders, collections and full offline capture on both platforms",
+      },
+      {
+        type: "h2",
+        text: "If platform was your reason to wait",
+      },
+      {
+        type: "p",
+        text: "Then there is nothing left to wait for. The honest summary is this: OZZO runs the whole field operation — attendance, GPS, visits, beat routes, offline orders, collections and self-calculating outstanding — from a web dashboard for managers and one app that is now live on both stores.",
+      },
+      {
+        type: "link",
+        href: "/products/sfa",
+        label: "See everything in OZZO Sales Force Automation",
+      },
+      {
+        type: "link",
+        href: "/salesman-location-tracking-software",
+        label: "How salesman location tracking works in OZZO",
+      },
+      {
+        type: "p",
+        text: "If you want to see it on your own phone with your own products and routes in it, book a demo and we will walk through it with you — on whichever handset you are holding.",
+      },
+    ],
+  },
+  {
     slug: "crm-or-sfa-which-does-your-field-team-need",
     title: "CRM or SFA: which does your field team actually need?",
     description:
@@ -158,7 +298,7 @@ export const posts: BlogPost[] = [
         items: [
           "Selfie-and-GPS attendance and live location, so \"reached the customer\" means the phone was actually there",
           "Geo-tagged visits, beat routes and territories that make coverage measurable instead of a hope",
-          "Offline order capture — the app works with no signal and syncs when it's back",
+          "Offline order capture — the app (on Android and on iPhone) works with no signal and syncs when it's back",
           "Field payment collection with outstanding that recalculates itself, and closing stock derived from actual movement",
         ],
       },
@@ -359,7 +499,7 @@ export const posts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "You don't have to replace everything at once. Start with the pain that's costing you most — field visibility, or order-and-collection control — and grow into the rest on the same data. If two or three of these signs sounded familiar, it's worth a conversation.",
+        text: "You don't have to replace everything at once. Start with the pain that's costing you most — field visibility, or order-and-collection control — and grow into the rest on the same data. Whatever phones your team carries, the app is live on both Google Play and the Apple App Store, so nobody is left out of the rollout. If two or three of these signs sounded familiar, it's worth a conversation.",
       },
     ],
   },

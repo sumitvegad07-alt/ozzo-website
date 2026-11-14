@@ -256,7 +256,8 @@ export function CrmProductPage() {
           <Reveal><RevenueOpsFlow /></Reveal>
           <p className="mt-6 text-center text-sm text-muted-foreground">
             Every stage is a shipped module — Leads, WhatsApp &amp; AI, geo-tagged field
-            visits, Quotations and Customers — on the web dashboard and the Android app.
+            visits, Quotations and Customers — on the web dashboard and the mobile app
+            for Android and iPhone.
           </p>
         </Container>
       </section>

@@ -159,4 +159,24 @@ export const blogTopics: BlogTopic[] = [
     tags: ["Distribution", "Trade levels", "FMCG"],
     emoji: "🏪",
   },
+  {
+    slug: "field-sales-app-for-iphone-what-to-check",
+    title: "Choosing a field sales app when half your team is on iPhone",
+    angle:
+      "Most Indian field-sales apps are Android-only, which quietly excludes managers and senior reps who carry iPhones. Explain what breaks in a mixed-handset team (visits logged from the office, two sets of numbers, a second handset bought for one person), what to check on each vendor's store listing before shortlisting, and what to ask about feature parity between the two platforms.",
+    targetKeyword: "field sales app for iphone",
+    internalLinks: ["/products/sfa", "/salesman-location-tracking-software", "/plans"],
+    tags: ["Mobile app", "iOS", "Field sales", "Buying guide"],
+    emoji: "📱",
+  },
+  {
+    slug: "what-to-ask-before-buying-a-sales-app-for-your-team",
+    title: "Nine questions to ask before you buy a sales app for your team",
+    angle:
+      "A buyer's checklist that goes past the demo: which phones it runs on and whether both platforms get the same features, what happens with no signal, who owns the data, whether prices are published, how long onboarding really takes, and what the vendor admits it does not do.",
+    targetKeyword: "questions to ask before buying sales software",
+    internalLinks: ["/plans", "/products/sfa", "/alternatives"],
+    tags: ["Buying guide", "Field sales", "CRM"],
+    emoji: "❓",
+  },
 ];

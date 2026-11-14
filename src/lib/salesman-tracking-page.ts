@@ -24,7 +24,11 @@
  * pages work.
  *
  * Geo-fenced punch in/out is claimed here on the founder's explicit call
- * (2026-10-25): it is live on web and ships in the next Android build.
+ * (2026-10-25): it is live on web and ships in the mobile build.
+ *
+ * The field app runs on BOTH Android and iPhone — the iOS build went live on
+ * the App Store on 2026-11-10. This page used to carry "Android today, iOS on
+ * the way" as one of its four stated limits; platform is not a limit any more.
  */
 
 export type TrackingCapability = {
@@ -87,11 +91,11 @@ export const trackingCapabilities: TrackingCapability[] = [
 export const trackingLimits: { title: string; body: string }[] = [
   {
     title: "It is a phone app, not a vehicle tracker",
-    body: "Tracking runs on the rep's Android phone. There is no GPS hardware box, no SIM-based tracking and no vehicle telematics. If you need to track trucks rather than people, this is the wrong tool.",
+    body: "Tracking runs on the rep's own phone — Android or iPhone, whichever they carry. There is no GPS hardware box, no SIM-based tracking and no vehicle telematics. If you need to track trucks rather than people, this is the wrong tool.",
   },
   {
-    title: "Android today, iOS on the way",
-    body: "The field app is Android. Managers use the web dashboard in any browser. If your whole field team is on iPhone, wait for the iOS build rather than buying now.",
+    title: "It needs a reasonably current phone",
+    body: "The field app is live on both Google Play and the Apple App Store, so Android and iPhone teams are both covered — but iPhones need iOS 16.4 or later, and a very old Android handset will struggle with GPS and camera capture. Managers use the web dashboard in any modern browser.",
   },
   {
     title: "It is not payroll software",
@@ -106,11 +110,11 @@ export const trackingLimits: { title: string; body: string }[] = [
 export const trackingFaqs: { q: string; a: string }[] = [
   {
     q: "What is salesman location tracking software?",
-    a: "It is software that records where your field salesmen are during the working day. A mobile app on the rep's phone handles attendance, captures their location through the day and stamps each customer visit with the place it happened. A web dashboard shows managers the result on a map.",
+    a: "It is software that records where your field salesmen are during the working day. A mobile app on the rep's own phone — Android or iPhone — handles attendance, captures their location through the day and stamps each customer visit with the place it happened. A web dashboard shows managers the result on a map.",
   },
   {
     q: "How does OZZO track a salesman's location?",
-    a: "The rep punches in from the OZZO Android app with a selfie and GPS. While they are punched in, the app records location on an interval in the background. You see the day as a route on the map, with each geo-tagged visit and the distance travelled.",
+    a: "The rep punches in from the OZZO SALES app — on Android or iPhone — with a selfie and GPS. While they are punched in, the app records location on an interval in the background. You see the day as a route on the map, with each geo-tagged visit and the distance travelled.",
   },
   {
     q: "Is a salesman tracked outside working hours?",

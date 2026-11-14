@@ -840,6 +840,133 @@ const SPECS = [
       { value: "0", label: "Sheets to merge", note: "The report builds itself as the day happens", tone: "neutral" },
     ],
   },
+
+  /* ===== ozzo-sales-iphone-app-live-ios ================================== */
+  {
+    slug: "ozzo-sales-iphone-app-live-ios",
+    name: "01-both-stores",
+    kind: "panels",
+    heading: "One app, two stores, one account",
+    sub: "OZZO SALES is live on Google Play and on the Apple App Store. Same product, same login, same data.",
+    cols: 2,
+    panels: [
+      {
+        label: "Android — Google Play",
+        tagline: "Public since 27 October 2026",
+        tone: "success",
+        items: [
+          { text: "Free to download, no trial wall on the app itself", mark: "tick" },
+          { text: "Selfie and GPS attendance, geo-tagged visits", mark: "tick" },
+          { text: "Offline order capture, collections and expenses", mark: "tick" },
+          { text: "Signs in to the account your admin creates", mark: "tick" },
+        ],
+      },
+      {
+        label: "iPhone & iPad — App Store",
+        tagline: "Public since 10 November 2026",
+        tone: "primary",
+        items: [
+          { text: "Free to download, same as Android", mark: "tick" },
+          { text: "Every feature above, built from the same codebase", mark: "tick" },
+          { text: "Needs iOS 16.4 or later", mark: "tick" },
+          { text: "Runs on iPhone and on iPad", mark: "tick" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ozzo-sales-iphone-app-live-ios",
+    name: "02-mixed-team-cost",
+    kind: "checklist",
+    heading: "What a mixed-phone team used to cost you",
+    sub: "Before both platforms shipped, every team with iPhone users worked around the gap. These are the workarounds.",
+    columns: [
+      {
+        label: "The old workarounds",
+        tone: "danger",
+        mark: "cross",
+        items: [
+          "Buying a second Android handset for the one rep on an iPhone",
+          "Letting senior people off the system because they carry iPhones",
+          "Managers logging visits for reps from the web dashboard afterwards",
+          "Two sets of numbers — app-captured for some, WhatsApp for others",
+          "Shortlisting software by platform instead of by what it does",
+        ],
+      },
+      {
+        label: "What applies now",
+        tone: "success",
+        mark: "tick",
+        items: [
+          "Every rep installs on the phone already in their pocket",
+          "Senior staff are on the same system as the field",
+          "Visits, orders and attendance are captured at the source",
+          "One set of numbers, because everyone is on the same app",
+          "Choose software on capability, not on handset policy",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ozzo-sales-iphone-app-live-ios",
+    name: "03-rollout",
+    kind: "flow",
+    heading: "Rolling the app out to an iPhone rep",
+    sub: "Nothing changes on your account. The rep installs, signs in, and their history is already there.",
+    cols: 2,
+    steps: [
+      {
+        label: "Admin: nothing to do",
+        detail: "No migration, no new licence, no setting to switch on. The user you already created works on both platforms.",
+        tone: "neutral",
+      },
+      {
+        label: "Rep: install from the App Store",
+        detail: "Search OZZO SALES, or open the App Store link on the OZZO site. Free, 54 MB.",
+        tone: "primary",
+      },
+      {
+        label: "Rep: sign in",
+        detail: "The same email and password as the web dashboard. Past visits, customers and routes appear immediately — the data lives on the account, not the handset.",
+        tone: "primary",
+      },
+      {
+        label: "Rep: allow location and camera",
+        detail: "iOS asks once, per permission. Location is needed for punch-in and geo-tagged visits; the camera for the attendance selfie and payment proof.",
+        tone: "success",
+      },
+    ],
+  },
+  {
+    slug: "ozzo-sales-iphone-app-live-ios",
+    name: "04-questions-before-switching",
+    kind: "panels",
+    heading: "Fair questions, answered straight",
+    sub: "What people actually ask when a field app arrives on a second platform.",
+    cols: 2,
+    panels: [
+      {
+        label: "Does it cost extra?",
+        tagline: "No",
+        tone: "success",
+        items: [
+          { text: "Pricing is per user, not per platform", mark: "tick" },
+          { text: "A rep on an iPhone costs the same as one on Android", mark: "tick" },
+          { text: "Both downloads are free; the subscription sits on the account", mark: "tick" },
+        ],
+      },
+      {
+        label: "Is the iPhone version cut down?",
+        tagline: "No — one codebase",
+        tone: "primary",
+        items: [
+          { text: "Attendance, visits, routes, orders, collections, expenses", mark: "tick" },
+          { text: "Full offline capture and automatic sync, same as Android", mark: "tick" },
+          { text: "Shipped from the same source, so features land together", mark: "tick" },
+        ],
+      },
+    ],
+  },
 ];
 
 /* ---------------------------------------------------------------------- main */

@@ -11,7 +11,11 @@ export const metadata = pageMetadata({
   keywords: ["cookie policy", "OZZO cookies", "website cookies India"],
 });
 
-const EFFECTIVE_DATE = "1 November 2026";
+/**
+ * Last substantive change: 14 November 2026 — section 5 described the mobile
+ * application as Android-only. The iOS build went live on 10 November 2026.
+ */
+const EFFECTIVE_DATE = "14 November 2026";
 
 export default function CookiePolicyPage() {
   return (
@@ -140,16 +144,17 @@ export default function CookiePolicyPage() {
 
       <h2>4. Third-party content</h2>
       <p>
-        Some pages embed content hosted elsewhere, such as a video player or a link to Google Play.
-        Those providers may set their own cookies when their content loads, and we do not control
-        them. Their own policies apply.
+        Some pages embed content hosted elsewhere, such as a video player or a link to Google Play
+        or the Apple App Store. Those providers may set their own cookies when their content loads,
+        and we do not control them. Their own policies apply.
       </p>
 
       <h2>5. The mobile application</h2>
       <p>
-        The OZZO SALES Android application does not use cookies. It stores a sign-in token and a
-        local copy of your data on the device so that it works without a network. That storage is
-        private to the application and is removed when you sign out. See our{" "}
+        The OZZO SALES mobile application — on Android and on iOS alike — does not use cookies.
+        It stores a sign-in token and a local copy of your data on the device so that it works
+        without a network. That storage is private to the application and is removed when you sign
+        out. See our{" "}
         <Link href="/privacy">Privacy Policy</Link> for details.
       </p>
 

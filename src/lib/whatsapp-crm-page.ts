@@ -11,7 +11,7 @@
  * page can own a phrase its competitors cannot claim. That is this page.
  *
  * It must stay distinct from /products/crm. That page sells the whole CRM
- * line (leads, pipelines, quotations, reports, roles, the Android app). THIS
+ * line (leads, pipelines, quotations, reports, roles, the mobile app). THIS
  * page answers the category question — what a WhatsApp CRM is, how it differs
  * from a WhatsApp broadcast tool, and what to look for — and hands the
  * product sell off to /products/crm. If it drifts into "here is all of CRM"
@@ -67,7 +67,7 @@ export const whatsappCapabilities: WhatsappCapability[] = [
     points: [
       "Chat attached to the right lead or customer automatically",
       "Deals, quotations and tasks on the same record as the messages",
-      "Field visits land there too — GPS-stamped, from the Android app",
+      "Field visits land there too — GPS-stamped, from the Android or iPhone app",
       "A handover means opening one record, not asking three people",
     ],
   },
@@ -196,7 +196,7 @@ export const whatsappFeatures: WhatsappFeature[] = [
     note: "The part no messaging tool has. Requires a plan with the field line.",
   },
   {
-    feature: "Android app, works offline",
+    feature: "Android & iPhone app, works offline",
     what: "Leads, deals, quotes and visits capture with no signal and sync later.",
     ozzo: "full",
     note: "The CRM records work offline. WhatsApp messaging needs a connection, as it must.",
@@ -242,8 +242,8 @@ export const whatsappLimits: { title: string; body: string }[] = [
     body: "The inbox runs on your official WhatsApp Business number, which you connect during setup. OZZO does not resell numbers, and WhatsApp's own per-conversation charges, where they apply, are between you and WhatsApp.",
   },
   {
-    title: "Android today, iOS on the way",
-    body: "Managers use the web dashboard in any browser, and the field app is Android. If your whole team is on iPhone, wait for the iOS build rather than buying now.",
+    title: "Every rep needs a smartphone",
+    body: "The field app is live on both Google Play and the Apple App Store, so Android and iPhone teams are equally covered — but a rep on a feature phone cannot use it, and iPhones need iOS 16.4 or later. Managers are fine on any modern browser.",
   },
 ];
 
@@ -286,6 +286,6 @@ export const whatsappFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Does the WhatsApp inbox work offline?",
-    a: "Messaging needs a connection, as it must — a message cannot send without one. Everything else on the Android app does not: leads, deals, quotations, tasks and geo-tagged visits all capture with no signal and sync themselves the moment it returns, so a rep in a market with no network is never blocked from recording the work.",
+    a: "Messaging needs a connection, as it must — a message cannot send without one. Everything else on the mobile app does not, on Android and iPhone alike: leads, deals, quotations, tasks and geo-tagged visits all capture with no signal and sync themselves the moment it returns, so a rep in a market with no network is never blocked from recording the work.",
   },
 ];

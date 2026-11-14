@@ -245,7 +245,7 @@ export const comparisons: Comparison[] = [
       "Strong workflow automation and reporting for office sales processes",
     ],
     ozzoWins: [
-      { title: "Native field-force tracking (no add-ons)", body: "Zoho CRM has no built-in GPS field tracking — you rely on third-party marketplace apps. OZZO ships selfie + GPS attendance, live location, geo-tagged visits and beat routes natively on its own Android app." },
+      { title: "Native field-force tracking (no add-ons)", body: "Zoho CRM has no built-in GPS field tracking — you rely on third-party marketplace apps. OZZO ships selfie + GPS attendance, live location, geo-tagged visits and beat routes natively on its own app, live for both Android and iPhone." },
       { title: "Orders, collections & outstanding built in", body: "OZZO captures offline orders, collects field payments and self-calculates outstanding and stock — a full sell-collect-distribute flow Zoho CRM doesn't provide on its own." },
       { title: "WhatsApp shared inbox + AI assistant included", body: "A shared team inbox on your official WhatsApp number with templates and an AI assistant, included with the CRM line — not a separate integration to configure." },
       { title: "One system instead of a stack", body: "With Zoho you'd combine CRM + a GPS add-on + an orders tool + accounting. OZZO is one login with one customer record for office and field." },
@@ -378,7 +378,7 @@ export const comparisons: Comparison[] = [
       "Unolo and OZZO are both transparent, per-user subscriptions. The difference isn't a race to the lowest price — it's scope: with OZZO one per-user subscription also covers the CRM, orders, collections and WhatsApp that you'd otherwise buy as separate tools alongside a tracking app.",
     faqs: [
       { q: "Is OZZO a good Unolo alternative?", a: "Yes, especially if your field team does more than check in. Unolo is great at GPS tracking and attendance; OZZO covers that and adds a full CRM, offline orders, field collections and a WhatsApp inbox in one system." },
-      { q: "Does OZZO do live tracking and attendance like Unolo?", a: "Yes — selfie + GPS attendance, live location, geo-tagged visits and beat routes are all built into OZZO's Android app, alongside the CRM and sales features." },
+      { q: "Does OZZO do live tracking and attendance like Unolo?", a: "Yes — selfie + GPS attendance, live location, geo-tagged visits and beat routes are all built into the OZZO SALES app on Android and iPhone, alongside the CRM and sales features." },
       { q: "When is Unolo the better choice?", a: "If all you need is lightweight, fast-to-deploy field tracking and attendance — without CRM, orders or collections — Unolo is a focused, well-adopted option." },
     ],
   },

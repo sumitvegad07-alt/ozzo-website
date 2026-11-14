@@ -22,12 +22,14 @@ import {
 export const metadata = pageMetadata({
   title: "Salesman Location Tracking Software in India",
   description:
-    "Track your salesmen live: selfie + GPS attendance, geo-tagged customer visits and beat routes, on one Android app. From ₹150 per user/month.",
+    "Track your salesmen live: selfie + GPS attendance, geo-tagged customer visits and beat routes — one app, on Android and iPhone. From ₹150 per user/month.",
   path: "/salesman-location-tracking-software",
   keywords: [
     "salesman location tracking software",
     "salesman tracking software India",
     "salesman tracking app",
+    "salesman tracking app for iPhone",
+    "field sales tracking app iOS",
     "field staff location tracking",
     "GPS attendance app for sales team",
     "sales team location tracking software",
@@ -72,8 +74,9 @@ export default function SalesmanLocationTrackingPage() {
               has to stand alone, without the rest of the page. */}
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/75">
             Salesman location tracking software records where your field
-            salesmen are during the working day. The rep punches in from an
-            Android app with a selfie and GPS; while they are punched in, their
+            salesmen are during the working day. The rep punches in from a
+            mobile app — on Android or iPhone — with a selfie and GPS; while
+            they are punched in, their
             location is recorded in the background and every customer visit is
             stamped with the place it happened. Managers see the day drawn on a
             map — route travelled, visits made, distance covered — from a web
@@ -273,7 +276,7 @@ export default function SalesmanLocationTrackingPage() {
               <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[2rem] border border-border shadow-xl">
                 <Image
                   src="/product/app-punch-in.webp"
-                  alt="The OZZO Android app home screen: a Punch In button to start the shift, with tiles for visits today, distance today, orders, collection and today's route"
+                  alt="The OZZO SALES app home screen on a phone: a Punch In button to start the shift, with tiles for visits today, distance today, orders, collection and today's route"
                   width={720}
                   height={1600}
                   sizes="280px"

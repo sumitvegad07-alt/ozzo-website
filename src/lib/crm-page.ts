@@ -12,7 +12,7 @@
 export const crmMeta = {
   metaTitle: "OZZO CRM — WhatsApp inbox, pipelines & quotations",
   metaDescription:
-    "Capture leads, work visual pipelines, reply from one shared WhatsApp inbox with an AI assistant, and send branded PDF quotations. Web + Android.",
+    "Capture leads, work visual pipelines, reply from one shared WhatsApp inbox with an AI assistant, and send branded PDF quotations. Web + Android + iPhone.",
   keywords: [
     "CRM software India",
     "WhatsApp CRM",
@@ -22,6 +22,8 @@ export const crmMeta = {
     "quotation software",
     "sales CRM for small business",
     "CRM with mobile app",
+    "CRM with iPhone app",
+    "CRM app for iOS India",
     "best CRM for field sales",
   ],
 };
@@ -184,8 +186,8 @@ export const crmCapabilities: { icon: string; title: string; body: string }[] = 
   },
   {
     icon: "Smartphone",
-    title: "Web + Android, offline",
-    body: "A full admin console on the web and a field app in the pocket. Leads, deals, quotations and visits capture offline and sync themselves the moment signal returns.",
+    title: "Web + Android + iPhone, offline",
+    body: "A full admin console on the web and a field app in the pocket — on Google Play and the Apple App Store alike. Leads, deals, quotations and visits capture offline and sync themselves the moment signal returns.",
   },
 ];
 
@@ -279,7 +281,7 @@ export const crmComparison: {
   { feature: "Visual Kanban pipelines", spreadsheet: false, generic: true, ozzo: true },
   { feature: "Branded PDF quotations", spreadsheet: "Manual", generic: "Sometimes", ozzo: true },
   { feature: "Field visits on the same record", spreadsheet: false, generic: false, ozzo: true },
-  { feature: "Android app that works offline", spreadsheet: false, generic: "Limited", ozzo: true },
+  { feature: "Android & iPhone app that works offline", spreadsheet: false, generic: "Limited", ozzo: true },
   { feature: "Custom fields & roles / data-scoping", spreadsheet: false, generic: "Higher tiers", ozzo: true },
   { feature: "Built for Indian field-sales teams", spreadsheet: "Generic", generic: "Global-first", ozzo: true },
   { feature: "Set up with a guided demo", spreadsheet: false, generic: "Self-serve", ozzo: true },
@@ -289,7 +291,7 @@ export const crmComparison: {
 export const crmFaqs: { q: string; a: string }[] = [
   {
     q: "What is OZZO CRM?",
-    a: "OZZO CRM is the customer-facing side of the OZZO platform. It captures every enquiry as a lead, works it across visual Kanban pipelines, lets you reply from one shared WhatsApp inbox with an AI assistant, and turns deals into branded PDF quotations — all on a single customer timeline that also shows field visits. It runs on a web dashboard for managers and an Android app for your team.",
+    a: "OZZO CRM is the customer-facing side of the OZZO platform. It captures every enquiry as a lead, works it across visual Kanban pipelines, lets you reply from one shared WhatsApp inbox with an AI assistant, and turns deals into branded PDF quotations — all on a single customer timeline that also shows field visits. It runs on a web dashboard for managers and a mobile app for your team — live on both Google Play and the Apple App Store.",
   },
   {
     q: "Who is OZZO CRM for?",
@@ -301,7 +303,7 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "How is OZZO CRM different from a generic CRM?",
-    a: "OZZO is built around how Indian field-sales teams actually work: a shared WhatsApp inbox with an AI assistant is core (not a paid add-on), geo-tagged field visits sit on the same customer record, quotations print on your letterhead, and the Android app works fully offline. You also get a guided setup instead of being left to configure everything yourself.",
+    a: "OZZO is built around how Indian field-sales teams actually work: a shared WhatsApp inbox with an AI assistant is core (not a paid add-on), geo-tagged field visits sit on the same customer record, quotations print on your letterhead, and the mobile app — on Android and iPhone — works fully offline. You also get a guided setup instead of being left to configure everything yourself.",
   },
   {
     q: "Does OZZO CRM work with WhatsApp?",
@@ -333,11 +335,11 @@ export const crmFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Can field visits show up in the CRM?",
-    a: "Yes. Geo-tagged customer and lead visits from the Android app appear on the same customer record as your messages, deals and quotations — so a meeting on the timeline is one the phone was actually at.",
+    a: "Yes. Geo-tagged customer and lead visits from the mobile app — Android or iPhone — appear on the same customer record as your messages, deals and quotations, so a meeting on the timeline is one the phone was actually at.",
   },
   {
     q: "Does OZZO CRM have a mobile app?",
-    a: "Yes. There's a full Android field app alongside the web dashboard, so reps can manage leads, deals, quotations and visits on the ground. An iOS version is on the way; the web dashboard runs in any modern browser meanwhile.",
+    a: "Yes — on both Android and iPhone. The OZZO SALES field app is live on Google Play and on the Apple App Store (iOS 16.4 or later, iPhone and iPad), so reps can manage leads, deals, quotations and visits on the ground from whichever phone they already carry. Managers get the full web dashboard in any modern browser.",
   },
   {
     q: "Does OZZO CRM work offline?",

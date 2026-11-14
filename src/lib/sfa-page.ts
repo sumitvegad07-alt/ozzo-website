@@ -177,7 +177,7 @@ export const sfaReports: string[] = [
   "DSR — one line per rep: visits, orders, collections and distance",
 ];
 
-/** SECTION 10 — mobile app highlights. */
+/** SECTION 10 — mobile app highlights (the app ships on Android and iOS). */
 export const sfaMobile: string[] = [
   "Punch in with selfie, GPS and optional odometer",
   "See today's route and work it outlet by outlet",
@@ -192,7 +192,7 @@ export const sfaMobile: string[] = [
 export const sfaFaqs: { q: string; a: string }[] = [
   {
     q: "What is OZZO Sales Force Automation (SFA)?",
-    a: "OZZO SFA is one product that runs your entire field-sales operation. It shows you what your team is doing — selfie + GPS attendance, live location and geo-tagged visits — and lets reps capture orders offline, collect payments in the field, and keep outstanding and stock calculated automatically. It's a web dashboard for managers and an Android app for reps.",
+    a: "OZZO SFA is one product that runs your entire field-sales operation. It shows you what your team is doing — selfie + GPS attendance, live location and geo-tagged visits — and lets reps capture orders offline, collect payments in the field, and keep outstanding and stock calculated automatically. It's a web dashboard for managers and an app for reps on both Android and iPhone.",
   },
   {
     q: "What's the difference between the Field and Sales lines?",
@@ -224,7 +224,7 @@ export const sfaFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Does order capture work without internet?",
-    a: "Yes. Orders — along with quotations, payments and expenses — capture fully offline on the Android app and sync automatically the moment signal returns. Reps in low-network markets never wait for a connection.",
+    a: "Yes. Orders — along with quotations, payments and expenses — capture fully offline on the mobile app, Android and iPhone alike, and sync automatically the moment signal returns. Reps in low-network markets never wait for a connection.",
   },
   {
     q: "How is payment collection tracked?",
@@ -256,7 +256,7 @@ export const sfaFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Is there a mobile app, and does it support iOS?",
-    a: "Reps work on a full Android field app; managers use the web dashboard in any modern browser. An iOS version is on the way. Everything the rep captures works offline and syncs automatically.",
+    a: "Yes to both. OZZO SALES is live on Google Play for Android and on the Apple App Store for iPhone and iPad (iOS 16.4 or later) — the same app, the same login, so a mixed team needs no workarounds. Managers use the web dashboard in any modern browser. Everything the rep captures works offline and syncs automatically.",
   },
   {
     q: "Can I organise the team by geography?",

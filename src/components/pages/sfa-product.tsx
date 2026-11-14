@@ -25,9 +25,10 @@ import {
   JsonLd,
   breadcrumbSchema,
   faqSchema,
+  mobileAppSchema,
   productSchema,
 } from "@/lib/seo";
-import { includedInEveryPlan } from "@/lib/site";
+import { brand, includedInEveryPlan } from "@/lib/site";
 import { industries } from "@/lib/content";
 import {
   sfaRepDay,
@@ -263,6 +264,9 @@ export function SfaProductPage() {
       <JsonLd
         data={[
           productSchema("sfa"),
+          // The rep's app is the heart of this product, so both store
+          // listings are declared here as MobileApplication entities.
+          ...mobileAppSchema(),
           faqSchema(sfaFaqs),
           breadcrumbSchema([
             { name: "Home", path: "/" },
@@ -459,7 +463,7 @@ export function SfaProductPage() {
           <SectionHeading
             eyebrow="Everything else that ships"
             title="The field basics, done properly"
-            description="The day-to-day capabilities your team leans on — verified, in production, on web and the Android app."
+            description="The day-to-day capabilities your team leans on — verified, in production, on web and on the field app for Android and iPhone."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {sfaStories.map((s, i) => (
@@ -537,9 +541,9 @@ export function SfaProductPage() {
                 Built for one hand, on the road, off the grid.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Everything a rep needs on the ground, in a rugged Android app that keeps
-                working when the network doesn&apos;t — then syncs itself the moment a bar
-                of signal returns.
+                Everything a rep needs on the ground, in a rugged app — on Android
+                and on iPhone — that keeps working when the network doesn&apos;t, then
+                syncs itself the moment a bar of signal returns.
               </p>
               <ul className="mt-7 grid gap-3.5 sm:grid-cols-2">
                 {sfaMobile.map((p) => (
@@ -551,9 +555,30 @@ export function SfaProductPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Android today · iOS on the way
-              </p>
+              {/*
+                Two live store links, replacing the "Android today · iOS on the
+                way" pill that stood here until the iPhone build shipped on
+                2026-11-10. On the page that sells the rep's app, the platform
+                answer should be a link to the store, not a promise.
+              */}
+              <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                <a
+                  href={brand.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition-colors hover:border-primary"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Get it on Google Play
+                </a>
+                <a
+                  href={brand.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground shadow-sm transition-colors hover:border-primary"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Download on the App Store
+                </a>
+              </div>
             </Reveal>
           </div>
         </Container>

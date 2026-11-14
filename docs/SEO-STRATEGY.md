@@ -365,7 +365,7 @@ To add images to a new post: append specs to `build-blog-images.mjs`, run
 - **Paid ads** — different budget, different decision. This plan is organic only.
 - **Backlink buying** — risk outweighs benefit, and AI models weight genuine mentions higher anyway.
 - **More industry pages** — 36 is already plenty. Make the existing ones rank before adding page 37.
-- **iOS app content** — not shipped yet, so no page.
+- **A dedicated iOS landing page** — the iPhone app shipped on 10 November 2026 and every page, policy, blog post and `/llms.txt` now states both platforms, plus a launch post at `/blog/ozzo-sales-iphone-app-live-ios`. A separate "OZZO for iPhone" page is deliberately not in this plan: the search volume for "field sales app iphone" in India is small, and a thin page competing with `/products/sfa` would cost more than it earns. Revisit if that query shows real impressions in Search Console.
 
 ---
 

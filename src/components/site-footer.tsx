@@ -3,6 +3,22 @@ import Link from "next/link";
 import { Mail, Phone, MessageCircle, Play, MapPin } from "lucide-react";
 import { brand, contact, productLines } from "@/lib/site";
 
+/**
+ * The Apple logo, inline.
+ *
+ * lucide-react has no Apple mark (it ships no brand logos), and the App Store
+ * badge is the one place on the site where the platform has to be recognisable
+ * at a glance rather than read. Single path, currentColor, so it themes with
+ * the rest of the footer exactly as the Play icon beside it does.
+ */
+function AppleMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M17.05 12.86c-.03-2.65 2.16-3.92 2.26-3.98-1.23-1.8-3.15-2.05-3.83-2.08-1.74-.18-3.39 1.02-4.27 1.02-.88 0-2.24-.99-3.68-.96-1.89.03-3.63 1.1-4.6 2.79-1.96 3.4-.5 8.44 1.41 11.2.94 1.35 2.06 2.86 3.53 2.81 1.41-.06 1.95-.91 3.66-.91 1.71 0 2.19.91 3.69.88 1.52-.03 2.5-1.38 3.44-2.74 1.08-1.57 1.52-3.09 1.55-3.17-.03-.01-2.98-1.14-3.01-4.53l-.15-.33zM14.6 4.47c.77-.94 1.29-2.24 1.15-3.54-1.14.05-2.53.76-3.33 1.71-.72.83-1.34 2.17-1.17 3.44 1.27.1 2.58-.65 3.35-1.61z" />
+    </svg>
+  );
+}
+
 const socialLinks = [
   { label: "LinkedIn", href: contact.social.linkedin },
   { label: "Facebook", href: contact.social.facebook },
@@ -59,7 +75,7 @@ export function SiteFooter() {
             </span>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
               Close every loop. CRM, field workforce and sales &amp; distribution
-              in one platform — a web dashboard for managers and a mobile app for
+              in one platform — a web dashboard for managers and an Android & iPhone app for
               reps, powered by WhatsApp and AI.
             </p>
             <div className="mt-6 space-y-2 text-sm">
@@ -132,20 +148,41 @@ export function SiteFooter() {
           {/* Mobile app */}
           <div className="col-span-2 md:col-span-2">
             <h2 className="ozzo-eyebrow mb-5 text-white/40">Mobile App</h2>
-            <a
-              href={brand.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 transition-colors hover:border-[#a855f7]/50"
-            >
-              <Play className="h-6 w-6 fill-current text-[#a855f7]" />
-              <span className="leading-tight">
-                <span className="block text-[10px] uppercase tracking-wide text-white/50">Get it on</span>
-                <span className="block text-sm font-bold text-white">Google Play</span>
-              </span>
-            </a>
+            {/*
+              Both stores, every page. The app is on Android and iOS, and the
+              footer is the one block that appears on all 66 pages — so this is
+              where a visitor on an iPhone finds out, whichever page they landed
+              on.
+            */}
+            <div className="flex flex-col items-start gap-2.5">
+              <a
+                href={brand.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full max-w-[15rem] items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 transition-colors hover:border-[#a855f7]/50"
+              >
+                <Play className="h-6 w-6 fill-current text-[#a855f7]" />
+                <span className="leading-tight">
+                  <span className="block text-[10px] uppercase tracking-wide text-white/50">Get it on</span>
+                  <span className="block text-sm font-bold text-white">Google Play</span>
+                </span>
+              </a>
+              <a
+                href={brand.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full max-w-[15rem] items-center gap-3 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 transition-colors hover:border-[#a855f7]/50"
+              >
+                <AppleMark className="h-6 w-6 text-[#a855f7]" />
+                <span className="leading-tight">
+                  <span className="block text-[10px] uppercase tracking-wide text-white/50">Download on the</span>
+                  <span className="block text-sm font-bold text-white">App Store</span>
+                </span>
+              </a>
+            </div>
             <p className="mt-4 max-w-[15rem] text-xs leading-relaxed text-white/45">
-              OZZO Sales — check in, capture visits and update leads from the field.
+              {brand.mobileAppName} — check in, capture visits and update leads
+              from the field. Free on Android and iPhone.
             </p>
           </div>
         </div>

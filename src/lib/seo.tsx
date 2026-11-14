@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { SITE_URL, brand, contact, founder, productLines } from "./site";
+import {
+  SITE_URL,
+  ANDROID_PACKAGE,
+  IOS_APP_ID,
+  IOS_MIN_VERSION,
+  brand,
+  contact,
+  founder,
+  productLines,
+} from "./site";
 import { PLAN_RATE, planOrder, plans, fromRate, type Currency } from "./plans";
 
 const SCHEMA_CURRENCIES: Currency[] = ["INR", "USD"];
@@ -97,12 +106,15 @@ export function organizationSchema() {
     // signals there is — it is the difference between "a website" and "a
     // company someone runs".
     founder: { "@type": "Person", name: founder.name, jobTitle: founder.jobTitle },
-    // The Google Play listing belongs here too: a store page carrying the same
+    // Both store listings belong here too: a store page carrying the same
     // name, logo and developer is independent evidence that this company ships a
     // real product, and it is the one profile an engine can verify in a click.
+    // Two stores under one developer name is a stronger signal than one — and
+    // it is how an engine learns the app is not Android-only.
     sameAs: [
       ...Object.values(contact.social).filter(Boolean),
       brand.playStoreUrl,
+      brand.appStoreUrl,
     ],
   };
 }
@@ -167,13 +179,14 @@ export function softwareApplicationSchema() {
     "@type": "SoftwareApplication",
     name: brand.name,
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, Android",
+    operatingSystem: brand.schemaOperatingSystem,
     description: brand.description,
-    // With a real store link an engine can answer "where do I get the app" with
-    // the listing instead of pointing back at the marketing page.
-    downloadUrl: brand.playStoreUrl,
-    installUrl: brand.playStoreUrl,
-    sameAs: brand.playStoreUrl,
+    // With real store links an engine can answer "where do I get the app" with
+    // the listings instead of pointing back at the marketing page. Both are
+    // listed, so "is it on iPhone" is answerable from the markup alone.
+    downloadUrl: [brand.playStoreUrl, brand.appStoreUrl],
+    installUrl: [brand.playStoreUrl, brand.appStoreUrl],
+    sameAs: [brand.playStoreUrl, brand.appStoreUrl],
     // An AggregateOffer with a real lowPrice is what lets Google and the AI
     // engines answer "how much is OZZO" with a number instead of "pricing is not
     // published". An Offer with priceCurrency and no price is ignored by both.
@@ -229,12 +242,12 @@ export function productSchema(slug: string) {
     name: `${brand.name} ${line.name}`,
     alternateName: `${brand.name} ${line.fullName}`,
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, Android",
+    operatingSystem: brand.schemaOperatingSystem,
     description: line.summary,
-    // One Android app (OZZO SALES) serves both product lines, so both point at
-    // the same listing.
-    downloadUrl: brand.playStoreUrl,
-    installUrl: brand.playStoreUrl,
+    // One app (OZZO SALES, on Android and iOS) serves both product lines, so
+    // both point at the same two listings.
+    downloadUrl: [brand.playStoreUrl, brand.appStoreUrl],
+    installUrl: [brand.playStoreUrl, brand.appStoreUrl],
     url: `${SITE_URL}/products/${line.slug}`,
     featureList: line.features,
     publisher: { "@type": "Organization", name: brand.legalName },
@@ -253,6 +266,65 @@ export function productSchema(slug: string) {
       url: `${SITE_URL}/plans`,
     },
   };
+}
+
+/**
+ * MobileApplication schema — one entry per store listing for the rep app.
+ *
+ * `softwareApplicationSchema()` above describes the whole OZZO platform, which
+ * is mostly a web product. This describes the thing a rep installs on a phone,
+ * and it exists because that is a different question with a different answer:
+ * "is there an OZZO app for iPhone" is answered by an `iOS` MobileApplication
+ * node with a real App Store `installUrl`, and by nothing else.
+ *
+ * Two nodes rather than one with `operatingSystem: "Android, iOS"`, because
+ * each store listing has its own URL, its own id and its own OS requirement,
+ * and an engine that wants to deep-link a user to the right store needs them
+ * kept apart.
+ */
+export function mobileAppSchema() {
+  const shared = {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: brand.mobileAppName,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Field Sales / Sales Force Automation",
+    description:
+      `${brand.mobileAppName} is the OZZO field app for sales reps: selfie and GPS ` +
+      "attendance, geo-tagged customer visits, beat routes, order capture, " +
+      "payment collection and expenses — all of it working offline and syncing " +
+      "when signal returns.",
+    publisher: { "@type": "Organization", name: brand.legalName, url: SITE_URL },
+    author: { "@type": "Organization", name: brand.legalName, url: SITE_URL },
+    // Free to install; the subscription is on the account, not the download.
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+    },
+  };
+  return [
+    {
+      ...shared,
+      operatingSystem: "Android",
+      downloadUrl: brand.playStoreUrl,
+      installUrl: brand.playStoreUrl,
+      url: brand.playStoreUrl,
+      sameAs: brand.playStoreUrl,
+      identifier: ANDROID_PACKAGE,
+    },
+    {
+      ...shared,
+      operatingSystem: `iOS ${IOS_MIN_VERSION}+`,
+      downloadUrl: brand.appStoreUrl,
+      installUrl: brand.appStoreUrl,
+      url: brand.appStoreUrl,
+      sameAs: brand.appStoreUrl,
+      identifier: IOS_APP_ID,
+      datePublished: brand.iosLaunchDate,
+    },
+  ];
 }
 
 /** FAQPage schema from a Q/A list. */

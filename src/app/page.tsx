@@ -20,7 +20,12 @@ import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
 import { RouteCompliance } from "@/components/motion/route-compliance";
 import { OrderGuards } from "@/components/motion/order-guards";
 import { WhatsAppThread } from "@/components/motion/whatsapp-thread";
-import { JsonLd, faqSchema, softwareApplicationSchema } from "@/lib/seo";
+import {
+  JsonLd,
+  faqSchema,
+  mobileAppSchema,
+  softwareApplicationSchema,
+} from "@/lib/seo";
 import { productLines } from "@/lib/site";
 import { plans, featureGroups } from "@/lib/plans";
 import {
@@ -90,7 +95,15 @@ const motionDemos: {
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={[softwareApplicationSchema(), faqSchema(faqs)]} />
+      <JsonLd
+        data={[
+          softwareApplicationSchema(),
+          // The rep app on both stores, as its own entity — this is what answers
+          // "is the OZZO app on iPhone" for an engine reading only the markup.
+          ...mobileAppSchema(),
+          faqSchema(faqs),
+        ]}
+      />
 
       {/* ─────────────── Hero ─────────────── */}
       <HomeHero />
@@ -390,7 +403,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Everything under one login"
             title="Every module your field team needs — in one place"
-            description="From attendance to distribution, OZZO ships the whole toolkit as one connected system. No add-on marketplace, no integrations to babysit — just the modules a field-sales business actually runs on, on web and the Android app."
+            description="From attendance to distribution, OZZO ships the whole toolkit as one connected system. No add-on marketplace, no integrations to babysit — just the modules a field-sales business actually runs on, on web and on the field app for Android and iPhone."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featureGroups.map((g, i) => (

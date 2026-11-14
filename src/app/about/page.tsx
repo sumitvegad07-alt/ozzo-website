@@ -228,8 +228,9 @@ export default function AboutPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               What we do have is a system that is built and running — not a
-              prototype and not a roadmap. A web dashboard for managers, an
-              Android app for reps that works offline, two products you can buy
+              prototype and not a roadmap. A web dashboard for managers, a
+              mobile app for reps on both Android and iPhone that works offline,
+              two products you can buy
               separately, and prices you can read without a sales call. Behind
               it, someone who has spent ten years learning what goes wrong after
               the invoice is signed.

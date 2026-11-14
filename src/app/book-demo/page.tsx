@@ -64,8 +64,8 @@ export default function BookDemoPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Smartphone className="h-4 w-4 text-[#a855f7]" /> Mobile app
-                  <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#c4b5fd]">
-                    iOS soon
+                  <span className="rounded-full bg-[#37e0a0]/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#37e0a0]">
+                    Android + iOS
                   </span>
                 </span>
                 <span className="flex items-center gap-1.5">

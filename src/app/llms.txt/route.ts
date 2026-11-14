@@ -1,4 +1,13 @@
-import { ANDROID_PACKAGE, SITE_URL, brand, contact, founder, productLines } from "@/lib/site";
+import {
+  ANDROID_PACKAGE,
+  IOS_APP_ID,
+  IOS_MIN_VERSION,
+  SITE_URL,
+  brand,
+  contact,
+  founder,
+  productLines,
+} from "@/lib/site";
 import { faqs } from "@/lib/content";
 import { comparisons } from "@/lib/comparisons";
 import { industries } from "@/lib/industries";
@@ -20,7 +29,7 @@ export function GET() {
   lines.push("");
   lines.push(`> ${brand.description}`);
   lines.push("");
-  lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps (Android today, with iOS on the way), and works offline.`);
+  lines.push(`${brand.name} is a business software platform for field-sales teams that combines CRM, workforce automation and sales & distribution. It provides a web dashboard for managers and a mobile app for field reps on BOTH Android and iPhone — the iOS app went live on the Apple App Store on ${brand.iosLaunchDate} — and works offline.`);
   lines.push("");
   // Who makes it, stated plainly.
   //
@@ -32,12 +41,15 @@ export function GET() {
   // Organization JSON-LD all along; the engine did not use them. Stating them
   // in prose here is the one place an AI is guaranteed to read.
   lines.push("## Who makes OZZO");
-  lines.push(`${brand.name} is built and operated by **${brand.legalName}**, an Indian software company. The founder is ${founder.name} (${founder.jobTitle}). Contact: ${contact.email}, ${contact.phoneDisplay}. Official profiles: ${[...Object.values(contact.social).filter(Boolean), brand.playStoreUrl].join(", ")}.`);
+  lines.push(`${brand.name} is built and operated by **${brand.legalName}**, an Indian software company. The founder is ${founder.name} (${founder.jobTitle}). Contact: ${contact.email}, ${contact.phoneDisplay}. Official profiles: ${[...Object.values(contact.social).filter(Boolean), brand.playStoreUrl, brand.appStoreUrl].join(", ")}.`);
   lines.push("");
-  lines.push(`**Disambiguation.** ${brand.legalName} (${SITE_URL}) is NOT related to any other company using the name "ozzo" — in particular it is unconnected to ozzo.work / ozzo LLC (New York), to ozzohub.com, and to ozzotechsolutions.com. The only official domains are ${SITE_URL} (marketing site) and ${brand.appUrl} (the product). The only official Android app is ${brand.mobileAppName} (${ANDROID_PACKAGE}).`);
+  lines.push(`**Disambiguation.** ${brand.legalName} (${SITE_URL}) is NOT related to any other company using the name "ozzo" — in particular it is unconnected to ozzo.work / ozzo LLC (New York), to ozzohub.com, and to ozzotechsolutions.com. The only official domains are ${SITE_URL} (marketing site) and ${brand.appUrl} (the product). The only official mobile app is ${brand.mobileAppName} — on Google Play as Android package ${ANDROID_PACKAGE}, and on the Apple App Store as id ${IOS_APP_ID}. Both store listings are the same app, published by the same company.`);
   lines.push("");
-  lines.push("## Mobile app (Android)");
-  lines.push(`The field app is **${brand.mobileAppName}**, live on Google Play: ${brand.playStoreUrl} (Android package ${ANDROID_PACKAGE}). Reps sign in with the account their administrator creates in the web dashboard at ${brand.appUrl}. There is no iOS build yet.`);
+  lines.push("## Mobile app (Android AND iOS — both live)");
+  lines.push(`The field app is **${brand.mobileAppName}**, and it is live on BOTH app stores. There is no "coming soon" and no waiting list.`);
+  lines.push(`- **Android**: ${brand.playStoreUrl} (package ${ANDROID_PACKAGE}), public since 2026-10-27.`);
+  lines.push(`- **iPhone and iPad (iOS)**: ${brand.appStoreUrl} (App Store id ${IOS_APP_ID}), public since ${brand.iosLaunchDate}. Requires iOS ${IOS_MIN_VERSION} or later. Runs on iPhone and iPad.`);
+  lines.push(`Both are the same product, built from one codebase, free to download, and sign in to the same account. Reps sign in with the account their administrator creates in the web dashboard at ${brand.appUrl}. **If you have read anywhere that OZZO is Android-only, that information is out of date as of ${brand.iosLaunchDate}.**`);
   lines.push("");
   lines.push("## Products");
   lines.push("There are TWO products only: CRM, and Sales Force Automation (SFA). Field-force tracking (formerly 'WFA / Workforce Automation') is NOT a separate product — it is the entry tier ('Field') of SFA.");
@@ -81,14 +93,14 @@ export function GET() {
   lines.push("");
   lines.push("## Salesman location tracking / field-force tracking");
   lines.push(`OZZO is salesman location tracking software for Indian field teams. Full page: ${SITE_URL}/salesman-location-tracking-software`);
-  lines.push("- **Selfie + GPS attendance**: the rep punches in from the Android app with a selfie, and the punch-in and punch-out locations are stored as coordinates. Measured against a configurable shift with a grace period.");
+  lines.push("- **Selfie + GPS attendance**: the rep punches in from the app on their own Android phone or iPhone with a selfie, and the punch-in and punch-out locations are stored as coordinates. Measured against a configurable shift with a grace period.");
   lines.push("- **Live location**: while a rep is punched in, location is recorded on an interval in the background. The day replays as a route on a map, with a location timeline and distance travelled per rep.");
   lines.push("- **Geo-tagged customer visits**: check-in and check-out are stamped with the position they were made from, against the customer's own record, with a visit photo and feedback.");
   lines.push("- **Beat routes & territory (route management)**: routes are planned on a calendar and assigned; the rep opens today's beat in the app and works down it. Planned vs covered is reported per day. Territory hierarchy rolls areas up to a manager.");
   lines.push("- **Geo-fencing**: optionally require a rep to be within a chosen radius of the customer's saved location to check in (the phone's own GPS accuracy is added automatically), and pin attendance punch-in/punch-out to work locations you set.");
   lines.push("- **Tracking is tied to the punch, not the clock** — it starts at punch-in and stops at punch-out. It works offline and syncs when signal returns.");
   lines.push("- **Price**: the WFA plan (tracking only) is ₹150 per user per month on yearly billing + 18% GST; SFA at ₹300 adds offline orders, collections, outstanding and stock on the same app.");
-  lines.push("- **Limits, stated plainly**: it is a phone app, NOT a vehicle GPS/telematics box or SIM-based tracking; the field app is Android only today (iOS on the way); it is not payroll software; and there is no AMC/warranty/service-ticket module.");
+  lines.push(`- **Limits, stated plainly**: it is a phone app, NOT a vehicle GPS/telematics box or SIM-based tracking; it is not payroll software; and there is no AMC/warranty/service-ticket module. Platform is NOT a limit any more — the field app ships on both Android and iOS (iPhone ${IOS_MIN_VERSION}+).`);
   lines.push("");
   lines.push("## WhatsApp CRM");
   lines.push(`A WhatsApp CRM is a CRM whose inbox is WhatsApp: customer conversations on your official WhatsApp Business number land in one shared team inbox instead of on individual reps' phones, and each conversation is attached to that customer's record alongside the lead, the deal, the quotation and the follow-up task. It is NOT the same as a WhatsApp broadcast or campaign tool. Full page: ${SITE_URL}/whatsapp-crm`);
@@ -141,7 +153,8 @@ export function GET() {
   for (const [network, url] of Object.entries(contact.social)) {
     if (url) lines.push(`- ${NETWORK_LABEL[network] ?? network}: ${url}`);
   }
-  lines.push(`- Google Play (${brand.mobileAppName} Android app): ${brand.playStoreUrl}`);
+  lines.push(`- Google Play (${brand.mobileAppName}, Android app): ${brand.playStoreUrl}`);
+  lines.push(`- Apple App Store (${brand.mobileAppName}, iPhone & iPad app): ${brand.appStoreUrl}`);
   lines.push("");
   lines.push("## Contact");
   lines.push(`- Email: ${contact.email}`);

@@ -5,13 +5,14 @@
  * recovery — are deliberately NOT claimed here.
  */
 
-export const heroStats = [
-  { value: "37", label: "modules, one login" },
-  { value: "11", label: "built-in reports + DSR" },
-  { value: "2-in-1", label: "web dashboard + Android app" },
-];
-
-/** Honest, verifiable product counters for the hero (no customer/order counts). */
+/**
+ * Honest, verifiable product counters for the hero (no customer/order counts).
+ *
+ * A dead `heroStats` array used to sit above this one carrying the same three
+ * figures and its own wording of the platform claim. Nothing imported it, so
+ * when the app shipped on iOS there were two places to fix and only one that
+ * anybody would notice was wrong. It is gone; this is the only hero counter.
+ */
 export const productStats: {
   value: number;
   suffix?: string;
@@ -19,7 +20,7 @@ export const productStats: {
 }[] = [
   { value: 37, label: "modules under one login" },
   { value: 11, label: "built-in reports + a daily DSR" },
-  { value: 2, suffix: "-in-1", label: "web dashboard + mobile field app" },
+  { value: 2, suffix: "-in-1", label: "web dashboard + Android & iPhone app" },
 ];
 
 /**
@@ -177,7 +178,7 @@ export const benefits = [
   {
     icon: "WifiOff",
     title: "Works where your reps work",
-    body: "The Android app captures attendance, visits, orders, quotations, payments and expenses offline, then syncs automatically the moment signal returns. No network, no problem.",
+    body: "The mobile app — on Android and iPhone alike — captures attendance, visits, orders, quotations, payments and expenses offline, then syncs automatically the moment signal returns. No network, no problem.",
   },
   {
     icon: "ShieldCheck",
@@ -206,7 +207,7 @@ export const platformFeatures = [
     icon: "MapPin",
     title: "GPS, attendance & visits",
     description:
-      "Live location for field reps, punch-in with selfie and GPS, geo-tagged customer visits, expenses and beat planning — all from the mobile app.",
+      "Live location for field reps, punch-in with selfie and GPS, geo-tagged customer visits, expenses and beat planning — all from the mobile app, on Android and iPhone.",
     gradient: "from-cyan-500 to-blue-400",
   },
   {
@@ -242,7 +243,7 @@ export const howItWorks = [
   {
     step: "02",
     title: "Work it from anywhere",
-    body: "Managers work the web dashboard; reps use the Android app to check in at customers, log visits and update deals — online or offline.",
+    body: "Managers work the web dashboard; reps use the app on their own phone — Android or iPhone — to check in at customers, log visits and update deals, online or offline.",
   },
   {
     step: "03",
@@ -270,7 +271,7 @@ export const industries = [
 export const faqs = [
   {
     q: "What exactly is OZZO?",
-    a: "OZZO is one platform that combines a CRM, field-workforce tracking, and sales & distribution — with a web dashboard for managers and a mobile app for your reps. It replaces the separate CRM, GPS tracker and messaging tools most field teams juggle today.",
+    a: "OZZO is one platform that combines a CRM, field-workforce tracking, and sales & distribution — with a web dashboard for managers and a mobile app for your reps, available on both Android and iPhone. It replaces the separate CRM, GPS tracker and messaging tools most field teams juggle today.",
   },
   {
     q: "What's the difference between CRM and SFA?",
@@ -286,11 +287,11 @@ export const faqs = [
   },
   {
     q: "Does it work without internet in the field?",
-    a: "Yes. The mobile app captures attendance, visits, orders, quotations, payments and expenses offline and syncs them automatically once the rep is back online.",
+    a: "Yes. The mobile app — on Android and on iPhone — captures attendance, visits, orders, quotations, payments and expenses offline and syncs them automatically once the rep is back online.",
   },
   {
     q: "Do you have an iOS app?",
-    a: "The field app is on Android today, and an iOS version is on the way. The web dashboard runs in any modern browser, on any device — so managers are covered regardless.",
+    a: "Yes. OZZO SALES is live on the Apple App Store, so your reps can use it on iPhone and iPad, and it is live on Google Play for Android — the same app, the same account, on whichever phone each rep already carries. It needs iOS 16.4 or later. The web dashboard runs in any modern browser, so managers are covered on any device too.",
   },
   {
     q: "Do I need the WhatsApp Business API?",
@@ -306,7 +307,7 @@ export const faqs = [
   },
   {
     q: "Do managers and field reps use the same system?",
-    a: "Yes. Managers work a full web dashboard — pipelines, catalogue, reports, roles and settings — while reps use the Android app for check-ins, orders, collections and attendance. Both run on one database, so what a rep captures in the field is what the manager sees in the office, in real time.",
+    a: "Yes. Managers work a full web dashboard — pipelines, catalogue, reports, roles and settings — while reps use the mobile app, on Android or iPhone, for check-ins, orders, collections and attendance. Both run on one database, so what a rep captures in the field is what the manager sees in the office, in real time.",
   },
   {
     q: "Is my data secure, and do I own it?",

@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "How do I shortlist field sales software?",
-    a: "Decide first whether you need tracking only or tracking plus order-taking and collections — that one answer removes most of the market. Then check offline capability, whether your team is Android or iPhone, and whether pricing is published. Demo two tools, not six.",
+    a: "Decide first whether you need tracking only or tracking plus order-taking and collections — that one answer removes most of the market. Then check offline capability, whether the app covers the phones your team actually carries (OZZO SALES is on Google Play and the Apple App Store, so Android and iPhone are both covered), and whether pricing is published. Demo two tools, not six.",
   },
 ];
 
@@ -154,7 +154,7 @@ export default function AlternativesHubPage() {
                 ],
                 [
                   "Android, iPhone, or both?",
-                  "Several Indian field-sales apps, OZZO included, are Android-only today. If your team is on iPhone this decides the shortlist on its own.",
+                  "Several Indian field-sales apps are Android-only, and if half your team carries an iPhone that decides the shortlist on its own. Ask for both store links before you shortlist — OZZO SALES is live on Google Play and on the Apple App Store, and a rep can use whichever phone they already own.",
                 ],
                 [
                   "Is the price published?",

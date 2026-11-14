@@ -101,7 +101,7 @@ export default function PlansPage() {
             <SecondaryCTA href="#compare">Compare every module</SecondaryCTA>
           </div>
           <p className="mt-5 text-sm font-medium text-white/55">
-            Web dashboard + Android app · works offline · guided onboarding
+            Web dashboard + Android &amp; iPhone app · works offline · guided onboarding
           </p>
         </Container>
       </section>

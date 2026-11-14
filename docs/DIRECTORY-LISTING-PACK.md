@@ -18,12 +18,21 @@
 | Country | India |
 | Primary category | **Sales Force Automation (SFA)** |
 | Secondary categories | Field Sales Software · CRM Software · Field Service Management |
-| Deployment | Cloud / SaaS · Android app |
+| Deployment | Cloud / SaaS · Android app · iPhone / iPad app |
 | Starting price | **₹100 per user / month** (billed yearly) |
 | Free trial | Demo on request |
 | Target customers | SMEs and MSMEs in India |
 
-> **Do not list iOS.** The app is Android only today. Claiming iOS creates a support problem and an honesty problem.
+> **DO list iOS.** OZZO SALES went live on the Apple App Store on 10 November 2026
+> (app id `6832184323`, iOS 16.4+, iPhone and iPad). Tick both Android and iOS on
+> every directory form, and give both store links where the form accepts them:
+>
+> - Google Play: `https://play.google.com/store/apps/details?id=com.wacrm.fieldforce`
+> - Apple App Store: `https://apps.apple.com/in/app/ozzo-sales/id6832184323`
+>
+> This note used to read "do not list iOS", which was correct until that date.
+> Any directory listing submitted before 10 November 2026 says Android-only and
+> needs editing — see the checklist at the end of this file.
 
 ---
 
@@ -38,12 +47,12 @@ CRM, field workforce and sales & distribution in one platform, powered by WhatsA
 
 ### Medium (under 160 characters)
 ```
-OZZO unifies CRM, field workforce tracking and sales & distribution in one platform — a web dashboard for managers and an Android app for field reps.
+OZZO unifies CRM, field workforce tracking and sales & distribution in one platform — a web dashboard for managers plus Android and iPhone apps for field reps.
 ```
 
 ### Long (under 400 characters)
 ```
-OZZO is an all-in-one CRM, field workforce and sales & distribution platform built for Indian SMEs and MSMEs. Managers get a web dashboard; field reps get an Android app that works offline. Capture leads, run WhatsApp conversations from a shared inbox with an AI assistant, track selfie + GPS attendance and geo-tagged visits, plan beat routes, take orders offline, and collect payments with outstanding that calculates itself.
+OZZO is an all-in-one CRM, field workforce and sales & distribution platform built for Indian SMEs and MSMEs. Managers get a web dashboard; field reps get an app on Android and iPhone that works offline. Capture leads, run WhatsApp conversations from a shared inbox with an AI assistant, track selfie + GPS attendance and geo-tagged visits, plan beat routes, take orders offline, and collect payments with outstanding that calculates itself.
 ```
 
 ### Full (no limit)
@@ -54,7 +63,7 @@ There are two products. OZZO CRM is the front office: leads, deals and visual Ka
 
 OZZO SFA is the field: selfie and GPS attendance, live location, geo-tagged visits, beat routes and territory management, offline order capture, dispatch, field payment collection with self-calculating outstanding, automatic stock, trade schemes, customer-specific price lists, and distributor/dealer/retailer trade levels.
 
-Managers work from a web dashboard. Field reps use an Android app that works offline and syncs when signal returns. Reporting includes sales analytics, ageing and a per-rep Daily Sales Report.
+Managers work from a web dashboard. Field reps use the OZZO SALES app — live on Google Play for Android and on the Apple App Store for iPhone and iPad — which works offline and syncs when signal returns. Reporting includes sales analytics, ageing and a per-rep Daily Sales Report.
 
 OZZO is used across FMCG, agri-inputs, pharma, building materials, paints, pipes, plywood, batteries, lubricants, auto parts and other industries where a team sells or services on a beat.
 ```
@@ -87,7 +96,7 @@ Sales analytics & ageing reports
 Daily Sales Report (DSR) per rep
 Custom fields on every record
 Role-based access control
-Android mobile app (works offline)
+Android & iPhone mobile app (works offline)
 ```
 
 ---
@@ -150,5 +159,20 @@ Do them one at a time. Each takes about 20 minutes.
 - [ ] Google Business Profile
 - [ ] LinkedIn company page
 - [ ] Bing Webmaster Tools
+
+### iOS catch-up (added 14 November 2026)
+
+The website now states Android **and** iOS everywhere. Anything submitted off-site
+before 10 November 2026 still says Android-only, and nothing on this site can fix
+that — each one has to be edited where it lives:
+
+- [ ] Any directory listing already submitted — tick iOS, add the App Store link
+- [ ] Google Business Profile — products/services description
+- [ ] LinkedIn company page — About section and featured links
+- [ ] Facebook page — About section
+- [ ] YouTube channel — About + any video description that says "Android app"
+- [ ] Google Play listing — nothing to change, but check the description does not
+      claim Android exclusivity
+- [ ] Any PDF brochure or proposal in circulation (see `C:\Wacrm\docs`)
 
 **After each one goes live, send me the URL.** I'll add it to the site's `sameAs` schema, which is how Google and AI models connect the listing to the brand — that connection is most of the value, and it doesn't happen by itself.

@@ -24,6 +24,7 @@ import {
   pageMetadata,
   JsonLd,
   breadcrumbSchema,
+  mobileAppSchema,
   softwareApplicationSchema,
 } from "@/lib/seo";
 import { productLines, includedInEveryPlan } from "@/lib/site";
@@ -52,8 +53,8 @@ const platformCapabilities = [
   },
   {
     icon: Smartphone,
-    title: "Android field app",
-    body: "Everything a rep needs on the ground: check-ins, orders, collections, attendance and more.",
+    title: "Android & iPhone field app",
+    body: "Everything a rep needs on the ground: check-ins, orders, collections, attendance and more. Live on Google Play and the Apple App Store.",
   },
   {
     icon: WifiOff,
@@ -83,6 +84,7 @@ export default function ProductsPage() {
       <JsonLd
         data={[
           softwareApplicationSchema(),
+          ...mobileAppSchema(),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Products", path: "/products" },
@@ -106,7 +108,7 @@ export default function ProductsPage() {
             Two products you can buy on their own or combine — CRM to win and keep
             customers, and Sales Force Automation to run your field team end to end.
             Both share one customer record, one login and one source of truth across
-            the web dashboard and the Android field app.
+            the web dashboard and the field app — on Android and iPhone alike.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             {productLines.map((p) => (

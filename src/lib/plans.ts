@@ -239,7 +239,7 @@ export const setsApart = [
   {
     icon: "Smartphone",
     title: "Web + mobile, one login",
-    body: "A manager dashboard in the browser and an Android field app that share one database.",
+    body: "A manager dashboard in the browser and a field app on Android and iPhone — all sharing one database.",
   },
   {
     icon: "ShieldCheck",
@@ -414,7 +414,7 @@ export const featureGroups: FeatureGroup[] = [
     name: "Platform, admin & security",
     icon: "ShieldCheck",
     rows: [
-      { feature: "Web dashboard + Android field app", line: "base" },
+      { feature: "Web dashboard + Android & iPhone field app", line: "base" },
       { feature: "Full offline capture & auto-sync", line: "base" },
       { feature: "Custom fields across 12 record types", line: "base" },
       { feature: "Roles, per-module rights & data-scoping", line: "base" },
@@ -462,7 +462,7 @@ export const planFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Does OZZO need any other software to run?",
-    a: "No. Outstanding and closing stock keep themselves inside OZZO, so there's no Tally, ERP or separate inventory tool to bolt on. The Android app also works fully offline and syncs on its own, so the field never waits for the network.",
+    a: "No. Outstanding and closing stock keep themselves inside OZZO, so there's no Tally, ERP or separate inventory tool to bolt on. The mobile app — on Android and iPhone — also works fully offline and syncs on its own, so the field never waits for the network.",
   },
   {
     q: "Can I control what each person sees?",
