@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
 import { teamSizeOptions } from "@/lib/site";
 import { inquiryChatText, waLink, type LeadFields } from "@/lib/whatsapp";
+import { trackLead, trackWhatsAppClick } from "@/lib/analytics";
 import { WhatsAppGlyph } from "./whatsapp-glyph";
 import { inquirySchema } from "@/lib/inquiry";
 import { cn } from "@/lib/utils";
@@ -75,6 +76,18 @@ export function InquiryForm({
       setSent(parsed.data);
       setStatus("success");
       form.reset();
+      /**
+       * The conversion. Fired only after the API confirmed the insert, so
+       * GA's lead count can be reconciled against `website_inquiries` row for
+       * row — a `generate_lead` on submit-click instead would over-report
+       * every validation bounce and every failed write.
+       */
+      trackLead({
+        pagePath: parsed.data.pagePath || pathname,
+        teamSize: parsed.data.teamSize,
+        hasCompany: Boolean(parsed.data.company),
+        hasMessage: Boolean(parsed.data.message),
+      });
     } catch (err) {
       setStatus("error");
       setServerError(
@@ -116,6 +129,7 @@ export function InquiryForm({
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick("post_submit", pathname)}
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:-translate-y-0.5 hover:bg-[#1ebe5b] hover:shadow-[#25D366]/40 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40 sm:w-auto"
         >
           <WhatsAppGlyph className="h-4 w-4" /> Message us on WhatsApp now

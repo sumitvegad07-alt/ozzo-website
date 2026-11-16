@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { brand, contact } from "@/lib/site";
 import { floatingChatText, waLink } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { COOKIE_NOTICE_OPEN_ATTR, COOKIE_NOTICE_DISMISSED_EVENT } from "./cookie-notice";
 import { WhatsAppGlyph } from "./whatsapp-glyph";
 
@@ -64,21 +65,9 @@ export function WhatsAppFab() {
       // tells a screen-reader user nothing about where the link goes.
       aria-label={`Chat with ${brand.name} on WhatsApp at ${contact.whatsappDisplay}`}
       data-testid="whatsapp-fab"
-      onClick={() => {
-        // Best-effort funnel signal. GA may be blocked or not yet loaded;
-        // the click must never depend on it, so this is guarded and silent.
-        try {
-          const w = window as unknown as {
-            gtag?: (...args: unknown[]) => void;
-          };
-          w.gtag?.("event", "whatsapp_click", {
-            event_category: "engagement",
-            event_label: pathname,
-          });
-        } catch {
-          /* analytics is never allowed to break a lead's click */
-        }
-      }}
+      // Best-effort funnel signal; `trackWhatsAppClick` is guarded and silent,
+      // so a blocked or not-yet-loaded tag can never hold up a lead's click.
+      onClick={() => trackWhatsAppClick("floating_button", pathname)}
       className={cn(
         "group fixed right-4 z-[80] flex items-center gap-0 rounded-full",
         "bg-[#25D366] text-white shadow-lg shadow-black/20",
