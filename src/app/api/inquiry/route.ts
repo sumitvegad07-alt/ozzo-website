@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { inquirySchema } from "@/lib/inquiry";
 import { brand } from "@/lib/site";
-import { sendWhatsAppLeadAlert } from "@/lib/whatsapp-alert";
+import { sendLeadAlert } from "@/lib/lead-alert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -88,9 +88,19 @@ export async function POST(request: Request) {
     sendTeamAlert(data).catch((e) =>
       console.error("[inquiry] email alert failed:", e),
     ),
-    sendWhatsAppLeadAlert(data).catch((e) =>
-      console.error("[inquiry] WhatsApp alert failed:", e),
-    ),
+    // Every configured notification channel, each reporting its own
+    // outcome. A channel that is down is logged by name rather than taking
+    // the others with it — "the alert failed" is useless at 2am when three
+    // are configured and one has a stale token.
+    sendLeadAlert(data)
+      .then((outcomes) => {
+        for (const o of outcomes) {
+          if (!o.ok) {
+            console.error(`[inquiry] ${o.transport} alert failed:`, o.error);
+          }
+        }
+      })
+      .catch((e) => console.error("[inquiry] lead alert failed:", e)),
   ]);
 
   return NextResponse.json({ ok: true });
