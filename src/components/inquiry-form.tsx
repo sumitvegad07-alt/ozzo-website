@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { CheckCircle2, Loader2, ArrowRight, Phone } from "lucide-react";
-import { teamSizeOptions, contact } from "@/lib/site";
+import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
+import { teamSizeOptions } from "@/lib/site";
+import { inquiryChatText, waLink, type LeadFields } from "@/lib/whatsapp";
+import { WhatsAppGlyph } from "./whatsapp-glyph";
 import { inquirySchema } from "@/lib/inquiry";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +26,13 @@ export function InquiryForm({
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState("");
+  /**
+   * The lead we just submitted, kept so the thank-you screen can hand it
+   * straight back as a ready-to-send WhatsApp message. The form itself is
+   * reset on success, so without this the details would be gone by the time
+   * the visitor sees the button.
+   */
+  const [sent, setSent] = useState<LeadFields | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -63,6 +72,7 @@ export function InquiryForm({
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || "Something went wrong.");
       }
+      setSent(parsed.data);
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -74,6 +84,22 @@ export function InquiryForm({
   }
 
   if (status === "success") {
+    /**
+     * WhatsApp is the primary action here, not a footnote.
+     *
+     * The inquiry has already reached the team by this point — it is in the
+     * database, and the email and WhatsApp alerts have been fired server-side.
+     * This button is about the *reply* being fast: a message sent from here
+     * arrives from the visitor's own WhatsApp, so the founder can answer the
+     * real person on the other end in one tap instead of dialling a number
+     * copied out of an email and hoping it is picked up.
+     *
+     * It is not auto-opened. A window.open() after an await is no longer tied
+     * to the click that started it, so browsers block it often enough that the
+     * button would have to exist anyway — and a tab that opens by itself reads
+     * as a popup even when it works.
+     */
+    const waUrl = sent ? waLink(inquiryChatText(sent)) : waLink();
     return (
       <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-10">
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-success/15 text-success">
@@ -87,13 +113,17 @@ export function InquiryForm({
           show you exactly how OZZO fits your business. No obligation.
         </p>
         <a
-          href={`https://wa.me/${contact.whatsappNumber}`}
+          href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-bold text-foreground transition-colors hover:bg-muted"
+          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:-translate-y-0.5 hover:bg-[#1ebe5b] hover:shadow-[#25D366]/40 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40 sm:w-auto"
         >
-          <Phone className="h-4 w-4" /> Prefer now? Message us on WhatsApp
+          <WhatsAppGlyph className="h-4 w-4" /> Message us on WhatsApp now
         </a>
+        <p className="mx-auto mt-3 max-w-xs text-xs text-muted-foreground">
+          Fastest way to reach us — your details are already typed out, just hit
+          send.
+        </p>
       </div>
     );
   }

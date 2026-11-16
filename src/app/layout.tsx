@@ -8,6 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ExitIntentPopup } from "@/components/exit-intent-popup";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { CookieNotice } from "@/components/cookie-notice";
+import { WhatsAppFab } from "@/components/whatsapp-fab";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -97,6 +98,7 @@ export default function RootLayout({
         <SiteFooter />
         <ExitIntentPopup />
         <CookieNotice />
+        <WhatsAppFab />
         <GoogleAnalytics />
       </body>
     </html>

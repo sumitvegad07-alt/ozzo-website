@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { inquirySchema } from "@/lib/inquiry";
 import { brand } from "@/lib/site";
+import { sendWhatsAppLeadAlert } from "@/lib/whatsapp-alert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -75,10 +76,22 @@ export async function POST(request: Request) {
     );
   }
 
-  // Best-effort email alert (never blocks a successful submission).
-  await sendTeamAlert(data).catch((e) =>
-    console.error("[inquiry] email alert failed:", e),
-  );
+  // Best-effort alerts. Neither is allowed to fail a submission: the lead is
+  // already safely in the database by this point, and a dead Resend key or an
+  // expired WhatsApp token must never show the visitor an error for something
+  // that did, in fact, work.
+  //
+  // They run together rather than one after the other because the visitor is
+  // waiting on this response — sequential third-party calls would make them
+  // wait out two timeouts instead of one.
+  await Promise.allSettled([
+    sendTeamAlert(data).catch((e) =>
+      console.error("[inquiry] email alert failed:", e),
+    ),
+    sendWhatsAppLeadAlert(data).catch((e) =>
+      console.error("[inquiry] WhatsApp alert failed:", e),
+    ),
+  ]);
 
   return NextResponse.json({ ok: true });
 }
