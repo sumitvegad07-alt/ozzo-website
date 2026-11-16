@@ -13,6 +13,7 @@ import { Icon } from "@/components/icon";
 import { FaqSection } from "@/components/faq-section";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { brand } from "@/lib/site";
+import { guidesForSector } from "@/lib/industry-links";
 import type { Sector } from "@/lib/sectors";
 import type { Industry } from "@/lib/industries";
 
@@ -261,6 +262,33 @@ export function SectorPage({
       )}
 
       <FaqSection items={data.faqs} />
+
+      {/*
+        ─────────── Category guides ───────────
+        Sector pages are where this matters most: /industries/fmcg-consumer-goods
+        alone drew 52 Search Console impressions in 90 days while the pillar page
+        it ought to be feeding sat at position ~37 with no internal links at all.
+        See guidesForSector for the anchor-text reasoning.
+      */}
+      <section className="border-t border-border py-14">
+        <Container>
+          <p className="ozzo-eyebrow mb-5 text-center text-muted-foreground">
+            Related guides
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {guidesForSector(data.name).map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+              >
+                {guide.anchor}
+                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* ─────────── CTA ─────────── */}
       <section className="py-24">

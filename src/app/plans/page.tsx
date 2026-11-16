@@ -204,6 +204,25 @@ export default function PlansPage() {
                 ))}
               </div>
             </div>
+
+            {/*
+              The page already carries the full enquiry form, but it sits past
+              the comparison table and the FAQs. Someone who has just picked a
+              plan is at the peak of their intent right here, and asking them to
+              scroll through two more sections to act on it loses most of them.
+              /plans is the second-most-read page on the site (70 views in three
+              weeks to 16 Nov 2026) and produced one lead; this shortens the path
+              without moving the form or duplicating it.
+            */}
+            <div className="mt-12 flex flex-col items-center gap-3 text-center">
+              <PrimaryCTA href="#get-started">
+                Get a quote for your team size
+              </PrimaryCTA>
+              <p className="text-sm text-muted-foreground">
+                Tell us how many people are in the field and we&apos;ll come back
+                with your exact monthly figure.
+              </p>
+            </div>
           </div>
         </Container>
       </section>

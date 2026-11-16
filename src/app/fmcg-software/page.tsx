@@ -14,10 +14,25 @@ import { fmcgModules, fmcgFaqs } from "@/lib/fmcg-page";
 import { CurrencyScript } from "@/components/pricing-shell";
 import { cn } from "@/lib/utils";
 
+/**
+ * Title and description target commercial intent on purpose.
+ *
+ * The 90 days to 14 Nov 2026: this page earned 333 Search Console impressions
+ * and zero clicks. The queries behind them are buying queries — "fmcg
+ * distribution software", "fmcg distributor software", "best software for fmcg
+ * distributor" — while the old title, "FMCG software in India, explained", read
+ * as an article. Position (~37) is most of why nobody clicked, but a title that
+ * signals "essay" when the searcher wants "product" loses the click even once
+ * the ranking improves, so it is worth fixing ahead of the ranking.
+ *
+ * The body deliberately stays an explainer: its answer-first opening is what AI
+ * assistants quote, and that channel is already a quarter of the site's traffic.
+ * A title and an H1 may serve different readers; the page does not have to pick.
+ */
 export const metadata = pageMetadata({
-  title: "FMCG software in India, explained",
+  title: "FMCG Software for Distributors in India",
   description:
-    "A plain guide to FMCG software: SFA, order booking, distributor management, secondary sales, schemes and collections — and which you actually need.",
+    "What FMCG distribution software does — order booking, distributor management, secondary sales, schemes — and what OZZO costs to run it.",
   path: "/fmcg-software",
   keywords: [
     "FMCG software",
@@ -62,7 +77,8 @@ export default function FmcgSoftwarePage() {
         <Container className="relative z-10 text-center">
           <Eyebrow center>FMCG software</Eyebrow>
           <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.5rem] leading-[1.04] text-white md:text-6xl">
-            FMCG software, <span className="ozzo-gradient-bright">explained plainly</span>
+            FMCG distribution software,{" "}
+            <span className="ozzo-gradient-bright">explained plainly</span>
           </h1>
           {/* Answer-first: this paragraph is what an AI engine quotes. */}
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/75">

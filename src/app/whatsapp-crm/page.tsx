@@ -21,10 +21,16 @@ import {
 } from "@/lib/whatsapp-crm-page";
 import { cn } from "@/lib/utils";
 
+/**
+ * Same reasoning as /fmcg-software: 118 impressions and zero clicks in the 90
+ * days to 14 Nov 2026, on buying queries ("whatsapp crm software", "crm with
+ * whatsapp", "whatsapp crm for business"), under a title that read as an essay.
+ * The explainer body stays — it is what AI assistants quote.
+ */
 export const metadata = pageMetadata({
-  title: "WhatsApp CRM in India, explained",
+  title: "WhatsApp CRM Software for Sales Teams",
   description:
-    "What a WhatsApp CRM is, how it differs from a broadcast tool, and what to look for — plus a shared team inbox and AI assistant from ₹100 per user/month.",
+    "What a WhatsApp CRM is, how it differs from a broadcast tool, and how a shared team inbox works — from ₹100 per user/month.",
   path: "/whatsapp-crm",
   keywords: [
     "WhatsApp CRM",
@@ -70,7 +76,7 @@ export default function WhatsappCrmPage() {
         <Container className="relative z-10 text-center">
           <Eyebrow center>WhatsApp CRM</Eyebrow>
           <h1 className="ozzo-display mx-auto mt-4 max-w-4xl text-[2.5rem] leading-[1.04] text-white md:text-6xl">
-            WhatsApp CRM,{" "}
+            WhatsApp CRM software,{" "}
             <span className="ozzo-gradient-bright">explained plainly</span>
           </h1>
           {/* Answer-first: this paragraph is the block an AI engine quotes, so

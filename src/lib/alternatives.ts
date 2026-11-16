@@ -496,6 +496,244 @@ export const alternativesPages: AlternativesPage[] = [
       },
     ],
   },
+  /*
+   * The three entries below were added on 2026-11-17. The five that precede
+   * them cover the competitors Search Console actually shows demand for
+   * ("bizom alternative" earned the site's only non-brand click of the quarter).
+   * These three close the gap between /compare, which carries twelve
+   * competitors, and /alternatives, which carried five — the same buyer, at the
+   * same moment, searching without our brand name in the query.
+   *
+   * Every factual claim about a competitor here is taken from the verdict
+   * already published on the matching /compare page rather than written fresh,
+   * so the two formats cannot drift apart and nothing unverified about a real
+   * company goes live. That is the honesty bar at the top of this file applied
+   * literally.
+   */
+  {
+    slug: "beatroute-alternatives",
+    target: "BeatRoute",
+    targetCategory: "AI retail-execution SFA",
+    compareSlug: "ozzo-vs-beatroute",
+    metaTitle: "BeatRoute alternatives for Indian teams",
+    metaDescription:
+      "Four BeatRoute alternatives for Indian field sales teams, from brand-scale retail execution to all-in-one CRM and order capture built for SMEs.",
+    keywords: [
+      "BeatRoute alternatives",
+      "BeatRoute competitors",
+      "alternatives to BeatRoute",
+      "retail execution software alternatives India",
+      "affordable SFA alternative",
+      "BeatRoute alternative for SME",
+    ],
+    summary:
+      "BeatRoute is a goal-driven AI platform for retail execution, used by large consumer brands across Asia, Africa and the Middle East, with fast deployment and strong route and visit planning. Buyers look elsewhere when the team is smaller than the platform assumes — when AI retail execution is more machinery than a twenty-rep field team will ever use, or when the front-office CRM and the field app are wanted on one login instead of two systems. The alternatives below split along exactly that line.",
+    whyLook: [
+      {
+        title: "The platform is sized for a larger brand",
+        body: "Goal-driven AI retail execution earns its keep across hundreds of outlets with someone watching the analytics. A smaller distribution business is usually paying for depth it will not reach.",
+      },
+      {
+        title: "You want CRM and field sales on one login",
+        body: "Retail-execution tools concentrate on what happens at the outlet. If leads, quotations and follow-ups live in a separate CRM, somebody is keying the same customer in twice.",
+      },
+      {
+        title: "You need a rate card before the first call",
+        body: "Enterprise platforms quote per deployment. A smaller team planning a budget usually wants published pricing it can read first.",
+      },
+    ],
+    picks: [
+      OZZO_PICK,
+      {
+        name: "Bizom",
+        category: "Retail intelligence & distribution SFA",
+        bestFor: "Brands that want deep distributor and retail analytics",
+        strength: "Mature retail-execution and secondary-sales reporting.",
+        watchOut:
+          "Built for brand-scale distribution, so it carries the cost and the setup that implies.",
+        compareSlug: "ozzo-vs-bizom",
+      },
+      {
+        name: "FieldAssist",
+        category: "Route-to-market SFA for consumer brands",
+        bestFor: "Consumer brands running a large beat network",
+        strength: "Strong route-to-market execution and outlet coverage.",
+        watchOut: "Positioned at brands rather than SMEs, with the pricing that follows.",
+        compareSlug: "ozzo-vs-fieldassist",
+      },
+      {
+        name: "Delta Sales App",
+        category: "Field sales automation for distributors",
+        bestFor: "Distribution businesses whose reps book the orders",
+        strength: "Sales-led and straightforward to roll out.",
+        watchOut: "Front-office CRM is a separate system.",
+        compareSlug: "ozzo-vs-delta-sales-app",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the best BeatRoute alternative for a small team?",
+        a: "For a field team under about fifty users, an all-in-one platform usually fits better than an AI retail-execution suite. OZZO covers attendance, GPS, visits, beat routes, offline orders and collections alongside a CRM and a shared WhatsApp inbox, from ₹100 per user per month.",
+      },
+      {
+        q: "Which BeatRoute alternative is closest on retail execution?",
+        a: "Bizom and FieldAssist are nearest in scope — both built for brand-scale distribution with deep secondary-sales reporting. Expect a similar class of deployment rather than a lighter one.",
+      },
+      {
+        q: "Do these alternatives capture orders offline?",
+        a: "Offline capture matters wherever reps work in low-signal markets. OZZO and Delta Sales App both take orders offline and sync when signal returns; confirm the details against your own device mix with each vendor.",
+      },
+    ],
+  },
+  {
+    slug: "fieldsense-alternatives",
+    target: "FieldSense",
+    targetCategory: "Field-force management app",
+    compareSlug: "ozzo-vs-fieldsense",
+    metaTitle: "FieldSense alternatives for field sales",
+    metaDescription:
+      "Four FieldSense alternatives for Indian teams that have outgrown tracking and now need order capture, collections and a CRM on the same record.",
+    keywords: [
+      "FieldSense alternatives",
+      "FieldSense competitors",
+      "alternatives to FieldSense",
+      "field force management alternatives India",
+      "field sales app with order booking",
+      "FieldSense alternative with CRM",
+    ],
+    summary:
+      "FieldSense is an easy, mobile-first field-force management app — real-time tracking, visits, attendance, expenses and custom forms, with a free tier for up to ten users. It is a sensible place to start. Buyers move on when the job grows past visibility: when the rep has to book the order at the counter, apply the scheme, collect the payment and have the outstanding update itself. The alternatives below are ordered by how far past tracking each one goes.",
+    whyLook: [
+      {
+        title: "You have outgrown the free tier",
+        body: "Ten users is enough to prove the idea. Past that the question stops being whether to track at all and becomes what else the field app should do.",
+      },
+      {
+        title: "The rep needs to take the order",
+        body: "Tracking confirms a visit happened. It does not capture what was ordered, at what price, under which scheme — which is the part the business is actually paid for.",
+      },
+      {
+        title: "Collections are still on paper",
+        body: "If outstanding gets reconciled in a spreadsheet after the fact, the field app is only doing half the round.",
+      },
+    ],
+    picks: [
+      OZZO_PICK,
+      {
+        name: "Unolo",
+        category: "Field-force tracking & attendance",
+        bestFor: "Teams that want the same job done, leanly",
+        strength: "Quick to deploy and inexpensive.",
+        watchOut: "Same ceiling: no order capture, schemes or collections.",
+        compareSlug: "ozzo-vs-unolo",
+      },
+      {
+        name: "Delta Sales App",
+        category: "Field sales automation for distributors",
+        bestFor: "Distributors whose reps book orders on the beat",
+        strength: "Sales-led rather than tracking-led.",
+        watchOut: "Front-office CRM is a separate system.",
+        compareSlug: "ozzo-vs-delta-sales-app",
+      },
+      {
+        name: "TrackOlap",
+        category: "Employee monitoring, HR & sales suite",
+        bestFor: "Teams that want HR and monitoring in the same contract",
+        strength: "Three things from one vendor.",
+        watchOut: "Monitoring-led in tone, which sales teams adopt less readily.",
+        compareSlug: "ozzo-vs-trackolap",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is there a free alternative to FieldSense?",
+        a: "Free tiers change, so check each vendor directly rather than trusting any list. Past ten users the more useful question is what you need besides tracking — order capture and collections are where the real pricing difference sits.",
+      },
+      {
+        q: "Which FieldSense alternative adds order booking?",
+        a: "OZZO and Delta Sales App both capture orders in the field, offline included. OZZO also applies prices and schemes at the point of order and keeps outstanding updating itself as collections come in.",
+      },
+      {
+        q: "Can I keep tracking and attendance if I switch?",
+        a: "Yes. Attendance, GPS and visit logging are table stakes across all four — nothing here asks you to give up the visibility you already have.",
+      },
+    ],
+  },
+  {
+    slug: "massist-alternatives",
+    target: "mAssist",
+    targetCategory: "Enterprise SFA for FMCG & CPG",
+    compareSlug: "ozzo-vs-massist",
+    metaTitle: "mAssist alternatives for growing teams",
+    metaDescription:
+      "Four mAssist alternatives for Indian distribution businesses that want sales-force automation without an enterprise deployment behind it.",
+    keywords: [
+      "mAssist alternatives",
+      "mAssist competitors",
+      "alternatives to mAssist",
+      "SFA alternatives India",
+      "FMCG sales force automation alternative",
+      "mAssist alternative for SME",
+    ],
+    summary:
+      "mAssist is an AI-powered sales-force-automation platform built for large FMCG, CPG and pharma enterprises with complex multi-tier distribution, serving 350+ enterprise customers and 125,000+ daily users. That scale is precisely why buyers look elsewhere: a business selling through one tier of distributors with a few dozen reps ends up buying an enterprise rollout to solve a mid-market problem. The alternatives below keep the sales-force automation and drop the enterprise weight.",
+    whyLook: [
+      {
+        title: "Your distribution is one tier, not four",
+        body: "Multi-tier distribution logic is the hardest part of enterprise SFA to configure. If you sell through a single layer of distributors, most of that configuration is cost without benefit.",
+      },
+      {
+        title: "You cannot staff an enterprise rollout",
+        body: "Enterprise SFA assumes an internal project owner and an implementation window. A smaller team needs something a sales manager can run without either.",
+      },
+      {
+        title: "You want the CRM in the same system",
+        body: "Enterprise SFA handles the distribution side well. Leads, quotations and follow-ups usually sit in a second tool, and the two rarely share one customer record.",
+      },
+    ],
+    picks: [
+      OZZO_PICK,
+      {
+        name: "Bizom",
+        category: "Retail intelligence & distribution SFA",
+        bestFor: "Businesses that still need deep distribution analytics",
+        strength: "Mature secondary-sales and retail reporting.",
+        watchOut:
+          "Also pitched at brand scale, so it is a sideways move rather than a lighter one.",
+        compareSlug: "ozzo-vs-bizom",
+      },
+      {
+        name: "Delta Sales App",
+        category: "Field sales automation for distributors",
+        bestFor: "Single-tier distribution with field order booking",
+        strength: "Right-sized for a distributor rather than a brand.",
+        watchOut: "Front-office CRM is a separate system.",
+        compareSlug: "ozzo-vs-delta-sales-app",
+      },
+      {
+        name: "FieldAssist",
+        category: "Route-to-market SFA for consumer brands",
+        bestFor: "Consumer brands with a large beat network",
+        strength: "Strong outlet coverage and route-to-market execution.",
+        watchOut: "Enterprise positioning, much like mAssist itself.",
+        compareSlug: "ozzo-vs-fieldassist",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the best mAssist alternative for an SME?",
+        a: "OZZO is built for that exact gap — SMEs and MSMEs wanting field sales, CRM and WhatsApp on one login, with published rates from ₹100 per user per month rather than a per-deployment quote.",
+      },
+      {
+        q: "Will I lose secondary sales reporting if I move off mAssist?",
+        a: "Not necessarily. Secondary sales tracking is standard across this list; what differs is depth. If your reporting runs to planogram scoring or demand forecasting, stay with an enterprise platform — OZZO does neither.",
+      },
+      {
+        q: "How long does a smaller SFA platform take to roll out?",
+        a: "Weeks rather than quarters, because there is far less to configure when distribution is single-tier. Ask any vendor here to show you a live account with your own products and price list loaded before you sign.",
+      },
+    ],
+  },
 ];
 
 export const getAlternativesPage = (slug: string) =>

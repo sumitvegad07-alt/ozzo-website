@@ -17,7 +17,7 @@ import {
   Eyebrow,
 } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { comparisonsForSector } from "@/lib/industry-links";
+import { comparisonsForSector, guidesForSector } from "@/lib/industry-links";
 import { comparisons } from "@/lib/comparisons";
 import { sectorForIndustry } from "@/lib/sectors";
 import { Icon } from "@/components/icon";
@@ -561,7 +561,24 @@ export function IndustryPage({
               );
             })}
           </div>
+          {/*
+            The category guides come first and carry descriptive anchors. These
+            28 industry pages are the site's largest body of related content and
+            were, until now, the only strong internal links pointing nowhere
+            useful — see guidesForSector for the Search Console numbers behind
+            this.
+          */}
           <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {guidesForSector(data.sector).map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
+              >
+                {guide.anchor}
+                <ArrowRight className="h-3.5 w-3.5 text-muted-foreground" />
+              </Link>
+            ))}
             <Link
               href="/products/sfa"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30"
