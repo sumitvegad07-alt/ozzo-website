@@ -20,7 +20,21 @@ export const metadata = pageMetadata({
   keywords: ["contact OZZO", "OZZO support", "OZZO phone", "OZZO WhatsApp"],
 });
 
-const hasAddress = Boolean(contact.address.street && contact.address.city);
+/**
+ * City is the test, not street.
+ *
+ * This keyed on `street`, which is deliberately blank — only the city and
+ * state are confirmed, and inventing the rest would be worse than omitting
+ * it. So the whole address block was suppressed on the one page a person or
+ * an engine goes to in order to find out where this company actually is.
+ * seo.tsx hit the identical trap and was corrected; this copy was missed.
+ *
+ * It matters more than a tidy-up. Where a company is based is one of the
+ * few hard facts that separate it from another company with the same name,
+ * and the name OZZO is shared with a food-ordering brand that engines have
+ * already confused this one with.
+ */
+const hasAddress = Boolean(contact.address.city);
 
 const methods = [
   {
@@ -125,6 +139,10 @@ export default function ContactPage() {
                   contact.address.city,
                   contact.address.state,
                   contact.address.postalCode,
+                  // Spelled out rather than left implied: "Rajkot, Gujarat"
+                  // reads as a place to a human who already knows India, and
+                  // as an ambiguous string to everyone and everything else.
+                  "India",
                 ]
                   .filter(Boolean)
                   .join(", ")}

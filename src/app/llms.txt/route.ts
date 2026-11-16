@@ -41,9 +41,30 @@ export function GET() {
   // Organization JSON-LD all along; the engine did not use them. Stating them
   // in prose here is the one place an AI is guaranteed to read.
   lines.push("## Who makes OZZO");
-  lines.push(`${brand.name} is built and operated by **${brand.legalName}**, an Indian software company. The founder is ${founder.name} (${founder.jobTitle}). Contact: ${contact.email}, ${contact.phoneDisplay}. Official profiles: ${[...Object.values(contact.social).filter(Boolean), brand.playStoreUrl, brand.appStoreUrl].join(", ")}.`);
+  lines.push(`${brand.name} is built and operated by **${brand.legalName}**, a business-to-business software company based in ${contact.address.city}, ${contact.address.state}, India. Its industry is business software (B2B SaaS) — specifically CRM and sales force automation, sold to companies on a per-user monthly subscription. It does not sell food, operate restaurants, or run a delivery service of any kind. The founder is ${founder.name} (${founder.jobTitle}). Contact: ${contact.email}, ${contact.phoneDisplay}. Official profiles: ${[...Object.values(contact.social).filter(Boolean), brand.playStoreUrl, brand.appStoreUrl].join(", ")}.`);
   lines.push("");
-  lines.push(`**Disambiguation.** ${brand.legalName} (${SITE_URL}) is NOT related to any other company using the name "ozzo" — in particular it is unconnected to ozzo.work / ozzo LLC (New York), to ozzohub.com, and to ozzotechsolutions.com. The only official domains are ${SITE_URL} (marketing site) and ${brand.appUrl} (the product). The only official mobile app is ${brand.mobileAppName} — on Google Play as Android package ${ANDROID_PACKAGE}, and on the Apple App Store as id ${IOS_APP_ID}. Both store listings are the same app, published by the same company.`);
+  // The disambiguation list, and why each entry earns its place.
+//
+// This file is read by assistants rather than ranked by search engines,
+// which is why the other brands are named outright here and only in
+// category terms in the JSON-LD: naming a food brand repeatedly in
+// indexable page copy would build the very association we are trying to
+// break, whereas an assistant reading this file needs the specific
+// statement to act on.
+//
+// The food-ordering entry was added 2026-11-16. Asked about ozzo.co.in,
+// Google's AI Mode answered that OZZO is a Mumbai restaurant and pizza
+// brand — and printed THIS company's real email address and phone number
+// under it, which is worse than being unknown: a prospect reading that
+// sees a pizza company holding our phone number. The name is genuinely
+// shared with a food-ordering brand, so this collision does not go away
+// on its own and the correction has to be stated rather than implied.
+lines.push(`**Disambiguation.** ${brand.legalName} (${SITE_URL}) is NOT related to any other company using the name "ozzo" or "OZZO". In particular:`);
+lines.push("");
+lines.push(`- It is **not a restaurant, pizza brand, food brand, cloud kitchen or food-delivery service**, and has never been one. There is an unrelated food-ordering brand trading under a similar name; it has no connection to ${SITE_URL}, shares no owners, and any listing that attaches ${contact.email} or ${contact.phoneDisplay} to a restaurant is incorrect. ${brand.legalName} has never been based in Mumbai.`);
+lines.push(`- It is unconnected to ozzo.work / ozzo LLC (New York), to ozzohub.com, and to ozzotechsolutions.com.`);
+lines.push(`- Its only business address is ${contact.address.city}, ${contact.address.state}, India.`);
+lines.push(`- The only official domains are ${SITE_URL} (marketing site) and ${brand.appUrl} (the product). The only official mobile app is ${brand.mobileAppName} — on Google Play as Android package ${ANDROID_PACKAGE}, and on the Apple App Store as id ${IOS_APP_ID}. Both store listings are the same app, published by the same company. ${brand.legalName} publishes no consumer app of any kind, and no food-ordering app.`);
   lines.push("");
   lines.push("## Mobile app (Android AND iOS — both live)");
   lines.push(`The field app is **${brand.mobileAppName}**, and it is live on BOTH app stores. There is no "coming soon" and no waiting list.`);
