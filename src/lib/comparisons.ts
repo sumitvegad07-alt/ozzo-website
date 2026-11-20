@@ -18,6 +18,8 @@
  * SoftwareSuggest, GetApp, Software Advice) and vendor sites, as of Sep 2026.
  */
 
+import { DMS_PRICE_INR, DMS_SEATS } from "./site";
+
 export type CompareValue = "yes" | "partial" | "no";
 
 export type CompareRow = {
@@ -56,6 +58,34 @@ export type Comparison = {
   faqs: { q: string; a: string }[];
 };
 
+/**
+ * The DMS row that every comparison carries.
+ *
+ * READ THIS BEFORE CHANGING THE WORDING. The obvious row to write here was
+ * "distributor ordering portal: OZZO yes / them no", and it would have been
+ * FALSE on at least four of these pages. Researched 2026-11-20: BeatRoute
+ * ships a B2B customer app, a retailer app AND a dealer app; Bizom ships a
+ * Retailer App plus a WhatsApp ordering bot; Marg ships eRetail, where a
+ * retailer orders and sees their distributor-wise outstanding; SalesDiary
+ * ships a Dealer App. Claiming they have no portal would have been the kind
+ * of error the honesty contract at the top of this file exists to prevent —
+ * and the kind an AI engine discounts a whole page for.
+ *
+ * So the row compares the one thing that is true of every vendor here and
+ * independently checkable: NONE of them publishes a per-login price for it.
+ * Theirs are quoted. Ours is a number on a public page. That is a real and
+ * defensible difference, and it concedes their capability in the note.
+ *
+ * `them: "partial"` rather than `"no"` for exactly that reason: the capability
+ * is often there, the published price is not.
+ */
+const dmsPortalRow: CompareRow = {
+  capability: "Distributor & dealer portal at a published per-login price",
+  ozzo: "yes",
+  them: "partial",
+  note: `Several vendors here do ship a retailer or distributor ordering app — that capability is not the difference. None of them publishes a price for it; it is quoted per deployment. OZZO DMS is ₹${DMS_PRICE_INR.toLocaleString("en-IN")} a year for ${DMS_SEATS} distributor and dealer logins, stated publicly and added to any plan.`,
+};
+
 /** Rows shared by the three pure-SFA comparisons (Bizom, BeatRoute, FieldAssist). */
 const sfaBaseRows: CompareRow[] = [
   { capability: "Field attendance, GPS & geo-tagged visits", ozzo: "yes", them: "yes" },
@@ -68,6 +98,7 @@ const sfaBaseRows: CompareRow[] = [
   { capability: "Trade levels, schemes & price lists", ozzo: "yes", them: "yes" },
   { capability: "Transparent per-user pricing (no enterprise contract)", ozzo: "yes", them: "no", note: "Competitor pricing is quote-based / enterprise-contract." },
   { capability: "AI image recognition / perfect-store shelf audits", ozzo: "no", them: "yes", note: "A genuine strength of the enterprise CPG specialists — OZZO does not ship planogram image recognition." },
+  dmsPortalRow,
 ];
 
 /** Rows for tracking-first field-force apps (Unolo, FieldSense) — strong on
@@ -83,6 +114,7 @@ const trackingFirstRows: CompareRow[] = [
   { capability: "WhatsApp shared inbox + AI assistant", ozzo: "yes", them: "no" },
   { capability: "Distributor / dealer / retailer trade levels, schemes & price lists", ozzo: "yes", them: "no" },
   { capability: "11 built-in reports + per-rep Daily Sales Report", ozzo: "yes", them: "partial" },
+  dmsPortalRow,
 ];
 
 export const comparisons: Comparison[] = [
@@ -261,6 +293,7 @@ export const comparisons: Comparison[] = [
       { capability: "Distributor / dealer / retailer trade levels", ozzo: "yes", them: "no" },
       { capability: "Works fully offline in the field", ozzo: "yes", them: "no" },
       { capability: "Broader business suite (accounting, helpdesk, HR)", ozzo: "no", them: "yes", note: "Zoho's wider ecosystem is a real advantage if you want one vendor for everything." },
+      dmsPortalRow,
     ],
     chooseThemIf: [
       "Your sales team is office-based and you want maximum CRM customization",
@@ -317,6 +350,7 @@ export const comparisons: Comparison[] = [
       { capability: "Goes live in days without a dedicated admin", ozzo: "yes", them: "no" },
       { capability: "Transparent INR per-user pricing", ozzo: "yes", them: "no", note: "Salesforce is USD-priced with implementation costs that often run to lakhs." },
       { capability: "Scales to the largest global enterprises", ozzo: "partial", them: "yes" },
+      dmsPortalRow,
     ],
     chooseThemIf: [
       "You are a large enterprise with complex, highly custom sales processes",
@@ -466,6 +500,7 @@ export const comparisons: Comparison[] = [
       { capability: "Remote-employee monitoring & productivity analytics", ozzo: "no", them: "yes", note: "OZZO is a field-sales platform, not a screen/activity-monitoring tool." },
       { capability: "IT help desk / ticketing", ozzo: "no", them: "yes" },
       { capability: "11 built-in sales reports + per-rep DSR", ozzo: "yes", them: "partial" },
+      dmsPortalRow,
     ],
     chooseThemIf: [
       "You want HR/payroll, employee monitoring and sales from a single vendor",
@@ -615,6 +650,7 @@ export const comparisons: Comparison[] = [
       { capability: "Native Tally accounting integration", ozzo: "no", them: "yes", note: "Koops integrates Tally; OZZO instead self-calculates outstanding and stock so no accounting sync is needed." },
       { capability: "11 built-in reports + per-rep DSR", ozzo: "yes", them: "partial" },
       { capability: "Live in days, no heavy implementation", ozzo: "yes", them: "yes" },
+      dmsPortalRow,
     ],
     chooseThemIf: [
       "Dealer self-service ordering (a DMS portal) is important to you",
@@ -671,6 +707,7 @@ export const comparisons: Comparison[] = [
       { capability: "Auto outstanding & stock (no accounting bolt-on)", ozzo: "yes", them: "no" },
       { capability: "Accessible to small teams (no high minimum contract)", ozzo: "yes", them: "no", note: "Creatio's minimum annual commitment targets larger organizations." },
       { capability: "Live in days without specialist configuration", ozzo: "yes", them: "partial" },
+      dmsPortalRow,
     ],
     chooseThemIf: [
       "You are a mid-to-large organization needing deep no-code workflow automation",
@@ -688,6 +725,262 @@ export const comparisons: Comparison[] = [
       { q: "Is OZZO a good Creatio alternative for SMEs?", a: "Yes. Creatio is a powerful enterprise no-code platform with a high minimum contract aimed at larger organizations; OZZO is an affordable, India-built CRM with native field sales and WhatsApp that a small team can run from day one." },
       { q: "Why is Creatio less suitable for small businesses?", a: "Independent reviews note Creatio's high minimum annual commitment and enterprise focus (often 500+ employees), plus a steeper initialization phase — which can make it expensive overkill for a typical SME." },
       { q: "When is Creatio the better choice?", a: "For mid-to-large organizations that need deep, custom no-code workflow automation across departments and have the budget for it, Creatio's platform power is a real strength." },
+    ],
+  },
+  // ─────────────────────────────────────────── BOTREE
+  {
+    slug: "ozzo-vs-botree",
+    competitor: "Botree Software",
+    competitorCategory: "Enterprise FMCG distribution management (DMS)",
+    metaTitle: "OZZO vs Botree — the SME alternative",
+    metaDescription:
+      "Botree is a specialist FMCG distribution suite with distributor stock and claims. OZZO is an ordering portal plus CRM and field sales, priced per login.",
+    keywords: ["OZZO vs Botree", "Botree alternative", "Botree Software alternative", "Botree DMS alternative", "distributor management software India", "affordable DMS software"],
+    tagline: "Botree is a distribution specialist built for national FMCG networks. OZZO is trade ordering plus CRM and field sales in one system, priced per login.",
+    verdict:
+      "Botree Software is a dedicated FMCG distribution management vendor, and its DMS covers the hard half of this category: distributor stock, claims and scheme management, billing, and syncing secondary and inventory data out of distributors' own accounting software, with integrations into SAP, Tally and Busy. OZZO DMS is deliberately narrower — it is a self-service ordering portal that sits on the same database as OZZO's CRM and field-sales product, so a distributor orders on their own price list and sees their own outstanding, and your reps, leads and WhatsApp conversations are in the same system. If distributor stock and claims decide your purchase, buy Botree. If your problem is that orders arrive on WhatsApp and somebody retypes them, OZZO solves that at a published per-login price.",
+    bestForThem: "National FMCG brands with large distributor networks and a channel team",
+    bestForOzzo: "Regional brands with 10–500 trade customers and no channel team",
+    theirStrengths: [
+      "Distributor stock and inventory management — the expensive half of this category, and a genuine specialism",
+      "Full claims and scheme management, with trade promotions and claim turnaround as a stated focus",
+      "FlexiDMS captures and syncs secondary and inventory data out of distributors' own accounting software",
+      "Integrations into primary ERP systems including SAP, TallyPrime and Busy",
+      "A dedicated mobile DMS built for rural and Rurban distribution, where connectivity is the constraint",
+      "Years of focus on FMCG distribution specifically, rather than distribution as a side module",
+    ],
+    ozzoWins: [
+      { title: "CRM, field sales and the trade portal on one database", body: "Botree is distribution software. You would still buy a CRM for your own pipeline and an SFA for your own reps, then maintain the integrations. In OZZO a distributor's portal order, a rep's geo-tagged visit, a lead and a WhatsApp conversation are all records in one system, so there is nothing to reconcile between vendors." },
+      { title: "A published price, per login", body: "Enterprise distribution suites are quoted per deployment. OZZO DMS is ₹10,000 a year for 100 distributor and dealer logins as an add-on to a CRM or SFA plan — a number you can budget against before you take a call." },
+      { title: "Nothing for the distributor to install", body: "OZZO DMS is a browser page. Trade adoption is the real risk in this category, and a link with a password gets used where an app that needs installing, updating and password resets often drifts back to WhatsApp." },
+      { title: "Live in days, not a rollout", body: "DMS switches on against the customers, price lists and schemes already in your OZZO. There is no master-data project, because the masters are already there." },
+    ],
+    table: [
+      { capability: "Distributor self-service ordering portal", ozzo: "yes", them: "yes" },
+      { capability: "Per-customer price list & credit limit on the order", ozzo: "yes", them: "yes" },
+      { capability: "Schemes applied automatically on a portal order", ozzo: "yes", them: "yes" },
+      { capability: "Outstanding visible to the distributor themselves", ozzo: "yes", them: "yes" },
+      { capability: "Distributor godown stock & inventory", ozzo: "no", them: "yes", note: "The core of the specialist DMS category. OZZO does not ship it, and says so on /products/dms." },
+      { capability: "Auto-replenishment from reorder levels", ozzo: "no", them: "yes", note: "Follows from distributor stock. A genuine Botree strength." },
+      { capability: "Claims — damage, scheme, freight, rate difference", ozzo: "no", them: "yes", note: "A real workload on a large network, and absent from OZZO DMS." },
+      { capability: "Primary vs secondary stock reconciliation", ozzo: "no", them: "yes", note: "OZZO gives you the orders and dispatches, not a reconciled stock ledger." },
+      { capability: "Sync from distributors' own accounting software", ozzo: "no", them: "yes", note: "Botree FlexiDMS is built for exactly this." },
+      { capability: "Built-in CRM — leads, deals & pipelines", ozzo: "yes", them: "no", note: "Botree is distribution software; the front-office CRM is a separate purchase." },
+      { capability: "WhatsApp shared inbox + AI knowledge-base assistant", ozzo: "yes", them: "no" },
+      { capability: "Your own field force — GPS attendance, geo-tagged visits, beats", ozzo: "yes", them: "partial", note: "Botree's focus is the distributor tier; OZZO covers your own reps in the same subscription." },
+      { capability: "Nothing for the distributor to install", ozzo: "yes", them: "partial", note: "Botree ships mobile DMS apps; OZZO DMS is a browser page only." },
+      { capability: "Published per-login price", ozzo: "yes", them: "no", note: "Enterprise distribution suites are quoted per deployment. OZZO DMS is ₹10,000 a year for 100 logins, stated publicly." },
+    ],
+    chooseThemIf: [
+      "Distributor stock, replenishment or claims are why you are buying",
+      "You need secondary and inventory data pulled out of distributors' own accounting software",
+      "You run a national FMCG network with a channel team to operate the system",
+      "You need a deep SAP, Tally or Busy integration at the distributor tier",
+    ],
+    chooseOzzoIf: [
+      "Your actual problem is orders arriving on WhatsApp and being retyped",
+      "You want the trade portal, your CRM and your field team in one system",
+      "You have 10–500 trade customers and nobody whose job is channel software",
+      "You want a published price you can budget before a sales call",
+    ],
+    pricingNote:
+      "Botree is an enterprise distribution suite, quoted per deployment — the right shape for a national network, and sized accordingly. OZZO DMS is published: ₹10,000 per year for 100 distributor and dealer logins plus GST, as an add-on to a CRM or SFA plan. The two are not really competing on price, because they are not selling the same depth: Botree's stock and claims engine is work OZZO has not built. Compare them on whether you need that engine.",
+    faqs: [
+      { q: "Is OZZO a Botree alternative?", a: "For trade ordering and visibility, yes. For distributor stock, auto-replenishment and claims, no — OZZO does not ship those, and Botree specialises in them. If your buying decision rests on stock and claims, Botree is the better product and we would say so on a call." },
+      { q: "What does OZZO include that Botree does not?", a: "A built-in CRM with leads, deals and pipelines; a shared WhatsApp inbox with an AI knowledge-base assistant; and a full field-sales product for your own reps — GPS attendance, geo-tagged visits, beat routes, offline order capture and field collections — all on the same database as the distributor portal." },
+      { q: "Can I start with OZZO and move to a specialist later?", a: "Many regional brands do exactly that: start by removing the retyping and the balance calls, then move to a stock-and-claims suite if the network grows to the point where that is the bottleneck. Starting with ordering costs less and asks almost nothing of your distributors." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── MARG ERP
+  {
+    slug: "ozzo-vs-marg-erp",
+    competitor: "Marg ERP",
+    competitorCategory: "Accounting-led distribution ERP",
+    metaTitle: "OZZO vs Marg ERP — portal or books?",
+    metaDescription:
+      "Marg ERP is accounting-led distribution software with GST billing. OZZO is a trade ordering portal plus CRM and field sales on one cloud system.",
+    keywords: ["OZZO vs Marg ERP", "Marg ERP alternative", "Marg alternative India", "Marg ERP 9+ alternative", "distribution software with GST billing", "cloud distributor management software"],
+    tagline: "Marg grew out of accounting and billing. OZZO grew out of field sales. They meet in the middle at distribution, from opposite directions.",
+    verdict:
+      "Marg ERP is one of India's most widely used distribution and accounting systems, strongest where it started: GST billing, inventory, taxation and the books, with real depth in pharmaceutical distribution. It also has trade-facing ordering — eOrder for salesmen and eRetail, where a retailer orders and can see their distributor-wise outstanding. OZZO comes from the other end: it is a CRM and field-sales platform whose DMS gives your distributors and dealers a browser login to order on their own price list and see what they owe. The honest split is that Marg is the better answer if invoicing and the books must live in the same system, and OZZO is the better answer if what you need is your own field team plus a trade portal, with accounting left to your accountant.",
+    bestForThem: "Distributors and businesses wanting billing, GST and inventory in one system",
+    bestForOzzo: "Brands with a field team who want the trade to self-serve",
+    theirStrengths: [
+      "Accounting, GST billing and taxation in the same system as inventory — genuinely one less tool",
+      "Very large installed base in Indian distribution, so staff are often already trained on it",
+      "Real depth in pharmaceutical distribution, including the batch and expiry handling that trade needs",
+      "eOrder and eRetail give salesmen and retailers an ordering app, with distributor-wise outstanding visible to the retailer",
+      "ERP-to-ERP ordering, so distributors and customers can order and share invoices machine to machine",
+      "Multi-location and multi-user support built up over many years in the market",
+    ],
+    ozzoWins: [
+      { title: "Your own field force is in the product", body: "This is the clearest gap. OZZO ships selfie-and-GPS attendance, live location, geo-tagged visits, beat routes, offline order capture and field payment collection for your own reps, on Android and iPhone. An accounting-led ERP does not try to manage the day of a salesman on a bike." },
+      { title: "A CRM for business you have not won yet", body: "Marg manages what you have billed. OZZO also manages what you are chasing — leads, deals, pipelines, quotations and follow-ups — plus a shared WhatsApp inbox with an AI assistant on the same customer record." },
+      { title: "Cloud-first, and the portal is just a link", body: "OZZO is a browser product end to end: your managers use a dashboard, your reps use an app, your distributors use a web page. There is nothing to install at the distributor's end and no desktop to maintain." },
+      { title: "A published per-login price for the trade portal", body: "OZZO DMS is ₹10,000 a year for 100 distributor and dealer logins, added to a CRM or SFA plan. You can size it before you talk to anyone." },
+    ],
+    table: [
+      { capability: "Accounting, GST billing & the books in one system", ozzo: "no", them: "yes", note: "Marg's origin and its strongest ground. OZZO deliberately leaves accounting to your accountant." },
+      { capability: "Pharmaceutical distribution depth — batch, expiry", ozzo: "no", them: "yes", note: "A long-standing Marg specialism." },
+      { capability: "Trade-facing ordering app for retailers / distributors", ozzo: "yes", them: "yes", note: "Marg ships eRetail; OZZO ships the DMS portal. Both exist — see the rows below for how they differ." },
+      { capability: "Distributor-wise outstanding visible to the buyer", ozzo: "yes", them: "yes" },
+      { capability: "Per-customer price list enforced on the portal order", ozzo: "yes", them: "partial" },
+      { capability: "Schemes detected & applied automatically on a portal order", ozzo: "yes", them: "partial" },
+      { capability: "Your own field force — GPS attendance, geo-tagged visits, beats", ozzo: "yes", them: "no", note: "The clearest difference between the two products." },
+      { capability: "Offline order capture that syncs itself", ozzo: "yes", them: "partial" },
+      { capability: "Built-in CRM — leads, deals & pipelines", ozzo: "yes", them: "no" },
+      { capability: "WhatsApp shared inbox + AI knowledge-base assistant", ozzo: "yes", them: "no" },
+      { capability: "Cloud-native, nothing to install for any user", ozzo: "yes", them: "partial", note: "Marg's flagship is desktop-led, with MargBooks as the cloud product." },
+      { capability: "Distributor godown stock & claims", ozzo: "no", them: "partial", note: "Marg is strong on inventory as an ERP; neither product is a specialist claims engine." },
+      { capability: "Published per-login price for the trade portal", ozzo: "yes", them: "no" },
+    ],
+    chooseThemIf: [
+      "Billing, GST and your books must live in the same system as stock",
+      "You are in pharmaceutical distribution and need batch and expiry handling",
+      "Your team already runs Marg and retraining them is the real cost",
+      "You want machine-to-machine ERP ordering with your own customers",
+    ],
+    chooseOzzoIf: [
+      "You have reps on the road and need attendance, GPS, visits and beats",
+      "You want leads and deals, not only invoices",
+      "You want your distributors on a browser link with nothing to install",
+      "You are happy keeping accounting in your accountant's software",
+    ],
+    pricingNote:
+      "The two are priced on different models and we will not state Marg's numbers, because their licensing varies by edition, user count and channel — ask them directly. What is worth comparing is the shape: an accounting-led ERP is typically licensed per installation or edition, while OZZO is per user per month for the platform plus ₹10,000 a year per 100 logins for the DMS add-on, plus GST. Many businesses end up running both, keeping the books in an accounting system and the field team and trade portal in OZZO. That is a legitimate answer, not a failure of either product.",
+    faqs: [
+      { q: "Can OZZO replace Marg ERP?", a: "Not for accounting. OZZO does not do GST invoicing, taxation or your books, and it is not trying to. It replaces the field-sales and trade-ordering half: your reps' attendance and visits, order capture, collections, outstanding against credit limits, and a distributor portal. Plenty of businesses run both." },
+      { q: "Does OZZO integrate with Marg or Tally?", a: "No, and that is a deliberate design choice worth understanding. Outstanding and stock are calculated inside OZZO from your own orders, dispatches and collections, so there is no integration to buy or keep alive. If you need the two systems reconciled to the rupee in one place, an accounting-led ERP is the better single system." },
+      { q: "Marg already has a retailer ordering app. Why would I add OZZO DMS?", a: "If retailer ordering is all you need, that is a fair question and Marg's eRetail may be enough. OZZO DMS is worth it when you also want your own field team in the same system — GPS attendance, geo-tagged visits and beats — plus per-customer price lists and automatic scheme application on the portal order, and a CRM for the business you have not closed yet." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── SALESDIARY
+  {
+    slug: "ozzo-vs-salesdiary",
+    competitor: "SalesDiary",
+    competitorCategory: "Field sales & distribution platform with DMS",
+    metaTitle: "OZZO vs SalesDiary — CRM in the box",
+    metaDescription:
+      "SalesDiary pairs field sales with a DMS module, van sales and a dealer app. OZZO adds a built-in CRM and WhatsApp inbox, at a published per-login price.",
+    keywords: ["OZZO vs SalesDiary", "SalesDiary alternative", "SalesDiary alternative India", "field sales software with DMS", "distributor management software for SMEs", "secondary sales software India"],
+    tagline: "SalesDiary and OZZO overlap more than most pairs on this site. The differences are the CRM, the WhatsApp inbox, van sales and how each is priced.",
+    verdict:
+      "SalesDiary is an Indian field-sales platform with a genuine distribution side: public listings name Secondary Sales, a Distributor Management (DMS) module, Primary Sales, Van Sales, a Dealer App and a Modern Trade app, and reviewers mention tracking distributor stock. That makes it one of the closer comparisons on this site. The differences that matter are at the edges: OZZO includes a front-office CRM with leads, deals and pipelines and a shared WhatsApp inbox with an AI knowledge-base assistant, and publishes a per-login price for its distributor portal. SalesDiary ships van sales and distributor stock tracking, which OZZO does not. Shortlist both and decide on those four things rather than on the field-sales basics, which both cover.",
+    bestForThem: "Distribution teams needing van sales and distributor stock tracking",
+    bestForOzzo: "Teams wanting CRM, WhatsApp and the trade portal in one system",
+    theirStrengths: [
+      "A real Distributor Management module rather than ordering bolted onto an SFA",
+      "Van sales — direct selling from a vehicle, which OZZO does not ship at all",
+      "Distributor stock tracking, named by reviewers as something their teams use",
+      "Dedicated Dealer and Modern Trade apps alongside the rep app",
+      "Primary and secondary sales handled as distinct flows",
+      "Established presence across Indian field-sales teams with attendance and route management",
+    ],
+    ozzoWins: [
+      { title: "A front-office CRM, not only field execution", body: "Leads, deals, visual pipelines, quotations with branded PDFs and follow-up tasks are in OZZO. A distribution-led platform generally assumes the customer already exists and is being served — it does not manage the enquiry that has not become a customer yet." },
+      { title: "A shared WhatsApp inbox with an AI assistant", body: "Conversations on your official WhatsApp Business number land in one team inbox attached to the customer record, with an AI assistant answering routine questions from documents you upload. This is the capability no large Indian SFA or DMS vendor ships in the same product." },
+      { title: "A published per-login price", body: "OZZO DMS is ₹10,000 a year for 100 distributor and dealer logins, as an add-on to a CRM or SFA plan. Distribution platforms in this tier are generally quoted per deployment." },
+      { title: "Nothing for the trade to install", body: "OZZO DMS is a browser page. Where a vendor's trade side is a dealer app, somebody has to get it installed, updated and password-reset across your whole network — and that is where portal adoption usually dies." },
+    ],
+    table: [
+      { capability: "GPS attendance, geo-tagged visits & beat routes", ozzo: "yes", them: "yes" },
+      { capability: "Offline order capture", ozzo: "yes", them: "yes" },
+      { capability: "Distributor / dealer self-service ordering", ozzo: "yes", them: "yes", note: "SalesDiary ships a Dealer App; OZZO ships a browser portal." },
+      { capability: "Per-customer price list & credit limit on the order", ozzo: "yes", them: "partial" },
+      { capability: "Schemes applied automatically on a portal order", ozzo: "yes", them: "partial" },
+      { capability: "Primary & secondary sales as distinct flows", ozzo: "yes", them: "yes" },
+      { capability: "Distributor godown stock tracking", ozzo: "no", them: "yes", note: "Named by SalesDiary reviewers as in use. OZZO does not ship it." },
+      { capability: "Van sales — selling direct from a vehicle", ozzo: "no", them: "yes", note: "OZZO does not ship van sales at all." },
+      { capability: "Built-in CRM — leads, deals & pipelines", ozzo: "yes", them: "no" },
+      { capability: "WhatsApp shared inbox + AI knowledge-base assistant", ozzo: "yes", them: "no" },
+      { capability: "Field payment collection & self-calculating outstanding", ozzo: "yes", them: "partial" },
+      { capability: "Nothing for the trade to install", ozzo: "yes", them: "no", note: "Their trade side is an app; OZZO's is a browser page." },
+      { capability: "Published per-login price for the trade portal", ozzo: "yes", them: "no" },
+    ],
+    chooseThemIf: [
+      "Van sales is part of how you actually sell",
+      "You need distributor godown stock tracked, not just orders and dispatches",
+      "A dedicated Modern Trade flow matters to your business",
+      "Your distribution side is the whole purchase and you have a CRM already",
+    ],
+    chooseOzzoIf: [
+      "You want the CRM and the field app and the trade portal in one subscription",
+      "A shared WhatsApp inbox on the customer record would change your day",
+      "You want your distributors on a link, with nothing to install",
+      "You want to budget the portal from a published number",
+    ],
+    pricingNote:
+      "SalesDiary's pricing is quoted rather than published, so we will not put a number against their name. OZZO publishes its platform rates and prices the DMS add-on at ₹10,000 per year for 100 distributor and dealer logins plus GST. Because these two products overlap heavily on field-sales basics, price transparency and what is bundled are where the real difference shows up: with OZZO the CRM and the WhatsApp inbox are included rather than being separate tools you buy alongside.",
+    faqs: [
+      { q: "Is OZZO a good SalesDiary alternative?", a: "It is one of the closest comparisons on this site, so it depends on four things rather than on the basics. OZZO includes a CRM and a shared WhatsApp inbox, and publishes a per-login portal price. SalesDiary ships van sales and distributor stock tracking, which OZZO does not. Decide on those." },
+      { q: "What does OZZO not do that SalesDiary does?", a: "Van sales and distributor godown stock tracking, both of which SalesDiary covers and OZZO does not. If either is central to how you sell, shortlist them." },
+      { q: "Do both handle secondary sales?", a: "Both capture secondary sales, but differently. OZZO records the sales orders and dispatches a distributor raises for their own shops, which gives you onward selling as it happens. A full reconciled primary-versus-secondary stock view needs distributor stock tracking, which SalesDiary has and OZZO does not." },
+    ],
+  },
+
+  // ─────────────────────────────────────────── BIZOM DMS
+  {
+    slug: "ozzo-vs-bizom-dms",
+    competitor: "Bizom DMS",
+    competitorCategory: "Enterprise distributor management (DMS)",
+    metaTitle: "OZZO DMS vs Bizom DMS — per login",
+    metaDescription:
+      "Bizom DMS covers distributor billing, claims and trade promotions at enterprise scale. OZZO DMS is trade ordering on one platform, priced per login.",
+    keywords: ["OZZO vs Bizom DMS", "Bizom DMS alternative", "Bizom distributor management alternative", "affordable distributor management system", "DMS software for SMEs India", "distributor portal per login pricing"],
+    tagline: "Both give your trade a way to order. Bizom does the heavy distributor tier at enterprise scale; OZZO does ordering and visibility at a published price.",
+    verdict:
+      "This compares the distribution halves of the two products — for the field-sales comparison, see OZZO vs Bizom. Bizom DMS is built for the distributor tier of large brands: primary orders, billing and returns, load-in and load-out, collection management, claims management and trade promotions, with Tally integration for multi-brand distributors, plus a Retailer App and a WhatsApp ordering bot on the retail side. OZZO DMS is narrower and priced openly: any customer at any level gets a browser login, orders on their own price list with schemes applied and their credit limit enforced, sees their own outstanding, and dispatches what they sold onward. The dividing line is claims, load-in/load-out and stock. If you need those, Bizom. If you need the retyping and the balance calls to stop, OZZO at ₹10,000 a year per 100 logins.",
+    bestForThem: "Large brands running a distributor tier with claims and trade promotions",
+    bestForOzzo: "Regional brands who want trade ordering without an enterprise contract",
+    theirStrengths: [
+      "Claims management and trade promotions as first-class features at the distributor tier",
+      "Load-in and load-out, distributor billing and returns — the full distributor operating cycle",
+      "Collection management built into the distributor workflow",
+      "Tally integration, which matters a lot to multi-brand distributors",
+      "A Retailer App plus a WhatsApp ordering bot, giving outlets round-the-clock self-ordering",
+      "Scale: Bizom publicly cites very large distributor and outlet numbers across its platform",
+    ],
+    ozzoWins: [
+      { title: "One platform, one database, one login model", body: "Bizom DMS and Bizom SFA are modules of an enterprise suite. In OZZO the distributor's portal order, the rep's geo-tagged visit, the lead, the quotation and the WhatsApp conversation are records in one database — nothing is integrated because nothing is separate." },
+      { title: "A published price, per login", body: "₹10,000 a year for 100 distributor and dealer logins plus GST, as an add-on to a CRM or SFA plan. Enterprise DMS is quoted per deployment, which makes budgeting a conversation rather than a calculation." },
+      { title: "A login for any customer at any level", body: "Not a distributor tier and a separate retailer app. One portal, where a distributor, a stockist or a single dealer each sees itself and everyone below it — so a small dealer who orders directly is not a special case." },
+      { title: "Live without a rollout", body: "The portal switches on against the customers, price lists and schemes already in your OZZO. An enterprise DMS deployment is a project with master data, integration and training phases." },
+    ],
+    table: [
+      { capability: "Trade self-service ordering", ozzo: "yes", them: "yes", note: "Bizom via its Retailer App and WhatsApp bot; OZZO via a browser portal." },
+      { capability: "A login for any customer at any level, one portal", ozzo: "yes", them: "partial", note: "Bizom separates the distributor tier from the retailer app; OZZO uses one portal for both." },
+      { capability: "Per-customer price list & credit limit on the order", ozzo: "yes", them: "yes" },
+      { capability: "Schemes applied automatically on a portal order", ozzo: "yes", them: "yes" },
+      { capability: "Outstanding visible to the buyer themselves", ozzo: "yes", them: "yes" },
+      { capability: "Distributor billing, returns, load-in & load-out", ozzo: "no", them: "yes", note: "The distributor operating cycle is Bizom's ground, not OZZO's." },
+      { capability: "Claims management", ozzo: "no", them: "yes", note: "Not in OZZO DMS. Planned, not built, so not sold." },
+      { capability: "Trade promotions management", ozzo: "no", them: "yes" },
+      { capability: "Distributor godown stock & auto-replenishment", ozzo: "no", them: "yes" },
+      { capability: "Tally / ERP integration at the distributor tier", ozzo: "no", them: "yes", note: "A real Bizom strength for multi-brand distributors." },
+      { capability: "Built-in CRM — leads, deals & pipelines", ozzo: "yes", them: "no" },
+      { capability: "WhatsApp shared team inbox + AI knowledge-base assistant", ozzo: "yes", them: "partial", note: "Bizom's WhatsApp bot takes retailer orders, which is a different job from a shared CRM inbox with an AI assistant on the customer record." },
+      { capability: "Published per-login price", ozzo: "yes", them: "no" },
+    ],
+    chooseThemIf: [
+      "Claims, trade promotions or load-in/load-out are part of the purchase",
+      "You need distributor stock and auto-replenishment across a large network",
+      "Your distributors are multi-brand and need Tally integration at their end",
+      "You are an enterprise brand with a channel team and a rollout budget",
+    ],
+    chooseOzzoIf: [
+      "Your problem is orders arriving on WhatsApp and being retyped by your staff",
+      "You want one portal for distributors, stockists and dealers alike",
+      "You want the CRM, the field app and the portal in one subscription",
+      "You want to know the price before the first call",
+    ],
+    pricingNote:
+      "Bizom is sold as an enterprise contract quoted per deployment, and we will not put a number on it — ask them. OZZO DMS is ₹10,000 per year for 100 distributor and dealer logins plus GST, on top of a CRM or SFA plan. The honest framing is that these are different depths of product: Bizom's claims, promotions and stock engine is work OZZO has not done. What OZZO offers is the ordering and visibility layer at a price a regional brand can approve without a committee.",
+    faqs: [
+      { q: "How is this different from the OZZO vs Bizom page?", a: "That page compares the field-sales products — attendance, visits, beats and rep order capture. This one compares the distribution side: the distributor portal, claims, stock and how each is priced. Most buyers end up reading both." },
+      { q: "Is OZZO DMS a cheaper Bizom DMS?", a: "It is cheaper, but calling it the same thing cheaper would be misleading. Bizom covers distributor billing, returns, load-in and load-out, claims, trade promotions and stock. OZZO DMS covers ordering, pricing, schemes, outstanding and dispatch. It is a narrower product at a published price, not the same product discounted." },
+      { q: "Does OZZO have a WhatsApp ordering bot like Bizom?", a: "No — and the distinction is worth being precise about. Bizom's WhatsApp bot lets a retailer place an order through WhatsApp. OZZO's WhatsApp is a shared team inbox on your official Business number, attached to the customer record, with an AI assistant answering routine questions from your own documents. Different jobs: theirs is order capture, ours is conversation." },
     ],
   },
 ];

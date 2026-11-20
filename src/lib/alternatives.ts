@@ -54,14 +54,25 @@ export type AlternativesPage = {
   faqs: { q: string; a: string }[];
 };
 
+/**
+ * ONE definition, shared by all eight pages — so a product change reaches every
+ * "<Competitor> alternatives" list in a single edit instead of eight.
+ *
+ * `watchOut` is required to state a real limitation, per rule 1 of the honesty
+ * bar above. When DMS was added to `strength`, its three genuine gaps were
+ * added to `watchOut` in the same edit, deliberately: a pick that gains a
+ * capability and no corresponding caveat is how these pages stop being
+ * believed. Distributor stock, replenishment and claims are exactly what the
+ * specialist DMS vendors in these lists ship and OZZO does not.
+ */
 const OZZO_PICK: AltPick = {
   name: "OZZO",
-  category: "All-in-one CRM + field sales for SMEs",
-  bestFor: "Indian SMEs and MSMEs that want field sales, CRM and WhatsApp in one login",
+  category: "All-in-one CRM + field sales + distributor portal for SMEs",
+  bestFor: "Indian SMEs and MSMEs that want field sales, CRM, WhatsApp and a trade portal in one system",
   strength:
-    "Attendance, GPS, visits, beat routes, offline orders, collections and auto-outstanding, plus a CRM and a shared WhatsApp inbox on the same customer record. Rates are published: from ₹100 per user per month.",
+    "Attendance, GPS, visits, beat routes, offline orders, collections and auto-outstanding, plus a CRM and a shared WhatsApp inbox on the same customer record. An optional DMS add-on gives distributors and dealers their own browser login to order on their own price list and see their outstanding. Rates are published: from ₹100 per user per month, and ₹10,000 a year per 100 distributor logins.",
   watchOut:
-    "No AI shelf-image recognition, no planogram scoring and no demand forecasting. (Platform is no longer a watch-out: the app ships on both Android and iPhone.)",
+    "No AI shelf-image recognition, no planogram scoring and no demand forecasting. The DMS add-on covers ordering and visibility only — no distributor stock, no auto-replenishment and no claims. (Platform is no longer a watch-out: the app ships on both Android and iPhone.)",
   isOzzo: true,
 };
 

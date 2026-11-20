@@ -53,10 +53,14 @@ export type SiteRoute = {
 const staticRoutes: SiteRoute[] = [
   { path: "/", priority: 1, freq: "weekly", group: "core", label: "Home" },
   { path: "/products", priority: 0.9, freq: "weekly", group: "core", label: "Products overview" },
-  // Two products only — Workforce Automation is a tier of SFA, so
+  // Workforce Automation is a tier of SFA, not a product, so
   // /products/wfa permanently redirects and is not listed here.
   { path: "/products/crm", priority: 0.9, freq: "weekly", group: "core", label: "CRM" },
   { path: "/products/sfa", priority: 0.9, freq: "weekly", group: "core", label: "Sales Force Automation (SFA)" },
+  // The third product. DMS is an ADD-ON to a CRM or SFA plan rather than a
+  // standalone purchase, but it is a product page in its own right because
+  // "distributor management system" is a search people make by name.
+  { path: "/products/dms", priority: 0.9, freq: "weekly", group: "core", label: "Distributor Management System (DMS)" },
   { path: "/plans", priority: 0.9, freq: "weekly", group: "core", label: "Plans & packages" },
   // Hub for the site's primary target term. The 27 industry pages that
   // mention "salesman location tracking" all link up to this page.
@@ -69,6 +73,17 @@ const staticRoutes: SiteRoute[] = [
   },
   // Category pillar for the site's strongest non-brand search theme.
   { path: "/fmcg-software", priority: 0.9, freq: "monthly", group: "core", label: "FMCG software (category guide)" },
+  // Category pillar for "distributor management software" — a phrase this site
+  // declared as a target keyword in layout.tsx, on /fmcg-software and on 16
+  // industry and sector pages while NO page owned it. Same failure, and same
+  // fix, as /fmcg-software and /whatsapp-crm below.
+  {
+    path: "/distributor-management-software",
+    priority: 0.9,
+    freq: "monthly",
+    group: "core",
+    label: "Distributor management software (category guide)",
+  },
   // The one category no large Indian SFA vendor can claim — a shared WhatsApp
   // inbox and an AI knowledge-base assistant on the same customer record as
   // the leads, deals and quotations. See docs/SEO-STRATEGY.md section B4.

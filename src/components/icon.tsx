@@ -80,6 +80,10 @@ import {
   CircleDot,
   Lightbulb,
   BatteryCharging,
+  ToggleRight,
+  Globe,
+  Gift,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 
@@ -165,6 +169,10 @@ const map: Record<string, LucideIcon> = {
   CircleDot,
   Lightbulb,
   BatteryCharging,
+  ToggleRight,
+  Globe,
+  Gift,
+  Store,
 };
 
 export function Icon({

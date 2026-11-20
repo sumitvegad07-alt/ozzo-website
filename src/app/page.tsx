@@ -299,7 +299,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="The suite"
             title="Start with what hurts most. It's all connected."
-            description="Two products — CRM to win and keep customers, and Sales Force Automation to run your field team. Buy either on its own or combine them; both share one customer record, one login and one source of truth. Field-force tracking is the entry tier of SFA, not a separate tool."
+            description="Three products — CRM to win and keep customers, Sales Force Automation to run your field team, and DMS so your distributors and dealers place their own orders. Buy them on their own or combine them; they share one customer record, one login and one source of truth. Field-force tracking is the entry tier of SFA, not a separate tool, and DMS is an add-on."
           />
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {productLines.map((line, i) => (

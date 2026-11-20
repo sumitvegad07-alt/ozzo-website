@@ -179,4 +179,89 @@ export const blogTopics: BlogTopic[] = [
     tags: ["Buying guide", "Field sales", "CRM"],
     emoji: "❓",
   },
+  /* ───────── DMS topics, queued 2026-11-20 with the product launch ─────────
+     Eight in a row on one theme is deliberate, not an oversight. The queue is
+     worked in order, so this is roughly two months of DMS coverage while the
+     product is new — which is exactly when the category pages need blog posts
+     linking into them. Reorder or interleave these if that stops being true. */
+  {
+    slug: "dms-vs-erp-which-manages-your-distributors",
+    title: "DMS or ERP — which one should manage your distributors?",
+    angle:
+      "Buyers are routinely sold an ERP distribution module when they needed a trade portal, and the reverse. Separate them by who logs in and what breaks: an ERP is built for your back office and owns billing, GST and stock; a DMS is built for your customer's phone and owns self-service ordering and visible outstanding. Say plainly that many businesses should run both, and that OZZO does not do accounting.",
+    targetKeyword: "DMS vs ERP",
+    internalLinks: ["/distributor-management-software", "/compare/ozzo-vs-marg-erp", "/products/dms"],
+    tags: ["DMS", "ERP", "Distributor management", "Buying guide"],
+    emoji: "⚖️",
+  },
+  {
+    slug: "how-to-get-distributors-to-use-your-ordering-portal",
+    title: "How to get distributors to actually use your ordering portal",
+    angle:
+      "Adoption is the only real risk in this category — a portal nobody uses is worse than none, because the WhatsApp orders continue and the software is paid for anyway. Give a practical rollout: start with the highest-frequency customers, never cut off WhatsApp on day one, make the first order a guided phone call, show them their own outstanding (the feature they adopt for), and remove every install step. Explain why a browser beats an app for trade adoption.",
+    targetKeyword: "distributor portal adoption",
+    internalLinks: ["/products/dms", "/distributor-management-software", "/blog/distributor-orders-on-whatsapp-what-it-costs"],
+    tags: ["DMS", "Distributor management", "Rollout", "Change management"],
+    emoji: "🤝",
+  },
+  {
+    slug: "distributor-credit-limits-how-to-set-and-enforce-them",
+    title: "Distributor credit limits: how to set them and actually enforce them",
+    angle:
+      "Most credit limits are advisory — a number in a master that nobody checks until accounts notices. Cover how to set a limit from order frequency and payment history rather than from the relationship, why enforcement has to happen at order time to mean anything, how to handle the over-limit order without stopping the business, and what changes when the distributor can see their own balance before they order.",
+    targetKeyword: "distributor credit limit management",
+    internalLinks: ["/products/dms", "/products/sfa", "/distributor-management-software"],
+    tags: ["Credit control", "Distributor management", "DMS", "Outstanding"],
+    emoji: "🧾",
+  },
+  {
+    slug: "price-lists-for-distributors-dealers-and-retailers",
+    title: "One price list per customer: how trade pricing should work",
+    angle:
+      "A single shared price list lets any distributor work out what every other one pays, and from there your margin. Explain trade-level pricing, why a per-customer price list is the control that matters, how schemes layer on top of it, and the technical point that pricing calculated in the buyer's browser can be tampered with while pricing calculated on the server cannot.",
+    targetKeyword: "distributor price list management",
+    internalLinks: ["/products/dms", "/distributor-management-software", "/products/sfa"],
+    tags: ["Pricing", "Distributor management", "DMS", "Schemes"],
+    emoji: "🏷️",
+  },
+  {
+    slug: "distributor-onboarding-first-30-days-checklist",
+    title: "Onboarding a new distributor: a 30-day checklist",
+    angle:
+      "A practical checklist for the first month of a new trade relationship — the masters to set up (price list, credit limit, trade level, beat), who serves them, the first order, the first collection, and the review at day 30. Frame the portal login as part of onboarding rather than a later upgrade, because a distributor who has never ordered any other way adopts it without being persuaded.",
+    targetKeyword: "distributor onboarding process",
+    internalLinks: ["/products/dms", "/products/crm", "/plans"],
+    tags: ["Distributor management", "Onboarding", "DMS", "Operations"],
+    emoji: "📋",
+  },
+  {
+    slug: "what-to-do-when-a-distributor-stops-ordering",
+    title: "What to do when a distributor quietly stops ordering",
+    angle:
+      "Trade customers rarely announce that they have left — the orders just get smaller and further apart, and nobody notices for a quarter. Cover how to spot it (ageing, order gaps, coverage against the beat), the usual real causes (credit blocked, a competitor's scheme, a dispute nobody escalated, the rep stopped visiting), and how to build a review that surfaces it in weeks instead of at year-end.",
+    targetKeyword: "distributor churn",
+    internalLinks: ["/products/sfa", "/products/dms", "/distributor-management-software"],
+    tags: ["Distributor management", "Retention", "Reports", "DMS"],
+    emoji: "📉",
+  },
+  {
+    slug: "running-schemes-without-arguments-and-credit-notes",
+    title: "How to run trade schemes without arguments and credit notes",
+    angle:
+      "Most scheme disputes are not disagreements about the scheme — they are a scheme that was applied by hand and missed. Explain the common structures (quantity slab, value slab, free goods), why applying them at order time rather than at settlement removes the argument entirely, and what it costs you when a distributor finds out three weeks later that they qualified. Be clear that OZZO applies schemes automatically but does not handle claims.",
+    targetKeyword: "trade scheme management",
+    internalLinks: ["/products/dms", "/products/sfa", "/compare/ozzo-vs-bizom-dms"],
+    tags: ["Schemes", "Trade promotions", "Distributor management", "DMS"],
+    emoji: "🎁",
+  },
+  {
+    slug: "do-you-need-a-dms-or-just-a-better-order-desk",
+    title: "Do you need a DMS, or just a better order desk?",
+    angle:
+      "An honest buying-decision post that sometimes concludes no. Give the test: count the trade orders you retype in a month and time one properly. Below a threshold, a shared mailbox and a tidier process genuinely is the answer. Above it, the keying time, the order delay and the balance calls justify a portal. Include the cases where a DMS is the wrong buy — selling direct to consumers, very infrequent trade orders, or needing distributor stock and claims that an ordering portal does not cover.",
+    targetKeyword: "do I need a distributor management system",
+    internalLinks: ["/distributor-management-software", "/products/dms", "/blog/distributor-orders-on-whatsapp-what-it-costs"],
+    tags: ["DMS", "Buying guide", "Distributor management", "Operations"],
+    emoji: "🤔",
+  },
 ];

@@ -30,7 +30,9 @@ import {
   startingFrom,
   fromRate,
   formatRate,
+  GST_RATE_PCT,
 } from "@/lib/plans";
+import { DMS_PRICE_INR, DMS_SEATS, dms } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
@@ -277,6 +279,71 @@ export default function PlansPage() {
               Book a demo and we&apos;ll map it to your workflow →
             </Link>
           </p>
+        </Container>
+      </section>
+
+      {/* ─────────────── DMS add-on ─────────────── */}
+      {/*
+        DELIBERATELY NOT A COLUMN IN THE MATRIX ABOVE. That table is per user
+        per month, and DMS is per login per year — dropping it into a sixth
+        column would make it read as ₹10,000 per user, which is a hundredfold
+        error on a pricing page. It is a band of its own for that reason.
+        See the note on `productLines` in src/lib/site.ts.
+      */}
+      <section className="border-t border-border bg-card-2 py-20 md:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Add-on"
+            title="DMS — let your distributors order for themselves"
+            description="Priced per login rather than per user, because the people signing in are your customers, not your staff. Added on top of any plan above."
+          />
+          <Reveal>
+            <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-card shadow-lg">
+              <div className="grid md:grid-cols-[0.85fr_1.15fr]">
+                <div className="border-b border-border bg-ink p-8 text-center text-white md:border-b-0 md:border-r md:p-10">
+                  <p className="ozzo-eyebrow text-sky-300">DMS add-on</p>
+                  <p className="ozzo-display mt-4 text-5xl text-white">
+                    ₹{DMS_PRICE_INR.toLocaleString("en-IN")}
+                  </p>
+                  <p className="mt-2 text-sm font-bold text-white">per year</p>
+                  <p className="mt-3 text-sm text-white/70">
+                    for {DMS_SEATS} distributor &amp; dealer logins
+                  </p>
+                  <p className="mt-4 text-xs text-white/55">
+                    + {GST_RATE_PCT}% GST · about ₹{dms.perLoginPerMonth} per
+                    login per month
+                  </p>
+                </div>
+                <div className="p-8 md:p-10">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Give any customer — distributor, stockist or dealer — their
+                    own browser login. They place their own orders on their own
+                    price list with their schemes applied, see what they owe
+                    you, and dispatch what they have sold onward.
+                  </p>
+                  <ul className="mt-6 space-y-2.5">
+                    {[
+                      "An add-on to any CRM or SFA plan, not a separate product",
+                      `All ${DMS_SEATS} logins included — switch one off and the seat frees up`,
+                      "Nothing for your distributors to install — it runs in a browser",
+                      "Does not include distributor stock, replenishment or claims",
+                    ].map((t) => (
+                      <li key={t} className="flex gap-2.5 text-sm">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-success" />
+                        <span className="text-foreground/85">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <PrimaryCTA href="/products/dms">What DMS does</PrimaryCTA>
+                    <SecondaryCTA href="/distributor-management-software">
+                      What is a DMS?
+                    </SecondaryCTA>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

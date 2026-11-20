@@ -230,7 +230,7 @@ export default function AboutPage() {
               What we do have is a system that is built and running — not a
               prototype and not a roadmap. A web dashboard for managers, a
               mobile app for reps on both Android and iPhone that works offline,
-              two products you can buy
+              three products you can buy
               separately, and prices you can read without a sales call. Behind
               it, someone who has spent ten years learning what goes wrong after
               the invoice is signed.
@@ -245,7 +245,7 @@ export default function AboutPage() {
           <div className="text-center">
             <Eyebrow center>What we make</Eyebrow>
             <h2 className="ozzo-display mt-3 text-3xl text-foreground md:text-4xl">
-              Two products, one customer record
+              Three products, one customer record
             </h2>
           </div>
           <div className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">

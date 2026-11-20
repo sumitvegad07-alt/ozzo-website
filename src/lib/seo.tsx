@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import {
   SITE_URL,
   ANDROID_PACKAGE,
+  DMS_PRICE_INR,
+  DMS_SEATS,
   IOS_APP_ID,
   IOS_MIN_VERSION,
   brand,
@@ -323,6 +325,63 @@ export function softwareApplicationSchema() {
 export function productSchema(slug: string) {
   const line = productLines.find((p) => p.slug === slug);
   if (!line) return softwareApplicationSchema();
+
+  /**
+   * DMS is priced and delivered unlike the other two, so it gets its own Offer
+   * and its own operatingSystem rather than the shared ones below.
+   *
+   * THIS BRANCH IS NOT A STYLE CHOICE. The line underneath used to read
+   * `PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"]`, which silently means "any
+   * product that is not CRM is priced like SFA". The moment DMS became the
+   * third product line that expression started publishing ₹300 per user per
+   * month as the price of DMS, in machine-readable structured data, to the
+   * engines that quote prices — which is the single worst place on the site to
+   * be wrong. It is now an explicit lookup that fails loudly instead.
+   *
+   * It also must not carry `downloadUrl` / `installUrl`. Those point at the two
+   * OZZO SALES store listings, and DMS has no app at all: distributors use a
+   * browser. Telling an engine that DMS downloads from Google Play would send a
+   * buyer hunting for an app that does not exist.
+   */
+  if (slug === "dms") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: `${brand.name} ${line.name}`,
+      alternateName: `${brand.name} ${line.fullName}`,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description: line.summary,
+      url: `${SITE_URL}/products/${line.slug}`,
+      featureList: line.features,
+      publisher: { "@id": ORG_ID },
+      isPartOf: { "@id": SOFTWARE_ID },
+      offers: {
+        "@type": "Offer",
+        price: String(DMS_PRICE_INR),
+        priceCurrency: "INR",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: String(DMS_PRICE_INR),
+          priceCurrency: "INR",
+          unitText: `${DMS_SEATS} distributor and dealer logins per year`,
+          billingDuration: 12,
+        },
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/products/dms`,
+      },
+    };
+  }
+
+  // Per-user-per-month lines (CRM, SFA). An explicit map, so a fourth product
+  // added here fails to compile rather than inheriting a price that is wrong.
+  const perUserRate: Record<string, keyof typeof PLAN_RATE.INR> = {
+    crm: "CRM",
+    sfa: "SFA",
+  };
+  const planId = perUserRate[slug];
+  if (!planId) return softwareApplicationSchema();
+
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -341,11 +400,11 @@ export function productSchema(slug: string) {
     isPartOf: { "@id": SOFTWARE_ID },
     offers: {
       "@type": "Offer",
-      price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"]),
+      price: String(PLAN_RATE.INR[planId]),
       priceCurrency: "INR",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: String(PLAN_RATE.INR[slug === "crm" ? "CRM" : "SFA"]),
+        price: String(PLAN_RATE.INR[planId]),
         priceCurrency: "INR",
         unitText: "user per month",
         billingDuration: 12,

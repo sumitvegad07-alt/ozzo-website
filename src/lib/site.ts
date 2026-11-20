@@ -112,6 +112,42 @@ export const appStores = [
   },
 ] as const;
 
+/**
+ * OZZO DMS — the distributor & dealer ordering portal, live at dms.ozzo.co.in.
+ *
+ * WHY THESE ARE CONSTANTS. The DMS price is the first number on this site that
+ * is charged per LOGIN rather than per user per month, so it cannot ride on
+ * PLAN_RATE in plans.ts. It is stated on /products/dms, on
+ * /distributor-management-software, on /plans, in six comparison pages, in
+ * llms.txt and in the Offer of the DMS product schema. That is eight places,
+ * which is exactly how "Android only" ended up retyped in fourteen.
+ *
+ * THE BILLING PERIOD IS RECORDED NOWHERE ELSE. `ozzo-dms-product-v1.md`
+ * ruling 9 says only "Charged per login: ₹10,000 for 100 logins" — it never
+ * says per month, per year or one time, and neither does any migration or the
+ * app's own catalog.ts. The founder confirmed PER YEAR on 2026-11-20 and
+ * docs/DMS-LAUNCH-SPEC.md §2 is the record of that. Do not "correct" this
+ * against the spec; the spec is the file that is missing the fact.
+ */
+export const DMS_PRICE_INR = 10000;
+export const DMS_SEATS = 100;
+
+export const dms = {
+  /** The portal customers sign in to. A real, live subdomain — not a mock. */
+  portalUrl: "https://dms.ozzo.co.in",
+  /** How the price is said in copy. Keep the two halves together. */
+  priceLine: `₹${DMS_PRICE_INR.toLocaleString("en-IN")} per year for ${DMS_SEATS} logins`,
+  /**
+   * The derived per-login figure, computed rather than typed so it can never
+   * disagree with the two numbers above. ₹10,000 ÷ 100 ÷ 12 = ₹8.33, said as
+   * "about ₹8" because a buyer rounds it anyway and a false precision on a
+   * marketing page invites a "₹8.33?" question in the demo.
+   */
+  perLoginPerMonth: Math.round(DMS_PRICE_INR / DMS_SEATS / 12),
+  /** DMS runs in a browser. There is no distributor app, and we never imply one. */
+  platform: "Web browser — nothing for your distributors to install",
+};
+
 export const contact = {
   email: "hello@ozzo.co.in",
   // Single shared mailbox for now; both point at the same inbox.
@@ -204,15 +240,32 @@ export type ProductLine = {
 };
 
 /**
- * The public product model is TWO products only:
+ * The public product model is THREE products:
  *   1. CRM — win & keep customers
  *   2. SFA (Sales Force Automation) — run & grow field sales
+ *   3. DMS (Distributor Management System) — your trade orders for itself
  *
  * Field-force tracking (formerly marketed as "WFA / Workforce Automation")
  * is NOT a separate product — it is the "Field" entry line of Sales Force
- * Automation. Plans are compared, module by module and without published
- * prices, on the /plans page (see src/lib/plans.ts). Every claim is grounded
- * in the feature master catalog.
+ * Automation. Plans are compared, module by module, on the /plans page (see
+ * src/lib/plans.ts). Every claim is grounded in the feature master catalog.
+ *
+ * DMS IS NOT SHAPED LIKE THE OTHER TWO, and the difference matters in three
+ * places that will bite anyone treating it as a third column:
+ *
+ *   1. It is an ADD-ON to a CRM or SFA plan, never a standalone purchase. Its
+ *      catalogue, price lists, customer hierarchy and the screen that creates
+ *      the logins all live in the CRM, so DMS sold alone would have no data.
+ *   2. It is priced PER LOGIN PER YEAR (see `dms` above), not per user per
+ *      month, so it is absent from PLAN_RATE and must never be given a column
+ *      in the per-user plan table.
+ *   3. Its users are your CUSTOMERS, not your staff. Everything else on this
+ *      site is software your employees log in to; this is software your
+ *      distributors and dealers log in to. Copy that forgets this ends up
+ *      describing the wrong audience's day.
+ *
+ * It is granted per account by the superadmin, so the CTA is always a demo —
+ * there is no self-serve switch a tenant admin can flip.
  */
 export const productLines: ProductLine[] = [
   {
@@ -251,6 +304,25 @@ export const productLines: ProductLine[] = [
       "Field payment collection & self-calculating outstanding",
       "Distributor / dealer / retailer trade levels",
       "Sales analytics, Ageing & a per-rep Daily Sales Report",
+    ],
+  },
+  {
+    slug: "dms",
+    name: "DMS",
+    fullName: "Distributor Management System",
+    sub: "Let your trade order for itself",
+    accentClass: "text-sky-400",
+    dotClass: "bg-sky-400",
+    ringClass: "ring-sky-500/20",
+    summary:
+      "Give your distributors and dealers their own login. They place their orders themselves, on their own price list, see what they owe you, and dispatch what they have sold — so your team stops typing in orders that arrived by WhatsApp.",
+    features: [
+      "A login for any customer — distributor, stockist or dealer",
+      "They order on you, and sell to their own shops",
+      "Their own price list and credit limit — never your margin",
+      "Schemes applied automatically, same as a salesman's order",
+      "Outstanding, payments and dispatch in their hands",
+      "Runs in a browser — nothing for them to install",
     ],
   },
 ];

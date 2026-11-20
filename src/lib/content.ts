@@ -147,7 +147,7 @@ export const chapters = [
   },
 ];
 
-/** Editorial one-liners for the two product lines (the suite). */
+/** Editorial one-liners for the product lines (the suite). */
 export const suiteLines: Record<string, string> = {
   crm: "Catch every enquiry and reply on WhatsApp — before it goes cold.",
   sfa: "See what the field team did, take the order, and collect the cash — one flow.",

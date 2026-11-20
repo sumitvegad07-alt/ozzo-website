@@ -33,7 +33,7 @@ import { suiteLines } from "@/lib/content";
 export const metadata = pageMetadata({
   title: "Products — CRM & Sales Force Automation",
   description:
-    "OZZO's two products: CRM for winning and keeping customers, and Sales Force Automation for running your field team — tracking, orders and payments.",
+    "OZZO's three products: CRM to win and keep customers, SFA to run your field team, and DMS so your distributors place their own orders.",
   path: "/products",
   keywords: [
     "CRM features",
@@ -105,9 +105,10 @@ export default function ProductsPage() {
             <span className="ozzo-gradient-bright">revenue engine</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
-            Two products you can buy on their own or combine — CRM to win and keep
-            customers, and Sales Force Automation to run your field team end to end.
-            Both share one customer record, one login and one source of truth across
+            Three products you can buy on their own or combine — CRM to win and
+            keep customers, Sales Force Automation to run your field team end to
+            end, and DMS so your distributors and dealers place their own orders.
+            They share one customer record, one login and one source of truth across
             the web dashboard and the field app — on Android and iPhone alike.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">

@@ -73,6 +73,515 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
+    slug: "ozzo-dms-live-distributor-portal",
+    title: "OZZO DMS is live — your distributors can order themselves",
+    metaTitle: "OZZO DMS is live",
+    description:
+      "The OZZO distributor portal is live. Give any customer a browser login to order on their own price list. ₹10,000 a year for 100 logins.",
+    date: "2026-11-20",
+    author: "Team OZZO",
+    tags: ["DMS", "Distributor management", "Product update", "Secondary sales"],
+    emoji: "🏪",
+    readingMinutes: 6,
+    body: [
+      {
+        type: "p",
+        text: "OZZO DMS is live. It is a third product alongside CRM and Sales Force Automation, and it does one thing: it gives your distributors, stockists and dealers their own login so they place their own orders instead of sending them to your team. They order on their own price list, with their schemes applied and their credit limit enforced. They see what they owe you. They dispatch what they have sold onward. It runs in a browser at dms.ozzo.co.in, so there is nothing for them to install, and it costs ₹10,000 a year for 100 logins plus GST, on top of any CRM or SFA plan.",
+      },
+      {
+        type: "h2",
+        text: "What it does, and what it does not",
+      },
+      {
+        type: "p",
+        text: "The second half of that heading matters more than the first. Every competitor in this category ships distributor stock and claims handling, and OZZO DMS does not. We would rather you knew that now than discovered it in week three, so both lists are on the product page and both are below.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-dms-live-distributor-portal/01-in-and-out.svg",
+        alt: "Two columns listing what OZZO DMS ships today — logins at any customer level, purchase and sales orders, per-customer price lists, automatic schemes, outstanding and dispatch, four reports — against what it does not ship, which is distributor godown stock, auto-replenishment, claims, stock reconciliation, delivery tracking and a mobile app",
+        caption:
+          "Both columns describe the product as it ships today. The right-hand one is on the product page too.",
+      },
+      {
+        type: "p",
+        text: "What is in: a login for a customer at any level of your hierarchy, not distributors only. Purchase orders on you and sales orders to their own shops. Pricing from that buyer's own price list, calculated in the database rather than in their browser. Automatic scheme detection, using the same engine that prices an order typed by your own salesman. Outstanding and payments. A Pending Dispatch queue they work themselves. Four reports, and a filter on every column of every table.",
+      },
+      {
+        type: "p",
+        text: "What is out: distributor godown stock, auto-replenishment from reorder levels, claims of any kind, primary-versus-secondary stock reconciliation, delivery boys, and scheme management from inside the portal. If one of those is why you are buying, an enterprise distribution suite is the better product and we will say so on the call.",
+      },
+      {
+        type: "h2",
+        text: "Why a browser and not an app",
+      },
+      {
+        type: "p",
+        text: "This was the design decision that mattered most, because adoption is the only real risk in this category. A distributor portal that nobody uses is worse than no portal at all — you keep the WhatsApp orders and you pay for software as well.",
+      },
+      {
+        type: "p",
+        text: "An app has to be found in a store, installed on a phone that may be short of space, updated when it breaks, and password-reset when the owner's nephew who set it up has moved on. Each of those steps loses some of your network. A link and a password loses almost none. So OZZO DMS is a web page, it works on a phone browser, and it is deliberately not in any app store.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-dms-live-distributor-portal/02-switching-it-on.svg",
+        alt: "A four-step flow showing how DMS is switched on: OZZO grants the add-on to the account, the tenant admin turns on DMS access for a customer and sets an email and password, the customer signs in to a browser with nothing to install, and their first order arrives already typed and priced on their own list",
+      },
+      {
+        type: "h2",
+        text: "Your margin stays yours",
+      },
+      {
+        type: "p",
+        text: "The first question every manufacturer asks is whether a distributor will be able to see what everyone else pays. The answer is no, and the reason is worth understanding rather than taking on trust.",
+      },
+      {
+        type: "p",
+        text: "Each order is priced on that buyer's own price list, and the pricing is calculated by the database, not by their browser — so it cannot be tampered with and it cannot drift from your own rules. The visibility rule is enforced in the database too: a login sees itself and everyone below it in your hierarchy, and nothing sideways or above. Typing a different customer's id into the address bar changes nothing, because the check does not live in the page.",
+      },
+      {
+        type: "ul",
+        items: [
+          "A distributor cannot see any other customer's rates, orders, balances or customers",
+          "They cannot edit an existing customer's master record",
+          "They can add a new shop only if you switch that on — it is off by default",
+          "Switching their access off ends it immediately and frees the seat for someone else",
+          "There is no public sign-up page and no forgotten-password email; your admin sets passwords",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What it costs",
+      },
+      {
+        type: "p",
+        text: "₹10,000 per year for 100 distributor and dealer logins, plus 18% GST. That works out at roughly ₹8 per login per month. It is priced per login rather than per user because the people signing in are your customers, not your staff — your own team is already licensed on your CRM or SFA plan, and adding DMS does not change that.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-dms-live-distributor-portal/03-the-price.svg",
+        alt: "A breakdown of the DMS price showing ₹10,000 per year for 100 distributor and dealer logins, about ₹8 per login per month, all 100 logins included with unused seats costing nothing extra, 18% GST on top, no extra per-user charges, and that it is an add-on rather than a standalone product",
+      },
+      {
+        type: "p",
+        text: "The login limit is enforced by the database rather than by an invoice, so when all 100 are in use the next one is refused as your admin creates it, with a clear message. Nobody ends up with a half-working account and nobody is billed for seats they did not switch on.",
+      },
+      {
+        type: "h2",
+        text: "Where to start",
+      },
+      {
+        type: "p",
+        text: "You do not have to switch on your whole network at once, and the brands that do this well usually do not. Start with the customers where the retyping is worst — the ones who order most often, the ones who send photographs of handwritten lists, and the ones who call your accounts desk about balances. Those are the logins that pay for themselves in the first month.",
+      },
+      {
+        type: "image",
+        src: "/blog/ozzo-dms-live-distributor-portal/04-who-gets-a-login.svg",
+        alt: "Two columns advising who to give a DMS login to first — the distributors who order most often, those sending photo or voice-note orders, those who call about balances, those whose schemes get argued about — and who to leave for later, such as customers ordering once a year or shops with no reliable internet",
+      },
+      {
+        type: "decision",
+        rows: [
+          {
+            when: "Your staff retype orders that arrived on WhatsApp",
+            pick: "DMS",
+          },
+          {
+            when: "You need distributor stock, replenishment or claims",
+            pick: "A specialist DMS",
+          },
+          {
+            when: "Your own reps need attendance, GPS, visits and beats",
+            pick: "SFA",
+          },
+          {
+            when: "You want the trade portal and the field team together",
+            pick: "SFA + DMS",
+          },
+        ],
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "See everything OZZO DMS does",
+      },
+      {
+        type: "link",
+        href: "/distributor-management-software",
+        label: "Not sure what a DMS is? Start with the category guide",
+      },
+      {
+        type: "p",
+        text: "If you already run OZZO, DMS switches on against the customers, price lists and schemes you have — there is no master-data project, because the masters are already there. Book a demo and we will turn it on and create the first distributor login with you on the call.",
+      },
+    ],
+  },
+  {
+    slug: "what-is-a-distributor-management-system-dms",
+    title: "What is a Distributor Management System (DMS)?",
+    description:
+      "A plain explanation of what a DMS is, how it differs from CRM and SFA, what it must do at a minimum, and how to tell which tier you need.",
+    date: "2026-11-20",
+    author: "Team OZZO",
+    tags: ["DMS", "Distributor management", "Buying guide", "FMCG"],
+    emoji: "📦",
+    readingMinutes: 8,
+    body: [
+      {
+        type: "p",
+        text: "A Distributor Management System (DMS) is software that connects a brand or manufacturer to the distributors, stockists and dealers who sell its products onward. Its job is to replace the phone calls, WhatsApp messages and spreadsheets that normally carry trade orders, stock positions and outstanding balances between a company and its channel. In practice that means each trade customer gets their own login, places their own orders against the price list and credit limit that apply to them, sees what they owe, and records what they sold onward.",
+      },
+      {
+        type: "p",
+        text: "That is the whole idea. The rest of this article is about the three things buyers get wrong: confusing a DMS with a CRM or an SFA, not knowing what the minimum is, and not realising that three quite different kinds of product are sold under this one name at wildly different prices.",
+      },
+      {
+        type: "h2",
+        text: "It is not a CRM, and not an SFA",
+      },
+      {
+        type: "p",
+        text: "These three terms are used interchangeably in sales conversations, and buying the wrong one is the most expensive mistake in this category. The difference is not really about features. It is about who logs in.",
+      },
+      {
+        type: "image",
+        src: "/blog/what-is-a-distributor-management-system-dms/01-who-logs-in.svg",
+        alt: "Three columns separating CRM, SFA and DMS by who logs in — CRM is your own salespeople managing leads, deals and pipelines for business not yet won; SFA is your own field reps with attendance, GPS, visits and beat routes; DMS is your distributors and dealers self-ordering on their own price lists",
+        caption:
+          "A CRM manages business you have not won. An SFA manages your staff. A DMS manages the channel in between.",
+      },
+      {
+        type: "compare",
+        columns: [
+          {
+            label: "CRM",
+            tagline: "Your team, chasing business",
+            points: [
+              "Leads, deals, pipelines and quotations",
+              "Users are your own salespeople",
+              "About business that has not closed yet",
+              "The customer never logs in",
+            ],
+          },
+          {
+            label: "SFA",
+            tagline: "Your staff, in the field",
+            points: [
+              "Attendance, GPS, geo-tagged visits, beats",
+              "Users are your own reps, on a phone",
+              "About the execution of your team's day",
+              "Orders typed by your employee at a counter",
+            ],
+          },
+          {
+            label: "DMS",
+            tagline: "Your customers, ordering",
+            points: [
+              "Trade logins and self-service ordering",
+              "Users are distributors and dealers",
+              "About what your channel buys and owes",
+              "Orders typed by the person who wants the stock",
+            ],
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Most brands that genuinely need a DMS eventually need an SFA too, because they are the two halves of the same trade: your reps walking the market, and your distributors supplying it. What they rarely need is two vendors for those halves.",
+      },
+      {
+        type: "h2",
+        text: "Do you actually need one?",
+      },
+      {
+        type: "p",
+        text: "Nobody searches for distributor management software first. They search for it after one of these has been annoying them for a year. If none of them is familiar, you probably do not need a DMS yet, and WhatsApp is genuinely fine.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Somebody on your payroll retypes orders that arrived as a photo or a voice note",
+          "Your accounts desk answers “how much do I owe you?” by opening a report and reading it out",
+          "Secondary sales arrives once a month, late, in a format nobody can total",
+          "Schemes get argued about after the fact, and settled as credit notes",
+          "Saturday orders ship on Tuesday — not because of stock, but because of a keying queue",
+          "A rate depends on which copy of the price-list spreadsheet somebody opened",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What changes when the buyer types the order",
+      },
+      {
+        type: "p",
+        text: "The gain is not mainly the saved keystrokes, though those are real. It is that several checks which currently depend on a person remembering them become automatic, and that the order exists at the moment it is placed rather than a day later.",
+      },
+      {
+        type: "image",
+        src: "/blog/what-is-a-distributor-management-system-dms/02-what-changes.svg",
+        alt: "A four-step flow of the same order placed by the distributor instead of relayed through the order desk: they build it on their own price list with their credit limit applied, schemes are detected as it is built, it lands as a real order already typed, and they check their own balance whenever they like",
+      },
+      {
+        type: "h2",
+        text: "The minimum that makes it a DMS",
+      },
+      {
+        type: "p",
+        text: "Vendors will show you a great deal. Three things decide whether what you are looking at is a DMS or just an order form with a login.",
+      },
+      {
+        type: "ul",
+        items: [
+          "A trade customer can place their own order, unaided, and it is priced correctly for them",
+          "Their credit limit is enforced rather than advisory",
+          "They can see their own outstanding without telephoning anybody",
+        ],
+      },
+      {
+        type: "p",
+        text: "Then there is the expensive half of this category, and this is the decision that most changes what you will pay: distributor stock, auto-replenishment, and claims. Decide before your first demo whether you are buying ordering and visibility, or stock and claims. They are different products at different prices, and a vendor who sells one will happily demo it against a need for the other.",
+      },
+      {
+        type: "image",
+        src: "/blog/what-is-a-distributor-management-system-dms/03-must-do-need-not.svg",
+        alt: "Two columns separating the minimum that makes software a DMS — self-service ordering priced correctly, enforced credit limits, visible outstanding, data that lands without re-entry — from the expensive half, which is distributor godown stock, auto-replenishment, claims, stock reconciliation and van sales",
+      },
+      {
+        type: "h2",
+        text: "Three kinds of product wear this name",
+      },
+      {
+        type: "p",
+        text: "This is where buyers lose months. The same two words describe an enterprise suite sized for a national FMCG network, an accounting system with an ordering module bolted on, and a trade portal built on top of a field-sales platform. Placing yourself here is most of the buying decision.",
+      },
+      {
+        type: "image",
+        src: "/blog/what-is-a-distributor-management-system-dms/04-three-tiers.svg",
+        alt: "Three columns comparing enterprise DMS suites with distributor stock and claims but quote-based contracts and long rollouts, ERP-led distribution strong on GST billing but with secondary trade-facing screens, and ordering portals on an SFA platform with self-service ordering and per-login pricing but no distributor stock or claims",
+      },
+      {
+        type: "p",
+        text: "Enterprise suites are the right answer above a certain size and genuinely heavy below it. ERP-led distribution modules are right when billing and the books must live in the same system as stock, but their distributor-facing screens were built for your back office rather than for your customer's phone. Ordering portals on an SFA platform cover ordering and visibility and usually do not hold distributor stock at all.",
+      },
+      {
+        type: "decision",
+        rows: [
+          {
+            when: "Distributor stock and claims decide the purchase",
+            pick: "Enterprise DMS suite",
+          },
+          {
+            when: "GST billing and the books must be in the same system",
+            pick: "ERP-led distribution",
+          },
+          {
+            when: "Your staff retype orders and answer balance calls",
+            pick: "Ordering portal",
+          },
+          {
+            when: "You also need your own reps tracked and routed",
+            pick: "Portal on an SFA",
+          },
+        ],
+      },
+      {
+        type: "h2",
+        text: "Questions worth asking any vendor",
+      },
+      {
+        type: "p",
+        text: "A short version of the list on our category page. These are the questions that actually separate these tools, whichever one you buy.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Is the order priced by the server, or by the distributor's browser?",
+          "Can one distributor see another's rates or customers? Ask them to prove it in the address bar",
+          "Does the price list follow the individual customer, or is there one shared list?",
+          "Are schemes applied automatically on a portal order, or only when your staff type it?",
+          "What does the distributor have to install — and who resets a forgotten password?",
+          "Does it hold distributor stock, and do you actually need it to?",
+          "How is it priced: per login, per user, per order, or on a quote?",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Adoption is the only real risk in this category. A distributor portal nobody uses is worse than no portal — you keep the WhatsApp orders and pay for software too.",
+      },
+      {
+        type: "p",
+        text: "That is why the install question matters more than it looks. A link with a password gets used. An app that must be found, installed, updated and password-reset across a whole network loses some of that network at every step, and the orders drift back to WhatsApp within a month.",
+      },
+      {
+        type: "link",
+        href: "/distributor-management-software",
+        label: "The full category guide, with all ten buyer questions",
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "What OZZO DMS does — and what it does not",
+      },
+      {
+        type: "link",
+        href: "/compare/ozzo-vs-botree",
+        label: "OZZO vs Botree — where a specialist is the better buy",
+      },
+    ],
+  },
+  {
+    slug: "distributor-orders-on-whatsapp-what-it-costs",
+    title: "Your distributor WhatsApps the order. What does that cost?",
+    metaTitle: "What WhatsApp ordering really costs",
+    description:
+      "Trade orders arriving as photos and voice notes feel free. Here is the real cost, worked through on one order desk — and what removes it.",
+    date: "2026-11-20",
+    author: "Team OZZO",
+    tags: ["Distributor management", "DMS", "Order management", "Operations"],
+    emoji: "💬",
+    readingMinutes: 7,
+    body: [
+      {
+        type: "p",
+        text: "WhatsApp ordering feels free. There is no licence, no training and no rollout — a distributor sends a photo of a handwritten list and somebody on your side types it in. The cost is real, it is just spread thinly enough across your week that nobody adds it up. This article adds it up, with a worked example you can redo with your own numbers.",
+      },
+      {
+        type: "h2",
+        text: "Follow one order through",
+      },
+      {
+        type: "p",
+        text: "The order itself takes a distributor thirty seconds to send. What happens next takes rather longer, and five of the seven steps are done by someone you pay.",
+      },
+      {
+        type: "image",
+        src: "/blog/distributor-orders-on-whatsapp-what-it-costs/01-journey-of-an-order.svg",
+        alt: "A seven-step flow following one WhatsApp order: the distributor sends a photo of a handwritten list at 9pm, someone reads it the next morning, types eleven lines matched by hand to SKUs, looks up the right rate for that customer, checks whether a scheme applies, checks the outstanding and credit limit, and only then does the order exist",
+        caption:
+          "The distributor thinks the order was placed last night. In your system it was placed today.",
+      },
+      {
+        type: "p",
+        text: "Notice where the mistakes live. Not in the sending — in the reading and the retyping. A short product name matched to the wrong SKU. A rate taken from whichever copy of the price list was open. A scheme nobody remembered until the distributor asked about it three weeks later.",
+      },
+      {
+        type: "h2",
+        text: "The arithmetic",
+      },
+      {
+        type: "p",
+        text: "Take a business with 60 trade customers who order roughly twice a month. That is about 120 orders being typed by hand every month. Time one honestly, start to finish — reading the message, keying the lines, looking up the rate, checking the scheme, checking the balance — and twelve minutes is a fair figure. Many desks are slower.",
+      },
+      {
+        type: "image",
+        src: "/blog/distributor-orders-on-whatsapp-what-it-costs/02-the-cost.svg",
+        alt: "A worked example of the monthly cost on one order desk: 120 orders typed by hand from 60 customers ordering twice a month, about 12 minutes per order, totalling 24 hours or three working days of keying, a typical one-day order delay, 2 to 5 percent of orders needing a correction, and none of it adding value",
+        caption:
+          "A worked example rather than a survey. Put your own customer count and timing into the same shape.",
+      },
+      {
+        type: "p",
+        text: "Twenty-four hours a month. Three working days, every month, spent re-entering decisions somebody else had already made. And that is only the part you can see on a clock.",
+      },
+      {
+        type: "h2",
+        text: "The costs that never reach an invoice",
+      },
+      {
+        type: "p",
+        text: "The keying time is the figure people count, because it is the only one that looks like a number. These are the ones that actually damage the business.",
+      },
+      {
+        type: "image",
+        src: "/blog/distributor-orders-on-whatsapp-what-it-costs/03-hidden-costs.svg",
+        alt: "Two columns comparing what WhatsApp ordering really costs — orders stuck in one person's chat while they are on leave, missed schemes becoming credit notes, accounts reading balances over the phone, late secondary sales, no record of why an order waited — against what a portal removes on day one",
+      },
+      {
+        type: "p",
+        text: "The one that catches businesses out is the first. An order living in one person's chat history is an order that stops moving when that person is on leave, off sick, or has left. Nobody else can find it, because it was never anywhere except a conversation.",
+      },
+      {
+        type: "p",
+        text: "The second is subtler and more expensive. Because the order is placed in your system a day after the distributor placed it with you, your lead time secretly contains a queue. Your distributor measures you from when they sent the message. You measure yourself from when it was keyed. Both of you are right, and only one of you is annoyed.",
+      },
+      {
+        type: "h2",
+        text: "Where the week actually goes",
+      },
+      {
+        type: "image",
+        src: "/blog/distributor-orders-on-whatsapp-what-it-costs/04-where-the-week-goes.svg",
+        alt: "A bar chart of one order desk's 40-hour week showing 12 hours reading and keying orders, 7 hours on rate and scheme lookups, 5 hours answering balance questions, 9 hours chasing collections and 7 hours actually serving customers",
+        caption:
+          "The first three bars are work a portal removes. The last two are what you actually want that desk doing.",
+      },
+      {
+        type: "p",
+        text: "Twenty-four of those forty hours go on work that exists only because the order arrived as a message. Chasing collections and serving customers — the two things you would choose to pay for — get what is left.",
+      },
+      {
+        type: "h2",
+        text: "What actually removes it",
+      },
+      {
+        type: "p",
+        text: "Only one thing: the person who wants the stock types the order. Everything else is a workaround. A shared mailbox, a Google Form, a dedicated WhatsApp number, a junior hired to do the keying — each of those moves the work without removing it.",
+      },
+      {
+        type: "p",
+        text: "When the buyer places the order directly, the checks that currently depend on somebody remembering them stop depending on anybody. Pricing follows the customer automatically. The credit limit is applied before the order is saved rather than discovered afterwards by accounts. Schemes are detected as the order is built, so there is nothing to argue about later. And the order exists at the moment it is placed.",
+      },
+      {
+        type: "quote",
+        text: "The fix is not a faster order desk. It is not having one in the middle of the order at all.",
+      },
+      {
+        type: "h2",
+        text: "What it does not fix",
+      },
+      {
+        type: "p",
+        text: "Being straight about this, because a portal is sometimes sold as though it solves the whole channel. It does not give you your distributor's godown stock, it does not reorder for them, and it does not handle damage, scheme, freight or rate-difference claims. Those need a stock-tracking distribution suite, and they are a bigger project that assumes your trade will keep data up to date. Start where the pain is.",
+      },
+      {
+        type: "decision",
+        rows: [
+          {
+            when: "Your staff retype trade orders every day",
+            pick: "A portal fixes this",
+          },
+          {
+            when: "You want your distributor's godown stock",
+            pick: "A specialist suite",
+          },
+          {
+            when: "Distributors never adopt new apps",
+            pick: "Use a browser portal",
+          },
+          {
+            when: "Only a few customers order, rarely",
+            pick: "WhatsApp is fine",
+          },
+        ],
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "See how OZZO DMS removes the retyping",
+      },
+      {
+        type: "link",
+        href: "/distributor-management-software",
+        label: "What a DMS is, and the ten questions to ask a vendor",
+      },
+      {
+        type: "p",
+        text: "Time one order on your own desk this week, honestly, from the message landing to the order existing. Multiply by how many you take a month. That figure is what the habit costs you, and it is usually the first time anybody in the business has seen it.",
+      },
+    ],
+  },
+  {
     slug: "ozzo-sales-iphone-app-live-ios",
     title: "OZZO SALES is now on iPhone — and why that changes your shortlist",
     metaTitle: "OZZO SALES is now on iPhone",
@@ -207,6 +716,19 @@ export const posts: BlogPost[] = [
         label: "How salesman location tracking works in OZZO",
       },
       {
+        type: "h2",
+        text: "Your distributors need no app at all",
+      },
+      {
+        type: "p",
+        text: "Worth separating, because “does it work on my phone” gets asked about two different groups of people. OZZO SALES is for your own staff — the reps and managers who punch in, visit outlets and take orders — and that is the app now on both stores. Your distributors and dealers are not on it, and do not need to be: OZZO DMS, the portal where they place their own orders and see their outstanding, runs in an ordinary web browser. There is nothing for them to install on any platform, which is deliberate — trade adoption dies at the install step.",
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "OZZO DMS — the distributor portal, in a browser",
+      },
+      {
         type: "p",
         text: "If you want to see it on your own phone with your own products and routes in it, book a demo and we will walk through it with you — on whichever handset you are holding.",
       },
@@ -216,7 +738,7 @@ export const posts: BlogPost[] = [
     slug: "crm-or-sfa-which-does-your-field-team-need",
     title: "CRM or SFA: which does your field team actually need?",
     description:
-      "OZZO comes in two products — CRM and SFA. The plain-English difference, who each one is for, and how to choose without paying for more than you need.",
+      "CRM and SFA solve two different problems. The plain-English difference, who each one is for, and how to choose without paying for more than you need.",
     date: "2026-09-19",
     author: "Team OZZO",
     tags: ["CRM", "Sales force automation", "Field sales"],
@@ -225,7 +747,7 @@ export const posts: BlogPost[] = [
     body: [
       {
         type: "p",
-        text: "When a growing sales business first looks for software, the same question comes up: do we need a CRM, or one of those field-tracking apps? The honest answer is that they solve two different problems, and the right choice depends on where your team spends its day — at a desk working enquiries, or out on the road in front of customers. OZZO is built as two products for exactly this reason: CRM and SFA. This is the plain-English guide to telling them apart.",
+        text: "When a growing sales business first looks for software, the same question comes up: do we need a CRM, or one of those field-tracking apps? The honest answer is that they solve two different problems, and the right choice depends on where your team spends its day — at a desk working enquiries, or out on the road in front of customers. OZZO's two team-facing products exist for exactly this reason: CRM and SFA. (There is a third, DMS, but its users are your distributors rather than your own team — more on that at the end.) This is the plain-English guide to telling them apart.",
       },
       {
         type: "compare",
@@ -344,7 +866,7 @@ export const posts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "The two products aren't a fork in the road. They sit on one customer record, so a WhatsApp conversation your office had and a visit your rep made in the field land on the same customer. Many businesses begin with the one problem that's costing them most and add the other line when they're ready — no migration, no second database.",
+        text: "These two aren't a fork in the road. They sit on one customer record, so a WhatsApp conversation your office had and a visit your rep made in the field land on the same customer. Many businesses begin with the one problem that's costing them most and add the other line when they're ready — no migration, no second database.",
       },
       {
         type: "image",
@@ -367,6 +889,28 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "If you're not sure which side your pain sits on, that's a normal place to be — it's the quickest thing to work out on a short demo call, using your own team as the example.",
+      },
+      {
+        type: "h2",
+        text: "There is now a third option: DMS",
+      },
+      {
+        type: "p",
+        text: "This article was written as a two-way choice, and for most teams it still is. But there is a third product worth knowing about, because a good number of people who arrive here asking “CRM or SFA?” actually have a channel problem rather than a team problem. A Distributor Management System (DMS) gives your distributors and dealers their own login so they place their own orders, instead of sending them to your staff to retype.",
+      },
+      {
+        type: "p",
+        text: "The quick test is who you wish would behave differently. If it is your own salespeople, you want SFA. If it is the enquiries you keep losing track of, you want CRM. If it is your distributors — the WhatsApp orders, the balance phone calls, the schemes argued about afterwards — that is DMS, and it is an add-on to either of the other two rather than a replacement for them.",
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "What OZZO DMS does",
+      },
+      {
+        type: "link",
+        href: "/distributor-management-software",
+        label: "CRM, SFA and DMS compared properly",
       },
     ],
   },
@@ -501,6 +1045,24 @@ export const posts: BlogPost[] = [
         type: "p",
         text: "You don't have to replace everything at once. Start with the pain that's costing you most — field visibility, or order-and-collection control — and grow into the rest on the same data. Whatever phones your team carries, the app is live on both Google Play and the Apple App Store, so nobody is left out of the rollout. If two or three of these signs sounded familiar, it's worth a conversation.",
       },
+      {
+        type: "h2",
+        text: "One more sign, if your orders come from distributors",
+      },
+      {
+        type: "p",
+        text: "Every sign above is about your own team. There is a sixth that belongs to your channel, and it is the one businesses selling through distributors feel most: somebody on your payroll retypes orders that arrived as a photograph, a voice note or eleven lines in a chat. That is not a spreadsheet problem and it is not a field-visibility problem — it is fixed by letting the buyer type their own order, which is what a Distributor Management System does.",
+      },
+      {
+        type: "link",
+        href: "/blog/distributor-orders-on-whatsapp-what-it-costs",
+        label: "What WhatsApp ordering actually costs, worked through",
+      },
+      {
+        type: "link",
+        href: "/products/dms",
+        label: "OZZO DMS — let your distributors order themselves",
+      },
     ],
   },
 ];
@@ -556,7 +1118,23 @@ function allPosts(): BlogPost[] {
 
 /** All posts, newest first. */
 export function getAllPosts(): BlogPost[] {
-  return allPosts().sort((a, b) => (a.date < b.date ? 1 : -1));
+  /**
+   * Newest first, with an EXPLICIT tie-break.
+   *
+   * This used to be `a.date < b.date ? 1 : -1`, which never returns 0 — so for
+   * two posts sharing a date it claimed both "a after b" and "b after a". That
+   * is an inconsistent comparator, its result is undefined behaviour, and in
+   * practice V8 reversed same-day posts. Three DMS posts published on
+   * 2026-11-20 came out with the launch announcement last.
+   *
+   * Returning 0 on equal dates makes it consistent, and Array#sort has been
+   * stable since ES2019, so same-day posts now appear in the order they are
+   * written in the `posts` array above. To choose which of two same-day posts
+   * leads the blog, order them there.
+   */
+  return allPosts().sort((a, b) =>
+    a.date < b.date ? 1 : a.date > b.date ? -1 : 0,
+  );
 }
 
 export function getPost(slug: string): BlogPost | undefined {

@@ -175,6 +175,28 @@
         "type": "link",
         "href": "/plans",
         "label": "See all five plans and what each one includes"
+      },
+      {
+        "type": "h2",
+        "text": "If your reps are collecting orders from distributors"
+      },
+      {
+        "type": "p",
+        "text": "One thing worth adding, because it changes which of these numbers mean anything. If a large part of a rep's day is collecting orders from distributors and dealers who already knew what they wanted, then visit counts and coverage are measuring an errand rather than selling. The rep is acting as a courier for a decision that was made before they arrived."
+      },
+      {
+        "type": "p",
+        "text": "When those customers place their own orders through a portal instead, the visit changes job. It becomes about the things a person actually has to be there for: what is on the shelf, what the competition is doing, why a shop has stopped buying a line, and collecting money that is overdue. Productive-visit rate gets more honest at the same time, because an order that would have been placed anyway no longer lands in the rep's column."
+      },
+      {
+        "type": "link",
+        "href": "/products/dms",
+        "label": "OZZO DMS - let distributors place their own orders"
+      },
+      {
+        "type": "link",
+        "href": "/distributor-management-software",
+        "label": "What a distributor management system is"
       }
     ]
   }

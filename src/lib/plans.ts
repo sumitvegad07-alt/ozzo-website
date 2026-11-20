@@ -13,6 +13,8 @@
  * entitlement map and can never drift from the app.
  */
 
+import { DMS_PRICE_INR, DMS_SEATS } from "./site";
+
 export type PlanId = "CRM" | "WFA" | "CRM_WFA" | "SFA" | "CRM_SFA";
 export type ProductLine = "crm" | "wfa" | "sfa";
 
@@ -467,5 +469,13 @@ export const planFaqs: { q: string; a: string }[] = [
   {
     q: "Can I control what each person sees?",
     a: "Yes, on every plan. Granular per-module roles decide who can view, create, edit or delete each record type, and data-scoping limits each person to their own records, their team, their department or the whole company.",
+  },
+  {
+    q: "What is the DMS add-on, and how is it priced?",
+    a: `DMS (Distributor Management System) gives your distributors, stockists and dealers their own browser login so they place their own orders — on their own price list, with schemes applied and their credit limit enforced — see their outstanding, and dispatch what they sold onward. It is priced per login, not per user: ₹${DMS_PRICE_INR.toLocaleString("en-IN")} per year for ${DMS_SEATS} logins plus ${GST_RATE_PCT}% GST, added on top of any plan above. The logins are for your customers, which is why they are not counted as users.`,
+  },
+  {
+    q: "Can I buy DMS on its own?",
+    a: "No. DMS is an add-on to a CRM or SFA plan. Your product catalogue, price lists, schemes, customer hierarchy and the screen that creates the distributor logins all live in OZZO, so DMS on its own would have no data to work with. It also does not include distributor stock, auto-replenishment or claims — those are listed plainly on the DMS product page.",
   },
 ];
