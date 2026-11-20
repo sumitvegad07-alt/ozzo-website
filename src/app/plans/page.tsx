@@ -13,6 +13,7 @@ import { Icon } from "@/components/icon";
 import { PlansMatrix } from "@/components/plans-matrix";
 import { PricingShell, CurrencyScript } from "@/components/pricing-shell";
 import { PlanPrice } from "@/components/plan-price";
+import { PriceCalculator } from "@/components/price-calculator";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
 import {
@@ -219,14 +220,41 @@ export default function PlansPage() {
               without moving the form or duplicating it.
             */}
             <div className="mt-12 flex flex-col items-center gap-3 text-center">
-              <PrimaryCTA href="#get-started">
-                Get a quote for your team size
+              <PrimaryCTA href="#calculator">
+                Work out your exact price
               </PrimaryCTA>
               <p className="text-sm text-muted-foreground">
-                Tell us how many people are in the field and we&apos;ll come back
-                with your exact monthly figure.
+                Pick a plan, enter your team size, and see the figure for
+                quarterly, half-yearly and yearly billing.
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ─────────────── Price calculator ─────────────── */}
+      {/*
+        Placed immediately after the plan cards, before the comparison table
+        and the FAQs, because that is where intent peaks: someone has just read
+        five cards and is working out what their own team would cost. The page
+        took 20 views and 1m20s of average attention in the five days to
+        20 Nov 2026 and converted nobody, which is what this answers.
+
+        It is the only place on the site that states the quarterly and
+        half-yearly rates. That is safe here and was not safe in <PlanPrice/>:
+        the calculator computes in the browser from inputs the visitor chooses,
+        so none of those figures appear in the HTML a crawler reads. The static
+        markup still carries exactly one rate per plan.
+      */}
+      <section id="calculator" className="scroll-mt-20 border-t border-border bg-card-2 py-16 md:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Price calculator"
+            title="What will it cost us?"
+            description="Pick your plan, see everything it includes, then enter your team size. Quarterly, half-yearly and yearly figures — with GST — in one view."
+          />
+          <div className="mt-10">
+            <PriceCalculator />
           </div>
         </Container>
       </section>

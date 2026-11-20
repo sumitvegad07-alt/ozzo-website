@@ -12,7 +12,18 @@ import {
 const SESSION_KEY = "ozzo_exit_intent_shown";
 
 /** Pages where a lead form already dominates — don't interrupt there. */
-const SUPPRESSED = ["/book-demo", "/contact"];
+/**
+ * Pages that already ARE a lead-capture page, so a modal on top of one is
+ * only in the way.
+ *
+ * /plans joined them on 20 November 2026, when the price calculator landed.
+ * The popup's 60%-scroll trigger fires at almost exactly the point the
+ * calculator comes into view, so it was covering the quote the visitor had
+ * just built with a generic form that asks for five fields instead of two —
+ * swapping the best-qualified lead on the site for a worse one, at the worst
+ * possible moment.
+ */
+const SUPPRESSED = ["/book-demo", "/contact", "/plans"];
 
 const VALUE_PROPS = [
   "Real-time field tracking with GPS & selfie attendance",

@@ -560,3 +560,60 @@ export const planFaqs: { q: string; a: string }[] = [
     a: "No. DMS is an add-on to a CRM or SFA plan. Your product catalogue, price lists, schemes, customer hierarchy and the screen that creates the distributor logins all live in OZZO, so DMS on its own would have no data to work with. It also does not include distributor stock, auto-replenishment or claims — those are listed plainly on the DMS product page.",
   },
 ];
+
+/**
+ * The name of the DMS group in `featureGroups`.
+ *
+ * Held as a constant because two different things key off it: the comparison
+ * table renders it like any other group, while the price calculator must leave
+ * it out of a plan's own feature list (DMS is not in any plan — it is a tick
+ * box with its own annual price). Matching on the string in two places is how
+ * a rename would silently start listing the portal as included.
+ */
+export const DMS_GROUP_NAME = "Distributor portal (DMS add-on)";
+
+export type PlanFeatureGroup = {
+  name: string;
+  icon: string;
+  /** Only the rows this plan actually turns on. */
+  rows: { feature: string; note?: string; qualifier?: string }[];
+};
+
+/**
+ * Everything one plan includes, grouped, derived from the same matrix the
+ * comparison table renders.
+ *
+ * Built from `cellValue` rather than from a hand-written per-plan list, so the
+ * calculator can never promise a feature the comparison table denies two
+ * sections further down the page — which is exactly the kind of contradiction
+ * an AI assistant quotes back at you.
+ *
+ * A string cell ("Basic", "Visits") is a real inclusion with a caveat, so it
+ * is kept and carried through as `qualifier`. A `false` cell is dropped. The
+ * DMS group is dropped whole.
+ */
+export function planFeatureGroups(plan: PlanId): PlanFeatureGroup[] {
+  return featureGroups
+    .filter((group) => group.name !== DMS_GROUP_NAME)
+    .map((group) => ({
+      name: group.name,
+      icon: group.icon,
+      rows: group.rows
+        .map((row) => ({ row, value: cellValue(row, plan) }))
+        .filter(({ value }) => value !== false)
+        .map(({ row, value }) => ({
+          feature: row.feature,
+          note: row.note,
+          qualifier: typeof value === "string" ? value : undefined,
+        })),
+    }))
+    .filter((group) => group.rows.length > 0);
+}
+
+/** How many capabilities a plan turns on — the headline above the list. */
+export const planFeatureCount = (plan: PlanId): number =>
+  planFeatureGroups(plan).reduce((n, g) => n + g.rows.length, 0);
+
+/** Look up a plan's display record by id. */
+export const planById = (id: PlanId): Plan =>
+  plans.find((p) => p.id === id) ?? plans[0];

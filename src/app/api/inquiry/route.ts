@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { inquirySchema } from "@/lib/inquiry";
-import { brand } from "@/lib/site";
 import { sendLeadAlert } from "@/lib/lead-alert";
+import { sendLeadEmail } from "@/lib/lead-email";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
   // waiting on this response — sequential third-party calls would make them
   // wait out two timeouts instead of one.
   await Promise.allSettled([
-    sendTeamAlert(data).catch((e) =>
+    sendLeadEmail(data).catch((e) =>
       console.error("[inquiry] email alert failed:", e),
     ),
     // Every configured notification channel, each reporting its own
@@ -106,70 +106,3 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
-async function sendTeamAlert(data: {
-  name: string;
-  company?: string;
-  email?: string;
-  phone: string;
-  teamSize?: string;
-  message?: string;
-  pagePath?: string;
-}) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.INQUIRY_NOTIFY_EMAIL;
-  const from =
-    process.env.INQUIRY_FROM_EMAIL || "OZZO Website <onboarding@resend.dev>";
-  if (!apiKey || !to) return; // email disabled until configured
-
-  const rows: [string, string | undefined][] = [
-    ["Name", data.name],
-    ["Company", data.company],
-    ["Phone", data.phone],
-    ["Email", data.email],
-    ["Team size", data.teamSize],
-    ["Message", data.message],
-    ["Page", data.pagePath],
-  ];
-  const html = `
-    <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:auto">
-      <h2 style="margin:0 0 4px">New ${brand.name} website inquiry</h2>
-      <p style="color:#666;margin:0 0 16px">A visitor asked your team to call them.</p>
-      <table style="width:100%;border-collapse:collapse">
-        ${rows
-          .filter(([, v]) => v)
-          .map(
-            ([k, v]) =>
-              `<tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#888;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#111">${escapeHtml(
-                v!,
-              )}</td></tr>`,
-          )
-          .join("")}
-      </table>
-    </div>`;
-
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: to.split(",").map((s) => s.trim()),
-      reply_to: data.email || undefined,
-      subject: `New lead: ${data.name}${data.company ? ` (${data.company})` : ""}`,
-      html,
-    }),
-  });
-  if (!res.ok) {
-    throw new Error(`Resend responded ${res.status}: ${await res.text()}`);
-  }
-}
-
-function escapeHtml(s: string) {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\n/g, "<br>");
-}
