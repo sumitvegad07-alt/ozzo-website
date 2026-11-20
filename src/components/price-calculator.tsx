@@ -33,6 +33,7 @@ import {
   Plus,
   Store,
   ArrowRight,
+  Calculator,
 } from "lucide-react";
 import { Icon } from "./icon";
 import { WhatsAppGlyph } from "./whatsapp-glyph";
@@ -212,8 +213,66 @@ export function PriceCalculator() {
     }
   }
 
+  const activeQuote = quotes.find((q) => q.term === term) ?? null;
+
   return (
-    <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+    <div className="rounded-3xl border border-border bg-card shadow-xl ring-1 ring-primary/15">
+      {/*
+        The readout.
+
+        Without it the section read as another band of plan cards — the founder's
+        words on 20 November 2026 were that it "does not feel like a price
+        calculator and no one is going to read anything". A calculator is
+        recognised by its display, not by its heading, so this one has a display
+        that is visible before any input is given: an empty "₹ ——" announces
+        that a number is going to appear here, which no amount of explanatory
+        copy above the card achieves.
+
+        It is sticky inside the card because the feature list below it runs to
+        63 rows. Without that, the figure scrolls away exactly when the visitor
+        reaches the team-size box and is deciding whether to care.
+      */}
+      <div className="sticky top-[76px] z-20 overflow-hidden rounded-t-3xl border-b border-white/10 bg-ink text-white">
+        <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4 md:px-7">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10">
+              <Calculator className="h-4 w-4 text-white" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-white/50">
+                Your price
+              </span>
+              <span className="block truncate text-[13px] font-medium text-white/85">
+                {!plan
+                  ? "Choose a plan below"
+                  : !hasUsers
+                    ? `${planById(plan).name} — now add your team size`
+                    : `${planById(plan).name} · ${users} user${
+                        users === 1 ? "" : "s"
+                      } · ${TERM_LABEL[term].toLowerCase()}${
+                        withDms ? " · + DMS" : ""
+                      }`}
+              </span>
+            </span>
+          </div>
+          <div className="text-right">
+            <span
+              className={cn(
+                "block text-2xl font-extrabold tracking-tight tabular-nums md:text-3xl",
+                activeQuote ? "text-white" : "text-white/30",
+              )}
+            >
+              {activeQuote ? formatINR(activeQuote.total) : "₹ ——"}
+            </span>
+            <span className="block text-[11px] text-white/50">
+              {activeQuote
+                ? `every ${activeQuote.months} months, incl. GST`
+                : "updates as you choose"}
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* ── Step 1 · plan ─────────────────────────────────────── */}
       <Step n={1} title="Choose your plan">
         <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-5">
@@ -232,24 +291,50 @@ export function PriceCalculator() {
                     : "border-border bg-card-2 hover:border-primary/40 hover:bg-card",
                 )}
               >
-                {p.popular && !active && (
-                  <span className="absolute right-2.5 top-2.5 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
-                    Popular
+                {/*
+                  No "Popular" badge here, deliberately. The plan cards above
+                  this section already carry it and the comparison table below
+                  repeats it, and in a five-across selector the badge squeezed
+                  "CRM + SFA" until it truncated. A control should show what you
+                  are choosing, not re-sell it.
+                */}
+                {/*
+                  A radio dot, drawn whether or not the plan is selected. It is
+                  what tells someone at a glance that these five are a control
+                  to operate rather than five more cards to read — the cards
+                  immediately above this section look almost identical, and that
+                  was the whole reason the section did not register as a tool.
+                */}
+                <span className="flex w-full items-center gap-2">
+                  <span
+                    className={cn(
+                      "flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
+                      active
+                        ? "border-primary bg-primary"
+                        : "border-muted-foreground/35 group-hover:border-primary/60",
+                    )}
+                  >
+                    {active && (
+                      <Check
+                        className="h-2.5 w-2.5 text-primary-foreground"
+                        strokeWidth={4}
+                      />
+                    )}
                   </span>
-                )}
-                {active && (
-                  <span className="absolute right-2.5 top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Check className="h-3 w-3" strokeWidth={3} />
+                  <span
+                    className={cn(
+                      "flex min-w-0 items-center gap-1.5",
+                      p.accentClass,
+                    )}
+                  >
+                    <Icon name={p.icon} className="h-4 w-4 shrink-0" />
+                    <span className="truncate text-sm font-bold">{p.name}</span>
                   </span>
-                )}
-                <span className={cn("flex items-center gap-1.5", p.accentClass)}>
-                  <Icon name={p.icon} className="h-4 w-4" />
-                  <span className="text-sm font-bold">{p.name}</span>
                 </span>
-                <span className="text-[11px] leading-snug text-muted-foreground">
+                <span className="pl-6 text-[11px] leading-snug text-muted-foreground">
                   {p.tagline}
                 </span>
-                <span className="mt-1 text-xs font-semibold text-foreground">
+                <span className="mt-1 pl-6 text-xs font-semibold text-foreground">
                   {formatINR(PLAN_RATE.INR[p.id])}
                   <span className="font-normal text-muted-foreground">
                     {" "}
@@ -394,6 +479,15 @@ export function PriceCalculator() {
                   inputMode="numeric"
                   value={usersRaw}
                   onChange={(e) => setUsersRaw(e.target.value)}
+                  /*
+                    A focused number input takes the mouse wheel and steps
+                    itself. Someone who clicks the field and then scrolls on to
+                    read the prices silently changes their own team size — 25
+                    became 24 on the way down during testing, and every figure
+                    below moved with it. Blurring on wheel hands the scroll back
+                    to the page.
+                  */
+                  onWheel={(e) => e.currentTarget.blur()}
                   placeholder="e.g. 25"
                   aria-label="Number of users"
                   className="w-36 rounded-xl border border-input bg-background py-2.5 pl-9 pr-3 text-base font-bold tabular-nums text-foreground outline-none transition-colors placeholder:font-normal placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/30"

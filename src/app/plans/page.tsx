@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Calculator } from "lucide-react";
 import {
   Container,
   SectionHeading,
@@ -248,14 +248,28 @@ export default function PlansPage() {
       */}
       <section id="calculator" className="scroll-mt-20 border-t border-border bg-card-2 py-16 md:py-20">
         <Container>
-          <SectionHeading
-            eyebrow="Price calculator"
-            title="What will it cost us?"
-            description="Pick your plan, see everything it includes, then enter your team size. Quarterly, half-yearly and yearly figures — with GST — in one view."
-          />
-          <div className="mt-10">
-            <PriceCalculator />
+          {/*
+            Written out rather than using <SectionHeading/> so the section can
+            lead with the calculator icon. On 20 November 2026 the founder's
+            note was that the section "does not feel like a price calculator",
+            and an eyebrow reading "Price calculator" in small caps was not
+            enough — people scanning a page read shapes before words.
+          */}
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
+              <Calculator className="h-7 w-7" />
+            </span>
+            <Eyebrow>Price calculator</Eyebrow>
+            <h2 className="ozzo-display mt-4 text-4xl text-foreground md:text-5xl">
+              Work out your price in 10 seconds
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Pick a plan, enter how many people you have, and your quarterly,
+              half-yearly and yearly figures appear — GST included. Then we&apos;ll
+              send the quote straight to your WhatsApp.
+            </p>
           </div>
+          <PriceCalculator />
         </Container>
       </section>
 
