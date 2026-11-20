@@ -271,7 +271,7 @@ export const industries = [
 export const faqs = [
   {
     q: "What exactly is OZZO?",
-    a: "OZZO is one platform that combines a CRM, field-workforce tracking, and sales & distribution — with a web dashboard for managers and a mobile app for your reps, available on both Android and iPhone. It replaces the separate CRM, GPS tracker and messaging tools most field teams juggle today.",
+    a: "OZZO is one platform with three products on one database: a CRM for winning and keeping customers, Sales Force Automation for running your field team, and DMS so your distributors and dealers place their own orders. Managers get a web dashboard, reps get a mobile app on Android and iPhone, and your distributors get a browser login. It replaces the separate CRM, GPS tracker, ordering portal and messaging tools most field teams juggle today.",
   },
   {
     q: "What's the difference between CRM and SFA?",
@@ -279,7 +279,7 @@ export const faqs = [
   },
   {
     q: "Do I have to buy the whole platform?",
-    a: "No. Pick CRM on its own, SFA on its own, or the full platform (CRM + SFA). Within SFA you choose the line that fits — Field for field visibility, Sales for the full sell-collect-distribute flow. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
+    a: "No. Pick CRM on its own, SFA on its own, or the full platform (CRM + SFA). Within SFA you choose the line that fits — Field for field visibility, Sales for the full sell-collect-distribute flow. DMS is an add-on you can put on top of any of those, priced per distributor login rather than per user. Every plan includes the essentials — customers, products, tasks, attendance, leave, holiday and announcements.",
   },
   {
     q: "How are plans structured?",
@@ -320,5 +320,29 @@ export const faqs = [
   {
     q: "How do we get started?",
     a: "Just share your details on this site. Our team will call you, understand your workflow, and set up a guided demo so you can see OZZO working with your own team before you decide.",
+  },
+  {
+    q: "What is DMS, and how is it different from SFA?",
+    a: "They cover the two halves of the same trade, and the difference is who logs in. SFA is for your own staff — attendance, GPS, geo-tagged visits, beat routes and the orders your rep types at a counter. DMS is for your customers: your distributors, stockists and dealers get their own browser login and place their own orders, on their own price list, with their credit limit enforced. Most brands selling through a trade network eventually want both.",
+  },
+  {
+    q: "How do my distributors place their own orders?",
+    a: "You switch on DMS access for any customer already in OZZO — a distributor, a stockist or a single dealer — and give them an email and a password. They sign in at dms.ozzo.co.in in an ordinary web browser, build their order from your catalogue with their schemes applied automatically, and it lands in your system as a real order. There is nothing for them to install, which is the main reason trade customers actually use it instead of going back to WhatsApp.",
+  },
+  {
+    q: "Can a distributor see my margin or another distributor's prices?",
+    a: "No. Every order is priced on that buyer's own price list and their own credit limit, and the pricing is calculated in the database rather than in their browser. Each login sees only itself and the customers below it in your hierarchy — never sideways and never upward — and that rule is enforced in the database, so typing a different customer's id into the address bar changes nothing.",
+  },
+  {
+    q: "Can distributors dispatch and collect, or only order?",
+    a: "Both. A distributor raises sales orders for their own shops, works their own Pending Dispatch queue to dispatch them, and records the payments those shops make. That means what they sell onward — your secondary sales — becomes data at the moment it happens rather than a number you chase at month-end.",
+  },
+  {
+    q: "What does DMS cost, and can I buy it on its own?",
+    a: "₹10,000 per year for 100 distributor and dealer logins, plus 18% GST — about ₹8 per login a month. It is priced per login rather than per user because the people signing in are your customers, not your staff. It cannot be bought on its own: your catalogue, price lists, schemes and customer hierarchy live in OZZO, so DMS is an add-on to a CRM or SFA plan.",
+  },
+  {
+    q: "Does DMS handle distributor stock and claims?",
+    a: "No, and it is worth knowing before a demo rather than after. DMS does not hold your distributor's godown stock, does not reorder for them, and does not handle damage, scheme, freight or rate-difference claims. It covers ordering, pricing, schemes, outstanding and dispatch. If stock-based replenishment or claims across a distributor network is what you are buying, an enterprise distribution suite is the better fit and we will say so.",
   },
 ];

@@ -14,6 +14,7 @@ import { StackedChapters } from "@/components/motion/stacked-chapters";
 import { IndustryTiles } from "@/components/motion/industry-tiles";
 import { TiltCard } from "@/components/motion/tilt-card";
 import { CrmSpotlight } from "@/components/crm-spotlight";
+import { TradeChain } from "@/components/trade-chain";
 import { FaqSection } from "@/components/faq-section";
 import { InquiryForm } from "@/components/inquiry-form";
 import { LiveActivityFeed } from "@/components/motion/live-activity-feed";
@@ -274,6 +275,20 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* ─────────────── The trade chain (CRM + SFA + DMS) ─────────────── */}
+      {/*
+        Sits straight after the one-rep day on purpose. That story is true but
+        single-actor, and DMS's user is a CUSTOMER, not an employee — so the
+        narrative has to widen before the product cards below, or DMS reads as
+        a third thing sold by the same company rather than part of one system.
+
+        Shaped around how an FMCG trade actually works, but it never says FMCG:
+        the founder's instruction was to tell that story without telling a
+        non-FMCG reader the product is not for them. /fmcg-software renders the
+        same component with `variant="fmcg"`, which names the industry outright.
+      */}
+      <TradeChain variant="home" />
 
       {/* ─────────────── Chapters ("what changes") ─────────────── */}
       <section id="what-changes" className="py-24 md:py-32">

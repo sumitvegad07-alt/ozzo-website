@@ -94,9 +94,11 @@ export default function PlansPage() {
             <span data-cur-only data-c="USD">{startingFrom("USD")}</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
-            Five plans built from three product lines — CRM, WFA and SFA. Buy the
-            combination that fits how your team works, and add the rest on the same data
-            whenever you&apos;re ready. Every module below is live in production.
+            Five plans built from three product lines — CRM, WFA and SFA — plus
+            the DMS add-on, which gives your distributors and dealers their own
+            ordering logins. Buy the combination that fits how your team works, and
+            add the rest on the same data whenever you&apos;re ready. Every module
+            below is live in production.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <PrimaryCTA href="/book-demo">Book a demo</PrimaryCTA>

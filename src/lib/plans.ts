@@ -281,6 +281,19 @@ export function cellValue(row: FeatureRow, plan: PlanId): MatrixValue {
  * The module-wise capability matrix. Column truth is derived from the line tag
  * plus the entitlement map above, so it always matches what the app unlocks.
  */
+/**
+ * Every plan column for a DMS row. DMS is granted per account by the
+ * superadmin off `accounts.addon_lines`, so it is available on top of any
+ * plan and included in none of them.
+ */
+const DMS_ADDON: Partial<Record<PlanId, MatrixValue>> = {
+  CRM: "Add-on",
+  WFA: "Add-on",
+  CRM_WFA: "Add-on",
+  SFA: "Add-on",
+  CRM_SFA: "Add-on",
+};
+
 export const featureGroups: FeatureGroup[] = [
   {
     name: "Attendance & workforce",
@@ -424,6 +437,74 @@ export const featureGroups: FeatureGroup[] = [
       { feature: "Real-time sync (web ↔ mobile)", line: "base" },
       { feature: "Bulk import framework", line: "base" },
       { feature: "Guided onboarding & data migration", line: "base" },
+    ],
+  },
+  {
+    /**
+     * DMS is an ADD-ON, not a plan line, so every column reads "Add-on"
+     * rather than a tick or a dash.
+     *
+     * Why it is in this table at all: the question a reader has on this page
+     * is "is DMS in my plan?", and leaving it out answers that by implication
+     * — wrongly, in both directions. A tick would imply it is included; a
+     * dash would imply you cannot have it.
+     *
+     * Why `line: "base"` with a full `values` override: `cellValue` returns
+     * the override when one exists for that plan, and every plan has one here,
+     * so the line tag is never consulted. It is set to "base" because DMS sits
+     * outside the CRM/WFA/SFA entitlement map entirely — it is keyed off
+     * `accounts.addon_lines`, not off a plan — and inventing a fourth
+     * ProductLine for it would put it in PLAN_LINES, where it would then have
+     * to be false for all five plans and drift from the real grant.
+     */
+    name: "Distributor portal (DMS add-on)",
+    icon: "Store",
+    rows: [
+      {
+        feature: "A login for any customer — distributor, stockist or dealer",
+        note: "₹10,000 per year for 100 logins + GST, on top of any plan",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "They place their own purchase & sales orders",
+        note: "Priced on their own price list, with their credit limit enforced",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "Schemes applied automatically on a portal order",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "They see their own outstanding & record payments",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "They dispatch their own sales orders",
+        note: "Their own Pending Dispatch queue, with a printable dispatch note",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "Four portal reports, scoped to what they may see",
+        note: "Orders, sales, collection and outstanding",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "Runs in a browser — nothing for them to install",
+        line: "base",
+        values: DMS_ADDON,
+      },
+      {
+        feature: "Distributor godown stock, replenishment & claims",
+        note: "Not built, so not sold — see the DMS page for the full list",
+        line: "base",
+        values: { CRM: false, WFA: false, CRM_WFA: false, SFA: false, CRM_SFA: false },
+      },
     ],
   },
 ];

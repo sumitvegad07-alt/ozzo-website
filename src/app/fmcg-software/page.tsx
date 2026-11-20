@@ -11,6 +11,7 @@ import {
   softwareApplicationSchema,
 } from "@/lib/seo";
 import { fmcgModules, fmcgFaqs } from "@/lib/fmcg-page";
+import { TradeChain } from "@/components/trade-chain";
 import { CurrencyScript } from "@/components/pricing-shell";
 import { cn } from "@/lib/utils";
 
@@ -97,6 +98,15 @@ export default function FmcgSoftwarePage() {
       </section>
 
       {/* ─────────────── Modules ─────────────── */}
+      {/* ─────────────── The FMCG chain, end to end ─────────────── */}
+      {/*
+        The story goes BEFORE the module matrix on purpose: the table answers
+        "what is covered", which only means something once the reader has the
+        shape of the chain. Same component as the home page, with the FMCG
+        framing — see src/lib/trade-chain.ts.
+      */}
+      <TradeChain variant="fmcg" />
+
       <section id="modules" className="py-16 md:py-20">
         <Container>
           <Eyebrow>The modules</Eyebrow>
